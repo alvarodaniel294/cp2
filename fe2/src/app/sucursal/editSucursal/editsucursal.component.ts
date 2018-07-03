@@ -12,7 +12,7 @@ import { COMPOSITION_BUFFER_MODE } from '@angular/forms';
 })
 export class EditSucursalComponent implements OnInit {
 
-  public office: Offices;
+  public office;
   public sucursal;
   private officeId;
   constructor(
