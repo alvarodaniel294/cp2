@@ -23,7 +23,7 @@ export class EditComponent implements OnInit {
   public cellphone;
   public phone;
   public email;
-  public ocupacion: String;
+  public ocupacion: any;
   public AreaTrabajo;
 
   public ocupSelected: String;
@@ -85,6 +85,7 @@ export class EditComponent implements OnInit {
     this.descOcupation.empresa = '';
     this.person.ocupation = this.ocupSelected.toLowerCase();
   }
+  saveEdition(){}
   //  saveEdition(){
 
   //   // this.person.first_name=this.personfirstname;

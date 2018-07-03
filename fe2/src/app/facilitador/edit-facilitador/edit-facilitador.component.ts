@@ -82,4 +82,6 @@ export class EditFacilitadorComponent implements OnInit {
          }
       );
   }
+  saveInscription(){}
+  cancelar(){}
 }
