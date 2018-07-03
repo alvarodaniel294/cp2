@@ -1,0 +1,71 @@
+<div class="content-wrapper">
+ 
+  <div class="content">
+    <div class="box box-primary">
+      <div class="container ">
+        <h1>Inicio</h1>
+        <form (ngSubmit)="saveProgramTop()" #cmrTalleres="ngForm" class="">
+         
+          <div class="form-group col-sm-8">
+            <label for="name" class="control-label">Titulo Encabezado</label>
+            <input type="text" pattern="[a-zA-ZÑ-ñÁ-áÉ-éÍ-íÓ-óÚ-ú0-9]{3,20}[ ]{0,1}[a-zA-ZÑ-ñÁ-áÉ-éÍ-íÓ-óÚ-ú0-9]{0,20}[ ]{0,1}[a-zA-Z]{0,20}"
+              class="form-control" id="title" [(ngModel)]="page_taller.tittle" name="title" #title="ngModel" required />
+          </div>
+          <div class="form-group col-sm-8">
+            <label for="name" class="control-label">Descripcion</label>
+            <input type="text" pattern="[a-zA-ZÑ-ñÁ-áÉ-éÍ-íÓ-óÚ-ú0-9]{3,20}[ ]{0,1}[a-zA-ZÑ-ñÁ-áÉ-éÍ-íÓ-óÚ-ú0-9]{0,20}[ ]{0,1}[a-zA-Z]{0,20}"
+              class="form-control" id="line" [(ngModel)]="page_taller.line" name="line" #line="ngModel" required />
+          </div>
+         
+          <button type="submit" class="btn btn-success">Guardar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!--lista Talleres-->
+  <div class="content">
+    <div class="box box-primary">
+      <div class="container ">
+        <section class="content-header">
+          <h1>
+            Talleres
+            <small>Vigentes</small>
+          </h1>
+        </section>
+        <section class="content col-sm-8">
+          <a class="btn btn-primary a" (click)="addTaller()">
+            <i class="fa fa-book"></i> Registrar Taller</a>
+      
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Detalles</th>
+                <!-- <th>Módulos</th> -->
+                <th >Ajustes</th>
+                <!-- <th>Beneficios</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let taller of lista_talleres">
+                <td>{{ taller.name }}</td>
+                <td>{{ taller.description }}</td>
+                <!-- <td>
+                  <a class="btn btn-info" (click)="send(taller._id)">VER MÓDULOS</a>
+                </td> -->
+                <td>
+                  <a class="btn btn-warning" (click)="editTaller(taller._id)">EDITAR</a>
+                </td>
+                <!-- <td>
+                  <a class="btn btn-warning" (click)="beneficios(taller._id)">EDITAR</a>
+                </td> -->
+              </tr>
+            </tbody>
+          </table>
+      
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

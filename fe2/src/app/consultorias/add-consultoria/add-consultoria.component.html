@@ -1,0 +1,71 @@
+<div class="content-wrapper">
+    <br>
+     <div class="content">
+       <div class="box box-primary">
+       
+         <div class="container ">
+             <div >
+                 <h1>Registrar Consultoria</h1>
+                 <br>
+                 <form (ngSubmit)="onSubmit()" #addNewConsultoria="ngForm" class="">
+                     <div class="form-group col-sm-8">
+                         <label for="name" class="control-label" >Nombre de Consultoria</label>
+                             <input type="text" pattern="[A-Za-zÑ-ñÁ-áÉ-éÍ-íÓ-óÚ-ú0-9 ]{3,42}" class="form-control" id="name" 
+                             [(ngModel)]="consultoria.name" name="name" #name="ngModel" required />
+                             <span *ngIf="!name.untouched && !name.valid && consultoria.name == ''" class="text-alert">
+                              *Nombre de consultoria requerido.
+                             </span>
+                             <span *ngIf="!name?.pattern && name.dirty && name.touched && !name.valid && consultoria.name != '' && consultoria.name.length>43" class="text-alert">
+                              *Nombre de consultoria inválido, excedió el límite de 42 caracteres.
+                             </span>
+                             <span *ngIf="!name?.pattern && name.dirty && name.touched && !name.valid && consultoria.name != '' && consultoria.name.length<3" class="text-alert">
+                              *Nombre de consultoria inválido, tiene menos de 3 caracteres.
+                             </span>
+                            
+                     </div>
+                     <div class="form-group col-sm-8">
+                         <label for="ubicacion" class=" control-label">Descripcion</label>
+                                 <input type="text" pattern="[a-zA-ZÑ-ñÁ-áÉ-éÍ-íÓ-óÚ-ú0-9 .,¿?¡!-]{3,150}" class="form-control" id="ubicacion" 
+                                  [(ngModel)]="consultoria.description" name="details" #details="ngModel" required >
+                                 <span *ngIf="!details.valid && details.touched && consultoria.description == ''" class="text-alert">
+                                  *Descripcion de consultoria requerido.
+                                 <br></span>
+                                 <span *ngIf="details.dirty && details.touched && !details.valid && details.name != '' && consultoria.description.length>150 " class="text-alert">
+                                  *Descripcion de consultoria inválido, excedió el límite de 150 caracteres.
+                                  <br></span>
+                                 <span *ngIf="!details?.pattern && details.dirty && details.touched && !details.valid && consultoria.description != '' && consultoria.description.length<3 " class="text-alert">
+                                  *Descripcion de consultoria inválido, tiene menos de 3 caracteres.
+                                  <br></span>
+                                
+                     </div>
+                     <div class="form-group col-sm-8">
+                      <label for="objetivo" class=" control-label">Objetivo</label>
+                              <input type="text" pattern="[a-zA-ZÑ-ñÁ-áÉ-éÍ-íÓ-óÚ-ú0-9 .,¿?¡!-]{3,150}" class="form-control" id="ubicacion" 
+                               [(ngModel)]="consultoria.objective" name="objet" #objetctiv="ngModel" required >
+                              <span *ngIf="!objetctiv.valid && objetctiv.touched && consultoria.description == ''" class="text-alert">
+                               *Objetivo de consultoria requerido.
+                              <br></span>
+                              <span *ngIf="objetctiv.dirty && objetctiv.touched && !objetctiv.valid && objetctiv.name != '' && consultoria.description.length>150 " class="text-alert">
+                               *Objetivo de consultoria inválido, excedió el límite de 150 caracteres.
+                               <br></span>
+                              <span *ngIf="!objetctiv?.pattern && objetctiv.dirty && objetctiv.touched && !objetctiv.valid && consultoria.description != '' && consultoria.description.length<3 " class="text-alert">
+                               *Objetivo de consultoria inválido, tiene menos de 3 caracteres.
+                               <br></span>
+                             
+                  </div>
+  
+                  <!-- <div class="form-group col-sm-8">
+                    <label for="name" class="control-label">Imagen</label>
+                    <input type="file" name="myImage" accept=".jpg, .jpeg" (change)="handleFileInput($event.target.files)" />
+                  </div> -->
+  
+                     <div class="form-group col-sm-8" style="text-align:center ">
+                         <button type="submit" class="btn btn-success" [disabled]="!addNewConsultoria.form.valid">Guardar</button>
+                         <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+                      </div>
+                 </form>
+             </div>
+         </div>
+       </div> 
+     </div>
+  </div>

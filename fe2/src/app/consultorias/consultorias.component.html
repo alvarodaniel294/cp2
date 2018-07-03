@@ -1,0 +1,68 @@
+<div class="content-wrapper">
+
+    <div class="content">
+        <div class="box box-primary">
+          <div class="container ">
+            <h1>Cabecera Consultoria</h1>
+            <form (ngSubmit)="saveConsultoriaTop()" #cmrConsultorias="ngForm" class="">
+             
+              <div class="form-group col-sm-8">
+                <label for="name" class="control-label">Titulo Cabecera</label>
+                <input type="text" pattern="[a-zA-ZÑ-ñÁ-áÉ-éÍ-íÓ-óÚ-ú0-9]{3,20}[ ]{0,1}[a-zA-ZÑ-ñÁ-áÉ-éÍ-íÓ-óÚ-ú0-9]{0,20}[ ]{0,1}[a-zA-Z]{0,20}"
+                  class="form-control" id="title" [(ngModel)]="page_consultoria.tittle" name="title" #title="ngModel" required />
+              </div>
+              <div class="form-group col-sm-8">
+                <label for="name" class="control-label">Descripcion</label>
+                <input type="text" pattern="[a-zA-ZÑ-ñÁ-áÉ-éÍ-íÓ-óÚ-ú0-9]{3,20}[ ]{0,1}[a-zA-ZÑ-ñÁ-áÉ-éÍ-íÓ-óÚ-ú0-9]{0,20}[ ]{0,1}[a-zA-Z]{0,20}"
+                  class="form-control" id="line" [(ngModel)]="page_consultoria.line" name="line" #line="ngModel" required />
+              </div>
+             
+              <button type="submit" class="btn btn-success">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+  <div class="content">
+
+    <div class="box box-primary">
+        <section class="content">
+            <div>
+              <ul class="">
+                <h3>Consultorias</h3>
+                <li>
+                  <a class="btn btn-primary" [routerLink]="['/home/consultorias/add']">
+                    <i class="fa fa-book"></i> Agregar Consultoria</a>
+                </li>
+              </ul>
+            </div>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Descripcion</th>
+                  <th>Objetivo</th>
+                  <th colspan="3">Ajustes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let w of consultorias">
+                  <td>{{ w.name }} </td>
+                  <td>{{ w.description }}</td>
+                  <td>{{ w.objective }}</td>
+                  <td>
+                    <button class="btn btn-warning" (click)="edit(w._id)"> Editar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="" style="text-align: center">
+              <button class="btn btn-primary" (click)="cancelar()">Volver</button>
+            </div>
+        
+          </section>
+
+    </div>
+  </div>
+ 
+</div>
