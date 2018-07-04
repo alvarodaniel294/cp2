@@ -79,6 +79,7 @@ import { AddConsultoriaComponent } from './consultorias/add-consultoria/add-cons
 import { EditConsultoriaComponent } from './consultorias/edit-consultoria/edit-consultoria.component';
 import { AddScopeConsultoriaComponent } from './consultorias/add-scope-consultoria/add-scope-consultoria.component';
 import { EditScopeConsultoriaComponent } from './consultorias/edit-scope-consultoria/edit-scope-consultoria.component';
+import { EditEventComponent } from './events/edit-event/edit-event.component';
 
 @NgModule({
   declarations: [
@@ -140,6 +141,7 @@ import { EditScopeConsultoriaComponent } from './consultorias/edit-scope-consult
     EditConsultoriaComponent,
     AddScopeConsultoriaComponent,
     EditScopeConsultoriaComponent,
+    EditEventComponent,
   ],
   imports: [
     BrowserModule,

@@ -24,6 +24,7 @@ export class InicioComponent implements OnInit {
     this._peticionesService.getInicio().subscribe(res => {
       this.page = res[0].home;
       this.id = res[0]._id;
+      
     });
   }
 
