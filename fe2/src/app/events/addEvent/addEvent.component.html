@@ -52,18 +52,18 @@
                                 <input type="date" pattern="[2]{1}[0]{1}[1-9]{1}[0-9]{1}-[0-9]{2}-[0-9]{2}" id="form34" class="form-control validate" [(ngModel)]="model.date_start" name="fecha" required #date>
                                 <!-- "(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" -->
                         </div>
-                        <div class="form-group col-sm-4">
+                        <!-- <div class="form-group col-sm-4">
                                 <label for="total" style="text-align:right">Total cupos</label>
                                 <input type="number" pattern="[0-9]{0,3}" class="form-control" id="total" [(ngModel)]="model.total" name="total" #total="ngModel"
                                         required>
                                 <span *ngIf="!total.valid && total.touched" class="text-alert">
                                         *Total cupo de evento inválido.
                                 </span>
-                        </div>
+                        </div> -->
                   </div>
                   <div class="form-group col-sm-8">
                      <label for="nomPrograma">Programa</label>
-                     <select class="form-control" id="nomPrograma" required [(ngModel)]="model.programs" name="nomPrograma" #nomPrograma="ngModel">
+                     <select class="form-control" id="nomPrograma" required [(ngModel)]="model.program_id" name="nomPrograma" #nomPrograma="ngModel">
                         <option value="" hidden>Seleccionar un Programa</option>
                         <option *ngFor="let programa of programs" [value]="programa._id">{{programa.name}}</option>
                      </select>

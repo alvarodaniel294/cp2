@@ -331,6 +331,7 @@ var _event_seg = {
   facilitators: [_facilitator_1, _facilitator_2],
   description: 'solo para ejecutivos en area petrolera, salud y construccion',
   program_id: _program_seguridad._id,
+  offices:_offices_cba,
 
   _id: new mongoose.Types.ObjectId,
   record_date: new Date()
@@ -342,6 +343,7 @@ var _event_rrhh = {
   facilitators: [_facilitator_1, _facilitator_2],
   description: 'solo para ejecutivos en area de Gerencia y Gestion',
   program_id: _program_rrhh._id,
+  offices:_offices_stc,
 
   _id: new mongoose.Types.ObjectId,
   record_date: new Date()

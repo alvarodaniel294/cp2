@@ -21,7 +21,7 @@ export class AddEventComponent implements OnInit {
       private router: Router
       //,private alerts: AlertsService
    ) {
-      this.model = new Event("", "", null, null, "","",null,true);
+      this.model = new Event([],"",null, "", "", "","");
    }
 
    ngOnInit() {
@@ -62,15 +62,13 @@ export class AddEventComponent implements OnInit {
       if ((this.model.description == '') ) {
          window.alert("Asegurese de llenar todos los campos");
       } else {
-        if((this.model.total == 0)){
-          window.alert("No puede crear un evento con Cupo 0 ");
-        }else{
+        
           // if(this.dateRef.nativeElement.value <new Date()){
             if (new Date(this.model.date_start) < new Date()) {
               window.alert("Asegurese que la fecha sea mayor a la de hoy")
           } else {
               console.log(this.model);
-              this._peticionesService.addEvent(this.model).subscribe(response => {
+              this._peticionesService.addNewEvent(this.model).subscribe(response => {
                 //this.messageEvent.emit();
                 //this.close.nativeElement.click();
                 this.router.navigate(['/home/eventos']);
@@ -78,7 +76,7 @@ export class AddEventComponent implements OnInit {
               });
 
           }
-        }
+        
     }
       console.log(this.model.date_start)
    }

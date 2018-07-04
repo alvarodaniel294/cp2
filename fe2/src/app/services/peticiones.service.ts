@@ -443,7 +443,36 @@ export class PeticionesService {
     return this._http.post(this.url + 'consults/addAlcanceToConsultoria/'+consultoriaId, body, { headers: headers });
 
   }
+  getEventOnly(id){
+    return this._http.get(this.url + 'events/getEvent/' + id);
+    
+  }
+  addNewEvent(event) {
+    let body = JSON.stringify(event);
+    var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    return this._http.post(this.url + 'events/addNewEvent/', body, { headers: headers });
+  }
 
+  updateInicio_event(page,id){
+    let body=JSON.stringify(page);
+    var headers=new HttpHeaders().set('Content-Type','application/json; charset=utf-8');
+    return this._http.put(this.url+'pages/home/events/'+id,body,{headers:headers});
+  }
+
+  addFacilitatorToEvent(facilitator_id,event_id){
+    let body=JSON.stringify(facilitator_id);
+    console.log(body);
+    var headers=new HttpHeaders().set('Content-Type','application/json; charset=utf-8');
+    return this._http.put(this.url+'events/addFacilitatorToEvent/'+event_id,body,{headers:headers});
+ 
+  }
+  deleteFacilitador(facilitator_id,event_id){
+    let body=JSON.stringify(facilitator_id);
+    console.log(body);
+    var headers=new HttpHeaders().set('Content-Type','application/json; charset=utf-8');
+    return this._http.post(this.url+'events/deleteFacilitador/'+event_id,body,{headers:headers});
+ 
+  }
 
 }
 export interface fileObj {

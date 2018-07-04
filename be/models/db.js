@@ -79,6 +79,7 @@ module.exports = {
             facilitators: [ObjectId],
             description: String,
             program_id: ObjectId,
+            offices:ObjectId,
 
             _id: { type: ObjectId, default: function () { return new mongoose.Types.ObjectId } },
             record_date: { type: Date, default: function () { return new Date() } },
