@@ -45,7 +45,7 @@ import { AddConsultoriaComponent } from "./consultorias/add-consultoria/add-cons
 import { EditConsultoriaComponent } from "./consultorias/edit-consultoria/edit-consultoria.component";
 import { AddScopeConsultoriaComponent } from "./consultorias/add-scope-consultoria/add-scope-consultoria.component";
 import { EditScopeConsultoriaComponent } from "./consultorias/edit-scope-consultoria/edit-scope-consultoria.component";
-
+import { EditEventComponent } from "./events/edit-event/edit-event.component";
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },//ruta basica
@@ -58,6 +58,7 @@ const appRoutes: Routes = [
             { path: 'somos', component: SomosComponent },
             { path: 'eventos', component: EventsComponent },
             { path: 'eventos/add', component: AddEventComponent },
+            { path: 'eventos/edit/:id',component:EditEventComponent},
             // { path: 'event/:id', component: EventComponent },
             { path: 'persons', component: PersonaComponent },
             // { path: 'persons/add', component: AddPersonComponent },
