@@ -1,3547 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendor"],{
 
-/***/ "./node_modules/@agm/core/core.module.js":
-/*!***********************************************!*\
-  !*** ./node_modules/@agm/core/core.module.js ***!
-  \***********************************************/
-/*! exports provided: coreDirectives, AgmCoreModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coreDirectives", function() { return coreDirectives; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmCoreModule", function() { return AgmCoreModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _directives_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./directives/map */ "./node_modules/@agm/core/directives/map.js");
-/* harmony import */ var _directives_circle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./directives/circle */ "./node_modules/@agm/core/directives/circle.js");
-/* harmony import */ var _directives_info_window__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./directives/info-window */ "./node_modules/@agm/core/directives/info-window.js");
-/* harmony import */ var _directives_marker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./directives/marker */ "./node_modules/@agm/core/directives/marker.js");
-/* harmony import */ var _directives_polygon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./directives/polygon */ "./node_modules/@agm/core/directives/polygon.js");
-/* harmony import */ var _directives_polyline__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./directives/polyline */ "./node_modules/@agm/core/directives/polyline.js");
-/* harmony import */ var _directives_polyline_point__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./directives/polyline-point */ "./node_modules/@agm/core/directives/polyline-point.js");
-/* harmony import */ var _directives_kml_layer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./directives/kml-layer */ "./node_modules/@agm/core/directives/kml-layer.js");
-/* harmony import */ var _directives_data_layer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./directives/data-layer */ "./node_modules/@agm/core/directives/data-layer.js");
-/* harmony import */ var _services_maps_api_loader_lazy_maps_api_loader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./services/maps-api-loader/lazy-maps-api-loader */ "./node_modules/@agm/core/services/maps-api-loader/lazy-maps-api-loader.js");
-/* harmony import */ var _services_maps_api_loader_maps_api_loader__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./services/maps-api-loader/maps-api-loader */ "./node_modules/@agm/core/services/maps-api-loader/maps-api-loader.js");
-/* harmony import */ var _utils_browser_globals__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./utils/browser-globals */ "./node_modules/@agm/core/utils/browser-globals.js");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- * @internal
- */
-function coreDirectives() {
-    return [
-        _directives_map__WEBPACK_IMPORTED_MODULE_1__["AgmMap"], _directives_marker__WEBPACK_IMPORTED_MODULE_4__["AgmMarker"], _directives_info_window__WEBPACK_IMPORTED_MODULE_3__["AgmInfoWindow"], _directives_circle__WEBPACK_IMPORTED_MODULE_2__["AgmCircle"],
-        _directives_polygon__WEBPACK_IMPORTED_MODULE_5__["AgmPolygon"], _directives_polyline__WEBPACK_IMPORTED_MODULE_6__["AgmPolyline"], _directives_polyline_point__WEBPACK_IMPORTED_MODULE_7__["AgmPolylinePoint"], _directives_kml_layer__WEBPACK_IMPORTED_MODULE_8__["AgmKmlLayer"],
-        _directives_data_layer__WEBPACK_IMPORTED_MODULE_9__["AgmDataLayer"]
-    ];
-}
-/**
- * The angular-google-maps core module. Contains all Directives/Services/Pipes
- * of the core module. Please use `AgmCoreModule.forRoot()` in your app module.
- */
-var AgmCoreModule = /** @class */ (function () {
-    function AgmCoreModule() {
-    }
-    /**
-     * Please use this method when you register the module at the root level.
-     */
-    /**
-       * Please use this method when you register the module at the root level.
-       */
-    AgmCoreModule.forRoot = /**
-       * Please use this method when you register the module at the root level.
-       */
-    function (lazyMapsAPILoaderConfig) {
-        return {
-            ngModule: AgmCoreModule,
-            providers: _utils_browser_globals__WEBPACK_IMPORTED_MODULE_12__["BROWSER_GLOBALS_PROVIDERS"].concat([
-                { provide: _services_maps_api_loader_maps_api_loader__WEBPACK_IMPORTED_MODULE_11__["MapsAPILoader"], useClass: _services_maps_api_loader_lazy_maps_api_loader__WEBPACK_IMPORTED_MODULE_10__["LazyMapsAPILoader"] },
-                { provide: _services_maps_api_loader_lazy_maps_api_loader__WEBPACK_IMPORTED_MODULE_10__["LAZY_MAPS_API_CONFIG"], useValue: lazyMapsAPILoaderConfig }
-            ]),
-        };
-    };
-    AgmCoreModule.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{ declarations: coreDirectives(), exports: coreDirectives() },] },
-    ];
-    return AgmCoreModule;
-}());
-
-//# sourceMappingURL=core.module.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/directives.js":
-/*!**********************************************!*\
-  !*** ./node_modules/@agm/core/directives.js ***!
-  \**********************************************/
-/*! exports provided: AgmMap, AgmCircle, AgmInfoWindow, AgmKmlLayer, AgmDataLayer, AgmMarker, AgmPolygon, AgmPolyline, AgmPolylinePoint */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _directives_map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./directives/map */ "./node_modules/@agm/core/directives/map.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmMap", function() { return _directives_map__WEBPACK_IMPORTED_MODULE_0__["AgmMap"]; });
-
-/* harmony import */ var _directives_circle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./directives/circle */ "./node_modules/@agm/core/directives/circle.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmCircle", function() { return _directives_circle__WEBPACK_IMPORTED_MODULE_1__["AgmCircle"]; });
-
-/* harmony import */ var _directives_info_window__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./directives/info-window */ "./node_modules/@agm/core/directives/info-window.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmInfoWindow", function() { return _directives_info_window__WEBPACK_IMPORTED_MODULE_2__["AgmInfoWindow"]; });
-
-/* harmony import */ var _directives_kml_layer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./directives/kml-layer */ "./node_modules/@agm/core/directives/kml-layer.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmKmlLayer", function() { return _directives_kml_layer__WEBPACK_IMPORTED_MODULE_3__["AgmKmlLayer"]; });
-
-/* harmony import */ var _directives_data_layer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./directives/data-layer */ "./node_modules/@agm/core/directives/data-layer.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmDataLayer", function() { return _directives_data_layer__WEBPACK_IMPORTED_MODULE_4__["AgmDataLayer"]; });
-
-/* harmony import */ var _directives_marker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./directives/marker */ "./node_modules/@agm/core/directives/marker.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmMarker", function() { return _directives_marker__WEBPACK_IMPORTED_MODULE_5__["AgmMarker"]; });
-
-/* harmony import */ var _directives_polygon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./directives/polygon */ "./node_modules/@agm/core/directives/polygon.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmPolygon", function() { return _directives_polygon__WEBPACK_IMPORTED_MODULE_6__["AgmPolygon"]; });
-
-/* harmony import */ var _directives_polyline__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./directives/polyline */ "./node_modules/@agm/core/directives/polyline.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmPolyline", function() { return _directives_polyline__WEBPACK_IMPORTED_MODULE_7__["AgmPolyline"]; });
-
-/* harmony import */ var _directives_polyline_point__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./directives/polyline-point */ "./node_modules/@agm/core/directives/polyline-point.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmPolylinePoint", function() { return _directives_polyline_point__WEBPACK_IMPORTED_MODULE_8__["AgmPolylinePoint"]; });
-
-
-
-
-
-
-
-
-
-
-//# sourceMappingURL=directives.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/directives/circle.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/@agm/core/directives/circle.js ***!
-  \*****************************************************/
-/*! exports provided: AgmCircle */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmCircle", function() { return AgmCircle; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_managers_circle_manager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/managers/circle-manager */ "./node_modules/@agm/core/services/managers/circle-manager.js");
-
-
-var AgmCircle = /** @class */ (function () {
-    function AgmCircle(_manager) {
-        this._manager = _manager;
-        /**
-           * Indicates whether this Circle handles mouse events. Defaults to true.
-           */
-        this.clickable = true;
-        /**
-           * If set to true, the user can drag this circle over the map. Defaults to false.
-           */
-        // tslint:disable-next-line:no-input-rename
-        this.draggable = false;
-        /**
-           * If set to true, the user can edit this circle by dragging the control points shown at
-           * the center and around the circumference of the circle. Defaults to false.
-           */
-        this.editable = false;
-        /**
-           * The radius in meters on the Earth's surface.
-           */
-        this.radius = 0;
-        /**
-           * The stroke position. Defaults to CENTER.
-           * This property is not supported on Internet Explorer 8 and earlier.
-           */
-        this.strokePosition = 'CENTER';
-        /**
-           * The stroke width in pixels.
-           */
-        this.strokeWeight = 0;
-        /**
-           * Whether this circle is visible on the map. Defaults to true.
-           */
-        this.visible = true;
-        /**
-           * This event is fired when the circle's center is changed.
-           */
-        this.centerChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event emitter gets emitted when the user clicks on the circle.
-           */
-        this.circleClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event emitter gets emitted when the user clicks on the circle.
-           */
-        this.circleDblClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is repeatedly fired while the user drags the circle.
-           */
-        this.drag = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the user stops dragging the circle.
-           */
-        this.dragEnd = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the user starts dragging the circle.
-           */
-        this.dragStart = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the DOM mousedown event is fired on the circle.
-           */
-        this.mouseDown = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the DOM mousemove event is fired on the circle.
-           */
-        this.mouseMove = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired on circle mouseout.
-           */
-        this.mouseOut = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired on circle mouseover.
-           */
-        this.mouseOver = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the DOM mouseup event is fired on the circle.
-           */
-        this.mouseUp = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the circle's radius is changed.
-           */
-        this.radiusChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the circle is right-clicked on.
-           */
-        this.rightClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this._circleAddedToManager = false;
-        this._eventSubscriptions = [];
-    }
-    /** @internal */
-    /** @internal */
-    AgmCircle.prototype.ngOnInit = /** @internal */
-    function () {
-        this._manager.addCircle(this);
-        this._circleAddedToManager = true;
-        this._registerEventListeners();
-    };
-    /** @internal */
-    /** @internal */
-    AgmCircle.prototype.ngOnChanges = /** @internal */
-    function (changes) {
-        if (!this._circleAddedToManager) {
-            return;
-        }
-        if (changes['latitude'] || changes['longitude']) {
-            this._manager.setCenter(this);
-        }
-        if (changes['editable']) {
-            this._manager.setEditable(this);
-        }
-        if (changes['draggable']) {
-            this._manager.setDraggable(this);
-        }
-        if (changes['visible']) {
-            this._manager.setVisible(this);
-        }
-        if (changes['radius']) {
-            this._manager.setRadius(this);
-        }
-        this._updateCircleOptionsChanges(changes);
-    };
-    AgmCircle.prototype._updateCircleOptionsChanges = function (changes) {
-        var options = {};
-        var optionKeys = Object.keys(changes).filter(function (k) { return AgmCircle._mapOptions.indexOf(k) !== -1; });
-        optionKeys.forEach(function (k) { options[k] = changes[k].currentValue; });
-        if (optionKeys.length > 0) {
-            this._manager.setOptions(this, options);
-        }
-    };
-    AgmCircle.prototype._registerEventListeners = function () {
-        var _this = this;
-        var events = new Map();
-        events.set('center_changed', this.centerChange);
-        events.set('click', this.circleClick);
-        events.set('dblclick', this.circleDblClick);
-        events.set('drag', this.drag);
-        events.set('dragend', this.dragEnd);
-        events.set('dragStart', this.dragStart);
-        events.set('mousedown', this.mouseDown);
-        events.set('mousemove', this.mouseMove);
-        events.set('mouseout', this.mouseOut);
-        events.set('mouseover', this.mouseOver);
-        events.set('mouseup', this.mouseUp);
-        events.set('radius_changed', this.radiusChange);
-        events.set('rightclick', this.rightClick);
-        events.forEach(function (eventEmitter, eventName) {
-            _this._eventSubscriptions.push(_this._manager.createEventObservable(eventName, _this).subscribe(function (value) {
-                switch (eventName) {
-                    case 'radius_changed':
-                        _this._manager.getRadius(_this).then(function (radius) { return eventEmitter.emit(radius); });
-                        break;
-                    case 'center_changed':
-                        _this._manager.getCenter(_this).then(function (center) {
-                            return eventEmitter.emit({ lat: center.lat(), lng: center.lng() });
-                        });
-                        break;
-                    default:
-                        eventEmitter.emit({ coords: { lat: value.latLng.lat(), lng: value.latLng.lng() } });
-                }
-            }));
-        });
-    };
-    /** @internal */
-    /** @internal */
-    AgmCircle.prototype.ngOnDestroy = /** @internal */
-    function () {
-        this._eventSubscriptions.forEach(function (s) { s.unsubscribe(); });
-        this._eventSubscriptions = null;
-        this._manager.removeCircle(this);
-    };
-    /**
-     * Gets the LatLngBounds of this Circle.
-     */
-    /**
-       * Gets the LatLngBounds of this Circle.
-       */
-    AgmCircle.prototype.getBounds = /**
-       * Gets the LatLngBounds of this Circle.
-       */
-    function () { return this._manager.getBounds(this); };
-    AgmCircle.prototype.getCenter = function () { return this._manager.getCenter(this); };
-    AgmCircle._mapOptions = [
-        'fillColor', 'fillOpacity', 'strokeColor', 'strokeOpacity', 'strokePosition', 'strokeWeight',
-        'visible', 'zIndex', 'clickable'
-    ];
-    AgmCircle.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{
-                    selector: 'agm-circle'
-                },] },
-    ];
-    /** @nocollapse */
-    AgmCircle.ctorParameters = function () { return [
-        { type: _services_managers_circle_manager__WEBPACK_IMPORTED_MODULE_1__["CircleManager"], },
-    ]; };
-    AgmCircle.propDecorators = {
-        "latitude": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "longitude": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "clickable": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "draggable": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: ['circleDraggable',] },],
-        "editable": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "fillColor": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "fillOpacity": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "radius": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "strokeColor": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "strokeOpacity": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "strokePosition": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "strokeWeight": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "visible": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "zIndex": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "centerChange": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "circleClick": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "circleDblClick": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "drag": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "dragEnd": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "dragStart": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "mouseDown": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "mouseMove": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "mouseOut": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "mouseOver": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "mouseUp": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "radiusChange": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "rightClick": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-    };
-    return AgmCircle;
-}());
-
-//# sourceMappingURL=circle.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/directives/data-layer.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/@agm/core/directives/data-layer.js ***!
-  \*********************************************************/
-/*! exports provided: AgmDataLayer */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmDataLayer", function() { return AgmDataLayer; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_managers_data_layer_manager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../services/managers/data-layer-manager */ "./node_modules/@agm/core/services/managers/data-layer-manager.js");
-
-
-var layerId = 0;
-/**
- * AgmDataLayer enables the user to add data layers to the map.
- *
- * ### Example
- * ```typescript
- * import { Component } from 'angular2/core';
- * import { AgmMap, AgmDataLayer } from
- * 'angular-google-maps/core';
- *
- * @Component({
- *  selector: 'my-map-cmp',
- *  directives: [AgmMap, AgmDataLayer],
- *  styles: [`
- *    .agm-container {
- *      height: 300px;
- *    }
- * `],
- *  template: `
- * <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
- * 	  <agm-data-layer [geoJson]="geoJsonObject" (layerClick)="clicked($event)" [style]="styleFunc">
- * 	  </agm-data-layer>
- * </agm-map>
- *  `
- * })
- * export class MyMapCmp {
- *   lat: number = -25.274449;
- *   lng: number = 133.775060;
- *   zoom: number = 5;
- *
- * clicked(clickEvent) {
- *    console.log(clickEvent);
- *  }
- *
- *  styleFunc(feature) {
- *    return ({
- *      clickable: false,
- *      fillColor: feature.getProperty('color'),
- *      strokeWeight: 1
- *    });
- *  }
- *
- *  geoJsonObject: Object = {
- *    "type": "FeatureCollection",
- *    "features": [
- *      {
- *        "type": "Feature",
- *        "properties": {
- *          "letter": "G",
- *          "color": "blue",
- *          "rank": "7",
- *          "ascii": "71"
- *        },
- *        "geometry": {
- *          "type": "Polygon",
- *          "coordinates": [
- *            [
- *              [123.61, -22.14], [122.38, -21.73], [121.06, -21.69], [119.66, -22.22], [119.00, -23.40],
- *              [118.65, -24.76], [118.43, -26.07], [118.78, -27.56], [119.22, -28.57], [120.23, -29.49],
- *              [121.77, -29.87], [123.57, -29.64], [124.45, -29.03], [124.71, -27.95], [124.80, -26.70],
- *              [124.80, -25.60], [123.61, -25.64], [122.56, -25.64], [121.72, -25.72], [121.81, -26.62],
- *              [121.86, -26.98], [122.60, -26.90], [123.57, -27.05], [123.57, -27.68], [123.35, -28.18],
- *              [122.51, -28.38], [121.77, -28.26], [121.02, -27.91], [120.49, -27.21], [120.14, -26.50],
- *              [120.10, -25.64], [120.27, -24.52], [120.67, -23.68], [121.72, -23.32], [122.43, -23.48],
- *              [123.04, -24.04], [124.54, -24.28], [124.58, -23.20], [123.61, -22.14]
- *            ]
- *          ]
- *        }
- *      },
- *      {
- *        "type": "Feature",
- *        "properties": {
- *          "letter": "o",
- *          "color": "red",
- *          "rank": "15",
- *          "ascii": "111"
- *        },
- *        "geometry": {
- *          "type": "Polygon",
- *          "coordinates": [
- *            [
- *              [128.84, -25.76], [128.18, -25.60], [127.96, -25.52], [127.88, -25.52], [127.70, -25.60],
- *              [127.26, -25.79], [126.60, -26.11], [126.16, -26.78], [126.12, -27.68], [126.21, -28.42],
- *              [126.69, -29.49], [127.74, -29.80], [128.80, -29.72], [129.41, -29.03], [129.72, -27.95],
- *              [129.68, -27.21], [129.33, -26.23], [128.84, -25.76]
- *            ],
- *            [
- *              [128.45, -27.44], [128.32, -26.94], [127.70, -26.82], [127.35, -27.05], [127.17, -27.80],
- *              [127.57, -28.22], [128.10, -28.42], [128.49, -27.80], [128.45, -27.44]
- *            ]
- *          ]
- *        }
- *      },
- *      {
- *        "type": "Feature",
- *        "properties": {
- *          "letter": "o",
- *          "color": "yellow",
- *          "rank": "15",
- *          "ascii": "111"
- *        },
- *        "geometry": {
- *          "type": "Polygon",
- *          "coordinates": [
- *            [
- *              [131.87, -25.76], [131.35, -26.07], [130.95, -26.78], [130.82, -27.64], [130.86, -28.53],
- *              [131.26, -29.22], [131.92, -29.76], [132.45, -29.87], [133.06, -29.76], [133.72, -29.34],
- *              [134.07, -28.80], [134.20, -27.91], [134.07, -27.21], [133.81, -26.31], [133.37, -25.83],
- *              [132.71, -25.64], [131.87, -25.76]
- *            ],
- *            [
- *              [133.15, -27.17], [132.71, -26.86], [132.09, -26.90], [131.74, -27.56], [131.79, -28.26],
- *              [132.36, -28.45], [132.93, -28.34], [133.15, -27.76], [133.15, -27.17]
- *            ]
- *          ]
- *        }
- *      },
- *      {
- *        "type": "Feature",
- *        "properties": {
- *          "letter": "g",
- *          "color": "blue",
- *          "rank": "7",
- *          "ascii": "103"
- *        },
- *        "geometry": {
- *          "type": "Polygon",
- *          "coordinates": [
- *            [
- *              [138.12, -25.04], [136.84, -25.16], [135.96, -25.36], [135.26, -25.99], [135, -26.90],
- *              [135.04, -27.91], [135.26, -28.88], [136.05, -29.45], [137.02, -29.49], [137.81, -29.49],
- *              [137.94, -29.99], [137.90, -31.20], [137.85, -32.24], [136.88, -32.69], [136.45, -32.36],
- *              [136.27, -31.80], [134.95, -31.84], [135.17, -32.99], [135.52, -33.43], [136.14, -33.76],
- *              [137.06, -33.83], [138.12, -33.65], [138.86, -33.21], [139.30, -32.28], [139.30, -31.24],
- *              [139.30, -30.14], [139.21, -28.96], [139.17, -28.22], [139.08, -27.41], [139.08, -26.47],
- *              [138.99, -25.40], [138.73, -25.00], [138.12, -25.04]
- *            ],
- *            [
- *              [137.50, -26.54], [136.97, -26.47], [136.49, -26.58], [136.31, -27.13], [136.31, -27.72],
- *              [136.58, -27.99], [137.50, -28.03], [137.68, -27.68], [137.59, -26.78], [137.50, -26.54]
- *            ]
- *          ]
- *        }
- *      },
- *      {
- *        "type": "Feature",
- *        "properties": {
- *          "letter": "l",
- *          "color": "green",
- *          "rank": "12",
- *          "ascii": "108"
- *        },
- *        "geometry": {
- *          "type": "Polygon",
- *          "coordinates": [
- *            [
- *              [140.14, -21.04], [140.31, -29.42], [141.67, -29.49], [141.59, -20.92], [140.14, -21.04]
- *            ]
- *          ]
- *        }
- *      },
- *      {
- *        "type": "Feature",
- *        "properties": {
- *          "letter": "e",
- *          "color": "red",
- *          "rank": "5",
- *          "ascii": "101"
- *        },
- *        "geometry": {
- *          "type": "Polygon",
- *          "coordinates": [
- *            [
- *              [144.14, -27.41], [145.67, -27.52], [146.86, -27.09], [146.82, -25.64], [146.25, -25.04],
- *              [145.45, -24.68], [144.66, -24.60], [144.09, -24.76], [143.43, -25.08], [142.99, -25.40],
- *              [142.64, -26.03], [142.64, -27.05], [142.64, -28.26], [143.30, -29.11], [144.18, -29.57],
- *              [145.41, -29.64], [146.46, -29.19], [146.64, -28.72], [146.82, -28.14], [144.84, -28.42],
- *              [144.31, -28.26], [144.14, -27.41]
- *            ],
- *            [
- *              [144.18, -26.39], [144.53, -26.58], [145.19, -26.62], [145.72, -26.35], [145.81, -25.91],
- *              [145.41, -25.68], [144.97, -25.68], [144.49, -25.64], [144, -25.99], [144.18, -26.39]
- *            ]
- *          ]
- *        }
- *      }
- *    ]
- *  };
- * }
- * ```
- */
-var AgmDataLayer = /** @class */ (function () {
-    function AgmDataLayer(_manager) {
-        this._manager = _manager;
-        this._addedToManager = false;
-        this._id = (layerId++).toString();
-        this._subscriptions = [];
-        /**
-           * This event is fired when a feature in the layer is clicked.
-           */
-        this.layerClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * The geoJson to be displayed
-           */
-        this.geoJson = null;
-    }
-    AgmDataLayer.prototype.ngOnInit = function () {
-        if (this._addedToManager) {
-            return;
-        }
-        this._manager.addDataLayer(this);
-        this._addedToManager = true;
-        this._addEventListeners();
-    };
-    AgmDataLayer.prototype._addEventListeners = function () {
-        var _this = this;
-        var listeners = [
-            { name: 'click', handler: function (ev) { return _this.layerClick.emit(ev); } },
-        ];
-        listeners.forEach(function (obj) {
-            var os = _this._manager.createEventObservable(obj.name, _this).subscribe(obj.handler);
-            _this._subscriptions.push(os);
-        });
-    };
-    /** @internal */
-    /** @internal */
-    AgmDataLayer.prototype.id = /** @internal */
-    function () { return this._id; };
-    /** @internal */
-    /** @internal */
-    AgmDataLayer.prototype.toString = /** @internal */
-    function () { return "AgmDataLayer-" + this._id.toString(); };
-    /** @internal */
-    /** @internal */
-    AgmDataLayer.prototype.ngOnDestroy = /** @internal */
-    function () {
-        this._manager.deleteDataLayer(this);
-        // unsubscribe all registered observable subscriptions
-        this._subscriptions.forEach(function (s) { return s.unsubscribe(); });
-    };
-    /** @internal */
-    /** @internal */
-    AgmDataLayer.prototype.ngOnChanges = /** @internal */
-    function (changes) {
-        var _this = this;
-        if (!this._addedToManager) {
-            return;
-        }
-        var geoJsonChange = changes['geoJson'];
-        if (geoJsonChange) {
-            this._manager.updateGeoJson(this, geoJsonChange.currentValue);
-        }
-        var dataOptions = {};
-        AgmDataLayer._dataOptionsAttributes.forEach(function (k) { return dataOptions[k] = changes.hasOwnProperty(k) ? changes[k].currentValue : _this[k]; });
-        this._manager.setDataOptions(this, dataOptions);
-    };
-    AgmDataLayer._dataOptionsAttributes = ['style'];
-    AgmDataLayer.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{
-                    selector: 'agm-data-layer'
-                },] },
-    ];
-    /** @nocollapse */
-    AgmDataLayer.ctorParameters = function () { return [
-        { type: _services_managers_data_layer_manager__WEBPACK_IMPORTED_MODULE_1__["DataLayerManager"], },
-    ]; };
-    AgmDataLayer.propDecorators = {
-        "layerClick": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "geoJson": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "style": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    };
-    return AgmDataLayer;
-}());
-
-//# sourceMappingURL=data-layer.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/directives/info-window.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/@agm/core/directives/info-window.js ***!
-  \**********************************************************/
-/*! exports provided: AgmInfoWindow */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmInfoWindow", function() { return AgmInfoWindow; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_managers_info_window_manager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/managers/info-window-manager */ "./node_modules/@agm/core/services/managers/info-window-manager.js");
-
-
-var infoWindowId = 0;
-/**
- * AgmInfoWindow renders a info window inside a {@link AgmMarker} or standalone.
- *
- * ### Example
- * ```typescript
- * import { Component } from '@angular/core';
- *
- * @Component({
- *  selector: 'my-map-cmp',
- *  styles: [`
- *    .agm-map-container {
- *      height: 300px;
- *    }
- * `],
- *  template: `
- *    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
- *      <agm-marker [latitude]="lat" [longitude]="lng" [label]="'M'">
- *        <agm-info-window [disableAutoPan]="true">
- *          Hi, this is the content of the <strong>info window</strong>
- *        </agm-info-window>
- *      </agm-marker>
- *    </agm-map>
- *  `
- * })
- * ```
- */
-var AgmInfoWindow = /** @class */ (function () {
-    function AgmInfoWindow(_infoWindowManager, _el) {
-        this._infoWindowManager = _infoWindowManager;
-        this._el = _el;
-        /**
-           * Sets the open state for the InfoWindow. You can also call the open() and close() methods.
-           */
-        this.isOpen = false;
-        /**
-           * Emits an event when the info window is closed.
-           */
-        this.infoWindowClose = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this._infoWindowAddedToManager = false;
-        this._id = (infoWindowId++).toString();
-    }
-    AgmInfoWindow.prototype.ngOnInit = function () {
-        this.content = this._el.nativeElement.querySelector('.agm-info-window-content');
-        this._infoWindowManager.addInfoWindow(this);
-        this._infoWindowAddedToManager = true;
-        this._updateOpenState();
-        this._registerEventListeners();
-    };
-    /** @internal */
-    /** @internal */
-    AgmInfoWindow.prototype.ngOnChanges = /** @internal */
-    function (changes) {
-        if (!this._infoWindowAddedToManager) {
-            return;
-        }
-        if ((changes['latitude'] || changes['longitude']) && typeof this.latitude === 'number' &&
-            typeof this.longitude === 'number') {
-            this._infoWindowManager.setPosition(this);
-        }
-        if (changes['zIndex']) {
-            this._infoWindowManager.setZIndex(this);
-        }
-        if (changes['isOpen']) {
-            this._updateOpenState();
-        }
-        this._setInfoWindowOptions(changes);
-    };
-    AgmInfoWindow.prototype._registerEventListeners = function () {
-        var _this = this;
-        this._infoWindowManager.createEventObservable('closeclick', this).subscribe(function () {
-            _this.isOpen = false;
-            _this.infoWindowClose.emit();
-        });
-    };
-    AgmInfoWindow.prototype._updateOpenState = function () {
-        this.isOpen ? this.open() : this.close();
-    };
-    AgmInfoWindow.prototype._setInfoWindowOptions = function (changes) {
-        var options = {};
-        var optionKeys = Object.keys(changes).filter(function (k) { return AgmInfoWindow._infoWindowOptionsInputs.indexOf(k) !== -1; });
-        optionKeys.forEach(function (k) { options[k] = changes[k].currentValue; });
-        this._infoWindowManager.setOptions(this, options);
-    };
-    /**
-     * Opens the info window.
-     */
-    /**
-       * Opens the info window.
-       */
-    AgmInfoWindow.prototype.open = /**
-       * Opens the info window.
-       */
-    function () { return this._infoWindowManager.open(this); };
-    /**
-     * Closes the info window.
-     */
-    /**
-       * Closes the info window.
-       */
-    AgmInfoWindow.prototype.close = /**
-       * Closes the info window.
-       */
-    function () {
-        var _this = this;
-        return this._infoWindowManager.close(this).then(function () { _this.infoWindowClose.emit(); });
-    };
-    /** @internal */
-    /** @internal */
-    AgmInfoWindow.prototype.id = /** @internal */
-    function () { return this._id; };
-    /** @internal */
-    /** @internal */
-    AgmInfoWindow.prototype.toString = /** @internal */
-    function () { return 'AgmInfoWindow-' + this._id.toString(); };
-    /** @internal */
-    /** @internal */
-    AgmInfoWindow.prototype.ngOnDestroy = /** @internal */
-    function () { this._infoWindowManager.deleteInfoWindow(this); };
-    AgmInfoWindow._infoWindowOptionsInputs = ['disableAutoPan', 'maxWidth'];
-    AgmInfoWindow.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
-                    selector: 'agm-info-window',
-                    template: "<div class='agm-info-window-content'>\n      <ng-content></ng-content>\n    </div>\n  "
-                },] },
-    ];
-    /** @nocollapse */
-    AgmInfoWindow.ctorParameters = function () { return [
-        { type: _services_managers_info_window_manager__WEBPACK_IMPORTED_MODULE_1__["InfoWindowManager"], },
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"], },
-    ]; };
-    AgmInfoWindow.propDecorators = {
-        "latitude": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "longitude": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "disableAutoPan": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "zIndex": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "maxWidth": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "isOpen": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "infoWindowClose": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-    };
-    return AgmInfoWindow;
-}());
-
-//# sourceMappingURL=info-window.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/directives/kml-layer.js":
-/*!********************************************************!*\
-  !*** ./node_modules/@agm/core/directives/kml-layer.js ***!
-  \********************************************************/
-/*! exports provided: AgmKmlLayer */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmKmlLayer", function() { return AgmKmlLayer; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_managers_kml_layer_manager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../services/managers/kml-layer-manager */ "./node_modules/@agm/core/services/managers/kml-layer-manager.js");
-
-
-var layerId = 0;
-var AgmKmlLayer = /** @class */ (function () {
-    function AgmKmlLayer(_manager) {
-        this._manager = _manager;
-        this._addedToManager = false;
-        this._id = (layerId++).toString();
-        this._subscriptions = [];
-        /**
-           * If true, the layer receives mouse events. Default value is true.
-           */
-        this.clickable = true;
-        /**
-           * By default, the input map is centered and zoomed to the bounding box of the contents of the
-           * layer.
-           * If this option is set to true, the viewport is left unchanged, unless the map's center and zoom
-           * were never set.
-           */
-        this.preserveViewport = false;
-        /**
-           * Whether to render the screen overlays. Default true.
-           */
-        this.screenOverlays = true;
-        /**
-           * Suppress the rendering of info windows when layer features are clicked.
-           */
-        this.suppressInfoWindows = false;
-        /**
-           * The URL of the KML document to display.
-           */
-        this.url = null;
-        /**
-           * The z-index of the layer.
-           */
-        this.zIndex = null;
-        /**
-           * This event is fired when a feature in the layer is clicked.
-           */
-        this.layerClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the KML layers default viewport has changed.
-           */
-        this.defaultViewportChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the KML layer has finished loading.
-           * At this point it is safe to read the status property to determine if the layer loaded
-           * successfully.
-           */
-        this.statusChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-    }
-    AgmKmlLayer.prototype.ngOnInit = function () {
-        if (this._addedToManager) {
-            return;
-        }
-        this._manager.addKmlLayer(this);
-        this._addedToManager = true;
-        this._addEventListeners();
-    };
-    AgmKmlLayer.prototype.ngOnChanges = function (changes) {
-        if (!this._addedToManager) {
-            return;
-        }
-        this._updatePolygonOptions(changes);
-    };
-    AgmKmlLayer.prototype._updatePolygonOptions = function (changes) {
-        var options = Object.keys(changes)
-            .filter(function (k) { return AgmKmlLayer._kmlLayerOptions.indexOf(k) !== -1; })
-            .reduce(function (obj, k) {
-            obj[k] = changes[k].currentValue;
-            return obj;
-        }, {});
-        if (Object.keys(options).length > 0) {
-            this._manager.setOptions(this, options);
-        }
-    };
-    AgmKmlLayer.prototype._addEventListeners = function () {
-        var _this = this;
-        var listeners = [
-            { name: 'click', handler: function (ev) { return _this.layerClick.emit(ev); } },
-            { name: 'defaultviewport_changed', handler: function () { return _this.defaultViewportChange.emit(); } },
-            { name: 'status_changed', handler: function () { return _this.statusChange.emit(); } },
-        ];
-        listeners.forEach(function (obj) {
-            var os = _this._manager.createEventObservable(obj.name, _this).subscribe(obj.handler);
-            _this._subscriptions.push(os);
-        });
-    };
-    /** @internal */
-    /** @internal */
-    AgmKmlLayer.prototype.id = /** @internal */
-    function () { return this._id; };
-    /** @internal */
-    /** @internal */
-    AgmKmlLayer.prototype.toString = /** @internal */
-    function () { return "AgmKmlLayer-" + this._id.toString(); };
-    /** @internal */
-    /** @internal */
-    AgmKmlLayer.prototype.ngOnDestroy = /** @internal */
-    function () {
-        this._manager.deleteKmlLayer(this);
-        // unsubscribe all registered observable subscriptions
-        this._subscriptions.forEach(function (s) { return s.unsubscribe(); });
-    };
-    AgmKmlLayer._kmlLayerOptions = ['clickable', 'preserveViewport', 'screenOverlays', 'suppressInfoWindows', 'url', 'zIndex'];
-    AgmKmlLayer.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{
-                    selector: 'agm-kml-layer'
-                },] },
-    ];
-    /** @nocollapse */
-    AgmKmlLayer.ctorParameters = function () { return [
-        { type: _services_managers_kml_layer_manager__WEBPACK_IMPORTED_MODULE_1__["KmlLayerManager"], },
-    ]; };
-    AgmKmlLayer.propDecorators = {
-        "clickable": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "preserveViewport": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "screenOverlays": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "suppressInfoWindows": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "url": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "zIndex": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "layerClick": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "defaultViewportChange": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "statusChange": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-    };
-    return AgmKmlLayer;
-}());
-
-//# sourceMappingURL=kml-layer.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/directives/map.js":
-/*!**************************************************!*\
-  !*** ./node_modules/@agm/core/directives/map.js ***!
-  \**************************************************/
-/*! exports provided: AgmMap */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmMap", function() { return AgmMap; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/google-maps-api-wrapper */ "./node_modules/@agm/core/services/google-maps-api-wrapper.js");
-/* harmony import */ var _services_managers_circle_manager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/managers/circle-manager */ "./node_modules/@agm/core/services/managers/circle-manager.js");
-/* harmony import */ var _services_managers_info_window_manager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/managers/info-window-manager */ "./node_modules/@agm/core/services/managers/info-window-manager.js");
-/* harmony import */ var _services_managers_marker_manager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/managers/marker-manager */ "./node_modules/@agm/core/services/managers/marker-manager.js");
-/* harmony import */ var _services_managers_polygon_manager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/managers/polygon-manager */ "./node_modules/@agm/core/services/managers/polygon-manager.js");
-/* harmony import */ var _services_managers_polyline_manager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/managers/polyline-manager */ "./node_modules/@agm/core/services/managers/polyline-manager.js");
-/* harmony import */ var _services_managers_kml_layer_manager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../services/managers/kml-layer-manager */ "./node_modules/@agm/core/services/managers/kml-layer-manager.js");
-/* harmony import */ var _services_managers_data_layer_manager__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../services/managers/data-layer-manager */ "./node_modules/@agm/core/services/managers/data-layer-manager.js");
-
-
-
-
-
-
-
-
-
-/**
- * AgmMap renders a Google Map.
- * **Important note**: To be able see a map in the browser, you have to define a height for the
- * element `agm-map`.
- *
- * ### Example
- * ```typescript
- * import { Component } from '@angular/core';
- *
- * @Component({
- *  selector: 'my-map-cmp',
- *  styles: [`
- *    agm-map {
- *      height: 300px;
- *    }
- * `],
- *  template: `
- *    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
- *    </agm-map>
- *  `
- * })
- * ```
- */
-var AgmMap = /** @class */ (function () {
-    function AgmMap(_elem, _mapsWrapper) {
-        this._elem = _elem;
-        this._mapsWrapper = _mapsWrapper;
-        /**
-           * The longitude that defines the center of the map.
-           */
-        this.longitude = 0;
-        /**
-           * The latitude that defines the center of the map.
-           */
-        this.latitude = 0;
-        /**
-           * The zoom level of the map. The default zoom level is 8.
-           */
-        this.zoom = 8;
-        /**
-           * Enables/disables if map is draggable.
-           */
-        // tslint:disable-next-line:no-input-rename
-        this.draggable = true;
-        /**
-           * Enables/disables zoom and center on double click. Enabled by default.
-           */
-        this.disableDoubleClickZoom = false;
-        /**
-           * Enables/disables all default UI of the Google map. Please note: When the map is created, this
-           * value cannot get updated.
-           */
-        this.disableDefaultUI = false;
-        /**
-           * If false, disables scrollwheel zooming on the map. The scrollwheel is enabled by default.
-           */
-        this.scrollwheel = true;
-        /**
-           * If false, prevents the map from being controlled by the keyboard. Keyboard shortcuts are
-           * enabled by default.
-           */
-        this.keyboardShortcuts = true;
-        /**
-           * The enabled/disabled state of the Zoom control.
-           */
-        this.zoomControl = true;
-        /**
-           * Styles to apply to each of the default map types. Note that for Satellite/Hybrid and Terrain
-           * modes, these styles will only apply to labels and geometry.
-           */
-        this.styles = [];
-        /**
-           * When true and the latitude and/or longitude values changes, the Google Maps panTo method is
-           * used to
-           * center the map. See: https://developers.google.com/maps/documentation/javascript/reference#Map
-           */
-        this.usePanning = false;
-        /**
-           * The initial enabled/disabled state of the Street View Pegman control.
-           * This control is part of the default UI, and should be set to false when displaying a map type
-           * on which the Street View road overlay should not appear (e.g. a non-Earth map type).
-           */
-        this.streetViewControl = true;
-        /**
-           * Sets the viewport to contain the given bounds.
-           */
-        this.fitBounds = null;
-        /**
-           * The initial enabled/disabled state of the Scale control. This is disabled by default.
-           */
-        this.scaleControl = false;
-        /**
-           * The initial enabled/disabled state of the Map type control.
-           */
-        this.mapTypeControl = false;
-        /**
-           * The initial enabled/disabled state of the Pan control.
-           */
-        this.panControl = false;
-        /**
-           * The initial enabled/disabled state of the Rotate control.
-           */
-        this.rotateControl = false;
-        /**
-           * The initial enabled/disabled state of the Fullscreen control.
-           */
-        this.fullscreenControl = false;
-        /**
-           * The map mapTypeId. Defaults to 'roadmap'.
-           */
-        this.mapTypeId = 'roadmap';
-        /**
-           * When false, map icons are not clickable. A map icon represents a point of interest,
-           * also known as a POI. By default map icons are clickable.
-           */
-        this.clickableIcons = true;
-        /**
-           * This setting controls how gestures on the map are handled.
-           * Allowed values:
-           * - 'cooperative' (Two-finger touch gestures pan and zoom the map. One-finger touch gestures are not handled by the map.)
-           * - 'greedy'      (All touch gestures pan or zoom the map.)
-           * - 'none'        (The map cannot be panned or zoomed by user gestures.)
-           * - 'auto'        [default] (Gesture handling is either cooperative or greedy, depending on whether the page is scrollable or not.
-           */
-        this.gestureHandling = 'auto';
-        this._observableSubscriptions = [];
-        /**
-           * This event emitter gets emitted when the user clicks on the map (but not when they click on a
-           * marker or infoWindow).
-           */
-        this.mapClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event emitter gets emitted when the user right-clicks on the map (but not when they click
-           * on a marker or infoWindow).
-           */
-        this.mapRightClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event emitter gets emitted when the user double-clicks on the map (but not when they click
-           * on a marker or infoWindow).
-           */
-        this.mapDblClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event emitter is fired when the map center changes.
-           */
-        this.centerChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the viewport bounds have changed.
-           */
-        this.boundsChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the mapTypeId property changes.
-           */
-        this.mapTypeIdChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the map becomes idle after panning or zooming.
-           */
-        this.idle = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the zoom level has changed.
-           */
-        this.zoomChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the google map is fully initialized.
-           * You get the google.maps.Map instance as a result of this EventEmitter.
-           */
-        this.mapReady = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-    }
-    /** @internal */
-    /** @internal */
-    AgmMap.prototype.ngOnInit = /** @internal */
-    function () {
-        // todo: this should be solved with a new component and a viewChild decorator
-        var container = this._elem.nativeElement.querySelector('.agm-map-container-inner');
-        this._initMapInstance(container);
-    };
-    AgmMap.prototype._initMapInstance = function (el) {
-        var _this = this;
-        this._mapsWrapper.createMap(el, {
-            center: { lat: this.latitude || 0, lng: this.longitude || 0 },
-            zoom: this.zoom,
-            minZoom: this.minZoom,
-            maxZoom: this.maxZoom,
-            disableDefaultUI: this.disableDefaultUI,
-            disableDoubleClickZoom: this.disableDoubleClickZoom,
-            scrollwheel: this.scrollwheel,
-            backgroundColor: this.backgroundColor,
-            draggable: this.draggable,
-            draggableCursor: this.draggableCursor,
-            draggingCursor: this.draggingCursor,
-            keyboardShortcuts: this.keyboardShortcuts,
-            styles: this.styles,
-            zoomControl: this.zoomControl,
-            zoomControlOptions: this.zoomControlOptions,
-            streetViewControl: this.streetViewControl,
-            streetViewControlOptions: this.streetViewControlOptions,
-            scaleControl: this.scaleControl,
-            scaleControlOptions: this.scaleControlOptions,
-            mapTypeControl: this.mapTypeControl,
-            mapTypeControlOptions: this.mapTypeControlOptions,
-            panControl: this.panControl,
-            panControlOptions: this.panControlOptions,
-            rotateControl: this.rotateControl,
-            rotateControlOptions: this.rotateControlOptions,
-            fullscreenControl: this.fullscreenControl,
-            fullscreenControlOptions: this.fullscreenControlOptions,
-            mapTypeId: this.mapTypeId,
-            clickableIcons: this.clickableIcons,
-            gestureHandling: this.gestureHandling
-        })
-            .then(function () { return _this._mapsWrapper.getNativeMap(); })
-            .then(function (map) { return _this.mapReady.emit(map); });
-        // register event listeners
-        this._handleMapCenterChange();
-        this._handleMapZoomChange();
-        this._handleMapMouseEvents();
-        this._handleBoundsChange();
-        this._handleMapTypeIdChange();
-        this._handleIdleEvent();
-    };
-    /** @internal */
-    /** @internal */
-    AgmMap.prototype.ngOnDestroy = /** @internal */
-    function () {
-        // unsubscribe all registered observable subscriptions
-        this._observableSubscriptions.forEach(function (s) { return s.unsubscribe(); });
-        // remove all listeners from the map instance
-        this._mapsWrapper.clearInstanceListeners();
-    };
-    /* @internal */
-    /* @internal */
-    AgmMap.prototype.ngOnChanges = /* @internal */
-    function (changes) {
-        this._updateMapOptionsChanges(changes);
-        this._updatePosition(changes);
-    };
-    AgmMap.prototype._updateMapOptionsChanges = function (changes) {
-        var options = {};
-        var optionKeys = Object.keys(changes).filter(function (k) { return AgmMap._mapOptionsAttributes.indexOf(k) !== -1; });
-        optionKeys.forEach(function (k) { options[k] = changes[k].currentValue; });
-        this._mapsWrapper.setMapOptions(options);
-    };
-    /**
-     * Triggers a resize event on the google map instance.
-     * When recenter is true, the of the google map gets called with the current lat/lng values or fitBounds value to recenter the map.
-     * Returns a promise that gets resolved after the event was triggered.
-     */
-    /**
-       * Triggers a resize event on the google map instance.
-       * When recenter is true, the of the google map gets called with the current lat/lng values or fitBounds value to recenter the map.
-       * Returns a promise that gets resolved after the event was triggered.
-       */
-    AgmMap.prototype.triggerResize = /**
-       * Triggers a resize event on the google map instance.
-       * When recenter is true, the of the google map gets called with the current lat/lng values or fitBounds value to recenter the map.
-       * Returns a promise that gets resolved after the event was triggered.
-       */
-    function (recenter) {
-        var _this = this;
-        if (recenter === void 0) { recenter = true; }
-        // Note: When we would trigger the resize event and show the map in the same turn (which is a
-        // common case for triggering a resize event), then the resize event would not
-        // work (to show the map), so we trigger the event in a timeout.
-        return new Promise(function (resolve) {
-            setTimeout(function () {
-                return _this._mapsWrapper.triggerMapEvent('resize').then(function () {
-                    if (recenter) {
-                        _this.fitBounds != null ? _this._fitBounds() : _this._setCenter();
-                    }
-                    resolve();
-                });
-            });
-        });
-    };
-    AgmMap.prototype._updatePosition = function (changes) {
-        if (changes['latitude'] == null && changes['longitude'] == null &&
-            changes['fitBounds'] == null) {
-            // no position update needed
-            return;
-        }
-        // we prefer fitBounds in changes
-        if (changes['fitBounds'] && this.fitBounds != null) {
-            this._fitBounds();
-            return;
-        }
-        if (typeof this.latitude !== 'number' || typeof this.longitude !== 'number') {
-            return;
-        }
-        this._setCenter();
-    };
-    AgmMap.prototype._setCenter = function () {
-        var newCenter = {
-            lat: this.latitude,
-            lng: this.longitude,
-        };
-        if (this.usePanning) {
-            this._mapsWrapper.panTo(newCenter);
-        }
-        else {
-            this._mapsWrapper.setCenter(newCenter);
-        }
-    };
-    AgmMap.prototype._fitBounds = function () {
-        if (this.usePanning) {
-            this._mapsWrapper.panToBounds(this.fitBounds);
-            return;
-        }
-        this._mapsWrapper.fitBounds(this.fitBounds);
-    };
-    AgmMap.prototype._handleMapCenterChange = function () {
-        var _this = this;
-        var s = this._mapsWrapper.subscribeToMapEvent('center_changed').subscribe(function () {
-            _this._mapsWrapper.getCenter().then(function (center) {
-                _this.latitude = center.lat();
-                _this.longitude = center.lng();
-                _this.centerChange.emit({ lat: _this.latitude, lng: _this.longitude });
-            });
-        });
-        this._observableSubscriptions.push(s);
-    };
-    AgmMap.prototype._handleBoundsChange = function () {
-        var _this = this;
-        var s = this._mapsWrapper.subscribeToMapEvent('bounds_changed').subscribe(function () {
-            _this._mapsWrapper.getBounds().then(function (bounds) { _this.boundsChange.emit(bounds); });
-        });
-        this._observableSubscriptions.push(s);
-    };
-    AgmMap.prototype._handleMapTypeIdChange = function () {
-        var _this = this;
-        var s = this._mapsWrapper.subscribeToMapEvent('maptypeid_changed').subscribe(function () {
-            _this._mapsWrapper.getMapTypeId().then(function (mapTypeId) { _this.mapTypeIdChange.emit(mapTypeId); });
-        });
-        this._observableSubscriptions.push(s);
-    };
-    AgmMap.prototype._handleMapZoomChange = function () {
-        var _this = this;
-        var s = this._mapsWrapper.subscribeToMapEvent('zoom_changed').subscribe(function () {
-            _this._mapsWrapper.getZoom().then(function (z) {
-                _this.zoom = z;
-                _this.zoomChange.emit(z);
-            });
-        });
-        this._observableSubscriptions.push(s);
-    };
-    AgmMap.prototype._handleIdleEvent = function () {
-        var _this = this;
-        var s = this._mapsWrapper.subscribeToMapEvent('idle').subscribe(function () { _this.idle.emit(void 0); });
-        this._observableSubscriptions.push(s);
-    };
-    AgmMap.prototype._handleMapMouseEvents = function () {
-        var _this = this;
-        var events = [
-            { name: 'click', emitter: this.mapClick },
-            { name: 'rightclick', emitter: this.mapRightClick },
-            { name: 'dblclick', emitter: this.mapDblClick },
-        ];
-        events.forEach(function (e) {
-            var s = _this._mapsWrapper.subscribeToMapEvent(e.name).subscribe(function (event) {
-                var value = { coords: { lat: event.latLng.lat(), lng: event.latLng.lng() } };
-                e.emitter.emit(value);
-            });
-            _this._observableSubscriptions.push(s);
-        });
-    };
-    /**
-       * Map option attributes that can change over time
-       */
-    AgmMap._mapOptionsAttributes = [
-        'disableDoubleClickZoom', 'scrollwheel', 'draggable', 'draggableCursor', 'draggingCursor',
-        'keyboardShortcuts', 'zoomControl', 'zoomControlOptions', 'styles', 'streetViewControl',
-        'streetViewControlOptions', 'zoom', 'mapTypeControl', 'mapTypeControlOptions', 'minZoom',
-        'maxZoom', 'panControl', 'panControlOptions', 'rotateControl', 'rotateControlOptions',
-        'fullscreenControl', 'fullscreenControlOptions', 'scaleControl', 'scaleControlOptions',
-        'mapTypeId', 'clickableIcons', 'gestureHandling'
-    ];
-    AgmMap.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
-                    selector: 'agm-map',
-                    providers: [
-                        _services_google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_1__["GoogleMapsAPIWrapper"], _services_managers_marker_manager__WEBPACK_IMPORTED_MODULE_4__["MarkerManager"], _services_managers_info_window_manager__WEBPACK_IMPORTED_MODULE_3__["InfoWindowManager"], _services_managers_circle_manager__WEBPACK_IMPORTED_MODULE_2__["CircleManager"], _services_managers_polyline_manager__WEBPACK_IMPORTED_MODULE_6__["PolylineManager"],
-                        _services_managers_polygon_manager__WEBPACK_IMPORTED_MODULE_5__["PolygonManager"], _services_managers_kml_layer_manager__WEBPACK_IMPORTED_MODULE_7__["KmlLayerManager"], _services_managers_data_layer_manager__WEBPACK_IMPORTED_MODULE_8__["DataLayerManager"]
-                    ],
-                    host: {
-                        // todo: deprecated - we will remove it with the next version
-                        '[class.sebm-google-map-container]': 'true'
-                    },
-                    styles: ["\n    .agm-map-container-inner {\n      width: inherit;\n      height: inherit;\n    }\n    .agm-map-content {\n      display:none;\n    }\n  "],
-                    template: "\n    <div class='agm-map-container-inner sebm-google-map-container-inner'></div>\n    <div class='agm-map-content'>\n      <ng-content></ng-content>\n    </div>\n  "
-                },] },
-    ];
-    /** @nocollapse */
-    AgmMap.ctorParameters = function () { return [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"], },
-        { type: _services_google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_1__["GoogleMapsAPIWrapper"], },
-    ]; };
-    AgmMap.propDecorators = {
-        "longitude": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "latitude": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "zoom": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "minZoom": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "maxZoom": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "draggable": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: ['mapDraggable',] },],
-        "disableDoubleClickZoom": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "disableDefaultUI": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "scrollwheel": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "backgroundColor": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "draggableCursor": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "draggingCursor": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "keyboardShortcuts": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "zoomControl": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "zoomControlOptions": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "styles": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "usePanning": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "streetViewControl": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "streetViewControlOptions": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "fitBounds": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "scaleControl": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "scaleControlOptions": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "mapTypeControl": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "mapTypeControlOptions": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "panControl": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "panControlOptions": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "rotateControl": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "rotateControlOptions": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "fullscreenControl": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "fullscreenControlOptions": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "mapTypeId": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "clickableIcons": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "gestureHandling": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "mapClick": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "mapRightClick": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "mapDblClick": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "centerChange": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "boundsChange": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "mapTypeIdChange": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "idle": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "zoomChange": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "mapReady": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-    };
-    return AgmMap;
-}());
-
-//# sourceMappingURL=map.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/directives/marker.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/@agm/core/directives/marker.js ***!
-  \*****************************************************/
-/*! exports provided: AgmMarker */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmMarker", function() { return AgmMarker; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_managers_marker_manager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/managers/marker-manager */ "./node_modules/@agm/core/services/managers/marker-manager.js");
-/* harmony import */ var _info_window__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./info-window */ "./node_modules/@agm/core/directives/info-window.js");
-
-
-
-var markerId = 0;
-/**
- * AgmMarker renders a map marker inside a {@link AgmMap}.
- *
- * ### Example
- * ```typescript
- * import { Component } from '@angular/core';
- *
- * @Component({
- *  selector: 'my-map-cmp',
- *  styles: [`
- *    .agm-map-container {
- *      height: 300px;
- *    }
- * `],
- *  template: `
- *    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
- *      <agm-marker [latitude]="lat" [longitude]="lng" [label]="'M'">
- *      </agm-marker>
- *    </agm-map>
- *  `
- * })
- * ```
- */
-var AgmMarker = /** @class */ (function () {
-    function AgmMarker(_markerManager) {
-        this._markerManager = _markerManager;
-        /**
-           * If true, the marker can be dragged. Default value is false.
-           */
-        // tslint:disable-next-line:no-input-rename
-        this.draggable = false;
-        /**
-           * If true, the marker is visible
-           */
-        this.visible = true;
-        /**
-           * Whether to automatically open the child info window when the marker is clicked.
-           */
-        this.openInfoWindow = true;
-        /**
-           * The marker's opacity between 0.0 and 1.0.
-           */
-        this.opacity = 1;
-        /**
-           * All markers are displayed on the map in order of their zIndex, with higher values displaying in
-           * front of markers with lower values. By default, markers are displayed according to their
-           * vertical position on screen, with lower markers appearing in front of markers further up the
-           * screen.
-           */
-        this.zIndex = 1;
-        /**
-           * If true, the marker can be clicked. Default value is true.
-           */
-        // tslint:disable-next-line:no-input-rename
-        this.clickable = true;
-        /**
-           * This event emitter gets emitted when the user clicks on the marker.
-           */
-        this.markerClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the user stops dragging the marker.
-           */
-        this.dragEnd = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the user mouses over the marker.
-           */
-        this.mouseOver = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the user mouses outside the marker.
-           */
-        this.mouseOut = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * @internal
-           */
-        this.infoWindow = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["QueryList"]();
-        this._markerAddedToManger = false;
-        this._observableSubscriptions = [];
-        this._id = (markerId++).toString();
-    }
-    /* @internal */
-    /* @internal */
-    AgmMarker.prototype.ngAfterContentInit = /* @internal */
-    function () {
-        var _this = this;
-        this.handleInfoWindowUpdate();
-        this.infoWindow.changes.subscribe(function () { return _this.handleInfoWindowUpdate(); });
-    };
-    AgmMarker.prototype.handleInfoWindowUpdate = function () {
-        var _this = this;
-        if (this.infoWindow.length > 1) {
-            throw new Error('Expected no more than one info window.');
-        }
-        this.infoWindow.forEach(function (marker) {
-            marker.hostMarker = _this;
-        });
-    };
-    /** @internal */
-    /** @internal */
-    AgmMarker.prototype.ngOnChanges = /** @internal */
-    function (changes) {
-        if (typeof this.latitude !== 'number' || typeof this.longitude !== 'number') {
-            return;
-        }
-        if (!this._markerAddedToManger) {
-            this._markerManager.addMarker(this);
-            this._markerAddedToManger = true;
-            this._addEventListeners();
-            return;
-        }
-        if (changes['latitude'] || changes['longitude']) {
-            this._markerManager.updateMarkerPosition(this);
-        }
-        if (changes['title']) {
-            this._markerManager.updateTitle(this);
-        }
-        if (changes['label']) {
-            this._markerManager.updateLabel(this);
-        }
-        if (changes['draggable']) {
-            this._markerManager.updateDraggable(this);
-        }
-        if (changes['iconUrl']) {
-            this._markerManager.updateIcon(this);
-        }
-        if (changes['opacity']) {
-            this._markerManager.updateOpacity(this);
-        }
-        if (changes['visible']) {
-            this._markerManager.updateVisible(this);
-        }
-        if (changes['zIndex']) {
-            this._markerManager.updateZIndex(this);
-        }
-        if (changes['clickable']) {
-            this._markerManager.updateClickable(this);
-        }
-        if (changes['animation']) {
-            this._markerManager.updateAnimation(this);
-        }
-    };
-    AgmMarker.prototype._addEventListeners = function () {
-        var _this = this;
-        var cs = this._markerManager.createEventObservable('click', this).subscribe(function () {
-            if (_this.openInfoWindow) {
-                _this.infoWindow.forEach(function (infoWindow) { return infoWindow.open(); });
-            }
-            _this.markerClick.emit(null);
-        });
-        this._observableSubscriptions.push(cs);
-        var ds = this._markerManager.createEventObservable('dragend', this)
-            .subscribe(function (e) {
-            _this.dragEnd.emit({ coords: { lat: e.latLng.lat(), lng: e.latLng.lng() } });
-        });
-        this._observableSubscriptions.push(ds);
-        var mover = this._markerManager.createEventObservable('mouseover', this)
-            .subscribe(function (e) {
-            _this.mouseOver.emit({ coords: { lat: e.latLng.lat(), lng: e.latLng.lng() } });
-        });
-        this._observableSubscriptions.push(mover);
-        var mout = this._markerManager.createEventObservable('mouseout', this)
-            .subscribe(function (e) {
-            _this.mouseOut.emit({ coords: { lat: e.latLng.lat(), lng: e.latLng.lng() } });
-        });
-        this._observableSubscriptions.push(mout);
-    };
-    /** @internal */
-    /** @internal */
-    AgmMarker.prototype.id = /** @internal */
-    function () { return this._id; };
-    /** @internal */
-    /** @internal */
-    AgmMarker.prototype.toString = /** @internal */
-    function () { return 'AgmMarker-' + this._id.toString(); };
-    /** @internal */
-    /** @internal */
-    AgmMarker.prototype.ngOnDestroy = /** @internal */
-    function () {
-        this._markerManager.deleteMarker(this);
-        // unsubscribe all registered observable subscriptions
-        this._observableSubscriptions.forEach(function (s) { return s.unsubscribe(); });
-    };
-    AgmMarker.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{
-                    selector: 'agm-marker',
-                    inputs: [
-                        'latitude', 'longitude', 'title', 'label', 'draggable: markerDraggable', 'iconUrl',
-                        'openInfoWindow', 'opacity', 'visible', 'zIndex', 'animation'
-                    ],
-                    outputs: ['markerClick', 'dragEnd', 'mouseOver', 'mouseOut']
-                },] },
-    ];
-    /** @nocollapse */
-    AgmMarker.ctorParameters = function () { return [
-        { type: _services_managers_marker_manager__WEBPACK_IMPORTED_MODULE_1__["MarkerManager"], },
-    ]; };
-    AgmMarker.propDecorators = {
-        "latitude": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "longitude": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "title": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "label": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "draggable": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: ['markerDraggable',] },],
-        "iconUrl": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "visible": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "openInfoWindow": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "opacity": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "zIndex": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "clickable": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: ['markerClickable',] },],
-        "markerClick": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "dragEnd": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "mouseOver": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "mouseOut": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "infoWindow": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChildren"], args: [_info_window__WEBPACK_IMPORTED_MODULE_2__["AgmInfoWindow"],] },],
-    };
-    return AgmMarker;
-}());
-
-//# sourceMappingURL=marker.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/directives/polygon.js":
-/*!******************************************************!*\
-  !*** ./node_modules/@agm/core/directives/polygon.js ***!
-  \******************************************************/
-/*! exports provided: AgmPolygon */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmPolygon", function() { return AgmPolygon; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_managers_polygon_manager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/managers/polygon-manager */ "./node_modules/@agm/core/services/managers/polygon-manager.js");
-
-
-/**
- * AgmPolygon renders a polygon on a {@link AgmMap}
- *
- * ### Example
- * ```typescript
- * import { Component } from '@angular/core';
- *
- * @Component({
- *  selector: 'my-map-cmp',
- *  styles: [`
- *    agm-map {
- *      height: 300px;
- *    }
- * `],
- *  template: `
- *    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
- *      <agm-polygon [paths]="paths">
- *      </agm-polygon>
- *    </agm-map>
- *  `
- * })
- * export class MyMapCmp {
- *   lat: number = 0;
- *   lng: number = 0;
- *   zoom: number = 10;
- *   paths: Array<LatLngLiteral> = [
- *     { lat: 0,  lng: 10 },
- *     { lat: 0,  lng: 20 },
- *     { lat: 10, lng: 20 },
- *     { lat: 10, lng: 10 },
- *     { lat: 0,  lng: 10 }
- *   ]
- *   // Nesting paths will create a hole where they overlap;
- *   nestedPaths: Array<Array<LatLngLiteral>> = [[
- *     { lat: 0,  lng: 10 },
- *     { lat: 0,  lng: 20 },
- *     { lat: 10, lng: 20 },
- *     { lat: 10, lng: 10 },
- *     { lat: 0,  lng: 10 }
- *   ], [
- *     { lat: 0, lng: 15 },
- *     { lat: 0, lng: 20 },
- *     { lat: 5, lng: 20 },
- *     { lat: 5, lng: 15 },
- *     { lat: 0, lng: 15 }
- *   ]]
- * }
- * ```
- */
-var AgmPolygon = /** @class */ (function () {
-    function AgmPolygon(_polygonManager) {
-        this._polygonManager = _polygonManager;
-        /**
-           * Indicates whether this Polygon handles mouse events. Defaults to true.
-           */
-        this.clickable = true;
-        /**
-           * If set to true, the user can drag this shape over the map. The geodesic
-           * property defines the mode of dragging. Defaults to false.
-           */
-        // tslint:disable-next-line:no-input-rename
-        this.draggable = false;
-        /**
-           * If set to true, the user can edit this shape by dragging the control
-           * points shown at the vertices and on each segment. Defaults to false.
-           */
-        this.editable = false;
-        /**
-           * When true, edges of the polygon are interpreted as geodesic and will
-           * follow the curvature of the Earth. When false, edges of the polygon are
-           * rendered as straight lines in screen space. Note that the shape of a
-           * geodesic polygon may appear to change when dragged, as the dimensions
-           * are maintained relative to the surface of the earth. Defaults to false.
-           */
-        this.geodesic = false;
-        /**
-           * The ordered sequence of coordinates that designates a closed loop.
-           * Unlike polylines, a polygon may consist of one or more paths.
-           *  As a result, the paths property may specify one or more arrays of
-           * LatLng coordinates. Paths are closed automatically; do not repeat the
-           * first vertex of the path as the last vertex. Simple polygons may be
-           * defined using a single array of LatLngs. More complex polygons may
-           * specify an array of arrays. Any simple arrays are converted into Arrays.
-           * Inserting or removing LatLngs from the Array will automatically update
-           * the polygon on the map.
-           */
-        this.paths = [];
-        /**
-           * This event is fired when the DOM click event is fired on the Polygon.
-           */
-        this.polyClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the DOM dblclick event is fired on the Polygon.
-           */
-        this.polyDblClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is repeatedly fired while the user drags the polygon.
-           */
-        this.polyDrag = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the user stops dragging the polygon.
-           */
-        this.polyDragEnd = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the user starts dragging the polygon.
-           */
-        this.polyDragStart = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the DOM mousedown event is fired on the Polygon.
-           */
-        this.polyMouseDown = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the DOM mousemove event is fired on the Polygon.
-           */
-        this.polyMouseMove = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired on Polygon mouseout.
-           */
-        this.polyMouseOut = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired on Polygon mouseover.
-           */
-        this.polyMouseOver = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired whe the DOM mouseup event is fired on the Polygon
-           */
-        this.polyMouseUp = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This even is fired when the Polygon is right-clicked on.
-           */
-        this.polyRightClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this._polygonAddedToManager = false;
-        this._subscriptions = [];
-    }
-    /** @internal */
-    /** @internal */
-    AgmPolygon.prototype.ngAfterContentInit = /** @internal */
-    function () {
-        if (!this._polygonAddedToManager) {
-            this._init();
-        }
-    };
-    AgmPolygon.prototype.ngOnChanges = function (changes) {
-        if (!this._polygonAddedToManager) {
-            this._init();
-            return;
-        }
-        this._polygonManager.setPolygonOptions(this, this._updatePolygonOptions(changes));
-    };
-    AgmPolygon.prototype._init = function () {
-        this._polygonManager.addPolygon(this);
-        this._polygonAddedToManager = true;
-        this._addEventListeners();
-    };
-    AgmPolygon.prototype._addEventListeners = function () {
-        var _this = this;
-        var handlers = [
-            { name: 'click', handler: function (ev) { return _this.polyClick.emit(ev); } },
-            { name: 'dbclick', handler: function (ev) { return _this.polyDblClick.emit(ev); } },
-            { name: 'drag', handler: function (ev) { return _this.polyDrag.emit(ev); } },
-            { name: 'dragend', handler: function (ev) { return _this.polyDragEnd.emit(ev); } },
-            { name: 'dragstart', handler: function (ev) { return _this.polyDragStart.emit(ev); } },
-            { name: 'mousedown', handler: function (ev) { return _this.polyMouseDown.emit(ev); } },
-            { name: 'mousemove', handler: function (ev) { return _this.polyMouseMove.emit(ev); } },
-            { name: 'mouseout', handler: function (ev) { return _this.polyMouseOut.emit(ev); } },
-            { name: 'mouseover', handler: function (ev) { return _this.polyMouseOver.emit(ev); } },
-            { name: 'mouseup', handler: function (ev) { return _this.polyMouseUp.emit(ev); } },
-            { name: 'rightclick', handler: function (ev) { return _this.polyRightClick.emit(ev); } },
-        ];
-        handlers.forEach(function (obj) {
-            var os = _this._polygonManager.createEventObservable(obj.name, _this).subscribe(obj.handler);
-            _this._subscriptions.push(os);
-        });
-    };
-    AgmPolygon.prototype._updatePolygonOptions = function (changes) {
-        return Object.keys(changes)
-            .filter(function (k) { return AgmPolygon._polygonOptionsAttributes.indexOf(k) !== -1; })
-            .reduce(function (obj, k) {
-            obj[k] = changes[k].currentValue;
-            return obj;
-        }, {});
-    };
-    /** @internal */
-    /** @internal */
-    AgmPolygon.prototype.id = /** @internal */
-    function () { return this._id; };
-    /** @internal */
-    /** @internal */
-    AgmPolygon.prototype.ngOnDestroy = /** @internal */
-    function () {
-        this._polygonManager.deletePolygon(this);
-        // unsubscribe all registered observable subscriptions
-        this._subscriptions.forEach(function (s) { return s.unsubscribe(); });
-    };
-    AgmPolygon._polygonOptionsAttributes = [
-        'clickable', 'draggable', 'editable', 'fillColor', 'fillOpacity', 'geodesic', 'icon', 'map',
-        'paths', 'strokeColor', 'strokeOpacity', 'strokeWeight', 'visible', 'zIndex', 'draggable',
-        'editable', 'visible'
-    ];
-    AgmPolygon.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{
-                    selector: 'agm-polygon'
-                },] },
-    ];
-    /** @nocollapse */
-    AgmPolygon.ctorParameters = function () { return [
-        { type: _services_managers_polygon_manager__WEBPACK_IMPORTED_MODULE_1__["PolygonManager"], },
-    ]; };
-    AgmPolygon.propDecorators = {
-        "clickable": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "draggable": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: ['polyDraggable',] },],
-        "editable": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "fillColor": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "fillOpacity": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "geodesic": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "paths": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "strokeColor": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "strokeOpacity": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "strokeWeight": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "visible": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "zIndex": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "polyClick": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "polyDblClick": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "polyDrag": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "polyDragEnd": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "polyDragStart": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "polyMouseDown": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "polyMouseMove": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "polyMouseOut": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "polyMouseOver": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "polyMouseUp": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "polyRightClick": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-    };
-    return AgmPolygon;
-}());
-
-//# sourceMappingURL=polygon.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/directives/polyline-point.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/@agm/core/directives/polyline-point.js ***!
-  \*************************************************************/
-/*! exports provided: AgmPolylinePoint */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmPolylinePoint", function() { return AgmPolylinePoint; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-/**
- * AgmPolylinePoint represents one element of a polyline within a  {@link
- * SembGoogleMapPolyline}
- */
-var AgmPolylinePoint = /** @class */ (function () {
-    function AgmPolylinePoint() {
-        /**
-           * This event emitter gets emitted when the position of the point changed.
-           */
-        this.positionChanged = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-    }
-    AgmPolylinePoint.prototype.ngOnChanges = function (changes) {
-        if (changes['latitude'] || changes['longitude']) {
-            var position = {
-                lat: changes['latitude'].currentValue,
-                lng: changes['longitude'].currentValue
-            };
-            this.positionChanged.emit(position);
-        }
-    };
-    AgmPolylinePoint.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{ selector: 'agm-polyline-point' },] },
-    ];
-    /** @nocollapse */
-    AgmPolylinePoint.ctorParameters = function () { return []; };
-    AgmPolylinePoint.propDecorators = {
-        "latitude": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "longitude": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "positionChanged": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-    };
-    return AgmPolylinePoint;
-}());
-
-//# sourceMappingURL=polyline-point.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/directives/polyline.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/@agm/core/directives/polyline.js ***!
-  \*******************************************************/
-/*! exports provided: AgmPolyline */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmPolyline", function() { return AgmPolyline; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _services_managers_polyline_manager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/managers/polyline-manager */ "./node_modules/@agm/core/services/managers/polyline-manager.js");
-/* harmony import */ var _polyline_point__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./polyline-point */ "./node_modules/@agm/core/directives/polyline-point.js");
-
-
-
-var polylineId = 0;
-/**
- * AgmPolyline renders a polyline on a {@link AgmMap}
- *
- * ### Example
- * ```typescript
- * import { Component } from '@angular/core';
- *
- * @Component({
- *  selector: 'my-map-cmp',
- *  styles: [`
- *    .agm-map-container {
- *      height: 300px;
- *    }
- * `],
- *  template: `
- *    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
- *      <agm-polyline>
- *          <agm-polyline-point [latitude]="latA" [longitude]="lngA">
- *          </agm-polyline-point>
- *          <agm-polyline-point [latitude]="latB" [longitude]="lngB">
- *          </agm-polyline-point>
- *      </agm-polyline>
- *    </agm-map>
- *  `
- * })
- * ```
- */
-var AgmPolyline = /** @class */ (function () {
-    function AgmPolyline(_polylineManager) {
-        this._polylineManager = _polylineManager;
-        /**
-           * Indicates whether this Polyline handles mouse events. Defaults to true.
-           */
-        this.clickable = true;
-        /**
-           * If set to true, the user can drag this shape over the map. The geodesic property defines the
-           * mode of dragging. Defaults to false.
-           */
-        // tslint:disable-next-line:no-input-rename
-        this.draggable = false;
-        /**
-           * If set to true, the user can edit this shape by dragging the control points shown at the
-           * vertices and on each segment. Defaults to false.
-           */
-        this.editable = false;
-        /**
-           * When true, edges of the polygon are interpreted as geodesic and will follow the curvature of
-           * the Earth. When false, edges of the polygon are rendered as straight lines in screen space.
-           * Note that the shape of a geodesic polygon may appear to change when dragged, as the dimensions
-           * are maintained relative to the surface of the earth. Defaults to false.
-           */
-        this.geodesic = false;
-        /**
-           * Whether this polyline is visible on the map. Defaults to true.
-           */
-        this.visible = true;
-        /**
-           * This event is fired when the DOM click event is fired on the Polyline.
-           */
-        this.lineClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the DOM dblclick event is fired on the Polyline.
-           */
-        this.lineDblClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is repeatedly fired while the user drags the polyline.
-           */
-        this.lineDrag = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the user stops dragging the polyline.
-           */
-        this.lineDragEnd = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the user starts dragging the polyline.
-           */
-        this.lineDragStart = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the DOM mousedown event is fired on the Polyline.
-           */
-        this.lineMouseDown = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired when the DOM mousemove event is fired on the Polyline.
-           */
-        this.lineMouseMove = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired on Polyline mouseout.
-           */
-        this.lineMouseOut = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired on Polyline mouseover.
-           */
-        this.lineMouseOver = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This event is fired whe the DOM mouseup event is fired on the Polyline
-           */
-        this.lineMouseUp = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-           * This even is fired when the Polyline is right-clicked on.
-           */
-        this.lineRightClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this._polylineAddedToManager = false;
-        this._subscriptions = [];
-        this._id = (polylineId++).toString();
-    }
-    /** @internal */
-    /** @internal */
-    AgmPolyline.prototype.ngAfterContentInit = /** @internal */
-    function () {
-        var _this = this;
-        if (this.points.length) {
-            this.points.forEach(function (point) {
-                var s = point.positionChanged.subscribe(function () { _this._polylineManager.updatePolylinePoints(_this); });
-                _this._subscriptions.push(s);
-            });
-        }
-        if (!this._polylineAddedToManager) {
-            this._init();
-        }
-        var s = this.points.changes.subscribe(function () { return _this._polylineManager.updatePolylinePoints(_this); });
-        this._subscriptions.push(s);
-        this._polylineManager.updatePolylinePoints(this);
-    };
-    AgmPolyline.prototype.ngOnChanges = function (changes) {
-        if (!this._polylineAddedToManager) {
-            this._init();
-            return;
-        }
-        var options = {};
-        var optionKeys = Object.keys(changes).filter(function (k) { return AgmPolyline._polylineOptionsAttributes.indexOf(k) !== -1; });
-        optionKeys.forEach(function (k) { return options[k] = changes[k].currentValue; });
-        this._polylineManager.setPolylineOptions(this, options);
-    };
-    AgmPolyline.prototype._init = function () {
-        this._polylineManager.addPolyline(this);
-        this._polylineAddedToManager = true;
-        this._addEventListeners();
-    };
-    AgmPolyline.prototype._addEventListeners = function () {
-        var _this = this;
-        var handlers = [
-            { name: 'click', handler: function (ev) { return _this.lineClick.emit(ev); } },
-            { name: 'dblclick', handler: function (ev) { return _this.lineDblClick.emit(ev); } },
-            { name: 'drag', handler: function (ev) { return _this.lineDrag.emit(ev); } },
-            { name: 'dragend', handler: function (ev) { return _this.lineDragEnd.emit(ev); } },
-            { name: 'dragstart', handler: function (ev) { return _this.lineDragStart.emit(ev); } },
-            { name: 'mousedown', handler: function (ev) { return _this.lineMouseDown.emit(ev); } },
-            { name: 'mousemove', handler: function (ev) { return _this.lineMouseMove.emit(ev); } },
-            { name: 'mouseout', handler: function (ev) { return _this.lineMouseOut.emit(ev); } },
-            { name: 'mouseover', handler: function (ev) { return _this.lineMouseOver.emit(ev); } },
-            { name: 'mouseup', handler: function (ev) { return _this.lineMouseUp.emit(ev); } },
-            { name: 'rightclick', handler: function (ev) { return _this.lineRightClick.emit(ev); } },
-        ];
-        handlers.forEach(function (obj) {
-            var os = _this._polylineManager.createEventObservable(obj.name, _this).subscribe(obj.handler);
-            _this._subscriptions.push(os);
-        });
-    };
-    /** @internal */
-    /** @internal */
-    AgmPolyline.prototype._getPoints = /** @internal */
-    function () {
-        if (this.points) {
-            return this.points.toArray();
-        }
-        return [];
-    };
-    /** @internal */
-    /** @internal */
-    AgmPolyline.prototype.id = /** @internal */
-    function () { return this._id; };
-    /** @internal */
-    /** @internal */
-    AgmPolyline.prototype.ngOnDestroy = /** @internal */
-    function () {
-        this._polylineManager.deletePolyline(this);
-        // unsubscribe all registered observable subscriptions
-        this._subscriptions.forEach(function (s) { return s.unsubscribe(); });
-    };
-    AgmPolyline._polylineOptionsAttributes = [
-        'draggable', 'editable', 'visible', 'geodesic', 'strokeColor', 'strokeOpacity', 'strokeWeight',
-        'zIndex'
-    ];
-    AgmPolyline.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{
-                    selector: 'agm-polyline'
-                },] },
-    ];
-    /** @nocollapse */
-    AgmPolyline.ctorParameters = function () { return [
-        { type: _services_managers_polyline_manager__WEBPACK_IMPORTED_MODULE_1__["PolylineManager"], },
-    ]; };
-    AgmPolyline.propDecorators = {
-        "clickable": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "draggable": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: ['polylineDraggable',] },],
-        "editable": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "geodesic": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "strokeColor": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "strokeOpacity": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "strokeWeight": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "visible": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "zIndex": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-        "lineClick": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "lineDblClick": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "lineDrag": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "lineDragEnd": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "lineDragStart": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "lineMouseDown": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "lineMouseMove": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "lineMouseOut": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "lineMouseOver": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "lineMouseUp": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "lineRightClick": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-        "points": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChildren"], args: [_polyline_point__WEBPACK_IMPORTED_MODULE_2__["AgmPolylinePoint"],] },],
-    };
-    return AgmPolyline;
-}());
-
-//# sourceMappingURL=polyline.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/index.js":
-/*!*****************************************!*\
-  !*** ./node_modules/@agm/core/index.js ***!
-  \*****************************************/
-/*! exports provided: AgmCoreModule, AgmMap, AgmCircle, AgmInfoWindow, AgmKmlLayer, AgmDataLayer, AgmMarker, AgmPolygon, AgmPolyline, AgmPolylinePoint, GoogleMapsAPIWrapper, CircleManager, InfoWindowManager, MarkerManager, PolygonManager, PolylineManager, KmlLayerManager, DataLayerManager, GoogleMapsScriptProtocol, LAZY_MAPS_API_CONFIG, LazyMapsAPILoader, MapsAPILoader, NoOpMapsAPILoader */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _directives__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./directives */ "./node_modules/@agm/core/directives.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmMap", function() { return _directives__WEBPACK_IMPORTED_MODULE_0__["AgmMap"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmCircle", function() { return _directives__WEBPACK_IMPORTED_MODULE_0__["AgmCircle"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmInfoWindow", function() { return _directives__WEBPACK_IMPORTED_MODULE_0__["AgmInfoWindow"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmKmlLayer", function() { return _directives__WEBPACK_IMPORTED_MODULE_0__["AgmKmlLayer"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmDataLayer", function() { return _directives__WEBPACK_IMPORTED_MODULE_0__["AgmDataLayer"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmMarker", function() { return _directives__WEBPACK_IMPORTED_MODULE_0__["AgmMarker"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmPolygon", function() { return _directives__WEBPACK_IMPORTED_MODULE_0__["AgmPolygon"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmPolyline", function() { return _directives__WEBPACK_IMPORTED_MODULE_0__["AgmPolyline"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmPolylinePoint", function() { return _directives__WEBPACK_IMPORTED_MODULE_0__["AgmPolylinePoint"]; });
-
-/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services */ "./node_modules/@agm/core/services.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GoogleMapsAPIWrapper", function() { return _services__WEBPACK_IMPORTED_MODULE_1__["GoogleMapsAPIWrapper"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CircleManager", function() { return _services__WEBPACK_IMPORTED_MODULE_1__["CircleManager"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "InfoWindowManager", function() { return _services__WEBPACK_IMPORTED_MODULE_1__["InfoWindowManager"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MarkerManager", function() { return _services__WEBPACK_IMPORTED_MODULE_1__["MarkerManager"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PolygonManager", function() { return _services__WEBPACK_IMPORTED_MODULE_1__["PolygonManager"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PolylineManager", function() { return _services__WEBPACK_IMPORTED_MODULE_1__["PolylineManager"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "KmlLayerManager", function() { return _services__WEBPACK_IMPORTED_MODULE_1__["KmlLayerManager"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DataLayerManager", function() { return _services__WEBPACK_IMPORTED_MODULE_1__["DataLayerManager"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GoogleMapsScriptProtocol", function() { return _services__WEBPACK_IMPORTED_MODULE_1__["GoogleMapsScriptProtocol"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LAZY_MAPS_API_CONFIG", function() { return _services__WEBPACK_IMPORTED_MODULE_1__["LAZY_MAPS_API_CONFIG"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LazyMapsAPILoader", function() { return _services__WEBPACK_IMPORTED_MODULE_1__["LazyMapsAPILoader"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MapsAPILoader", function() { return _services__WEBPACK_IMPORTED_MODULE_1__["MapsAPILoader"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NoOpMapsAPILoader", function() { return _services__WEBPACK_IMPORTED_MODULE_1__["NoOpMapsAPILoader"]; });
-
-/* harmony import */ var _core_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./core.module */ "./node_modules/@agm/core/core.module.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AgmCoreModule", function() { return _core_module__WEBPACK_IMPORTED_MODULE_2__["AgmCoreModule"]; });
-
-
-
-
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/services.js":
-/*!********************************************!*\
-  !*** ./node_modules/@agm/core/services.js ***!
-  \********************************************/
-/*! exports provided: GoogleMapsAPIWrapper, CircleManager, InfoWindowManager, MarkerManager, PolygonManager, PolylineManager, KmlLayerManager, DataLayerManager, GoogleMapsScriptProtocol, LAZY_MAPS_API_CONFIG, LazyMapsAPILoader, MapsAPILoader, NoOpMapsAPILoader */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _services_google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./services/google-maps-api-wrapper */ "./node_modules/@agm/core/services/google-maps-api-wrapper.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GoogleMapsAPIWrapper", function() { return _services_google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_0__["GoogleMapsAPIWrapper"]; });
-
-/* harmony import */ var _services_managers_circle_manager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/managers/circle-manager */ "./node_modules/@agm/core/services/managers/circle-manager.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CircleManager", function() { return _services_managers_circle_manager__WEBPACK_IMPORTED_MODULE_1__["CircleManager"]; });
-
-/* harmony import */ var _services_managers_info_window_manager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/managers/info-window-manager */ "./node_modules/@agm/core/services/managers/info-window-manager.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "InfoWindowManager", function() { return _services_managers_info_window_manager__WEBPACK_IMPORTED_MODULE_2__["InfoWindowManager"]; });
-
-/* harmony import */ var _services_managers_marker_manager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/managers/marker-manager */ "./node_modules/@agm/core/services/managers/marker-manager.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MarkerManager", function() { return _services_managers_marker_manager__WEBPACK_IMPORTED_MODULE_3__["MarkerManager"]; });
-
-/* harmony import */ var _services_managers_polygon_manager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/managers/polygon-manager */ "./node_modules/@agm/core/services/managers/polygon-manager.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PolygonManager", function() { return _services_managers_polygon_manager__WEBPACK_IMPORTED_MODULE_4__["PolygonManager"]; });
-
-/* harmony import */ var _services_managers_polyline_manager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/managers/polyline-manager */ "./node_modules/@agm/core/services/managers/polyline-manager.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PolylineManager", function() { return _services_managers_polyline_manager__WEBPACK_IMPORTED_MODULE_5__["PolylineManager"]; });
-
-/* harmony import */ var _services_managers_kml_layer_manager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/managers/kml-layer-manager */ "./node_modules/@agm/core/services/managers/kml-layer-manager.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "KmlLayerManager", function() { return _services_managers_kml_layer_manager__WEBPACK_IMPORTED_MODULE_6__["KmlLayerManager"]; });
-
-/* harmony import */ var _services_managers_data_layer_manager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./services/managers/data-layer-manager */ "./node_modules/@agm/core/services/managers/data-layer-manager.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DataLayerManager", function() { return _services_managers_data_layer_manager__WEBPACK_IMPORTED_MODULE_7__["DataLayerManager"]; });
-
-/* harmony import */ var _services_maps_api_loader_lazy_maps_api_loader__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./services/maps-api-loader/lazy-maps-api-loader */ "./node_modules/@agm/core/services/maps-api-loader/lazy-maps-api-loader.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "GoogleMapsScriptProtocol", function() { return _services_maps_api_loader_lazy_maps_api_loader__WEBPACK_IMPORTED_MODULE_8__["GoogleMapsScriptProtocol"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LAZY_MAPS_API_CONFIG", function() { return _services_maps_api_loader_lazy_maps_api_loader__WEBPACK_IMPORTED_MODULE_8__["LAZY_MAPS_API_CONFIG"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LazyMapsAPILoader", function() { return _services_maps_api_loader_lazy_maps_api_loader__WEBPACK_IMPORTED_MODULE_8__["LazyMapsAPILoader"]; });
-
-/* harmony import */ var _services_maps_api_loader_maps_api_loader__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./services/maps-api-loader/maps-api-loader */ "./node_modules/@agm/core/services/maps-api-loader/maps-api-loader.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MapsAPILoader", function() { return _services_maps_api_loader_maps_api_loader__WEBPACK_IMPORTED_MODULE_9__["MapsAPILoader"]; });
-
-/* harmony import */ var _services_maps_api_loader_noop_maps_api_loader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./services/maps-api-loader/noop-maps-api-loader */ "./node_modules/@agm/core/services/maps-api-loader/noop-maps-api-loader.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "NoOpMapsAPILoader", function() { return _services_maps_api_loader_noop_maps_api_loader__WEBPACK_IMPORTED_MODULE_10__["NoOpMapsAPILoader"]; });
-
-
-
-
-
-
-
-
-
-
-
-
-//# sourceMappingURL=services.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/services/google-maps-api-wrapper.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@agm/core/services/google-maps-api-wrapper.js ***!
-  \********************************************************************/
-/*! exports provided: GoogleMapsAPIWrapper */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GoogleMapsAPIWrapper", function() { return GoogleMapsAPIWrapper; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _maps_api_loader_maps_api_loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./maps-api-loader/maps-api-loader */ "./node_modules/@agm/core/services/maps-api-loader/maps-api-loader.js");
-
-
-
-/**
- * Wrapper class that handles the communication with the Google Maps Javascript
- * API v3
- */
-var GoogleMapsAPIWrapper = /** @class */ (function () {
-    function GoogleMapsAPIWrapper(_loader, _zone) {
-        var _this = this;
-        this._loader = _loader;
-        this._zone = _zone;
-        this._map =
-            new Promise(function (resolve) { _this._mapResolver = resolve; });
-    }
-    GoogleMapsAPIWrapper.prototype.createMap = function (el, mapOptions) {
-        var _this = this;
-        return this._zone.runOutsideAngular(function () {
-            return _this._loader.load().then(function () {
-                var map = new google.maps.Map(el, mapOptions);
-                _this._mapResolver(map);
-                return;
-            });
-        });
-    };
-    GoogleMapsAPIWrapper.prototype.setMapOptions = function (options) {
-        this._map.then(function (m) { m.setOptions(options); });
-    };
-    /**
-     * Creates a google map marker with the map context
-     */
-    /**
-       * Creates a google map marker with the map context
-       */
-    GoogleMapsAPIWrapper.prototype.createMarker = /**
-       * Creates a google map marker with the map context
-       */
-    function (options, addToMap) {
-        if (options === void 0) { options = {}; }
-        if (addToMap === void 0) { addToMap = true; }
-        return this._map.then(function (map) {
-            if (addToMap) {
-                options.map = map;
-            }
-            return new google.maps.Marker(options);
-        });
-    };
-    GoogleMapsAPIWrapper.prototype.createInfoWindow = function (options) {
-        return this._map.then(function () { return new google.maps.InfoWindow(options); });
-    };
-    /**
-     * Creates a google.map.Circle for the current map.
-     */
-    /**
-       * Creates a google.map.Circle for the current map.
-       */
-    GoogleMapsAPIWrapper.prototype.createCircle = /**
-       * Creates a google.map.Circle for the current map.
-       */
-    function (options) {
-        return this._map.then(function (map) {
-            options.map = map;
-            return new google.maps.Circle(options);
-        });
-    };
-    GoogleMapsAPIWrapper.prototype.createPolyline = function (options) {
-        return this.getNativeMap().then(function (map) {
-            var line = new google.maps.Polyline(options);
-            line.setMap(map);
-            return line;
-        });
-    };
-    GoogleMapsAPIWrapper.prototype.createPolygon = function (options) {
-        return this.getNativeMap().then(function (map) {
-            var polygon = new google.maps.Polygon(options);
-            polygon.setMap(map);
-            return polygon;
-        });
-    };
-    /**
-     * Creates a new google.map.Data layer for the current map
-     */
-    /**
-       * Creates a new google.map.Data layer for the current map
-       */
-    GoogleMapsAPIWrapper.prototype.createDataLayer = /**
-       * Creates a new google.map.Data layer for the current map
-       */
-    function (options) {
-        return this._map.then(function (m) {
-            var data = new google.maps.Data(options);
-            data.setMap(m);
-            return data;
-        });
-    };
-    /**
-     * Determines if given coordinates are insite a Polygon path.
-     */
-    /**
-       * Determines if given coordinates are insite a Polygon path.
-       */
-    GoogleMapsAPIWrapper.prototype.containsLocation = /**
-       * Determines if given coordinates are insite a Polygon path.
-       */
-    function (latLng, polygon) {
-        return google.maps.geometry.poly.containsLocation(latLng, polygon);
-    };
-    GoogleMapsAPIWrapper.prototype.subscribeToMapEvent = function (eventName) {
-        var _this = this;
-        return new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (observer) {
-            _this._map.then(function (m) {
-                m.addListener(eventName, function (arg) { _this._zone.run(function () { return observer.next(arg); }); });
-            });
-        });
-    };
-    GoogleMapsAPIWrapper.prototype.clearInstanceListeners = function () {
-        this._map.then(function (map) {
-            google.maps.event.clearInstanceListeners(map);
-        });
-    };
-    GoogleMapsAPIWrapper.prototype.setCenter = function (latLng) {
-        return this._map.then(function (map) { return map.setCenter(latLng); });
-    };
-    GoogleMapsAPIWrapper.prototype.getZoom = function () { return this._map.then(function (map) { return map.getZoom(); }); };
-    GoogleMapsAPIWrapper.prototype.getBounds = function () {
-        return this._map.then(function (map) { return map.getBounds(); });
-    };
-    GoogleMapsAPIWrapper.prototype.getMapTypeId = function () {
-        return this._map.then(function (map) { return map.getMapTypeId(); });
-    };
-    GoogleMapsAPIWrapper.prototype.setZoom = function (zoom) {
-        return this._map.then(function (map) { return map.setZoom(zoom); });
-    };
-    GoogleMapsAPIWrapper.prototype.getCenter = function () {
-        return this._map.then(function (map) { return map.getCenter(); });
-    };
-    GoogleMapsAPIWrapper.prototype.panTo = function (latLng) {
-        return this._map.then(function (map) { return map.panTo(latLng); });
-    };
-    GoogleMapsAPIWrapper.prototype.panBy = function (x, y) {
-        return this._map.then(function (map) { return map.panBy(x, y); });
-    };
-    GoogleMapsAPIWrapper.prototype.fitBounds = function (latLng) {
-        return this._map.then(function (map) { return map.fitBounds(latLng); });
-    };
-    GoogleMapsAPIWrapper.prototype.panToBounds = function (latLng) {
-        return this._map.then(function (map) { return map.panToBounds(latLng); });
-    };
-    /**
-     * Returns the native Google Maps Map instance. Be careful when using this instance directly.
-     */
-    /**
-       * Returns the native Google Maps Map instance. Be careful when using this instance directly.
-       */
-    GoogleMapsAPIWrapper.prototype.getNativeMap = /**
-       * Returns the native Google Maps Map instance. Be careful when using this instance directly.
-       */
-    function () { return this._map; };
-    /**
-     * Triggers the given event name on the map instance.
-     */
-    /**
-       * Triggers the given event name on the map instance.
-       */
-    GoogleMapsAPIWrapper.prototype.triggerMapEvent = /**
-       * Triggers the given event name on the map instance.
-       */
-    function (eventName) {
-        return this._map.then(function (m) { return google.maps.event.trigger(m, eventName); });
-    };
-    GoogleMapsAPIWrapper.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] },
-    ];
-    /** @nocollapse */
-    GoogleMapsAPIWrapper.ctorParameters = function () { return [
-        { type: _maps_api_loader_maps_api_loader__WEBPACK_IMPORTED_MODULE_2__["MapsAPILoader"], },
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"], },
-    ]; };
-    return GoogleMapsAPIWrapper;
-}());
-
-//# sourceMappingURL=google-maps-api-wrapper.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/services/managers/circle-manager.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@agm/core/services/managers/circle-manager.js ***!
-  \********************************************************************/
-/*! exports provided: CircleManager */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CircleManager", function() { return CircleManager; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../google-maps-api-wrapper */ "./node_modules/@agm/core/services/google-maps-api-wrapper.js");
-
-
-
-var CircleManager = /** @class */ (function () {
-    function CircleManager(_apiWrapper, _zone) {
-        this._apiWrapper = _apiWrapper;
-        this._zone = _zone;
-        this._circles = new Map();
-    }
-    CircleManager.prototype.addCircle = function (circle) {
-        this._circles.set(circle, this._apiWrapper.createCircle({
-            center: { lat: circle.latitude, lng: circle.longitude },
-            clickable: circle.clickable,
-            draggable: circle.draggable,
-            editable: circle.editable,
-            fillColor: circle.fillColor,
-            fillOpacity: circle.fillOpacity,
-            radius: circle.radius,
-            strokeColor: circle.strokeColor,
-            strokeOpacity: circle.strokeOpacity,
-            strokePosition: circle.strokePosition,
-            strokeWeight: circle.strokeWeight,
-            visible: circle.visible,
-            zIndex: circle.zIndex
-        }));
-    };
-    /**
-     * Removes the given circle from the map.
-     */
-    /**
-       * Removes the given circle from the map.
-       */
-    CircleManager.prototype.removeCircle = /**
-       * Removes the given circle from the map.
-       */
-    function (circle) {
-        var _this = this;
-        return this._circles.get(circle).then(function (c) {
-            c.setMap(null);
-            _this._circles.delete(circle);
-        });
-    };
-    CircleManager.prototype.setOptions = function (circle, options) {
-        return this._circles.get(circle).then(function (c) { return c.setOptions(options); });
-    };
-    CircleManager.prototype.getBounds = function (circle) {
-        return this._circles.get(circle).then(function (c) { return c.getBounds(); });
-    };
-    CircleManager.prototype.getCenter = function (circle) {
-        return this._circles.get(circle).then(function (c) { return c.getCenter(); });
-    };
-    CircleManager.prototype.getRadius = function (circle) {
-        return this._circles.get(circle).then(function (c) { return c.getRadius(); });
-    };
-    CircleManager.prototype.setCenter = function (circle) {
-        return this._circles.get(circle).then(function (c) { return c.setCenter({ lat: circle.latitude, lng: circle.longitude }); });
-    };
-    CircleManager.prototype.setEditable = function (circle) {
-        return this._circles.get(circle).then(function (c) { return c.setEditable(circle.editable); });
-    };
-    CircleManager.prototype.setDraggable = function (circle) {
-        return this._circles.get(circle).then(function (c) { return c.setDraggable(circle.draggable); });
-    };
-    CircleManager.prototype.setVisible = function (circle) {
-        return this._circles.get(circle).then(function (c) { return c.setVisible(circle.visible); });
-    };
-    CircleManager.prototype.setRadius = function (circle) {
-        return this._circles.get(circle).then(function (c) { return c.setRadius(circle.radius); });
-    };
-    CircleManager.prototype.createEventObservable = function (eventName, circle) {
-        var _this = this;
-        return new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (observer) {
-            var listener = null;
-            _this._circles.get(circle).then(function (c) {
-                listener = c.addListener(eventName, function (e) { return _this._zone.run(function () { return observer.next(e); }); });
-            });
-            return function () {
-                if (listener !== null) {
-                    listener.remove();
-                }
-            };
-        });
-    };
-    CircleManager.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] },
-    ];
-    /** @nocollapse */
-    CircleManager.ctorParameters = function () { return [
-        { type: _google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_2__["GoogleMapsAPIWrapper"], },
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"], },
-    ]; };
-    return CircleManager;
-}());
-
-//# sourceMappingURL=circle-manager.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/services/managers/data-layer-manager.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/@agm/core/services/managers/data-layer-manager.js ***!
-  \************************************************************************/
-/*! exports provided: DataLayerManager */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DataLayerManager", function() { return DataLayerManager; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../google-maps-api-wrapper */ "./node_modules/@agm/core/services/google-maps-api-wrapper.js");
-
-
-
-/**
- * Manages all Data Layers for a Google Map instance.
- */
-var DataLayerManager = /** @class */ (function () {
-    function DataLayerManager(_wrapper, _zone) {
-        this._wrapper = _wrapper;
-        this._zone = _zone;
-        this._layers = new Map();
-    }
-    /**
-     * Adds a new Data Layer to the map.
-     */
-    /**
-       * Adds a new Data Layer to the map.
-       */
-    DataLayerManager.prototype.addDataLayer = /**
-       * Adds a new Data Layer to the map.
-       */
-    function (layer) {
-        var _this = this;
-        var newLayer = this._wrapper.createDataLayer({
-            style: layer.style
-        })
-            .then(function (d) {
-            if (layer.geoJson) {
-                _this.getDataFeatures(d, layer.geoJson).then(function (features) { return d.features = features; });
-            }
-            return d;
-        });
-        this._layers.set(layer, newLayer);
-    };
-    DataLayerManager.prototype.deleteDataLayer = function (layer) {
-        var _this = this;
-        this._layers.get(layer).then(function (l) {
-            l.setMap(null);
-            _this._layers.delete(layer);
-        });
-    };
-    DataLayerManager.prototype.updateGeoJson = function (layer, geoJson) {
-        var _this = this;
-        this._layers.get(layer).then(function (l) {
-            l.forEach(function (feature) {
-                l.remove(feature);
-                var index = l.features.indexOf(feature, 0);
-                if (index > -1) {
-                    l.features.splice(index, 1);
-                }
-            });
-            _this.getDataFeatures(l, geoJson).then(function (features) { return l.features = features; });
-        });
-    };
-    DataLayerManager.prototype.setDataOptions = function (layer, options) {
-        this._layers.get(layer).then(function (l) {
-            l.setControlPosition(options.controlPosition);
-            l.setControls(options.controls);
-            l.setDrawingMode(options.drawingMode);
-            l.setStyle(options.style);
-        });
-    };
-    /**
-     * Creates a Google Maps event listener for the given DataLayer as an Observable
-     */
-    /**
-       * Creates a Google Maps event listener for the given DataLayer as an Observable
-       */
-    DataLayerManager.prototype.createEventObservable = /**
-       * Creates a Google Maps event listener for the given DataLayer as an Observable
-       */
-    function (eventName, layer) {
-        var _this = this;
-        return new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (observer) {
-            _this._layers.get(layer).then(function (d) {
-                d.addListener(eventName, function (e) { return _this._zone.run(function () { return observer.next(e); }); });
-            });
-        });
-    };
-    /**
-     * Extract features from a geoJson using google.maps Data Class
-     * @param d : google.maps.Data class instance
-     * @param geoJson : url or geojson object
-     */
-    /**
-       * Extract features from a geoJson using google.maps Data Class
-       * @param d : google.maps.Data class instance
-       * @param geoJson : url or geojson object
-       */
-    DataLayerManager.prototype.getDataFeatures = /**
-       * Extract features from a geoJson using google.maps Data Class
-       * @param d : google.maps.Data class instance
-       * @param geoJson : url or geojson object
-       */
-    function (d, geoJson) {
-        return new Promise(function (resolve, reject) {
-            if (typeof geoJson === 'object') {
-                try {
-                    var features = d.addGeoJson(geoJson);
-                    resolve(features);
-                }
-                catch (e) {
-                    reject(e);
-                }
-            }
-            else if (typeof geoJson === 'string') {
-                d.loadGeoJson(geoJson, null, resolve);
-            }
-            else {
-                reject("Impossible to extract features from geoJson: wrong argument type");
-            }
-        });
-    };
-    DataLayerManager.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] },
-    ];
-    /** @nocollapse */
-    DataLayerManager.ctorParameters = function () { return [
-        { type: _google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_2__["GoogleMapsAPIWrapper"], },
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"], },
-    ]; };
-    return DataLayerManager;
-}());
-
-//# sourceMappingURL=data-layer-manager.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/services/managers/info-window-manager.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/@agm/core/services/managers/info-window-manager.js ***!
-  \*************************************************************************/
-/*! exports provided: InfoWindowManager */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InfoWindowManager", function() { return InfoWindowManager; });
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../google-maps-api-wrapper */ "./node_modules/@agm/core/services/google-maps-api-wrapper.js");
-/* harmony import */ var _marker_manager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./marker-manager */ "./node_modules/@agm/core/services/managers/marker-manager.js");
-
-
-
-
-var InfoWindowManager = /** @class */ (function () {
-    function InfoWindowManager(_mapsWrapper, _zone, _markerManager) {
-        this._mapsWrapper = _mapsWrapper;
-        this._zone = _zone;
-        this._markerManager = _markerManager;
-        this._infoWindows = new Map();
-    }
-    InfoWindowManager.prototype.deleteInfoWindow = function (infoWindow) {
-        var _this = this;
-        var iWindow = this._infoWindows.get(infoWindow);
-        if (iWindow == null) {
-            // info window already deleted
-            return Promise.resolve();
-        }
-        return iWindow.then(function (i) {
-            return _this._zone.run(function () {
-                i.close();
-                _this._infoWindows.delete(infoWindow);
-            });
-        });
-    };
-    InfoWindowManager.prototype.setPosition = function (infoWindow) {
-        return this._infoWindows.get(infoWindow).then(function (i) {
-            return i.setPosition({
-                lat: infoWindow.latitude,
-                lng: infoWindow.longitude
-            });
-        });
-    };
-    InfoWindowManager.prototype.setZIndex = function (infoWindow) {
-        return this._infoWindows.get(infoWindow)
-            .then(function (i) { return i.setZIndex(infoWindow.zIndex); });
-    };
-    InfoWindowManager.prototype.open = function (infoWindow) {
-        var _this = this;
-        return this._infoWindows.get(infoWindow).then(function (w) {
-            if (infoWindow.hostMarker != null) {
-                return _this._markerManager.getNativeMarker(infoWindow.hostMarker).then(function (marker) {
-                    return _this._mapsWrapper.getNativeMap().then(function (map) { return w.open(map, marker); });
-                });
-            }
-            return _this._mapsWrapper.getNativeMap().then(function (map) { return w.open(map); });
-        });
-    };
-    InfoWindowManager.prototype.close = function (infoWindow) {
-        return this._infoWindows.get(infoWindow).then(function (w) { return w.close(); });
-    };
-    InfoWindowManager.prototype.setOptions = function (infoWindow, options) {
-        return this._infoWindows.get(infoWindow).then(function (i) { return i.setOptions(options); });
-    };
-    InfoWindowManager.prototype.addInfoWindow = function (infoWindow) {
-        var options = {
-            content: infoWindow.content,
-            maxWidth: infoWindow.maxWidth,
-            zIndex: infoWindow.zIndex,
-            disableAutoPan: infoWindow.disableAutoPan
-        };
-        if (typeof infoWindow.latitude === 'number' && typeof infoWindow.longitude === 'number') {
-            options.position = { lat: infoWindow.latitude, lng: infoWindow.longitude };
-        }
-        var infoWindowPromise = this._mapsWrapper.createInfoWindow(options);
-        this._infoWindows.set(infoWindow, infoWindowPromise);
-    };
-    /**
-     * Creates a Google Maps event listener for the given InfoWindow as an Observable
-     */
-    /**
-        * Creates a Google Maps event listener for the given InfoWindow as an Observable
-        */
-    InfoWindowManager.prototype.createEventObservable = /**
-        * Creates a Google Maps event listener for the given InfoWindow as an Observable
-        */
-    function (eventName, infoWindow) {
-        var _this = this;
-        return new rxjs__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (observer) {
-            _this._infoWindows.get(infoWindow).then(function (i) {
-                i.addListener(eventName, function (e) { return _this._zone.run(function () { return observer.next(e); }); });
-            });
-        });
-    };
-    InfoWindowManager.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"] },
-    ];
-    /** @nocollapse */
-    InfoWindowManager.ctorParameters = function () { return [
-        { type: _google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_2__["GoogleMapsAPIWrapper"], },
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"], },
-        { type: _marker_manager__WEBPACK_IMPORTED_MODULE_3__["MarkerManager"], },
-    ]; };
-    return InfoWindowManager;
-}());
-
-//# sourceMappingURL=info-window-manager.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/services/managers/kml-layer-manager.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/@agm/core/services/managers/kml-layer-manager.js ***!
-  \***********************************************************************/
-/*! exports provided: KmlLayerManager */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KmlLayerManager", function() { return KmlLayerManager; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../google-maps-api-wrapper */ "./node_modules/@agm/core/services/google-maps-api-wrapper.js");
-
-
-
-/**
- * Manages all KML Layers for a Google Map instance.
- */
-var KmlLayerManager = /** @class */ (function () {
-    function KmlLayerManager(_wrapper, _zone) {
-        this._wrapper = _wrapper;
-        this._zone = _zone;
-        this._layers = new Map();
-    }
-    /**
-     * Adds a new KML Layer to the map.
-     */
-    /**
-       * Adds a new KML Layer to the map.
-       */
-    KmlLayerManager.prototype.addKmlLayer = /**
-       * Adds a new KML Layer to the map.
-       */
-    function (layer) {
-        var newLayer = this._wrapper.getNativeMap().then(function (m) {
-            return new google.maps.KmlLayer({
-                clickable: layer.clickable,
-                map: m,
-                preserveViewport: layer.preserveViewport,
-                screenOverlays: layer.screenOverlays,
-                suppressInfoWindows: layer.suppressInfoWindows,
-                url: layer.url,
-                zIndex: layer.zIndex
-            });
-        });
-        this._layers.set(layer, newLayer);
-    };
-    KmlLayerManager.prototype.setOptions = function (layer, options) {
-        this._layers.get(layer).then(function (l) { return l.setOptions(options); });
-    };
-    KmlLayerManager.prototype.deleteKmlLayer = function (layer) {
-        var _this = this;
-        this._layers.get(layer).then(function (l) {
-            l.setMap(null);
-            _this._layers.delete(layer);
-        });
-    };
-    /**
-     * Creates a Google Maps event listener for the given KmlLayer as an Observable
-     */
-    /**
-       * Creates a Google Maps event listener for the given KmlLayer as an Observable
-       */
-    KmlLayerManager.prototype.createEventObservable = /**
-       * Creates a Google Maps event listener for the given KmlLayer as an Observable
-       */
-    function (eventName, layer) {
-        var _this = this;
-        return new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (observer) {
-            _this._layers.get(layer).then(function (m) {
-                m.addListener(eventName, function (e) { return _this._zone.run(function () { return observer.next(e); }); });
-            });
-        });
-    };
-    KmlLayerManager.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] },
-    ];
-    /** @nocollapse */
-    KmlLayerManager.ctorParameters = function () { return [
-        { type: _google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_2__["GoogleMapsAPIWrapper"], },
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"], },
-    ]; };
-    return KmlLayerManager;
-}());
-
-//# sourceMappingURL=kml-layer-manager.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/services/managers/marker-manager.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@agm/core/services/managers/marker-manager.js ***!
-  \********************************************************************/
-/*! exports provided: MarkerManager */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MarkerManager", function() { return MarkerManager; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../google-maps-api-wrapper */ "./node_modules/@agm/core/services/google-maps-api-wrapper.js");
-
-
-
-var MarkerManager = /** @class */ (function () {
-    function MarkerManager(_mapsWrapper, _zone) {
-        this._mapsWrapper = _mapsWrapper;
-        this._zone = _zone;
-        this._markers = new Map();
-    }
-    MarkerManager.prototype.deleteMarker = function (marker) {
-        var _this = this;
-        var m = this._markers.get(marker);
-        if (m == null) {
-            // marker already deleted
-            return Promise.resolve();
-        }
-        return m.then(function (m) {
-            return _this._zone.run(function () {
-                m.setMap(null);
-                _this._markers.delete(marker);
-            });
-        });
-    };
-    MarkerManager.prototype.updateMarkerPosition = function (marker) {
-        return this._markers.get(marker).then(function (m) { return m.setPosition({ lat: marker.latitude, lng: marker.longitude }); });
-    };
-    MarkerManager.prototype.updateTitle = function (marker) {
-        return this._markers.get(marker).then(function (m) { return m.setTitle(marker.title); });
-    };
-    MarkerManager.prototype.updateLabel = function (marker) {
-        return this._markers.get(marker).then(function (m) { m.setLabel(marker.label); });
-    };
-    MarkerManager.prototype.updateDraggable = function (marker) {
-        return this._markers.get(marker).then(function (m) { return m.setDraggable(marker.draggable); });
-    };
-    MarkerManager.prototype.updateIcon = function (marker) {
-        return this._markers.get(marker).then(function (m) { return m.setIcon(marker.iconUrl); });
-    };
-    MarkerManager.prototype.updateOpacity = function (marker) {
-        return this._markers.get(marker).then(function (m) { return m.setOpacity(marker.opacity); });
-    };
-    MarkerManager.prototype.updateVisible = function (marker) {
-        return this._markers.get(marker).then(function (m) { return m.setVisible(marker.visible); });
-    };
-    MarkerManager.prototype.updateZIndex = function (marker) {
-        return this._markers.get(marker).then(function (m) { return m.setZIndex(marker.zIndex); });
-    };
-    MarkerManager.prototype.updateClickable = function (marker) {
-        return this._markers.get(marker).then(function (m) { return m.setClickable(marker.clickable); });
-    };
-    MarkerManager.prototype.updateAnimation = function (marker) {
-        return this._markers.get(marker).then(function (m) {
-            if (typeof marker.animation === 'string') {
-                m.setAnimation(google.maps.Animation[marker.animation]);
-            }
-            else {
-                m.setAnimation(marker.animation);
-            }
-        });
-    };
-    MarkerManager.prototype.addMarker = function (marker) {
-        var markerPromise = this._mapsWrapper.createMarker({
-            position: { lat: marker.latitude, lng: marker.longitude },
-            label: marker.label,
-            draggable: marker.draggable,
-            icon: marker.iconUrl,
-            opacity: marker.opacity,
-            visible: marker.visible,
-            zIndex: marker.zIndex,
-            title: marker.title,
-            clickable: marker.clickable,
-            animation: (typeof marker.animation === 'string') ? google.maps.Animation[marker.animation] : marker.animation
-        });
-        this._markers.set(marker, markerPromise);
-    };
-    MarkerManager.prototype.getNativeMarker = function (marker) {
-        return this._markers.get(marker);
-    };
-    MarkerManager.prototype.createEventObservable = function (eventName, marker) {
-        var _this = this;
-        return new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (observer) {
-            _this._markers.get(marker).then(function (m) {
-                m.addListener(eventName, function (e) { return _this._zone.run(function () { return observer.next(e); }); });
-            });
-        });
-    };
-    MarkerManager.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] },
-    ];
-    /** @nocollapse */
-    MarkerManager.ctorParameters = function () { return [
-        { type: _google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_2__["GoogleMapsAPIWrapper"], },
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"], },
-    ]; };
-    return MarkerManager;
-}());
-
-//# sourceMappingURL=marker-manager.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/services/managers/polygon-manager.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/@agm/core/services/managers/polygon-manager.js ***!
-  \*********************************************************************/
-/*! exports provided: PolygonManager */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PolygonManager", function() { return PolygonManager; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../google-maps-api-wrapper */ "./node_modules/@agm/core/services/google-maps-api-wrapper.js");
-
-
-
-var PolygonManager = /** @class */ (function () {
-    function PolygonManager(_mapsWrapper, _zone) {
-        this._mapsWrapper = _mapsWrapper;
-        this._zone = _zone;
-        this._polygons = new Map();
-    }
-    PolygonManager.prototype.addPolygon = function (path) {
-        var polygonPromise = this._mapsWrapper.createPolygon({
-            clickable: path.clickable,
-            draggable: path.draggable,
-            editable: path.editable,
-            fillColor: path.fillColor,
-            fillOpacity: path.fillOpacity,
-            geodesic: path.geodesic,
-            paths: path.paths,
-            strokeColor: path.strokeColor,
-            strokeOpacity: path.strokeOpacity,
-            strokeWeight: path.strokeWeight,
-            visible: path.visible,
-            zIndex: path.zIndex,
-        });
-        this._polygons.set(path, polygonPromise);
-    };
-    PolygonManager.prototype.updatePolygon = function (polygon) {
-        var _this = this;
-        var m = this._polygons.get(polygon);
-        if (m == null) {
-            return Promise.resolve();
-        }
-        return m.then(function (l) { return _this._zone.run(function () { l.setPaths(polygon.paths); }); });
-    };
-    PolygonManager.prototype.setPolygonOptions = function (path, options) {
-        return this._polygons.get(path).then(function (l) { l.setOptions(options); });
-    };
-    PolygonManager.prototype.deletePolygon = function (paths) {
-        var _this = this;
-        var m = this._polygons.get(paths);
-        if (m == null) {
-            return Promise.resolve();
-        }
-        return m.then(function (l) {
-            return _this._zone.run(function () {
-                l.setMap(null);
-                _this._polygons.delete(paths);
-            });
-        });
-    };
-    PolygonManager.prototype.createEventObservable = function (eventName, path) {
-        var _this = this;
-        return new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (observer) {
-            _this._polygons.get(path).then(function (l) {
-                l.addListener(eventName, function (e) { return _this._zone.run(function () { return observer.next(e); }); });
-            });
-        });
-    };
-    PolygonManager.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] },
-    ];
-    /** @nocollapse */
-    PolygonManager.ctorParameters = function () { return [
-        { type: _google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_2__["GoogleMapsAPIWrapper"], },
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"], },
-    ]; };
-    return PolygonManager;
-}());
-
-//# sourceMappingURL=polygon-manager.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/services/managers/polyline-manager.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@agm/core/services/managers/polyline-manager.js ***!
-  \**********************************************************************/
-/*! exports provided: PolylineManager */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PolylineManager", function() { return PolylineManager; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../google-maps-api-wrapper */ "./node_modules/@agm/core/services/google-maps-api-wrapper.js");
-
-
-
-var PolylineManager = /** @class */ (function () {
-    function PolylineManager(_mapsWrapper, _zone) {
-        this._mapsWrapper = _mapsWrapper;
-        this._zone = _zone;
-        this._polylines = new Map();
-    }
-    PolylineManager._convertPoints = function (line) {
-        var path = line._getPoints().map(function (point) {
-            return { lat: point.latitude, lng: point.longitude };
-        });
-        return path;
-    };
-    PolylineManager.prototype.addPolyline = function (line) {
-        var path = PolylineManager._convertPoints(line);
-        var polylinePromise = this._mapsWrapper.createPolyline({
-            clickable: line.clickable,
-            draggable: line.draggable,
-            editable: line.editable,
-            geodesic: line.geodesic,
-            strokeColor: line.strokeColor,
-            strokeOpacity: line.strokeOpacity,
-            strokeWeight: line.strokeWeight,
-            visible: line.visible,
-            zIndex: line.zIndex,
-            path: path
-        });
-        this._polylines.set(line, polylinePromise);
-    };
-    PolylineManager.prototype.updatePolylinePoints = function (line) {
-        var _this = this;
-        var path = PolylineManager._convertPoints(line);
-        var m = this._polylines.get(line);
-        if (m == null) {
-            return Promise.resolve();
-        }
-        return m.then(function (l) { return _this._zone.run(function () { l.setPath(path); }); });
-    };
-    PolylineManager.prototype.setPolylineOptions = function (line, options) {
-        return this._polylines.get(line).then(function (l) { l.setOptions(options); });
-    };
-    PolylineManager.prototype.deletePolyline = function (line) {
-        var _this = this;
-        var m = this._polylines.get(line);
-        if (m == null) {
-            return Promise.resolve();
-        }
-        return m.then(function (l) {
-            return _this._zone.run(function () {
-                l.setMap(null);
-                _this._polylines.delete(line);
-            });
-        });
-    };
-    PolylineManager.prototype.createEventObservable = function (eventName, line) {
-        var _this = this;
-        return new rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (observer) {
-            _this._polylines.get(line).then(function (l) {
-                l.addListener(eventName, function (e) { return _this._zone.run(function () { return observer.next(e); }); });
-            });
-        });
-    };
-    PolylineManager.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] },
-    ];
-    /** @nocollapse */
-    PolylineManager.ctorParameters = function () { return [
-        { type: _google_maps_api_wrapper__WEBPACK_IMPORTED_MODULE_2__["GoogleMapsAPIWrapper"], },
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"], },
-    ]; };
-    return PolylineManager;
-}());
-
-//# sourceMappingURL=polyline-manager.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/services/maps-api-loader/lazy-maps-api-loader.js":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/@agm/core/services/maps-api-loader/lazy-maps-api-loader.js ***!
-  \*********************************************************************************/
-/*! exports provided: GoogleMapsScriptProtocol, LAZY_MAPS_API_CONFIG, LazyMapsAPILoader */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GoogleMapsScriptProtocol", function() { return GoogleMapsScriptProtocol; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LAZY_MAPS_API_CONFIG", function() { return LAZY_MAPS_API_CONFIG; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LazyMapsAPILoader", function() { return LazyMapsAPILoader; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _utils_browser_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/browser-globals */ "./node_modules/@agm/core/utils/browser-globals.js");
-/* harmony import */ var _maps_api_loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./maps-api-loader */ "./node_modules/@agm/core/services/maps-api-loader/maps-api-loader.js");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-
-
-
-var GoogleMapsScriptProtocol;
-(function (GoogleMapsScriptProtocol) {
-    GoogleMapsScriptProtocol[GoogleMapsScriptProtocol["HTTP"] = 1] = "HTTP";
-    GoogleMapsScriptProtocol[GoogleMapsScriptProtocol["HTTPS"] = 2] = "HTTPS";
-    GoogleMapsScriptProtocol[GoogleMapsScriptProtocol["AUTO"] = 3] = "AUTO";
-})(GoogleMapsScriptProtocol || (GoogleMapsScriptProtocol = {}));
-/**
- * Token for the config of the LazyMapsAPILoader. Please provide an object of type {@link
- * LazyMapsAPILoaderConfig}.
- */
-var LAZY_MAPS_API_CONFIG = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken"]('angular-google-maps LAZY_MAPS_API_CONFIG');
-var LazyMapsAPILoader = /** @class */ (function (_super) {
-    __extends(LazyMapsAPILoader, _super);
-    function LazyMapsAPILoader(config, w, d) {
-        if (config === void 0) { config = null; }
-        var _this = _super.call(this) || this;
-        _this._SCRIPT_ID = 'agmGoogleMapsApiScript';
-        _this.callbackName = "agmLazyMapsAPILoader";
-        _this._config = config || {};
-        _this._windowRef = w;
-        _this._documentRef = d;
-        return _this;
-    }
-    LazyMapsAPILoader.prototype.load = function () {
-        var window = this._windowRef.getNativeWindow();
-        if (window.google && window.google.maps) {
-            // Google maps already loaded on the page.
-            return Promise.resolve();
-        }
-        if (this._scriptLoadingPromise) {
-            return this._scriptLoadingPromise;
-        }
-        // this can happen in HMR situations or Stackblitz.io editors.
-        var scriptOnPage = this._documentRef.getNativeDocument().getElementById(this._SCRIPT_ID);
-        if (scriptOnPage) {
-            this._assignScriptLoadingPromise(scriptOnPage);
-            return this._scriptLoadingPromise;
-        }
-        var script = this._documentRef.getNativeDocument().createElement('script');
-        script.type = 'text/javascript';
-        script.async = true;
-        script.defer = true;
-        script.id = this._SCRIPT_ID;
-        script.src = this._getScriptSrc(this.callbackName);
-        this._assignScriptLoadingPromise(script);
-        this._documentRef.getNativeDocument().body.appendChild(script);
-        return this._scriptLoadingPromise;
-    };
-    LazyMapsAPILoader.prototype._assignScriptLoadingPromise = function (scriptElem) {
-        var _this = this;
-        this._scriptLoadingPromise = new Promise(function (resolve, reject) {
-            _this._windowRef.getNativeWindow()[_this.callbackName] = function () {
-                resolve();
-            };
-            scriptElem.onerror = function (error) {
-                reject(error);
-            };
-        });
-    };
-    LazyMapsAPILoader.prototype._getScriptSrc = function (callbackName) {
-        var protocolType = (this._config && this._config.protocol) || GoogleMapsScriptProtocol.HTTPS;
-        var protocol;
-        switch (protocolType) {
-            case GoogleMapsScriptProtocol.AUTO:
-                protocol = '';
-                break;
-            case GoogleMapsScriptProtocol.HTTP:
-                protocol = 'http:';
-                break;
-            case GoogleMapsScriptProtocol.HTTPS:
-                protocol = 'https:';
-                break;
-        }
-        var hostAndPath = this._config.hostAndPath || 'maps.googleapis.com/maps/api/js';
-        var queryParams = {
-            v: this._config.apiVersion || '3',
-            callback: callbackName,
-            key: this._config.apiKey,
-            client: this._config.clientId,
-            channel: this._config.channel,
-            libraries: this._config.libraries,
-            region: this._config.region,
-            language: this._config.language
-        };
-        var params = Object.keys(queryParams)
-            .filter(function (k) { return queryParams[k] != null; })
-            .filter(function (k) {
-            // remove empty arrays
-            return !Array.isArray(queryParams[k]) ||
-                (Array.isArray(queryParams[k]) && queryParams[k].length > 0);
-        })
-            .map(function (k) {
-            // join arrays as comma seperated strings
-            var i = queryParams[k];
-            if (Array.isArray(i)) {
-                return { key: k, value: i.join(',') };
-            }
-            return { key: k, value: queryParams[k] };
-        })
-            .map(function (entry) {
-            return entry.key + "=" + entry.value;
-        })
-            .join('&');
-        return protocol + "//" + hostAndPath + "?" + params;
-    };
-    LazyMapsAPILoader.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] },
-    ];
-    /** @nocollapse */
-    LazyMapsAPILoader.ctorParameters = function () { return [
-        { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [LAZY_MAPS_API_CONFIG,] },] },
-        { type: _utils_browser_globals__WEBPACK_IMPORTED_MODULE_1__["WindowRef"], },
-        { type: _utils_browser_globals__WEBPACK_IMPORTED_MODULE_1__["DocumentRef"], },
-    ]; };
-    return LazyMapsAPILoader;
-}(_maps_api_loader__WEBPACK_IMPORTED_MODULE_2__["MapsAPILoader"]));
-
-//# sourceMappingURL=lazy-maps-api-loader.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/services/maps-api-loader/maps-api-loader.js":
-/*!****************************************************************************!*\
-  !*** ./node_modules/@agm/core/services/maps-api-loader/maps-api-loader.js ***!
-  \****************************************************************************/
-/*! exports provided: MapsAPILoader */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapsAPILoader", function() { return MapsAPILoader; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
-var MapsAPILoader = /** @class */ (function () {
-    function MapsAPILoader() {
-    }
-    MapsAPILoader.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] },
-    ];
-    return MapsAPILoader;
-}());
-
-//# sourceMappingURL=maps-api-loader.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/services/maps-api-loader/noop-maps-api-loader.js":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/@agm/core/services/maps-api-loader/noop-maps-api-loader.js ***!
-  \*********************************************************************************/
-/*! exports provided: NoOpMapsAPILoader */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NoOpMapsAPILoader", function() { return NoOpMapsAPILoader; });
-/**
- * When using the NoOpMapsAPILoader, the Google Maps API must be added to the page via a `<script>`
- * Tag.
- * It's important that the Google Maps API script gets loaded first on the page.
- */
-var /**
- * When using the NoOpMapsAPILoader, the Google Maps API must be added to the page via a `<script>`
- * Tag.
- * It's important that the Google Maps API script gets loaded first on the page.
- */
-NoOpMapsAPILoader = /** @class */ (function () {
-    function NoOpMapsAPILoader() {
-    }
-    NoOpMapsAPILoader.prototype.load = function () {
-        if (!window.google || !window.google.maps) {
-            throw new Error('Google Maps API not loaded on page. Make sure window.google.maps is available!');
-        }
-        return Promise.resolve();
-    };
-    return NoOpMapsAPILoader;
-}());
-/**
- * When using the NoOpMapsAPILoader, the Google Maps API must be added to the page via a `<script>`
- * Tag.
- * It's important that the Google Maps API script gets loaded first on the page.
- */
-
-//# sourceMappingURL=noop-maps-api-loader.js.map
-
-/***/ }),
-
-/***/ "./node_modules/@agm/core/utils/browser-globals.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/@agm/core/utils/browser-globals.js ***!
-  \*********************************************************/
-/*! exports provided: WindowRef, DocumentRef, BROWSER_GLOBALS_PROVIDERS */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WindowRef", function() { return WindowRef; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentRef", function() { return DocumentRef; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BROWSER_GLOBALS_PROVIDERS", function() { return BROWSER_GLOBALS_PROVIDERS; });
-var WindowRef = /** @class */ (function () {
-    function WindowRef() {
-    }
-    WindowRef.prototype.getNativeWindow = function () { return window; };
-    return WindowRef;
-}());
-
-var DocumentRef = /** @class */ (function () {
-    function DocumentRef() {
-    }
-    DocumentRef.prototype.getNativeDocument = function () { return document; };
-    return DocumentRef;
-}());
-
-var BROWSER_GLOBALS_PROVIDERS = [WindowRef, DocumentRef];
-//# sourceMappingURL=browser-globals.js.map
-
-/***/ }),
-
 /***/ "./node_modules/@angular/common/fesm5/common.js":
 /*!******************************************************!*\
   !*** ./node_modules/@angular/common/fesm5/common.js ***!
@@ -3643,7 +101,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /**
- * @license Angular v6.0.4
+ * @license Angular v6.0.6
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -4140,7 +598,7 @@ var localeEn = [
 var LOCALE_DATA = {};
 /**
  * Register global data to be used internally by Angular. See the
- * {@linkDocs guide/i18n#i18n-pipes "I18n guide"} to know how to import additional locale data.
+ * ["I18n guide"](guide/i18n#i18n-pipes) to know how to import additional locale data.
  *
  * @experimental i18n support is experimental.
  */
@@ -4704,7 +1162,7 @@ function checkFullData(data) {
  * You should fallback to AM/PM when there are no rules available.
  *
  * Note: this is only available if you load the full locale data.
- * See the {@linkDocs guide/i18n#i18n-pipes "I18n guide"} to know how to import additional locale
+ * See the ["I18n guide"](guide/i18n#i18n-pipes) to know how to import additional locale
  * data.
  *
  * @experimental i18n support is experimental.
@@ -4728,7 +1186,7 @@ function getLocaleExtraDayPeriodRules(locale) {
  * You should fallback to AM/PM when there are no day periods available.
  *
  * Note: this is only available if you load the full locale data.
- * See the {@linkDocs guide/i18n#i18n-pipes "I18n guide"} to know how to import additional locale
+ * See the ["I18n guide"](guide/i18n#i18n-pipes) to know how to import additional locale
  * data.
  *
  * @experimental i18n support is experimental.
@@ -8389,10 +4847,10 @@ var UpperCasePipe = /** @class */ (function () {
  * WARNINGS:
  * - this pipe has only access to en-US locale data by default. If you want to localize the dates
  *   in another language, you will have to import data for other locales.
- *   See the {@linkDocs guide/i18n#i18n-pipes "I18n guide"} to know how to import additional locale
+ *   See the ["I18n guide"](guide/i18n#i18n-pipes) to know how to import additional locale
  *   data.
  * - Fields suffixed with * are only available in the extra dataset.
- *   See the {@linkDocs guide/i18n#i18n-pipes "I18n guide"} to know how to import extra locale
+ *   See the ["I18n guide"](guide/i18n#i18n-pipes) to know how to import extra locale
  *   data.
  * - this pipe is marked as pure hence it will not be re-evaluated when the input is mutated.
  *   Instead users should treat the date as an immutable object and change the reference when the
@@ -8996,7 +5454,7 @@ function isPlatformWorkerUi(platformId) {
  * @description
  * Entry point for all public APIs of the common package.
  */
-var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Version"]('6.0.4');
+var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Version"]('6.0.6');
 
 /**
  * @license
@@ -9093,7 +5551,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /**
- * @license Angular v6.0.4
+ * @license Angular v6.0.6
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -11279,7 +7737,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeSummaryDuplicates", function() { return removeSummaryDuplicates; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /**
- * @license Angular v6.0.4
+ * @license Angular v6.0.6
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -11609,7 +8067,7 @@ var Version = /** @class */ (function () {
  * @description
  * Entry point for all public APIs of the common package.
  */
-var VERSION = new Version('6.0.4');
+var VERSION = new Version('6.0.6');
 
 /**
  * @license
@@ -34790,7 +31248,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /**
- * @license Angular v6.0.4
+ * @license Angular v6.0.6
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -34886,16 +31344,14 @@ function defineInjector(options) {
  * overrides the above behavior and marks the token as belonging to a particular `@NgModule`. As
  * mentioned above, `'root'` is the default value for `providedIn`.
  *
- * ### Example
- *
- * #### Tree-shakeable InjectionToken
- *
- * {@example core/di/ts/injector_spec.ts region='ShakeableInjectionToken'}
- *
- * #### Plain InjectionToken
+ * @usageNotes
+ * ### Basic Example
  *
  * {@example core/di/ts/injector_spec.ts region='InjectionToken'}
  *
+ * ### Tree-shakeable Example
+ *
+ * {@example core/di/ts/injector_spec.ts region='ShakeableInjectionToken'}
  *
  */
 var InjectionToken = /** @class */ (function () {
@@ -35060,6 +31516,7 @@ function makePropDecorator(name, props, parentClass) {
  * All components that are referenced in the `useValue` value (either directly
  * or in a nested array or map) will be added to the `entryComponents` property.
  *
+ * @usageNotes
  * ### Example
  * The following example shows how the router can populate the `entryComponents`
  * field of an NgModule based on the router configuration which refers
@@ -35092,17 +31549,16 @@ var ANALYZE_FOR_ENTRY_COMPONENTS = new InjectionToken('AnalyzeForEntryComponents
 /**
  * Attribute decorator and metadata.
  *
- *
  * @Annotation
  */
 var Attribute = makeParamDecorator('Attribute', function (attributeName) { return ({ attributeName: attributeName }); });
 /**
  * Base class for query metadata.
  *
- * See {@link ContentChildren}, {@link ContentChild}, {@link ViewChildren}, {@link ViewChild} for
- * more information.
- *
- *
+ * @see `ContentChildren`.
+ * @see `ContentChild`.
+ * @see `ViewChildren`.
+ * @see `ViewChild`.
  */
 var Query = /** @class */ (function () {
     function Query() {
@@ -35132,7 +31588,6 @@ var ContentChild = makePropDecorator('ContentChild', function (selector, data) {
 /**
  * ViewChildren decorator and metadata.
  *
- *
  * @Annotation
  */
 var ViewChildren = makePropDecorator('ViewChildren', function (selector, data) {
@@ -35141,7 +31596,6 @@ var ViewChildren = makePropDecorator('ViewChildren', function (selector, data) {
 }, Query);
 /**
  * ViewChild decorator and metadata.
- *
  *
  * @Annotation
  */
@@ -35223,7 +31677,6 @@ function isDefaultChangeDetectionStrategy(changeDetectionStrategy) {
 /**
  * Directive decorator and metadata.
  *
- *
  * @Annotation
  */
 var Directive = makeDecorator('Directive', function (dir) {
@@ -35232,7 +31685,6 @@ var Directive = makeDecorator('Directive', function (dir) {
 });
 /**
  * Component decorator and metadata.
- *
  *
  * @Annotation
  */
@@ -35244,11 +31696,10 @@ var Component = makeDecorator('Component', function (c) {
  * Pipe decorator and metadata.
  *
  * Use the `@Pipe` annotation to declare that a given class is a pipe. A pipe
- * class must also implement {@link PipeTransform} interface.
+ * class must also implement `PipeTransform` interface.
  *
  * To use the pipe include a reference to the pipe class in
- * {@link NgModule#declarations}.
- *
+ * `NgModule.declarations`.
  *
  * @Annotation
  */
@@ -35256,13 +31707,11 @@ var Pipe = makeDecorator('Pipe', function (p) { return (Object(tslib__WEBPACK_IM
 /**
  * Input decorator and metadata.
  *
- *
  * @Annotation
  */
 var Input = makePropDecorator('Input', function (bindingPropertyName) { return ({ bindingPropertyName: bindingPropertyName }); });
 /**
  * Output decorator and metadata.
- *
  *
  * @Annotation
  */
@@ -35270,13 +31719,11 @@ var Output = makePropDecorator('Output', function (bindingPropertyName) { return
 /**
  * HostBinding decorator and metadata.
  *
- *
  * @Annotation
  */
 var HostBinding = makePropDecorator('HostBinding', function (hostPropertyName) { return ({ hostPropertyName: hostPropertyName }); });
 /**
  * HostListener decorator and metadata.
- *
  *
  * @Annotation
  */
@@ -35636,10 +32083,10 @@ function getClosureSafeProperty(objWithPropertyToExtract, target) {
  * Allows to refer to references which are not yet defined.
  *
  * For instance, `forwardRef` is used when the `token` which we need to refer to for the purposes of
- * DI is declared,
- * but not yet defined. It is also used when the `token` which we use when creating a query is not
- * yet defined.
+ * DI is declared, but not yet defined. It is also used when the `token` which we use when creating
+ * a query is not yet defined.
  *
+ * @usageNotes
  * ### Example
  * {@example core/di/ts/forward_ref/forward_ref_spec.ts region='forward_ref'}
  * @experimental
@@ -35654,11 +32101,12 @@ function forwardRef(forwardRefFn) {
  *
  * Acts as the identity function when given a non-forward-ref value.
  *
- * ### Example ([live demo](http://plnkr.co/edit/GU72mJrk1fiodChcmiDR?p=preview))
+ * @usageNotes
+ * ### Example
  *
  * {@example core/di/ts/forward_ref/forward_ref_spec.ts region='resolve_forward_ref'}
  *
- * See: {@link forwardRef}
+ * @see `forwardRef`
  * @experimental
  */
 function resolveForwardRef(type) {
@@ -35681,13 +32129,11 @@ function resolveForwardRef(type) {
 /**
  * Inject decorator and metadata.
  *
- *
  * @Annotation
  */
 var Inject = makeParamDecorator('Inject', function (token) { return ({ token: token }); });
 /**
  * Optional decorator and metadata.
- *
  *
  * @Annotation
  */
@@ -35695,20 +32141,17 @@ var Optional = makeParamDecorator('Optional');
 /**
  * Self decorator and metadata.
  *
- *
  * @Annotation
  */
 var Self = makeParamDecorator('Self');
 /**
  * SkipSelf decorator and metadata.
  *
- *
  * @Annotation
  */
 var SkipSelf = makeParamDecorator('SkipSelf');
 /**
  * Host decorator and metadata.
- *
  *
  * @Annotation
  */
@@ -35746,23 +32189,17 @@ var NullInjector = /** @class */ (function () {
     return NullInjector;
 }());
 /**
- * @usageNotes
- * ```
- * const injector: Injector = ...;
- * injector.get(...);
- * ```
- *
- * @description
- *
  * Concrete injectors implement this interface.
  *
- * For more details, see the {@linkDocs guide/dependency-injection "Dependency Injection Guide"}.
+ * For more details, see the ["Dependency Injection Guide"](guide/dependency-injection).
  *
+ * @usageNotes
  * ### Example
  *
  * {@example core/di/ts/injector_spec.ts region='Injector'}
  *
  * `Injector` returns itself when given `Injector` as a token:
+ *
  * {@example core/di/ts/injector_spec.ts region='injectInjector'}
  *
  *
@@ -35773,6 +32210,7 @@ var Injector = /** @class */ (function () {
     /**
      * Create a new Injector which is configure using `StaticProvider`s.
      *
+     * @usageNotes
      * ### Example
      *
      * {@example core/di/ts/provider_spec.ts region='ConstructorProvider'}
@@ -36179,7 +32617,6 @@ function convertInjectableProviderToFactory(type, provider) {
 /**
 * Injectable decorator and metadata.
 *
-*
 * @Annotation
 */
 var Injectable = makeDecorator('Injectable', undefined, undefined, undefined, function (injectableType, options) {
@@ -36302,7 +32739,7 @@ var Version = /** @class */ (function () {
     }
     return Version;
 }());
-var VERSION = new Version('6.0.4');
+var VERSION = new Version('6.0.6');
 
 /**
  * @license
@@ -36341,14 +32778,13 @@ function defaultErrorLogger(console) {
  * found in the LICENSE file at https://angular.io/license
  */
 /**
- *
- * @description
  * Provides a hook for centralized exception handling.
  *
  * The default implementation of `ErrorHandler` prints error messages to the `console`. To
  * intercept error handling, write a custom exception handler that replaces this default as
  * appropriate for your app.
  *
+ * @usageNotes
  * ### Example
  *
  * ```
@@ -36363,8 +32799,6 @@ function defaultErrorLogger(console) {
  * })
  * class MyModule {}
  * ```
- *
- *
  */
 var ErrorHandler = /** @class */ (function () {
     function ErrorHandler() {
@@ -36459,7 +32893,8 @@ function addKey(injector, key) {
  * Thrown when trying to retrieve a dependency by key from {@link Injector}, but the
  * {@link Injector} does not have a {@link Provider} for the given key.
  *
- * ### Example ([live demo](http://plnkr.co/edit/vq8D3FRB9aGbnWJqtEPE?p=preview))
+ * @usageNotes
+ * ### Example
  *
  * ```typescript
  * class A {
@@ -36478,7 +32913,8 @@ function noProviderError(injector, key) {
 /**
  * Thrown when dependencies form a cycle.
  *
- * ### Example ([live demo](http://plnkr.co/edit/wYQdNos0Tzql3ei1EV9j?p=info))
+ * @usageNotes
+ * ### Example
  *
  * ```typescript
  * var injector = Injector.resolveAndCreate([
@@ -36502,7 +32938,8 @@ function cyclicDependencyError(injector, key) {
  * The `InstantiationError` class contains the original error plus the dependency graph which caused
  * this object to be instantiated.
  *
- * ### Example ([live demo](http://plnkr.co/edit/7aWYdcqTQsP0eNqEdUAf?p=preview))
+ * @usageNotes
+ * ### Example
  *
  * ```typescript
  * class A {
@@ -36532,7 +32969,8 @@ function instantiationError(injector, originalException, originalStack, key) {
  * Thrown when an object other then {@link Provider} (or `Type`) is passed to {@link Injector}
  * creation.
  *
- * ### Example ([live demo](http://plnkr.co/edit/YatCFbPAMCL0JSSQ4mvH?p=preview))
+ * @usageNotes
+ * ### Example
  *
  * ```typescript
  * expect(() => Injector.resolveAndCreate(["not a type"])).toThrowError();
@@ -36547,7 +32985,8 @@ function invalidProviderError(provider) {
  * Lack of annotation information prevents the {@link Injector} from determining which dependencies
  * need to be injected into the constructor.
  *
- * ### Example ([live demo](http://plnkr.co/edit/rHnZtlNS7vJOPQ6pcVkm?p=preview))
+ * @usageNotes
+ * ### Example
  *
  * ```typescript
  * class A {
@@ -36589,7 +33028,8 @@ function noAnnotationError(typeOrFunc, params) {
 /**
  * Thrown when getting an object by index.
  *
- * ### Example ([live demo](http://plnkr.co/edit/bRs0SX2OTQiJzqvjgl8P?p=preview))
+ * @usageNotes
+ * ### Example
  *
  * ```typescript
  * class A {}
@@ -36607,6 +33047,7 @@ function outOfBoundsError(index) {
 /**
  * Thrown when a multi provider and a regular provider are bound to the same token.
  *
+ * @usageNotes
  * ### Example
  *
  * ```typescript
@@ -36783,8 +33224,7 @@ var ResolvedReflectiveProvider_ = /** @class */ (function () {
     return ResolvedReflectiveProvider_;
 }());
 /**
- * An internal resolved representation of a factory function created by resolving {@link
- * Provider}.
+ * An internal resolved representation of a factory function created by resolving `Provider`.
  * @experimental
  */
 var ResolvedReflectiveFactory = /** @class */ (function () {
@@ -36828,10 +33268,10 @@ function resolveReflectiveFactory(provider) {
     return new ResolvedReflectiveFactory(factoryFn, resolvedDeps);
 }
 /**
- * Converts the {@link Provider} into {@link ResolvedProvider}.
+ * Converts the `Provider` into `ResolvedProvider`.
  *
- * {@link Injector} internally only uses {@link ResolvedProvider}, {@link Provider} contains
- * convenience provider syntax.
+ * `Injector` internally only uses `ResolvedProvider`, `Provider` contains convenience provider
+ * syntax.
  */
 function resolveReflectiveProvider(provider) {
     return new ResolvedReflectiveProvider_(ReflectiveKey.get(provider.provide), [resolveReflectiveFactory(provider)], provider.multi || false);
@@ -36846,9 +33286,8 @@ function resolveReflectiveProviders(providers) {
     return Array.from(resolvedProviderMap.values());
 }
 /**
- * Merges a list of ResolvedProviders into a list where
- * each key is contained exactly once and multi providers
- * have been merged.
+ * Merges a list of ResolvedProviders into a list where each key is contained exactly once and
+ * multi providers have been merged.
  */
 function mergeResolvedReflectiveProviders(providers, normalizedProvidersMap) {
     for (var i = 0; i < providers.length; i++) {
@@ -36976,7 +33415,8 @@ var UNDEFINED = new Object();
  * In typical use, application code asks for the dependencies in the constructor and they are
  * resolved by the `Injector`.
  *
- * ### Example ([live demo](http://plnkr.co/edit/jzjec0?p=preview))
+ * @usageNotes
+ * ### Example
  *
  * The following example creates an `Injector` configured to create `Engine` and `Car`.
  *
@@ -37008,9 +33448,10 @@ var ReflectiveInjector = /** @class */ (function () {
      * Turns an array of provider definitions into an array of resolved providers.
      *
      * A resolution is a process of flattening multiple nested arrays and converting individual
-     * providers into an array of {@link ResolvedReflectiveProvider}s.
+     * providers into an array of `ResolvedReflectiveProvider`s.
      *
-     * ### Example ([live demo](http://plnkr.co/edit/AiXTHi?p=preview))
+     * @usageNotes
+     * ### Example
      *
      * ```typescript
      * @Injectable()
@@ -37035,7 +33476,6 @@ var ReflectiveInjector = /** @class */ (function () {
      * });
      * ```
      *
-     * See {@link ReflectiveInjector#fromResolvedProviders fromResolvedProviders} for more info.
      */
     ReflectiveInjector.resolve = function (providers) {
         return resolveReflectiveProviders(providers);
@@ -37043,10 +33483,11 @@ var ReflectiveInjector = /** @class */ (function () {
     /**
      * Resolves an array of providers and creates an injector from those providers.
      *
-     * The passed-in providers can be an array of `Type`, {@link Provider},
+     * The passed-in providers can be an array of `Type`, `Provider`,
      * or a recursive array of more providers.
      *
-     * ### Example ([live demo](http://plnkr.co/edit/ePOccA?p=preview))
+     * @usageNotes
+     * ### Example
      *
      * ```typescript
      * @Injectable()
@@ -37061,11 +33502,6 @@ var ReflectiveInjector = /** @class */ (function () {
      * var injector = ReflectiveInjector.resolveAndCreate([Car, Engine]);
      * expect(injector.get(Car) instanceof Car).toBe(true);
      * ```
-     *
-     * This function is slower than the corresponding `fromResolvedProviders`
-     * because it needs to resolve the passed-in providers first.
-     * See {@link ReflectiveInjector#resolve resolve} and
-     * {@link ReflectiveInjector#fromResolvedProviders fromResolvedProviders}.
      */
     ReflectiveInjector.resolveAndCreate = function (providers, parent) {
         var ResolvedReflectiveProviders = ReflectiveInjector.resolve(providers);
@@ -37076,7 +33512,8 @@ var ReflectiveInjector = /** @class */ (function () {
      *
      * This API is the recommended way to construct injectors in performance-sensitive parts.
      *
-     * ### Example ([live demo](http://plnkr.co/edit/KrSMci?p=preview))
+     * @usageNotes
+     * ### Example
      *
      * ```typescript
      * @Injectable()
@@ -38124,6 +34561,7 @@ var wtfEndTimeRange = wtfEnabled ? endTimeRange : function (r) { return null; };
 /**
  * Use by directives and components to emit custom Events.
  *
+ * @usageNotes
  * ### Examples
  *
  * In the following example, `Zippy` alternatively emits `open` and `close` events when its
@@ -38161,6 +34599,8 @@ var wtfEndTimeRange = wtfEnabled ? endTimeRange : function (r) { return null; };
  * ```
  * <zippy (open)="onOpen($event)" (close)="onClose($event)"></zippy>
  * ```
+ *
+ * ### Notes
  *
  * Uses Rx.Observable but provides an adapter to make it work as specified here:
  * https://github.com/jhusain/observable-spec
@@ -38242,6 +34682,7 @@ var EventEmitter = /** @class */ (function (_super) {
  *   - link to runOutsideAngular/run (throughout this file!)
  *   -->
  *
+ * @usageNotes
  * ### Example
  *
  * ```
@@ -38902,8 +35343,6 @@ function getPlatform() {
  *
  * A page's platform is initialized implicitly when a platform is created via a platform factory
  * (e.g. {@link platformBrowser}), or explicitly by calling the {@link createPlatform} function.
- *
- *
  */
 var PlatformRef = /** @class */ (function () {
     /** @internal */
@@ -38917,7 +35356,8 @@ var PlatformRef = /** @class */ (function () {
      * Creates an instance of an `@NgModule` for the given platform
      * for offline compilation.
      *
-     * ## Simple Example
+     * @usageNotes
+     * ### Simple Example
      *
      * ```typescript
      * my_module.ts:
@@ -38969,7 +35409,8 @@ var PlatformRef = /** @class */ (function () {
     /**
      * Creates an instance of an `@NgModule` for a given platform using the given runtime compiler.
      *
-     * ## Simple Example
+     * @usageNotes
+     * ### Simple Example
      *
      * ```typescript
      * @NgModule({
@@ -39082,8 +35523,6 @@ function optionsReducer(dst, objs) {
 }
 /**
  * A reference to an Angular application running on a page.
- *
- *
  */
 var ApplicationRef = /** @class */ (function () {
     /** @internal */
@@ -39155,14 +35594,15 @@ var ApplicationRef = /** @class */ (function () {
     /**
      * Bootstrap a new component at the root level of the application.
      *
+     * @usageNotes
      * ### Bootstrap process
      *
      * When bootstrapping a new root component into an application, Angular mounts the
-     * specified application component onto DOM elements identified by the [componentType]'s
+     * specified application component onto DOM elements identified by the componentType's
      * selector and kicks off automatic change detection to finish initializing the component.
      *
      * Optionally, a component can be mounted onto a DOM element that does not match the
-     * [componentType]'s selector.
+     * componentType's selector.
      *
      * ### Example
      * {@example core/ts/platform/platform.ts region='longform'}
@@ -39490,14 +35930,14 @@ function getModuleFactory(id) {
  *
  * NOTE: In the future this class will implement an `Observable` interface.
  *
- * ### Example ([live demo](http://plnkr.co/edit/RX8sJnQYl9FWuSCWme5z?p=preview))
+ * @usageNotes
+ * ### Example
  * ```typescript
  * @Component({...})
  * class Container {
  *   @ViewChildren(Item) items:QueryList<Item>;
  * }
  * ```
- *
  */
 var QueryList = /** @class */ (function () {
     function QueryList() {
@@ -39739,9 +36179,10 @@ var ViewRef = /** @class */ (function (_super) {
  *
  * Properties of elements in a View can change, but the structure (number and order) of elements in
  * a View cannot. Changing the structure of Elements can only be done by inserting, moving or
- * removing nested Views via a {@link ViewContainerRef}. Each View can contain many View Containers.
+ * removing nested Views via a `ViewContainerRef`. Each View can contain many View Containers.
  * <!-- /TODO -->
  *
+ * @usageNotes
  * ### Example
  *
  * Given this template...
@@ -39753,9 +36194,10 @@ var ViewRef = /** @class */ (function (_super) {
  * </ul>
  * ```
  *
- * We have two {@link TemplateRef}s:
+ * We have two `TemplateRef`s:
  *
- * Outer {@link TemplateRef}:
+ * Outer `TemplateRef`:
+ *
  * ```
  * Count: {{items.length}}
  * <ul>
@@ -39763,14 +36205,15 @@ var ViewRef = /** @class */ (function (_super) {
  * </ul>
  * ```
  *
- * Inner {@link TemplateRef}:
+ * Inner `TemplateRef`:
+ *
  * ```
  *   <li>{{item}}</li>
  * ```
  *
- * Notice that the original template is broken down into two separate {@link TemplateRef}s.
+ * Notice that the original template is broken down into two separate `TemplateRef`s.
  *
- * The outer/inner {@link TemplateRef}s are then assembled into views like so:
+ * The outer/inner `TemplateRef`s are then assembled into views like so:
  *
  * ```
  * <!-- ViewRef: outer-0 -->
@@ -41055,11 +37498,12 @@ var IterableDiffers = /** @class */ (function () {
      * inherited {@link IterableDiffers} instance with the provided factories and return a new
      * {@link IterableDiffers} instance.
      *
+     * @usageNotes
+     * ### Example
+     *
      * The following example shows how to extend an existing list of factories,
      * which will only be applied to the injector for this component and its children.
      * This step is all that's required to make a new {@link IterableDiffer} available.
-     *
-     * ### Example
      *
      * ```
      * @Component({
@@ -41131,11 +37575,12 @@ var KeyValueDiffers = /** @class */ (function () {
      * inherited {@link KeyValueDiffers} instance with the provided factories and return a new
      * {@link KeyValueDiffers} instance.
      *
+     * @usageNotes
+     * ### Example
+     *
      * The following example shows how to extend an existing list of factories,
      * which will only be applied to the injector for this component and its children.
      * This step is all that's required to make a new {@link KeyValueDiffer} available.
-     *
-     * ### Example
      *
      * ```
      * @Component({
@@ -41234,8 +37679,9 @@ var platformCore = createPlatformFactory(null, 'core', _CORE_PLATFORM_PROVIDERS)
  * It is used for i18n extraction, by i18n pipes (DatePipe, I18nPluralPipe, CurrencyPipe,
  * DecimalPipe and PercentPipe) and by ICU expressions.
  *
- * See the {@linkDocs guide/i18n#setting-up-locale i18n guide} for more information.
+ * See the [i18n guide](guide/i18n#setting-up-locale) for more information.
  *
+ * @usageNotes
  * ### Example
  *
  * ```typescript
@@ -41255,8 +37701,9 @@ var LOCALE_ID = new InjectionToken('LocaleId');
  * Use this token at bootstrap to provide the content of your translation file (`xtb`,
  * `xlf` or `xlf2`) when you want to translate your application in another language.
  *
- * See the {@linkDocs guide/i18n#merge i18n guide} for more information.
+ * See the [i18n guide](guide/i18n#merge) for more information.
  *
+ * @usageNotes
  * ### Example
  *
  * ```typescript
@@ -41279,8 +37726,9 @@ var TRANSLATIONS = new InjectionToken('Translations');
  * Provide this token at bootstrap to set the format of your {@link TRANSLATIONS}: `xtb`,
  * `xlf` or `xlf2`.
  *
- * See the {@linkDocs guide/i18n#merge i18n guide} for more information.
+ * See the [i18n guide](guide/i18n#merge) for more information.
  *
+ * @usageNotes
  * ### Example
  *
  * ```typescript
@@ -41303,8 +37751,9 @@ var TRANSLATIONS_FORMAT = new InjectionToken('TranslationsFormat');
  * - Warning (default): show a warning in the console and/or shell.
  * - Ignore: do nothing.
  *
- * See the {@linkDocs guide/i18n#missing-translation i18n guide} for more information.
+ * See the [i18n guide](guide/i18n#missing-translation) for more information.
  *
+ * @usageNotes
  * ### Example
  * ```typescript
  * import { MissingTranslationStrategy } from '@angular/core';
@@ -42858,6 +39307,9 @@ function resolveNgModuleDep(data, depDef, notFoundValue) {
             data._providers[index] = UNDEFINED_VALUE;
             return (data._providers[index] =
                 _createProviderInstance$1(data, data._def.providersByKey[depDef.tokenKey]));
+        }
+        else if (depDef.flags & 4 /* Self */) {
+            return notFoundValue;
         }
         return data._parent.get(depDef.token, notFoundValue);
     }
@@ -48957,7 +45409,8 @@ var ViewRef$1 = /** @class */ (function () {
      *
      * <!-- TODO: Add a link to a chapter on OnPush components -->
      *
-     * ### Example ([live demo](https://stackblitz.com/edit/angular-kx7rrw))
+     * @usageNotes
+     * ### Example
      *
      * ```typescript
      * @Component({
@@ -48990,6 +45443,7 @@ var ViewRef$1 = /** @class */ (function () {
      * <!-- TODO: Add a link to a chapter on detach/reattach/local digest -->
      * <!-- TODO: Add a live demo once ref.detectChanges is merged into master -->
      *
+     * @usageNotes
      * ### Example
      *
      * The following example defines a component with a large list of readonly data.
@@ -49040,7 +45494,8 @@ var ViewRef$1 = /** @class */ (function () {
      *
      * <!-- TODO: Add a link to a chapter on detach/reattach/local digest -->
      *
-     * ### Example ([live demo](https://stackblitz.com/edit/angular-ymgsxw))
+     * @usageNotes
+     * ### Example
      *
      * The following example creates a component displaying `live` data. The component will detach
      * its change detector from the main change detector tree when the component's live property
@@ -49097,6 +45552,7 @@ var ViewRef$1 = /** @class */ (function () {
      * <!-- TODO: Add a link to a chapter on detach/reattach/local digest -->
      * <!-- TODO: Add a live demo once ref.detectChanges is merged into master -->
      *
+     * @usageNotes
      * ### Example
      *
      * The following example defines a component with a large list of readonly data.
@@ -51016,7 +47472,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /**
- * @license Angular v6.0.4
+ * @license Angular v6.0.6
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -52878,21 +49334,31 @@ var NgControlStatusGroup = /** @class */ (function (_super) {
  * found in the LICENSE file at https://angular.io/license
  */
 /**
- * Indicates that a FormControl is valid, i.e. that no errors exist in the input value.
+ * Reports that a FormControl is valid, meaning that no errors exist in the input value.
+ *
+ * @see `status`
  */
 var VALID = 'VALID';
 /**
- * Indicates that a FormControl is invalid, i.e. that an error exists in the input value.
+ * Reports that a FormControl is invalid, meaning that an error exists in the input value.
+ *
+ * @see `status`
  */
 var INVALID = 'INVALID';
 /**
- * Indicates that a FormControl is pending, i.e. that async validation is occurring and
+ * Reports that a FormControl is pending, meaning that that async validation is occurring and
  * errors are not yet available for the input value.
+ *
+ * @see `markAsPending`
+ * @see `status`
  */
 var PENDING = 'PENDING';
 /**
- * Indicates that a FormControl is disabled, i.e. that the control is exempt from ancestor
+ * Reports that a FormControl is disabled, meaning that the control is exempt from ancestor
  * calculations of validity or value.
+ *
+ * @see `markAsDisabled`
+ * @see `status`
  */
 var DISABLED = 'DISABLED';
 function _find(control, path, delimiter) {
@@ -52929,8 +49395,6 @@ function isOptionsObj(validatorOrOpts) {
         typeof validatorOrOpts === 'object';
 }
 /**
- * @description
- *
  * This is the base class for `FormControl`, `FormGroup`, and `FormArray`.
  *
  * It provides some of the shared behavior that all controls and groups of controls have, like
@@ -52946,8 +49410,9 @@ function isOptionsObj(validatorOrOpts) {
 var AbstractControl = /** @class */ (function () {
     /**
      * Initialize the AbstractControl instance.
-     * @param validator The function that will determine the synchronous validity of this control.
-     * @param asyncValidator The function that will determine the asynchronous validity of this
+     *
+     * @param validator The function that determines the synchronous validity of this control.
+     * @param asyncValidator The function that determines the asynchronous validity of this
      * control.
      */
     function AbstractControl(validator, asyncValidator) {
@@ -52959,14 +49424,16 @@ var AbstractControl = /** @class */ (function () {
          * A control is `pristine` if the user has not yet changed
          * the value in the UI.
          *
-         * Note that programmatic changes to a control's value will
-         * *not* mark it dirty.
+         * @returns True if the user has not yet changed the value in the UI; compare `dirty`.
+         * Programmatic changes to a control's value do not mark it dirty.
          */
         this.pristine = true;
         /**
-        * A control is marked `touched` once the user has triggered
-        * a `blur` event on it.
-        */
+         * True if the control is marked as `touched`.
+         *
+         * A control is marked `touched` once the user has triggered
+         * a `blur` event on it.
+         */
         this.touched = false;
         /** @internal */
         this._onDisabledChange = [];
@@ -52981,10 +49448,12 @@ var AbstractControl = /** @class */ (function () {
     });
     Object.defineProperty(AbstractControl.prototype, "valid", {
         /**
-         * A control is `valid` when its `status === VALID`.
+         * A control is `valid` when its `status` is `VALID`.
          *
-         * In order to have this status, the control must have passed all its
-         * validation checks.
+         * @see `status`
+         *
+         * @returns True if the control has passed all of its validation tests,
+         * false otherwise.
          */
         get: function () { return this.status === VALID; },
         enumerable: true,
@@ -52992,10 +49461,12 @@ var AbstractControl = /** @class */ (function () {
     });
     Object.defineProperty(AbstractControl.prototype, "invalid", {
         /**
-         * A control is `invalid` when its `status === INVALID`.
+         * A control is `invalid` when its `status` is `INVALID`.
          *
-         * In order to have this status, the control must have failed
-         * at least one of its validation checks.
+         * @see `status`
+         *
+         * @returns True if this control has failed one or more of its validation checks,
+         * false otherwise.
          */
         get: function () { return this.status === INVALID; },
         enumerable: true,
@@ -53003,10 +49474,12 @@ var AbstractControl = /** @class */ (function () {
     });
     Object.defineProperty(AbstractControl.prototype, "pending", {
         /**
-         * A control is `pending` when its `status === PENDING`.
+         * A control is `pending` when its `status` is `PENDING`.
          *
-         * In order to have this status, the control must be in the
-         * middle of conducting a validation check.
+         * @see `status`
+         *
+         * @returns True if this control is in the process of conducting a validation check,
+         * false otherwise.
          */
         get: function () { return this.status == PENDING; },
         enumerable: true,
@@ -53014,11 +49487,15 @@ var AbstractControl = /** @class */ (function () {
     });
     Object.defineProperty(AbstractControl.prototype, "disabled", {
         /**
-         * A control is `disabled` when its `status === DISABLED`.
+         * A control is `disabled` when its `status` is `DISABLED`.
+         *
+         * @see `status`
          *
          * Disabled controls are exempt from validation checks and
          * are not included in the aggregate value of their ancestor
          * controls.
+         *
+         * @returns True if the control is disabled, false otherwise.
          */
         get: function () { return this.status === DISABLED; },
         enumerable: true,
@@ -53026,10 +49503,13 @@ var AbstractControl = /** @class */ (function () {
     });
     Object.defineProperty(AbstractControl.prototype, "enabled", {
         /**
-         * A control is `enabled` as long as its `status !== DISABLED`.
+         * A control is `enabled` as long as its `status` is not `DISABLED`.
          *
-         * In other words, it has a status of `VALID`, `INVALID`, or
-         * `PENDING`.
+         * @see `status`
+         *
+         * @returns True if the control has any status other than 'DISABLED',
+         * false if the status is 'DISABLED'.
+         *
          */
         get: function () { return this.status !== DISABLED; },
         enumerable: true,
@@ -53040,8 +49520,8 @@ var AbstractControl = /** @class */ (function () {
          * A control is `dirty` if the user has changed the value
          * in the UI.
          *
-         * Note that programmatic changes to a control's value will
-         * *not* mark it dirty.
+         * @returns True if the user has changed the value of this control in the UI; compare `pristine`.
+         * Programmatic changes to a control's value do not mark it dirty.
          */
         get: function () { return !this.pristine; },
         enumerable: true,
@@ -53049,6 +49529,8 @@ var AbstractControl = /** @class */ (function () {
     });
     Object.defineProperty(AbstractControl.prototype, "untouched", {
         /**
+         * True if the control has not been marked as touched
+         *
          * A control is `untouched` if the user has not yet triggered
          * a `blur` event on it.
          */
@@ -53058,9 +49540,10 @@ var AbstractControl = /** @class */ (function () {
     });
     Object.defineProperty(AbstractControl.prototype, "updateOn", {
         /**
-         * Returns the update strategy of the `AbstractControl` (i.e.
-         * the event on which the control will update itself).
-         * Possible values: `'change'` (default) | `'blur'` | `'submit'`
+         * Reports the update strategy of the `AbstractControl` (meaning
+         * the event on which the control updates itself).
+         * Possible values: `'change'` | `'blur'` | `'submit'`
+         * Default value: `'change'`
          */
         get: function () {
             return this._updateOn ? this._updateOn : (this.parent ? this.parent.updateOn : 'change');
@@ -53070,14 +49553,14 @@ var AbstractControl = /** @class */ (function () {
     });
     /**
      * Sets the synchronous validators that are active on this control.  Calling
-     * this will overwrite any existing sync validators.
+     * this overwrites any existing sync validators.
      */
     AbstractControl.prototype.setValidators = function (newValidator) {
         this.validator = coerceToValidator(newValidator);
     };
     /**
      * Sets the async validators that are active on this control. Calling this
-     * will overwrite any existing async validators.
+     * overwrites any existing async validators.
      */
     AbstractControl.prototype.setAsyncValidators = function (newValidator) {
         this.asyncValidator = coerceToAsyncValidator(newValidator);
@@ -53091,10 +49574,13 @@ var AbstractControl = /** @class */ (function () {
      */
     AbstractControl.prototype.clearAsyncValidators = function () { this.asyncValidator = null; };
     /**
-     * Marks the control as `touched`.
+     * Marks the control as `touched`. A control is touched by focus and
+     * blur events that do not change the value; compare `markAsDirty`;
      *
-     * This will also mark all direct ancestors as `touched` to maintain
-     * the model.
+     *  @param opts Configuration options that determine how the control propagates changes
+     * and emits events events after marking is applied.
+     * * `onlySelf`: When true, mark only this control. When false or not supplied,
+     * marks all direct ancestors. Default is false.
      */
     AbstractControl.prototype.markAsTouched = function (opts) {
         if (opts === void 0) { opts = {}; }
@@ -53106,9 +49592,13 @@ var AbstractControl = /** @class */ (function () {
     /**
      * Marks the control as `untouched`.
      *
-     * If the control has any children, it will also mark all children as `untouched`
-     * to maintain the model, and re-calculate the `touched` status of all parent
-     * controls.
+     * If the control has any children, also marks all children as `untouched`
+     * and recalculates the `touched` status of all parent controls.
+     *
+     *  @param opts Configuration options that determine how the control propagates changes
+     * and emits events after the marking is applied.
+     * * `onlySelf`: When true, mark only this control. When false or not supplied,
+     * marks all direct ancestors. Default is false.
      */
     AbstractControl.prototype.markAsUntouched = function (opts) {
         if (opts === void 0) { opts = {}; }
@@ -53120,10 +49610,13 @@ var AbstractControl = /** @class */ (function () {
         }
     };
     /**
-     * Marks the control as `dirty`.
+     * Marks the control as `dirty`. A control becomes dirty when
+     * the control's is changed through the UI; compare `markAsTouched`.
      *
-     * This will also mark all direct ancestors as `dirty` to maintain
-     * the model.
+     *  @param opts Configuration options that determine how the control propagates changes
+     * and emits events after marking is applied.
+     * * `onlySelf`: When true, mark only this control. When false or not supplied,
+     * marks all direct ancestors. Default is false.
      */
     AbstractControl.prototype.markAsDirty = function (opts) {
         if (opts === void 0) { opts = {}; }
@@ -53135,9 +49628,14 @@ var AbstractControl = /** @class */ (function () {
     /**
      * Marks the control as `pristine`.
      *
-     * If the control has any children, it will also mark all children as `pristine`
-     * to maintain the model, and re-calculate the `pristine` status of all parent
+     * If the control has any children, marks all children as `pristine`,
+     * and recalculates the `pristine` status of all parent
      * controls.
+     *
+     *  @param opts Configuration options that determine how the control emits events after
+     * marking is applied.
+     * * `onlySelf`: When true, mark only this control. When false or not supplied,
+     * marks all direct ancestors. Default is false..
      */
     AbstractControl.prototype.markAsPristine = function (opts) {
         if (opts === void 0) { opts = {}; }
@@ -53151,9 +49649,16 @@ var AbstractControl = /** @class */ (function () {
     /**
      * Marks the control as `pending`.
      *
-     * An event will be emitted by `statusChanges` by default.
+     * A control is pending while the control performs async validation.
      *
-     * Passing `false` for `emitEvent` will cause `statusChanges` to not emit an event.
+     *  @param opts Configuration options that determine how the control propagates changes and
+     * emits events after marking is applied.
+     * * `onlySelf`: When true, mark only this control. When false or not supplied,
+     * marks all direct ancestors. Default is false..
+     * * `emitEvent`: When true or not supplied (the default), the `statusChanges`
+     * observable emits an event with the latest status the control is marked pending.
+     * When false, no events are emitted.
+     *
      */
     AbstractControl.prototype.markAsPending = function (opts) {
         if (opts === void 0) { opts = {}; }
@@ -53166,10 +49671,19 @@ var AbstractControl = /** @class */ (function () {
         }
     };
     /**
-     * Disables the control. This means the control will be exempt from validation checks and
+     * Disables the control. This means the control is exempt from validation checks and
      * excluded from the aggregate value of any parent. Its status is `DISABLED`.
      *
-     * If the control has children, all children will be disabled to maintain the model.
+     * If the control has children, all children are also disabled.
+     *
+     *  @param opts Configuration options that determine how the control propagates
+     * changes and emits events after the control is disabled.
+     * * `onlySelf`: When true, mark only this control. When false or not supplied,
+     * marks all direct ancestors. Default is false..
+     * * `emitEvent`: When true or not supplied (the default), both the `statusChanges` and
+     * `valueChanges`
+     * observables emit events with the latest status and value when the control is disabled.
+     * When false, no events are emitted.
      */
     AbstractControl.prototype.disable = function (opts) {
         if (opts === void 0) { opts = {}; }
@@ -53185,11 +49699,20 @@ var AbstractControl = /** @class */ (function () {
         this._onDisabledChange.forEach(function (changeFn) { return changeFn(true); });
     };
     /**
-     * Enables the control. This means the control will be included in validation checks and
-     * the aggregate value of its parent. Its status is re-calculated based on its value and
+     * Enables the control. This means the control is included in validation checks and
+     * the aggregate value of its parent. Its status recalculates based on its value and
      * its validators.
      *
-     * If the control has children, all children will be enabled.
+     * By default, if the control has children, all children are enabled.
+     *
+     *  @param opts Configure options that control how the control propagates changes and
+     * emits events when marked as untouched
+     * * `onlySelf`: When true, mark only this control. When false or not supplied,
+     * marks all direct ancestors. Default is false..
+     * * `emitEvent`: When true or not supplied (the default), both the `statusChanges` and
+     * `valueChanges`
+     * observables emit events with the latest status and value when the control is enabled.
+     * When false, no events are emitted.
      */
     AbstractControl.prototype.enable = function (opts) {
         if (opts === void 0) { opts = {}; }
@@ -53206,11 +49729,23 @@ var AbstractControl = /** @class */ (function () {
             this._parent._updateTouched();
         }
     };
+    /**
+     * @param parent Sets the parent of the control
+     */
     AbstractControl.prototype.setParent = function (parent) { this._parent = parent; };
     /**
-     * Re-calculates the value and validation status of the control.
+     * Recalculates the value and validation status of the control.
      *
-     * By default, it will also update the value and validity of its ancestors.
+     * By default, it also updates the value and validity of its ancestors.
+     *
+     * @param opts Configuration options determine how the control propagates changes and emits events
+     * after updates and validity checks are applied.
+     * * `onlySelf`: When true, only update this control. When false or not supplied,
+     * update all direct ancestors. Default is false..
+     * * `emitEvent`: When true or not supplied (the default), both the `statusChanges` and
+     * `valueChanges`
+     * observables emit events with the latest status and value when the control is updated.
+     * When false, no events are emitted.
      */
     AbstractControl.prototype.updateValueAndValidity = function (opts) {
         if (opts === void 0) { opts = {}; }
@@ -53259,24 +49794,22 @@ var AbstractControl = /** @class */ (function () {
         }
     };
     /**
-     * Sets errors on a form control.
+     * Sets errors on a form control when running validations manually, rather than automatically.
      *
-     * This is used when validations are run manually by the user, rather than automatically.
+     * Calling `setErrors` also updates the validity of the parent control.
      *
-     * Calling `setErrors` will also update the validity of the parent control.
-     *
-     * ### Example
+     * ### Manually set the errors for a control
      *
      * ```
-     * const login = new FormControl("someLogin");
+     * const login = new FormControl('someLogin');
      * login.setErrors({
-     *   "notUnique": true
+     *   notUnique: true
      * });
      *
      * expect(login.valid).toEqual(false);
-     * expect(login.errors).toEqual({"notUnique": true});
+     * expect(login.errors).toEqual({ notUnique: true });
      *
-     * login.setValue("someOtherLogin");
+     * login.setValue('someOtherLogin');
      *
      * expect(login.valid).toEqual(true);
      * ```
@@ -53289,9 +49822,12 @@ var AbstractControl = /** @class */ (function () {
     /**
      * Retrieves a child control given the control's name or path.
      *
-     * Paths can be passed in as an array or a string delimited by a dot.
+     * @param path A dot-delimited string or array of string/number values that define the path to the
+     * control.
      *
-     * To get a control nested within a `person` sub-group:
+     * ### Retrieve a nested control
+     *
+     * For example, to get a `name` control nested within a `person` sub-group:
      *
      * * `this.form.get('person.name');`
      *
@@ -53301,20 +49837,26 @@ var AbstractControl = /** @class */ (function () {
      */
     AbstractControl.prototype.get = function (path) { return _find(this, path, '.'); };
     /**
-     * Returns error data if the control with the given path has the error specified. Otherwise
-     * returns null or undefined.
+     * Reports error data for a specific error occurring in this control or in another control.
      *
-     * If no path is given, it checks for the error on the present control.
+     * @param errorCode The error code for which to retrieve data
+     * @param path The path to a control to check. If not supplied, checks for the error in this
+     * control.
+     *
+     * @returns The error data if the control with the given path has the given error, otherwise null
+     * or undefined.
      */
     AbstractControl.prototype.getError = function (errorCode, path) {
         var control = path ? this.get(path) : this;
         return control && control.errors ? control.errors[errorCode] : null;
     };
     /**
-     * Returns true if the control with the given path has the error specified. Otherwise
-     * returns false.
+     * Reports whether the control with the given path has the error specified.
      *
-     * If no path is given, it checks for the error on the present control.
+     * @param errorCode The error code for which to retrieve data
+     * @param path The path to a control to check. If not supplied, checks for the error in this
+     * control.
+     * @returns True when the control with the given path has the error, otherwise false.
      */
     AbstractControl.prototype.hasError = function (errorCode, path) { return !!this.getError(errorCode, path); };
     Object.defineProperty(AbstractControl.prototype, "root", {
@@ -53401,46 +49943,46 @@ var AbstractControl = /** @class */ (function () {
     return AbstractControl;
 }());
 /**
- * @description
- *
  * Tracks the value and validation status of an individual form control.
  *
  * This is one of the three fundamental building blocks of Angular forms, along with
- * `FormGroup` and `FormArray`.
+ * `FormGroup` and `FormArray`. It extends the `AbstractControl` class that
+ * implements most of the base functionality for accessing the value, validation status,
+ * user interactions and events.
  *
- * When instantiating a `FormControl`, you can pass in an initial value as the
- * first argument. Example:
+ * @see `AbstractControl`
+ * @see [Reactive Forms Guide](guide/reactive-forms)
+ * @see [Usage Notes](#usage-notes)
+ *
+ * @usageNotes
+ *
+ * ### Initializing Form Controls
+ *
+ * Instantiate a `FormControl`, with an initial value.
  *
  * ```ts
  * const ctrl = new FormControl('some value');
  * console.log(ctrl.value);     // 'some value'
  *```
  *
- * You can also initialize the control with a form state object on instantiation,
- * which includes both the value and whether or not the control is disabled.
- * You can't use the value key without the disabled key; both are required
- * to use this way of initialization.
+ * The following example initializes the control with a form state object. The `value`
+ * and `disabled` keys are required in this case.
  *
  * ```ts
- * const ctrl = new FormControl({value: 'n/a', disabled: true});
+ * const ctrl = new FormControl({ value: 'n/a', disabled: true });
  * console.log(ctrl.value);     // 'n/a'
- * console.log(ctrl.status);   // 'DISABLED'
+ * console.log(ctrl.status);    // 'DISABLED'
  * ```
  *
- * The second `FormControl` argument can accept one of three things:
- * * a sync validator function
- * * an array of sync validator functions
- * * an options object containing validator and/or async validator functions
- *
- * Example of a single sync validator function:
+ * The following example initializes the control with a sync validator.
  *
  * ```ts
  * const ctrl = new FormControl('', Validators.required);
- * console.log(ctrl.value);     // ''
- * console.log(ctrl.status);   // 'INVALID'
+ * console.log(ctrl.value);      // ''
+ * console.log(ctrl.status);     // 'INVALID'
  * ```
  *
- * Example using options object:
+ * The following example initializes the control using an options object.
  *
  * ```ts
  * const ctrl = new FormControl('', {
@@ -53449,26 +49991,68 @@ var AbstractControl = /** @class */ (function () {
  * });
  * ```
  *
- * The options object can also be used to define when the control should update.
- * By default, the value and validity of a control updates whenever the value
- * changes. You can configure it to update on the blur event instead by setting
- * the `updateOn` option to `'blur'`.
+ * ### Configure the control to update on a blur event
+ *
+ * Set the `updateOn` option to `'blur'` to update on the blur `event`.
  *
  * ```ts
- * const c = new FormControl('', { updateOn: 'blur' });
+ * const ctrl = new FormControl('', { updateOn: 'blur' });
  * ```
  *
- * You can also set `updateOn` to `'submit'`, which will delay value and validity
- * updates until the parent form of the control fires a submit event.
+ * ### Configure the control to update on a submit event
  *
- * See its superclass, `AbstractControl`, for more properties and methods.
+ * Set the `updateOn` option to `'submit'` to update on a submit `event`.
  *
- * * **npm package**: `@angular/forms`
+ * ```ts
+ * const ctrl = new FormControl('', { updateOn: 'submit' });
+ * ```
  *
+ * ### Reset the control back to an initial value
  *
- */
+ * You reset to a specific form state by passing through a standalone
+ * value or a form state object that contains both a value and a disabled state
+ * (these are the only two properties that cannot be calculated).
+ *
+ * ```ts
+ * const ctrl = new FormControl('Nancy');
+ *
+ * console.log(control.value); // 'Nancy'
+ *
+ * control.reset('Drew');
+ *
+ * console.log(control.value); // 'Drew'
+ * ```
+ *
+ * ### Reset the control back to an initial value and disabled
+ *
+ * ```
+ * const ctrl = new FormControl('Nancy');
+ *
+ * console.log(control.value); // 'Nancy'
+ * console.log(this.control.status); // 'DISABLED'
+ *
+ * control.reset({ value: 'Drew', disabled: true });
+ *
+ * console.log(this.control.value); // 'Drew'
+ * console.log(this.control.status); // 'DISABLED'
+ *
+*/
 var FormControl = /** @class */ (function (_super) {
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(FormControl, _super);
+    /**
+    * Creates a new `FormControl` instance.
+    *
+    * @param formState Initializes the control with an initial state value,
+    * or with an object that defines the initial value, status, and options
+    * for handling updates and validation.
+    *
+    * @param validatorOrOpts A synchronous validator function, or an array of
+    * such functions, or an `AbstractControlOptions` object that contains validation functions
+    * and a validation trigger.
+    *
+    * @param asyncValidator A single async validator or array of async validator functions
+    *
+    */
     function FormControl(formState, validatorOrOpts, asyncValidator) {
         if (formState === void 0) { formState = null; }
         var _this = _super.call(this, coerceToValidator(validatorOrOpts), coerceToAsyncValidator(asyncValidator, validatorOrOpts)) || this;
@@ -53481,21 +50065,27 @@ var FormControl = /** @class */ (function (_super) {
         return _this;
     }
     /**
-     * Set the value of the form control to `value`.
+     * Sets a new value for the form control.
      *
-     * If `onlySelf` is `true`, this change will only affect the validation of this `FormControl`
-     * and not its parent component. This defaults to false.
+     * @param value The new value for the control.
+     * @param options Configuration options that determine how the control proopagates changes
+     * and emits events when the value changes.
+     * The configuration options are passed to the {@link AbstractControl#updateValueAndValidity
+     * updateValueAndValidity} method.
      *
-     * If `emitEvent` is `true`, this
-     * change will cause a `valueChanges` event on the `FormControl` to be emitted. This defaults
-     * to true (as it falls through to `updateValueAndValidity`).
+     * * `onlySelf`: When true, each change only affects this control, and not its parent. Default is
+     * false.
+     * * `emitEvent`: When true or not supplied (the default), both the `statusChanges` and
+     * `valueChanges`
+     * observables emit events with the latest status and value when the control value is updated.
+     * When false, no events are emitted.
+     * * `emitModelToViewChange`: When true or not supplied  (the default), each change triggers an
+     * `onChange` event to
+     * update the view.
+     * * `emitViewToModelChange`: When true or not supplied (the default), each change triggers an
+     * `ngModelChange`
+     * event to update the model.
      *
-     * If `emitModelToViewChange` is `true`, the view will be notified about the new value
-     * via an `onChange` event. This is the default behavior if `emitModelToViewChange` is not
-     * specified.
-     *
-     * If `emitViewToModelChange` is `true`, an ngModelChange event will be fired to update the
-     * model.  This is the default behavior if `emitViewToModelChange` is not specified.
      */
     FormControl.prototype.setValue = function (value, options) {
         var _this = this;
@@ -53512,38 +50102,31 @@ var FormControl = /** @class */ (function (_super) {
      * This function is functionally the same as {@link FormControl#setValue setValue} at this level.
      * It exists for symmetry with {@link FormGroup#patchValue patchValue} on `FormGroups` and
      * `FormArrays`, where it does behave differently.
+     *
+     * @see `setValue` for options
      */
     FormControl.prototype.patchValue = function (value, options) {
         if (options === void 0) { options = {}; }
         this.setValue(value, options);
     };
     /**
-     * Resets the form control. This means by default:
+     * Resets the form control, marking it `pristine` and `untouched`, and setting
+     * the value to null.
      *
-     * * it is marked as `pristine`
-     * * it is marked as `untouched`
-     * * value is set to null
+     * @param formState Initializes the control with an initial state value,
+     * or with an object that defines the initial value, status, and options
+     * for handling updates and validation.
      *
-     * You can also reset to a specific form state by passing through a standalone
-     * value or a form state object that contains both a value and a disabled state
-     * (these are the only two properties that cannot be calculated).
+     * @param options Configuration options that determine how the control propagates changes
+     * and emits events after the value changes.
      *
-     * Ex:
+     * * `onlySelf`: When true, each change only affects this control, and not its parent. Default is
+     * false.
+     * * `emitEvent`: When true or not supplied (the default), both the `statusChanges` and
+     * `valueChanges`
+     * observables emit events with the latest status and value when the control is reset.
+     * When false, no events are emitted.
      *
-     * ```ts
-     * this.control.reset('Nancy');
-     *
-     * console.log(this.control.value);  // 'Nancy'
-     * ```
-     *
-     * OR
-     *
-     * ```
-     * this.control.reset({value: 'Nancy', disabled: true});
-     *
-     * console.log(this.control.value);  // 'Nancy'
-     * console.log(this.control.status);  // 'DISABLED'
-     * ```
      */
     FormControl.prototype.reset = function (formState, options) {
         if (formState === void 0) { formState = null; }
@@ -53568,6 +50151,8 @@ var FormControl = /** @class */ (function (_super) {
     FormControl.prototype._allControlsDisabled = function () { return this.disabled; };
     /**
      * Register a listener for change events.
+     *
+     * @param fn The method that is called when the value changes
      */
     FormControl.prototype.registerOnChange = function (fn) { this._onChange.push(fn); };
     /**
@@ -53580,6 +50165,8 @@ var FormControl = /** @class */ (function (_super) {
     };
     /**
      * Register a listener for disabled events.
+     *
+     * @param fn The method that is called when the disabled status changes.
      */
     FormControl.prototype.registerOnDisabledChange = function (fn) {
         this._onDisabledChange.push(fn);
@@ -53615,12 +50202,10 @@ var FormControl = /** @class */ (function (_super) {
     return FormControl;
 }(AbstractControl));
 /**
- * @description
- *
  * Tracks the value and validity state of a group of `FormControl` instances.
  *
  * A `FormGroup` aggregates the values of each child `FormControl` into one object,
- * with each control name as the key.  It calculates its status by reducing the statuses
+ * with each control name as the key.  It calculates its status by reducing the status values
  * of its children. For example, if one of the controls in a group is invalid, the entire
  * group becomes invalid.
  *
@@ -53628,9 +50213,11 @@ var FormControl = /** @class */ (function (_super) {
  * along with `FormControl` and `FormArray`.
  *
  * When instantiating a `FormGroup`, pass in a collection of child controls as the first
- * argument. The key for each child will be the name under which it is registered.
+ * argument. The key for each child registers the name for the control.
  *
- * ### Example
+ * @usageNotes
+ *
+ * ### Create a form group with 2 controls
  *
  * ```
  * const form = new FormGroup({
@@ -53642,11 +50229,11 @@ var FormControl = /** @class */ (function (_super) {
  * console.log(form.status);  // 'VALID'
  * ```
  *
- * You can also include group-level validators as the second arg, or group-level async
+ * ### Create a form group with a group-level validator
+ *
+ * You include group-level validators as the second arg, or group-level async
  * validators as the third arg. These come in handy when you want to perform validation
  * that considers the value of more than one child control.
- *
- * ### Example
  *
  * ```
  * const form = new FormGroup({
@@ -53661,33 +50248,44 @@ var FormControl = /** @class */ (function (_super) {
  * }
  * ```
  *
- * Like `FormControl` instances, you can alternatively choose to pass in
+ * Like `FormControl` instances, you choose to pass in
  * validators and async validators as part of an options object.
  *
  * ```
  * const form = new FormGroup({
  *   password: new FormControl('')
  *   passwordConfirm: new FormControl('')
- * }, {validators: passwordMatchValidator, asyncValidators: otherValidator});
+ * }, { validators: passwordMatchValidator, asyncValidators: otherValidator });
  * ```
  *
- * The options object can also be used to set a default value for each child
+ * ### Set the updateOn property for all controls in a form group
+ *
+ * The options object is used to set a default value for each child
  * control's `updateOn` property. If you set `updateOn` to `'blur'` at the
- * group level, all child controls will default to 'blur', unless the child
+ * group level, all child controls default to 'blur', unless the child
  * has explicitly specified a different `updateOn` value.
  *
  * ```ts
  * const c = new FormGroup({
- *    one: new FormControl()
- * }, {updateOn: 'blur'});
+ *   one: new FormControl()
+ * }, { updateOn: 'blur' });
  * ```
- *
- * * **npm package**: `@angular/forms`
- *
- *
  */
 var FormGroup = /** @class */ (function (_super) {
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(FormGroup, _super);
+    /**
+    * Creates a new `FormGroup` instance.
+    *
+    * @param controls A collection of child controls. The key for each child is the name
+    * under which it is registered.
+    *
+    * @param validatorOrOpts A synchronous validator function, or an array of
+    * such functions, or an `AbstractControlOptions` object that contains validation functions
+    * and a validation trigger.
+    *
+    * @param asyncValidator A single async validator or array of async validator functions
+    *
+    */
     function FormGroup(controls, validatorOrOpts, asyncValidator) {
         var _this = _super.call(this, coerceToValidator(validatorOrOpts), coerceToAsyncValidator(asyncValidator, validatorOrOpts)) || this;
         _this.controls = controls;
@@ -53700,8 +50298,11 @@ var FormGroup = /** @class */ (function (_super) {
     /**
      * Registers a control with the group's list of controls.
      *
-     * This method does not update the value or validity of the control, so for most cases you'll want
-     * to use {@link FormGroup#addControl addControl} instead.
+     * This method does not update the value or validity of the control.
+     * Use {@link FormGroup#addControl addControl} instead.
+     *
+     * @param name The control name to register in the collection
+     * @param control Provides the control for the given name
      */
     FormGroup.prototype.registerControl = function (name, control) {
         if (this.controls[name])
@@ -53713,6 +50314,11 @@ var FormGroup = /** @class */ (function (_super) {
     };
     /**
      * Add a control to this group.
+     *
+     * This method also updates the value and validity of the control.
+     *
+     * @param name The control name to add to the collection
+     * @param control Provides the control for the given name
      */
     FormGroup.prototype.addControl = function (name, control) {
         this.registerControl(name, control);
@@ -53721,6 +50327,8 @@ var FormGroup = /** @class */ (function (_super) {
     };
     /**
      * Remove a control from this group.
+     *
+     * @param name The control name to remove from the collection
      */
     FormGroup.prototype.removeControl = function (name) {
         if (this.controls[name])
@@ -53731,6 +50339,9 @@ var FormGroup = /** @class */ (function (_super) {
     };
     /**
      * Replace an existing control.
+     *
+     * @param name The control name to replace in the collection
+     * @param control Provides the control for the given name
      */
     FormGroup.prototype.setControl = function (name, control) {
         if (this.controls[name])
@@ -53744,32 +50355,49 @@ var FormGroup = /** @class */ (function (_super) {
     /**
      * Check whether there is an enabled control with the given name in the group.
      *
-     * It will return false for disabled controls. If you'd like to check for existence in the group
+     * Reports false for disabled controls. If you'd like to check for existence in the group
      * only, use {@link AbstractControl#get get} instead.
+     *
+     * @param name The control name to check for existence in the collection
+     *
+     * @returns false for disabled controls, true otherwise.
      */
     FormGroup.prototype.contains = function (controlName) {
         return this.controls.hasOwnProperty(controlName) && this.controls[controlName].enabled;
     };
     /**
-     *  Sets the value of the `FormGroup`. It accepts an object that matches
-     *  the structure of the group, with control names as keys.
+     * Sets the value of the `FormGroup`. It accepts an object that matches
+     * the structure of the group, with control names as keys.
      *
-     *  ### Example
+     * ### Set the complete value for the form group
      *
-     *  ```
-     *  const form = new FormGroup({
-     *     first: new FormControl(),
-     *     last: new FormControl()
-     *  });
-     *  console.log(form.value);   // {first: null, last: null}
+     * ```
+     * const form = new FormGroup({
+     *   first: new FormControl(),
+     *   last: new FormControl()
+     * });
      *
-     *  form.setValue({first: 'Nancy', last: 'Drew'});
-     *  console.log(form.value);   // {first: 'Nancy', last: 'Drew'}
+     * console.log(form.value);   // {first: null, last: null}
      *
-     *  ```
-     * @throws This method performs strict checks, so it will throw an error if you try
-     * to set the value of a control that doesn't exist or if you exclude the
-     * value of a control.
+     * form.setValue({first: 'Nancy', last: 'Drew'});
+     * console.log(form.value);   // {first: 'Nancy', last: 'Drew'}
+     *
+     * ```
+     * @throws When strict checks fail, such as setting the value of a control
+     * that doesn't exist or if you excluding the value of a control.
+     *
+     * @param value The new value for the control that matches the structure of the group.
+     * @param options Configuration options that determine how the control propagates changes
+     * and emits events after the value changes.
+     * The configuration options are passed to the {@link AbstractControl#updateValueAndValidity
+     * updateValueAndValidity} method.
+     *
+     * * `onlySelf`: When true, each change only affects this control, and not its parent. Default is
+     * false.
+     * * `emitEvent`: When true or not supplied (the default), both the `statusChanges` and
+     * `valueChanges`
+     * observables emit events with the latest status and value when the control value is updated.
+     * When false, no events are emitted.
      */
     FormGroup.prototype.setValue = function (value, options) {
         var _this = this;
@@ -53782,13 +50410,13 @@ var FormGroup = /** @class */ (function (_super) {
         this.updateValueAndValidity(options);
     };
     /**
-     *  Patches the value of the `FormGroup`. It accepts an object with control
-     *  names as keys, and will do its best to match the values to the correct controls
-     *  in the group.
+     * Patches the value of the `FormGroup`. It accepts an object with control
+     * names as keys, and does its best to match the values to the correct controls
+     * in the group.
      *
-     *  It accepts both super-sets and sub-sets of the group without throwing an error.
+     * It accepts both super-sets and sub-sets of the group without throwing an error.
      *
-     *  ### Example
+     * ### Patch the value for a form group
      *
      *  ```
      *  const form = new FormGroup({
@@ -53801,6 +50429,18 @@ var FormGroup = /** @class */ (function (_super) {
      *  console.log(form.value);   // {first: 'Nancy', last: null}
      *
      *  ```
+     *
+     * @param value The object that matches the structure of the group
+     * @param options Configure options that determines how the control propagates changes and
+     * emits events after the value is patched
+     * * `onlySelf`: When true, each change only affects this control, and not its parent. Default is
+     * true.
+     * * `emitEvent`: When true or not supplied (the default), both the `statusChanges` and
+     * `valueChanges`
+     * observables emit events with the latest status and value when the control value is updated.
+     * When false, no events are emitted.
+     * The configuration options are passed to the {@link AbstractControl#updateValueAndValidity
+     * updateValueAndValidity} method.
      */
     FormGroup.prototype.patchValue = function (value, options) {
         var _this = this;
@@ -53813,29 +50453,55 @@ var FormGroup = /** @class */ (function (_super) {
         this.updateValueAndValidity(options);
     };
     /**
-     * Resets the `FormGroup`. This means by default:
+     * Resets the `FormGroup`, marks all descendants are marked `pristine` and `untouched`, and
+     * the value of all descendants to null.
      *
-     * * The group and all descendants are marked `pristine`
-     * * The group and all descendants are marked `untouched`
-     * * The value of all descendants will be null or null maps
-     *
-     * You can also reset to a specific form state by passing in a map of states
+     * You reset to a specific form state by passing in a map of states
      * that matches the structure of your form, with control names as keys. The state
-     * can be a standalone value or a form state object with both a value and a disabled
+     * is a standalone value or a form state object with both a value and a disabled
      * status.
      *
-     * ### Example
+     * @param value Initializes the control with an initial state value,
+     * or with an object that defines the initial value, status,
+     * and options for handling updates and validation.
+     *
+     * @param options Configuration options that determine how the control propagates changes
+     * and emits events when the group is reset.
+     * * `onlySelf`: When true, each change only affects this control, and not its parent. Default is
+     * false.
+     * * `emitEvent`: When true or not supplied (the default), both the `statusChanges` and
+     * `valueChanges`
+     * observables emit events with the latest status and value when the control is reset.
+     * When false, no events are emitted.
+     * The configuration options are passed to the {@link AbstractControl#updateValueAndValidity
+     * updateValueAndValidity} method.
+     *
+     * @usageNotes
+     *
+     * ### Reset the form group values
      *
      * ```ts
-     * this.form.reset({first: 'name', last: 'last name'});
+     * const form = new FormGroup({
+     *   first: new FormControl('first name'),
+     *   last: new FormControl('last name')
+     * });
      *
-     * console.log(this.form.value);  // {first: 'name', last: 'last name'}
+     * console.log(form.value);  // {first: 'first name', last: 'last name'}
+     *
+     * form.reset({ first: 'name', last: 'last name' });
+     *
+     * console.log(form.value);  // {first: 'name', last: 'last name'}
      * ```
      *
-     * - OR -
+     * ### Reset the form group values and disabled status
      *
      * ```
-     * this.form.reset({
+     * const form = new FormGroup({
+     *   first: new FormControl('first name'),
+     *   last: new FormControl('last name')
+     * });
+     *
+     * form.reset({
      *   first: {value: 'name', disabled: true},
      *   last: 'last'
      * });
@@ -53857,8 +50523,9 @@ var FormGroup = /** @class */ (function (_super) {
     /**
      * The aggregate value of the `FormGroup`, including any disabled controls.
      *
-     * If you'd like to include all values regardless of disabled status, use this method.
-     * Otherwise, the `value` property is the best way to get the value of the group.
+     * Retrieves all values regardless of disabled status.
+     * The `value` property is the best way to get the value of the group, because
+     * it excludes disabled controls in the `FormGroup`.
      */
     FormGroup.prototype.getRawValue = function () {
         return this._reduceChildren({}, function (acc, control, name) {
@@ -53955,22 +50622,19 @@ var FormGroup = /** @class */ (function (_super) {
     return FormGroup;
 }(AbstractControl));
 /**
- * @description
- *
  * Tracks the value and validity state of an array of `FormControl`,
  * `FormGroup` or `FormArray` instances.
  *
  * A `FormArray` aggregates the values of each child `FormControl` into an array.
- * It calculates its status by reducing the statuses of its children. For example, if one of
+ * It calculates its status by reducing the status values of its children. For example, if one of
  * the controls in a `FormArray` is invalid, the entire array becomes invalid.
  *
  * `FormArray` is one of the three fundamental building blocks used to define forms in Angular,
  * along with `FormControl` and `FormGroup`.
  *
- * When instantiating a `FormArray`, pass in an array of child controls as the first
- * argument.
+ * @usageNotes
  *
- * ### Example
+ * ### Create an array of form controls
  *
  * ```
  * const arr = new FormArray([
@@ -53982,11 +50646,13 @@ var FormGroup = /** @class */ (function (_super) {
  * console.log(arr.status);  // 'VALID'
  * ```
  *
- * You can also include array-level validators and async validators. These come in handy
+ * ### Create a form array with array-level validators
+ *
+ * You include array-level validators and async validators. These come in handy
  * when you want to perform validation that considers the value of more than one child
  * control.
  *
- * The two types of validators can be passed in separately as the second and third arg
+ * The two types of validators are passed in separately as the second and third arg
  * respectively, or together as part of an options object.
  *
  * ```
@@ -53996,31 +50662,44 @@ var FormGroup = /** @class */ (function (_super) {
  * ], {validators: myValidator, asyncValidators: myAsyncValidator});
  * ```
  *
- * The options object can also be used to set a default value for each child
+  * ### Set the updateOn property for all controls in a form array
+ *
+ * The options object is used to set a default value for each child
  * control's `updateOn` property. If you set `updateOn` to `'blur'` at the
- * array level, all child controls will default to 'blur', unless the child
+ * array level, all child controls default to 'blur', unless the child
  * has explicitly specified a different `updateOn` value.
  *
  * ```ts
- * const c = new FormArray([
+ * const arr = new FormArray([
  *    new FormControl()
  * ], {updateOn: 'blur'});
  * ```
  *
- * ### Adding or removing controls
+ * ### Adding or removing controls from a form array
  *
  * To change the controls in the array, use the `push`, `insert`, or `removeAt` methods
  * in `FormArray` itself. These methods ensure the controls are properly tracked in the
  * form's hierarchy. Do not modify the array of `AbstractControl`s used to instantiate
- * the `FormArray` directly, as that will result in strange and unexpected behavior such
+ * the `FormArray` directly, as that result in strange and unexpected behavior such
  * as broken change detection.
- *
- * * **npm package**: `@angular/forms`
  *
  *
  */
 var FormArray = /** @class */ (function (_super) {
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(FormArray, _super);
+    /**
+    * Creates a new `FormArray` instance.
+    *
+    * @param controls An array of child controls. Each child control is given an index
+    * wheh it is registered.
+    *
+    * @param validatorOrOpts A synchronous validator function, or an array of
+    * such functions, or an `AbstractControlOptions` object that contains validation functions
+    * and a validation trigger.
+    *
+    * @param asyncValidator A single async validator or array of async validator functions
+    *
+    */
     function FormArray(controls, validatorOrOpts, asyncValidator) {
         var _this = _super.call(this, coerceToValidator(validatorOrOpts), coerceToAsyncValidator(asyncValidator, validatorOrOpts)) || this;
         _this.controls = controls;
@@ -54032,10 +50711,14 @@ var FormArray = /** @class */ (function (_super) {
     }
     /**
      * Get the `AbstractControl` at the given `index` in the array.
+     *
+     * @param index Index in the array to retrieve the control
      */
     FormArray.prototype.at = function (index) { return this.controls[index]; };
     /**
      * Insert a new `AbstractControl` at the end of the array.
+     *
+     * @param control Form control to be inserted
      */
     FormArray.prototype.push = function (control) {
         this.controls.push(control);
@@ -54043,13 +50726,22 @@ var FormArray = /** @class */ (function (_super) {
         this.updateValueAndValidity();
         this._onCollectionChange();
     };
-    /** Insert a new `AbstractControl` at the given `index` in the array. */
+    /**
+     * Insert a new `AbstractControl` at the given `index` in the array.
+     *
+     * @param index Index in the array to insert the control
+     * @param control Form control to be inserted
+     */
     FormArray.prototype.insert = function (index, control) {
         this.controls.splice(index, 0, control);
         this._registerControl(control);
         this.updateValueAndValidity();
     };
-    /** Remove the control at the given `index` in the array. */
+    /**
+     * Remove the control at the given `index` in the array.
+     *
+     * @param index Index in the array to remove the control
+     */
     FormArray.prototype.removeAt = function (index) {
         if (this.controls[index])
             this.controls[index]._registerOnCollectionChange(function () { });
@@ -54058,6 +50750,9 @@ var FormArray = /** @class */ (function (_super) {
     };
     /**
      * Replace an existing control.
+     *
+     * @param index Index in the array to replace the control
+     * @param control The `AbstractControl` control to replace the existing control
      */
     FormArray.prototype.setControl = function (index, control) {
         if (this.controls[index])
@@ -54079,25 +50774,38 @@ var FormArray = /** @class */ (function (_super) {
         configurable: true
     });
     /**
-     *  Sets the value of the `FormArray`. It accepts an array that matches
-     *  the structure of the control.
+     * Sets the value of the `FormArray`. It accepts an array that matches
+     * the structure of the control.
      *
-     * This method performs strict checks, so it will throw an error if you try
+     * This method performs strict checks, and throws an error if you try
      * to set the value of a control that doesn't exist or if you exclude the
      * value of a control.
      *
-     *  ### Example
+     * ### Set the values for the controls in the form array
      *
-     *  ```
-     *  const arr = new FormArray([
-     *     new FormControl(),
-     *     new FormControl()
-     *  ]);
-     *  console.log(arr.value);   // [null, null]
+     * ```
+     * const arr = new FormArray([
+     *   new FormControl(),
+     *   new FormControl()
+     * ]);
+     * console.log(arr.value);   // [null, null]
      *
-     *  arr.setValue(['Nancy', 'Drew']);
-     *  console.log(arr.value);   // ['Nancy', 'Drew']
-     *  ```
+     * arr.setValue(['Nancy', 'Drew']);
+     * console.log(arr.value);   // ['Nancy', 'Drew']
+     * ```
+     *
+     * @param value Array of values for the controls
+     * @param options Configure options that determine how the control propagates changes and
+     * emits events after the value changes
+     *
+     * * `onlySelf`: When true, each change only affects this control, and not its parent. Default
+     * is false.
+     * * `emitEvent`: When true or not supplied (the default), both the `statusChanges` and
+     * `valueChanges`
+     * observables emit events with the latest status and value when the control value is updated.
+     * When false, no events are emitted.
+     * The configuration options are passed to the {@link AbstractControl#updateValueAndValidity
+     * updateValueAndValidity} method.
      */
     FormArray.prototype.setValue = function (value, options) {
         var _this = this;
@@ -54110,24 +50818,37 @@ var FormArray = /** @class */ (function (_super) {
         this.updateValueAndValidity(options);
     };
     /**
-     *  Patches the value of the `FormArray`. It accepts an array that matches the
-     *  structure of the control, and will do its best to match the values to the correct
-     *  controls in the group.
+     * Patches the value of the `FormArray`. It accepts an array that matches the
+     * structure of the control, and does its best to match the values to the correct
+     * controls in the group.
      *
-     *  It accepts both super-sets and sub-sets of the array without throwing an error.
+     * It accepts both super-sets and sub-sets of the array without throwing an error.
      *
-     *  ### Example
+     * ### Patch the values for controls in a form array
      *
-     *  ```
-     *  const arr = new FormArray([
-     *     new FormControl(),
-     *     new FormControl()
-     *  ]);
-     *  console.log(arr.value);   // [null, null]
+     * ```
+     * const arr = new FormArray([
+     *    new FormControl(),
+     *    new FormControl()
+     * ]);
+     * console.log(arr.value);   // [null, null]
      *
-     *  arr.patchValue(['Nancy']);
-     *  console.log(arr.value);   // ['Nancy', null]
-     *  ```
+     * arr.patchValue(['Nancy']);
+     * console.log(arr.value);   // ['Nancy', null]
+     * ```
+     *
+     * @param value Array of latest values for the controls
+     * @param options Configure options that determine how the control propagates changes and
+     * emits events after the value changes
+     *
+     * * `onlySelf`: When true, each change only affects this control, and not its parent. Default
+     * is false.
+     * * `emitEvent`: When true or not supplied (the default), both the `statusChanges` and
+     * `valueChanges`
+     * observables emit events with the latest status and value when the control value is updated.
+     * When false, no events are emitted.
+     * The configuration options are passed to the {@link AbstractControl#updateValueAndValidity
+     * updateValueAndValidity} method.
      */
     FormArray.prototype.patchValue = function (value, options) {
         var _this = this;
@@ -54140,25 +50861,26 @@ var FormArray = /** @class */ (function (_super) {
         this.updateValueAndValidity(options);
     };
     /**
-     * Resets the `FormArray`. This means by default:
+     * Resets the `FormArray` and all descendants are marked `pristine` and `untouched`, and the
+     * value of all descendants to null or null maps.
      *
-     * * The array and all descendants are marked `pristine`
-     * * The array and all descendants are marked `untouched`
-     * * The value of all descendants will be null or null maps
-     *
-     * You can also reset to a specific form state by passing in an array of states
-     * that matches the structure of the control. The state can be a standalone value
+     * You reset to a specific form state by passing in an array of states
+     * that matches the structure of the control. The state is a standalone value
      * or a form state object with both a value and a disabled status.
      *
-     * ### Example
+     * ### Reset the values in a form array
      *
      * ```ts
-     * this.arr.reset(['name', 'last name']);
+     * const arr = new FormArray([
+     *    new FormControl(),
+     *    new FormControl()
+     * ]);
+     * arr.reset(['name', 'last name']);
      *
      * console.log(this.arr.value);  // ['name', 'last name']
      * ```
      *
-     * - OR -
+     * ### Reset the values in a form array and the disabled status for the first control
      *
      * ```
      * this.arr.reset([
@@ -54169,6 +50891,19 @@ var FormArray = /** @class */ (function (_super) {
      * console.log(this.arr.value);  // ['name', 'last name']
      * console.log(this.arr.get(0).status);  // 'DISABLED'
      * ```
+     *
+     * @param value Array of values for the controls
+     * @param options Configure options that determine how the control propagates changes and
+     * emits events after the value changes
+     *
+     * * `onlySelf`: When true, each change only affects this control, and not its parent. Default
+     * is false.
+     * * `emitEvent`: When true or not supplied (the default), both the `statusChanges` and
+     * `valueChanges`
+     * observables emit events with the latest status and value when the control is reset.
+     * When false, no events are emitted.
+     * The configuration options are passed to the {@link AbstractControl#updateValueAndValidity
+     * updateValueAndValidity} method.
      */
     FormArray.prototype.reset = function (value, options) {
         if (value === void 0) { value = []; }
@@ -54183,8 +50918,8 @@ var FormArray = /** @class */ (function (_super) {
     /**
      * The aggregate value of the array, including any disabled controls.
      *
-     * If you'd like to include all values regardless of disabled status, use this method.
-     * Otherwise, the `value` property is the best way to get the value of the array.
+     * Reports all values regardless of disabled status.
+     * For enabled controls only, the `value` property is the best way to get the value of the array.
      */
     FormArray.prototype.getRawValue = function () {
         return this.controls.map(function (control) {
@@ -55970,7 +52705,7 @@ var FormBuilder = /** @class */ (function () {
  * @description
  * Entry point for all public APIs of the common package.
  */
-var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.0.4');
+var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.0.6');
 
 /**
  * @license
@@ -56154,6 +52889,1959 @@ var ReactiveFormsModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./node_modules/@angular/http/fesm5/http.js":
+/*!**************************************************!*\
+  !*** ./node_modules/@angular/http/fesm5/http.js ***!
+  \**************************************************/
+/*! exports provided: ɵangular_packages_http_http_e, ɵangular_packages_http_http_f, ɵangular_packages_http_http_a, ɵangular_packages_http_http_b, ɵangular_packages_http_http_c, BrowserXhr, JSONPBackend, JSONPConnection, CookieXSRFStrategy, XHRBackend, XHRConnection, BaseRequestOptions, RequestOptions, BaseResponseOptions, ResponseOptions, ReadyState, RequestMethod, ResponseContentType, ResponseType, Headers, Http, Jsonp, HttpModule, JsonpModule, Connection, ConnectionBackend, XSRFStrategy, Request, Response, QueryEncoder, URLSearchParams, VERSION */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_http_http_e", function() { return BrowserJsonp; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_http_http_f", function() { return Body; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_http_http_a", function() { return _createDefaultCookieXSRFStrategy; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_http_http_b", function() { return httpFactory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵangular_packages_http_http_c", function() { return jsonpFactory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrowserXhr", function() { return BrowserXhr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JSONPBackend", function() { return JSONPBackend; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JSONPConnection", function() { return JSONPConnection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CookieXSRFStrategy", function() { return CookieXSRFStrategy; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "XHRBackend", function() { return XHRBackend; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "XHRConnection", function() { return XHRConnection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BaseRequestOptions", function() { return BaseRequestOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RequestOptions", function() { return RequestOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BaseResponseOptions", function() { return BaseResponseOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResponseOptions", function() { return ResponseOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReadyState", function() { return ReadyState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RequestMethod", function() { return RequestMethod; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResponseContentType", function() { return ResponseContentType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResponseType", function() { return ResponseType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Headers", function() { return Headers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Http", function() { return Http; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Jsonp", function() { return Jsonp; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpModule", function() { return HttpModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JsonpModule", function() { return JsonpModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Connection", function() { return Connection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConnectionBackend", function() { return ConnectionBackend; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "XSRFStrategy", function() { return XSRFStrategy; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Request", function() { return Request; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Response", function() { return Response; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QueryEncoder", function() { return QueryEncoder; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "URLSearchParams", function() { return URLSearchParams; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VERSION", function() { return VERSION; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/**
+ * @license Angular v6.0.6
+ * (c) 2010-2018 Google, Inc. https://angular.io/
+ * License: MIT
+ */
+
+
+
+
+
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * A backend for http that uses the `XMLHttpRequest` browser API.
+ *
+ * Take care not to evaluate this in non-browser contexts.
+ *
+ * @deprecated see https://angular.io/guide/http
+ */
+var BrowserXhr = /** @class */ (function () {
+    function BrowserXhr() {
+    }
+    BrowserXhr.prototype.build = function () { return (new XMLHttpRequest()); };
+    BrowserXhr.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    /** @nocollapse */
+    BrowserXhr.ctorParameters = function () { return []; };
+    return BrowserXhr;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Supported http methods.
+ * @deprecated see https://angular.io/guide/http
+ */
+var RequestMethod;
+(function (RequestMethod) {
+    RequestMethod[RequestMethod["Get"] = 0] = "Get";
+    RequestMethod[RequestMethod["Post"] = 1] = "Post";
+    RequestMethod[RequestMethod["Put"] = 2] = "Put";
+    RequestMethod[RequestMethod["Delete"] = 3] = "Delete";
+    RequestMethod[RequestMethod["Options"] = 4] = "Options";
+    RequestMethod[RequestMethod["Head"] = 5] = "Head";
+    RequestMethod[RequestMethod["Patch"] = 6] = "Patch";
+})(RequestMethod || (RequestMethod = {}));
+/**
+ * All possible states in which a connection can be, based on
+ * [States](http://www.w3.org/TR/XMLHttpRequest/#states) from the `XMLHttpRequest` spec, but with an
+ * additional "CANCELLED" state.
+ * @deprecated see https://angular.io/guide/http
+ */
+var ReadyState;
+(function (ReadyState) {
+    ReadyState[ReadyState["Unsent"] = 0] = "Unsent";
+    ReadyState[ReadyState["Open"] = 1] = "Open";
+    ReadyState[ReadyState["HeadersReceived"] = 2] = "HeadersReceived";
+    ReadyState[ReadyState["Loading"] = 3] = "Loading";
+    ReadyState[ReadyState["Done"] = 4] = "Done";
+    ReadyState[ReadyState["Cancelled"] = 5] = "Cancelled";
+})(ReadyState || (ReadyState = {}));
+/**
+ * Acceptable response types to be associated with a {@link Response}, based on
+ * [ResponseType](https://fetch.spec.whatwg.org/#responsetype) from the Fetch spec.
+ * @deprecated see https://angular.io/guide/http
+ */
+var ResponseType;
+(function (ResponseType) {
+    ResponseType[ResponseType["Basic"] = 0] = "Basic";
+    ResponseType[ResponseType["Cors"] = 1] = "Cors";
+    ResponseType[ResponseType["Default"] = 2] = "Default";
+    ResponseType[ResponseType["Error"] = 3] = "Error";
+    ResponseType[ResponseType["Opaque"] = 4] = "Opaque";
+})(ResponseType || (ResponseType = {}));
+/**
+ * Supported content type to be automatically associated with a {@link Request}.
+ * @deprecated see https://angular.io/guide/http
+ */
+var ContentType;
+(function (ContentType) {
+    ContentType[ContentType["NONE"] = 0] = "NONE";
+    ContentType[ContentType["JSON"] = 1] = "JSON";
+    ContentType[ContentType["FORM"] = 2] = "FORM";
+    ContentType[ContentType["FORM_DATA"] = 3] = "FORM_DATA";
+    ContentType[ContentType["TEXT"] = 4] = "TEXT";
+    ContentType[ContentType["BLOB"] = 5] = "BLOB";
+    ContentType[ContentType["ARRAY_BUFFER"] = 6] = "ARRAY_BUFFER";
+})(ContentType || (ContentType = {}));
+/**
+ * Define which buffer to use to store the response
+ * @deprecated see https://angular.io/guide/http
+ */
+var ResponseContentType;
+(function (ResponseContentType) {
+    ResponseContentType[ResponseContentType["Text"] = 0] = "Text";
+    ResponseContentType[ResponseContentType["Json"] = 1] = "Json";
+    ResponseContentType[ResponseContentType["ArrayBuffer"] = 2] = "ArrayBuffer";
+    ResponseContentType[ResponseContentType["Blob"] = 3] = "Blob";
+})(ResponseContentType || (ResponseContentType = {}));
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Polyfill for [Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers/Headers), as
+ * specified in the [Fetch Spec](https://fetch.spec.whatwg.org/#headers-class).
+ *
+ * The only known difference between this `Headers` implementation and the spec is the
+ * lack of an `entries` method.
+ *
+ * ### Example
+ *
+ * ```
+ * import {Headers} from '@angular/http';
+ *
+ * var firstHeaders = new Headers();
+ * firstHeaders.append('Content-Type', 'image/jpeg');
+ * console.log(firstHeaders.get('Content-Type')) //'image/jpeg'
+ *
+ * // Create headers from Plain Old JavaScript Object
+ * var secondHeaders = new Headers({
+ *   'X-My-Custom-Header': 'Angular'
+ * });
+ * console.log(secondHeaders.get('X-My-Custom-Header')); //'Angular'
+ *
+ * var thirdHeaders = new Headers(secondHeaders);
+ * console.log(thirdHeaders.get('X-My-Custom-Header')); //'Angular'
+ * ```
+ *
+ * @deprecated see https://angular.io/guide/http
+ */
+var Headers = /** @class */ (function () {
+    // TODO(vicb): any -> string|string[]
+    function Headers(headers) {
+        var _this = this;
+        /** @internal header names are lower case */
+        this._headers = new Map();
+        /** @internal map lower case names to actual names */
+        this._normalizedNames = new Map();
+        if (!headers) {
+            return;
+        }
+        if (headers instanceof Headers) {
+            headers.forEach(function (values, name) {
+                values.forEach(function (value) { return _this.append(name, value); });
+            });
+            return;
+        }
+        Object.keys(headers).forEach(function (name) {
+            var values = Array.isArray(headers[name]) ? headers[name] : [headers[name]];
+            _this.delete(name);
+            values.forEach(function (value) { return _this.append(name, value); });
+        });
+    }
+    /**
+     * Returns a new Headers instance from the given DOMString of Response Headers
+     */
+    Headers.fromResponseHeaderString = function (headersString) {
+        var headers = new Headers();
+        headersString.split('\n').forEach(function (line) {
+            var index = line.indexOf(':');
+            if (index > 0) {
+                var name_1 = line.slice(0, index);
+                var value = line.slice(index + 1).trim();
+                headers.set(name_1, value);
+            }
+        });
+        return headers;
+    };
+    /**
+     * Appends a header to existing list of header values for a given header name.
+     */
+    Headers.prototype.append = function (name, value) {
+        var values = this.getAll(name);
+        if (values === null) {
+            this.set(name, value);
+        }
+        else {
+            values.push(value);
+        }
+    };
+    /**
+     * Deletes all header values for the given name.
+     */
+    Headers.prototype.delete = function (name) {
+        var lcName = name.toLowerCase();
+        this._normalizedNames.delete(lcName);
+        this._headers.delete(lcName);
+    };
+    Headers.prototype.forEach = function (fn) {
+        var _this = this;
+        this._headers.forEach(function (values, lcName) { return fn(values, _this._normalizedNames.get(lcName), _this._headers); });
+    };
+    /**
+     * Returns first header that matches given name.
+     */
+    Headers.prototype.get = function (name) {
+        var values = this.getAll(name);
+        if (values === null) {
+            return null;
+        }
+        return values.length > 0 ? values[0] : null;
+    };
+    /**
+     * Checks for existence of header by given name.
+     */
+    Headers.prototype.has = function (name) { return this._headers.has(name.toLowerCase()); };
+    /**
+     * Returns the names of the headers
+     */
+    Headers.prototype.keys = function () { return Array.from(this._normalizedNames.values()); };
+    /**
+     * Sets or overrides header value for given name.
+     */
+    Headers.prototype.set = function (name, value) {
+        if (Array.isArray(value)) {
+            if (value.length) {
+                this._headers.set(name.toLowerCase(), [value.join(',')]);
+            }
+        }
+        else {
+            this._headers.set(name.toLowerCase(), [value]);
+        }
+        this.mayBeSetNormalizedName(name);
+    };
+    /**
+     * Returns values of all headers.
+     */
+    Headers.prototype.values = function () { return Array.from(this._headers.values()); };
+    /**
+     * Returns string of all headers.
+     */
+    // TODO(vicb): returns {[name: string]: string[]}
+    Headers.prototype.toJSON = function () {
+        var _this = this;
+        var serialized = {};
+        this._headers.forEach(function (values, name) {
+            var split = [];
+            values.forEach(function (v) { return split.push.apply(split, Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__spread"])(v.split(','))); });
+            serialized[_this._normalizedNames.get(name)] = split;
+        });
+        return serialized;
+    };
+    /**
+     * Returns list of header values for a given name.
+     */
+    Headers.prototype.getAll = function (name) {
+        return this.has(name) ? this._headers.get(name.toLowerCase()) || null : null;
+    };
+    /**
+     * This method is not implemented.
+     */
+    Headers.prototype.entries = function () { throw new Error('"entries" method is not implemented on Headers class'); };
+    Headers.prototype.mayBeSetNormalizedName = function (name) {
+        var lcName = name.toLowerCase();
+        if (!this._normalizedNames.has(lcName)) {
+            this._normalizedNames.set(lcName, name);
+        }
+    };
+    return Headers;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Creates a response options object to be optionally provided when instantiating a
+ * {@link Response}.
+ *
+ * This class is based on the `ResponseInit` description in the [Fetch
+ * Spec](https://fetch.spec.whatwg.org/#responseinit).
+ *
+ * All values are null by default. Typical defaults can be found in the
+ * {@link BaseResponseOptions} class, which sub-classes `ResponseOptions`.
+ *
+ * This class may be used in tests to build {@link Response Responses} for
+ * mock responses (see {@link MockBackend}).
+ *
+ * ### Example
+ *
+ * ```typescript
+ * import {ResponseOptions, Response} from '@angular/http';
+ *
+ * var options = new ResponseOptions({
+ *   body: '{"name":"Jeff"}'
+ * });
+ * var res = new Response(options);
+ *
+ * console.log('res.json():', res.json()); // Object {name: "Jeff"}
+ * ```
+ *
+ * @deprecated see https://angular.io/guide/http
+ */
+var ResponseOptions = /** @class */ (function () {
+    function ResponseOptions(opts) {
+        if (opts === void 0) { opts = {}; }
+        var body = opts.body, status = opts.status, headers = opts.headers, statusText = opts.statusText, type = opts.type, url = opts.url;
+        this.body = body != null ? body : null;
+        this.status = status != null ? status : null;
+        this.headers = headers != null ? headers : null;
+        this.statusText = statusText != null ? statusText : null;
+        this.type = type != null ? type : null;
+        this.url = url != null ? url : null;
+    }
+    /**
+     * Creates a copy of the `ResponseOptions` instance, using the optional input as values to
+     * override
+     * existing values. This method will not change the values of the instance on which it is being
+     * called.
+     *
+     * This may be useful when sharing a base `ResponseOptions` object inside tests,
+     * where certain properties may change from test to test.
+     *
+     * ### Example
+     *
+     * ```typescript
+     * import {ResponseOptions, Response} from '@angular/http';
+     *
+     * var options = new ResponseOptions({
+     *   body: {name: 'Jeff'}
+     * });
+     * var res = new Response(options.merge({
+     *   url: 'https://google.com'
+     * }));
+     * console.log('options.url:', options.url); // null
+     * console.log('res.json():', res.json()); // Object {name: "Jeff"}
+     * console.log('res.url:', res.url); // https://google.com
+     * ```
+     */
+    ResponseOptions.prototype.merge = function (options) {
+        return new ResponseOptions({
+            body: options && options.body != null ? options.body : this.body,
+            status: options && options.status != null ? options.status : this.status,
+            headers: options && options.headers != null ? options.headers : this.headers,
+            statusText: options && options.statusText != null ? options.statusText : this.statusText,
+            type: options && options.type != null ? options.type : this.type,
+            url: options && options.url != null ? options.url : this.url,
+        });
+    };
+    return ResponseOptions;
+}());
+/**
+ * Subclass of {@link ResponseOptions}, with default values.
+ *
+ * Default values:
+ *  * status: 200
+ *  * headers: empty {@link Headers} object
+ *
+ * This class could be extended and bound to the {@link ResponseOptions} class
+ * when configuring an {@link Injector}, in order to override the default options
+ * used by {@link Http} to create {@link Response Responses}.
+ *
+ * ### Example
+ *
+ * ```typescript
+ * import {provide} from '@angular/core';
+ * import {bootstrap} from '@angular/platform-browser/browser';
+ * import {HTTP_PROVIDERS, Headers, Http, BaseResponseOptions, ResponseOptions} from
+ * '@angular/http';
+ * import {App} from './myapp';
+ *
+ * class MyOptions extends BaseResponseOptions {
+ *   headers:Headers = new Headers({network: 'github'});
+ * }
+ *
+ * bootstrap(App, [HTTP_PROVIDERS, {provide: ResponseOptions, useClass: MyOptions}]);
+ * ```
+ *
+ * The options could also be extended when manually creating a {@link Response}
+ * object.
+ *
+ * ### Example
+ *
+ * ```
+ * import {BaseResponseOptions, Response} from '@angular/http';
+ *
+ * var options = new BaseResponseOptions();
+ * var res = new Response(options.merge({
+ *   body: 'Angular',
+ *   headers: new Headers({framework: 'angular'})
+ * }));
+ * console.log('res.headers.get("framework"):', res.headers.get('framework')); // angular
+ * console.log('res.text():', res.text()); // Angular;
+ * ```
+ *
+ * @deprecated see https://angular.io/guide/http
+ */
+var BaseResponseOptions = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(BaseResponseOptions, _super);
+    function BaseResponseOptions() {
+        return _super.call(this, { status: 200, statusText: 'Ok', type: ResponseType.Default, headers: new Headers() }) || this;
+    }
+    BaseResponseOptions.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    /** @nocollapse */
+    BaseResponseOptions.ctorParameters = function () { return []; };
+    return BaseResponseOptions;
+}(ResponseOptions));
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Abstract class from which real backends are derived.
+ *
+ * The primary purpose of a `ConnectionBackend` is to create new connections to fulfill a given
+ * {@link Request}.
+ *
+ * @deprecated see https://angular.io/guide/http
+ */
+var ConnectionBackend = /** @class */ (function () {
+    function ConnectionBackend() {
+    }
+    return ConnectionBackend;
+}());
+/**
+ * Abstract class from which real connections are derived.
+ *
+ * @deprecated see https://angular.io/guide/http
+ */
+var Connection = /** @class */ (function () {
+    function Connection() {
+    }
+    return Connection;
+}());
+/**
+ * An XSRFStrategy configures XSRF protection (e.g. via headers) on an HTTP request.
+ *
+ * @deprecated see https://angular.io/guide/http
+ */
+var XSRFStrategy = /** @class */ (function () {
+    function XSRFStrategy() {
+    }
+    return XSRFStrategy;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+function normalizeMethodName(method) {
+    if (typeof method !== 'string')
+        return method;
+    switch (method.toUpperCase()) {
+        case 'GET':
+            return RequestMethod.Get;
+        case 'POST':
+            return RequestMethod.Post;
+        case 'PUT':
+            return RequestMethod.Put;
+        case 'DELETE':
+            return RequestMethod.Delete;
+        case 'OPTIONS':
+            return RequestMethod.Options;
+        case 'HEAD':
+            return RequestMethod.Head;
+        case 'PATCH':
+            return RequestMethod.Patch;
+    }
+    throw new Error("Invalid request method. The method \"" + method + "\" is not supported.");
+}
+var isSuccess = function (status) { return (status >= 200 && status < 300); };
+function getResponseURL(xhr) {
+    if ('responseURL' in xhr) {
+        return xhr.responseURL;
+    }
+    if (/^X-Request-URL:/m.test(xhr.getAllResponseHeaders())) {
+        return xhr.getResponseHeader('X-Request-URL');
+    }
+    return null;
+}
+
+function stringToArrayBuffer(input) {
+    var view = new Uint16Array(input.length);
+    for (var i = 0, strLen = input.length; i < strLen; i++) {
+        view[i] = input.charCodeAt(i);
+    }
+    return view.buffer;
+}
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+function paramParser(rawParams) {
+    if (rawParams === void 0) { rawParams = ''; }
+    var map = new Map();
+    if (rawParams.length > 0) {
+        var params = rawParams.split('&');
+        params.forEach(function (param) {
+            var eqIdx = param.indexOf('=');
+            var _a = Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__read"])(eqIdx == -1 ? [param, ''] : [param.slice(0, eqIdx), param.slice(eqIdx + 1)], 2), key = _a[0], val = _a[1];
+            var list = map.get(key) || [];
+            list.push(val);
+            map.set(key, list);
+        });
+    }
+    return map;
+}
+/**
+ * @deprecated see https://angular.io/guide/http
+ **/
+var QueryEncoder = /** @class */ (function () {
+    function QueryEncoder() {
+    }
+    QueryEncoder.prototype.encodeKey = function (k) { return standardEncoding(k); };
+    QueryEncoder.prototype.encodeValue = function (v) { return standardEncoding(v); };
+    return QueryEncoder;
+}());
+function standardEncoding(v) {
+    return encodeURIComponent(v)
+        .replace(/%40/gi, '@')
+        .replace(/%3A/gi, ':')
+        .replace(/%24/gi, '$')
+        .replace(/%2C/gi, ',')
+        .replace(/%3B/gi, ';')
+        .replace(/%2B/gi, '+')
+        .replace(/%3D/gi, '=')
+        .replace(/%3F/gi, '?')
+        .replace(/%2F/gi, '/');
+}
+/**
+ * Map-like representation of url search parameters, based on
+ * [URLSearchParams](https://url.spec.whatwg.org/#urlsearchparams) in the url living standard,
+ * with several extensions for merging URLSearchParams objects:
+ *   - setAll()
+ *   - appendAll()
+ *   - replaceAll()
+ *
+ * This class accepts an optional second parameter of ${@link QueryEncoder},
+ * which is used to serialize parameters before making a request. By default,
+ * `QueryEncoder` encodes keys and values of parameters using `encodeURIComponent`,
+ * and then un-encodes certain characters that are allowed to be part of the query
+ * according to IETF RFC 3986: https://tools.ietf.org/html/rfc3986.
+ *
+ * These are the characters that are not encoded: `! $ \' ( ) * + , ; A 9 - . _ ~ ? /`
+ *
+ * If the set of allowed query characters is not acceptable for a particular backend,
+ * `QueryEncoder` can be subclassed and provided as the 2nd argument to URLSearchParams.
+ *
+ * ```
+ * import {URLSearchParams, QueryEncoder} from '@angular/http';
+ * class MyQueryEncoder extends QueryEncoder {
+ *   encodeKey(k: string): string {
+ *     return myEncodingFunction(k);
+ *   }
+ *
+ *   encodeValue(v: string): string {
+ *     return myEncodingFunction(v);
+ *   }
+ * }
+ *
+ * let params = new URLSearchParams('', new MyQueryEncoder());
+ * ```
+ * @deprecated see https://angular.io/guide/http
+ */
+var URLSearchParams = /** @class */ (function () {
+    function URLSearchParams(rawParams, queryEncoder) {
+        if (rawParams === void 0) { rawParams = ''; }
+        if (queryEncoder === void 0) { queryEncoder = new QueryEncoder(); }
+        this.rawParams = rawParams;
+        this.queryEncoder = queryEncoder;
+        this.paramsMap = paramParser(rawParams);
+    }
+    URLSearchParams.prototype.clone = function () {
+        var clone = new URLSearchParams('', this.queryEncoder);
+        clone.appendAll(this);
+        return clone;
+    };
+    URLSearchParams.prototype.has = function (param) { return this.paramsMap.has(param); };
+    URLSearchParams.prototype.get = function (param) {
+        var storedParam = this.paramsMap.get(param);
+        return Array.isArray(storedParam) ? storedParam[0] : null;
+    };
+    URLSearchParams.prototype.getAll = function (param) { return this.paramsMap.get(param) || []; };
+    URLSearchParams.prototype.set = function (param, val) {
+        if (val === void 0 || val === null) {
+            this.delete(param);
+            return;
+        }
+        var list = this.paramsMap.get(param) || [];
+        list.length = 0;
+        list.push(val);
+        this.paramsMap.set(param, list);
+    };
+    // A merge operation
+    // For each name-values pair in `searchParams`, perform `set(name, values[0])`
+    //
+    // E.g: "a=[1,2,3], c=[8]" + "a=[4,5,6], b=[7]" = "a=[4], c=[8], b=[7]"
+    //
+    // TODO(@caitp): document this better
+    URLSearchParams.prototype.setAll = function (searchParams) {
+        var _this = this;
+        searchParams.paramsMap.forEach(function (value, param) {
+            var list = _this.paramsMap.get(param) || [];
+            list.length = 0;
+            list.push(value[0]);
+            _this.paramsMap.set(param, list);
+        });
+    };
+    URLSearchParams.prototype.append = function (param, val) {
+        if (val === void 0 || val === null)
+            return;
+        var list = this.paramsMap.get(param) || [];
+        list.push(val);
+        this.paramsMap.set(param, list);
+    };
+    // A merge operation
+    // For each name-values pair in `searchParams`, perform `append(name, value)`
+    // for each value in `values`.
+    //
+    // E.g: "a=[1,2], c=[8]" + "a=[3,4], b=[7]" = "a=[1,2,3,4], c=[8], b=[7]"
+    //
+    // TODO(@caitp): document this better
+    URLSearchParams.prototype.appendAll = function (searchParams) {
+        var _this = this;
+        searchParams.paramsMap.forEach(function (value, param) {
+            var list = _this.paramsMap.get(param) || [];
+            for (var i = 0; i < value.length; ++i) {
+                list.push(value[i]);
+            }
+            _this.paramsMap.set(param, list);
+        });
+    };
+    // A merge operation
+    // For each name-values pair in `searchParams`, perform `delete(name)`,
+    // followed by `set(name, values)`
+    //
+    // E.g: "a=[1,2,3], c=[8]" + "a=[4,5,6], b=[7]" = "a=[4,5,6], c=[8], b=[7]"
+    //
+    // TODO(@caitp): document this better
+    URLSearchParams.prototype.replaceAll = function (searchParams) {
+        var _this = this;
+        searchParams.paramsMap.forEach(function (value, param) {
+            var list = _this.paramsMap.get(param) || [];
+            list.length = 0;
+            for (var i = 0; i < value.length; ++i) {
+                list.push(value[i]);
+            }
+            _this.paramsMap.set(param, list);
+        });
+    };
+    URLSearchParams.prototype.toString = function () {
+        var _this = this;
+        var paramsList = [];
+        this.paramsMap.forEach(function (values, k) {
+            values.forEach(function (v) { return paramsList.push(_this.queryEncoder.encodeKey(k) + '=' + _this.queryEncoder.encodeValue(v)); });
+        });
+        return paramsList.join('&');
+    };
+    URLSearchParams.prototype.delete = function (param) { this.paramsMap.delete(param); };
+    return URLSearchParams;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * HTTP request body used by both {@link Request} and {@link Response}
+ * https://fetch.spec.whatwg.org/#body
+ */
+var Body = /** @class */ (function () {
+    function Body() {
+    }
+    /**
+     * Attempts to return body as parsed `JSON` object, or raises an exception.
+     */
+    Body.prototype.json = function () {
+        if (typeof this._body === 'string') {
+            return JSON.parse(this._body);
+        }
+        if (this._body instanceof ArrayBuffer) {
+            return JSON.parse(this.text());
+        }
+        return this._body;
+    };
+    /**
+     * Returns the body as a string, presuming `toString()` can be called on the response body.
+     *
+     * When decoding an `ArrayBuffer`, the optional `encodingHint` parameter determines how the
+     * bytes in the buffer will be interpreted. Valid values are:
+     *
+     * - `legacy` - incorrectly interpret the bytes as UTF-16 (technically, UCS-2). Only characters
+     *   in the Basic Multilingual Plane are supported, surrogate pairs are not handled correctly.
+     *   In addition, the endianness of the 16-bit octet pairs in the `ArrayBuffer` is not taken
+     *   into consideration. This is the default behavior to avoid breaking apps, but should be
+     *   considered deprecated.
+     *
+     * - `iso-8859` - interpret the bytes as ISO-8859 (which can be used for ASCII encoded text).
+     */
+    Body.prototype.text = function (encodingHint) {
+        if (encodingHint === void 0) { encodingHint = 'legacy'; }
+        if (this._body instanceof URLSearchParams) {
+            return this._body.toString();
+        }
+        if (this._body instanceof ArrayBuffer) {
+            switch (encodingHint) {
+                case 'legacy':
+                    return String.fromCharCode.apply(null, new Uint16Array(this._body));
+                case 'iso-8859':
+                    return String.fromCharCode.apply(null, new Uint8Array(this._body));
+                default:
+                    throw new Error("Invalid value for encodingHint: " + encodingHint);
+            }
+        }
+        if (this._body == null) {
+            return '';
+        }
+        if (typeof this._body === 'object') {
+            return JSON.stringify(this._body, null, 2);
+        }
+        return this._body.toString();
+    };
+    /**
+     * Return the body as an ArrayBuffer
+     */
+    Body.prototype.arrayBuffer = function () {
+        if (this._body instanceof ArrayBuffer) {
+            return this._body;
+        }
+        return stringToArrayBuffer(this.text());
+    };
+    /**
+      * Returns the request's body as a Blob, assuming that body exists.
+      */
+    Body.prototype.blob = function () {
+        if (this._body instanceof Blob) {
+            return this._body;
+        }
+        if (this._body instanceof ArrayBuffer) {
+            return new Blob([this._body]);
+        }
+        throw new Error('The request body isn\'t either a blob or an array buffer');
+    };
+    return Body;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Creates `Response` instances from provided values.
+ *
+ * Though this object isn't
+ * usually instantiated by end-users, it is the primary object interacted with when it comes time to
+ * add data to a view.
+ *
+ * ### Example
+ *
+ * ```
+ * http.request('my-friends.txt').subscribe(response => this.friends = response.text());
+ * ```
+ *
+ * The Response's interface is inspired by the Response constructor defined in the [Fetch
+ * Spec](https://fetch.spec.whatwg.org/#response-class), but is considered a static value whose body
+ * can be accessed many times. There are other differences in the implementation, but this is the
+ * most significant.
+ *
+ * @deprecated see https://angular.io/guide/http
+ */
+var Response = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(Response, _super);
+    function Response(responseOptions) {
+        var _this = _super.call(this) || this;
+        _this._body = responseOptions.body;
+        _this.status = responseOptions.status;
+        _this.ok = (_this.status >= 200 && _this.status <= 299);
+        _this.statusText = responseOptions.statusText;
+        _this.headers = responseOptions.headers;
+        _this.type = responseOptions.type;
+        _this.url = responseOptions.url;
+        return _this;
+    }
+    Response.prototype.toString = function () {
+        return "Response with status: " + this.status + " " + this.statusText + " for URL: " + this.url;
+    };
+    return Response;
+}(Body));
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var _nextRequestId = 0;
+var JSONP_HOME = '__ng_jsonp__';
+var _jsonpConnections = null;
+function _getJsonpConnections() {
+    var w = typeof window == 'object' ? window : {};
+    if (_jsonpConnections === null) {
+        _jsonpConnections = w[JSONP_HOME] = {};
+    }
+    return _jsonpConnections;
+}
+// Make sure not to evaluate this in a non-browser environment!
+var BrowserJsonp = /** @class */ (function () {
+    function BrowserJsonp() {
+    }
+    // Construct a <script> element with the specified URL
+    BrowserJsonp.prototype.build = function (url) {
+        var node = document.createElement('script');
+        node.src = url;
+        return node;
+    };
+    BrowserJsonp.prototype.nextRequestID = function () { return "__req" + _nextRequestId++; };
+    BrowserJsonp.prototype.requestCallback = function (id) { return JSONP_HOME + "." + id + ".finished"; };
+    BrowserJsonp.prototype.exposeConnection = function (id, connection) {
+        var connections = _getJsonpConnections();
+        connections[id] = connection;
+    };
+    BrowserJsonp.prototype.removeConnection = function (id) {
+        var connections = _getJsonpConnections();
+        connections[id] = null;
+    };
+    // Attach the <script> element to the DOM
+    BrowserJsonp.prototype.send = function (node) { document.body.appendChild((node)); };
+    // Remove <script> element from the DOM
+    BrowserJsonp.prototype.cleanup = function (node) {
+        if (node.parentNode) {
+            node.parentNode.removeChild((node));
+        }
+    };
+    BrowserJsonp.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    return BrowserJsonp;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var JSONP_ERR_NO_CALLBACK = 'JSONP injected script did not invoke callback.';
+var JSONP_ERR_WRONG_METHOD = 'JSONP requests must use GET request method.';
+/**
+ * Base class for an in-flight JSONP request.
+ *
+ * @deprecated see https://angular.io/guide/http
+ */
+var JSONPConnection = /** @class */ (function () {
+    /** @internal */
+    function JSONPConnection(req, _dom, baseResponseOptions) {
+        var _this = this;
+        this._dom = _dom;
+        this.baseResponseOptions = baseResponseOptions;
+        this._finished = false;
+        if (req.method !== RequestMethod.Get) {
+            throw new TypeError(JSONP_ERR_WRONG_METHOD);
+        }
+        this.request = req;
+        this.response = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](function (responseObserver) {
+            _this.readyState = ReadyState.Loading;
+            var id = _this._id = _dom.nextRequestID();
+            _dom.exposeConnection(id, _this);
+            // Workaround Dart
+            // url = url.replace(/=JSONP_CALLBACK(&|$)/, `generated method`);
+            var callback = _dom.requestCallback(_this._id);
+            var url = req.url;
+            if (url.indexOf('=JSONP_CALLBACK&') > -1) {
+                url = url.replace('=JSONP_CALLBACK&', "=" + callback + "&");
+            }
+            else if (url.lastIndexOf('=JSONP_CALLBACK') === url.length - '=JSONP_CALLBACK'.length) {
+                url = url.substring(0, url.length - '=JSONP_CALLBACK'.length) + ("=" + callback);
+            }
+            var script = _this._script = _dom.build(url);
+            var onLoad = function (event) {
+                if (_this.readyState === ReadyState.Cancelled)
+                    return;
+                _this.readyState = ReadyState.Done;
+                _dom.cleanup(script);
+                if (!_this._finished) {
+                    var responseOptions_1 = new ResponseOptions({ body: JSONP_ERR_NO_CALLBACK, type: ResponseType.Error, url: url });
+                    if (baseResponseOptions) {
+                        responseOptions_1 = baseResponseOptions.merge(responseOptions_1);
+                    }
+                    responseObserver.error(new Response(responseOptions_1));
+                    return;
+                }
+                var responseOptions = new ResponseOptions({ body: _this._responseData, url: url });
+                if (_this.baseResponseOptions) {
+                    responseOptions = _this.baseResponseOptions.merge(responseOptions);
+                }
+                responseObserver.next(new Response(responseOptions));
+                responseObserver.complete();
+            };
+            var onError = function (error) {
+                if (_this.readyState === ReadyState.Cancelled)
+                    return;
+                _this.readyState = ReadyState.Done;
+                _dom.cleanup(script);
+                var responseOptions = new ResponseOptions({ body: error.message, type: ResponseType.Error });
+                if (baseResponseOptions) {
+                    responseOptions = baseResponseOptions.merge(responseOptions);
+                }
+                responseObserver.error(new Response(responseOptions));
+            };
+            script.addEventListener('load', onLoad);
+            script.addEventListener('error', onError);
+            _dom.send(script);
+            return function () {
+                _this.readyState = ReadyState.Cancelled;
+                script.removeEventListener('load', onLoad);
+                script.removeEventListener('error', onError);
+                _this._dom.cleanup(script);
+            };
+        });
+    }
+    /**
+     * Callback called when the JSONP request completes, to notify the application
+     * of the new data.
+     */
+    JSONPConnection.prototype.finished = function (data) {
+        // Don't leak connections
+        this._finished = true;
+        this._dom.removeConnection(this._id);
+        if (this.readyState === ReadyState.Cancelled)
+            return;
+        this._responseData = data;
+    };
+    return JSONPConnection;
+}());
+/**
+ * A {@link ConnectionBackend} that uses the JSONP strategy of making requests.
+ *
+ * @deprecated see https://angular.io/guide/http
+ */
+var JSONPBackend = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(JSONPBackend, _super);
+    /** @internal */
+    function JSONPBackend(_browserJSONP, _baseResponseOptions) {
+        var _this = _super.call(this) || this;
+        _this._browserJSONP = _browserJSONP;
+        _this._baseResponseOptions = _baseResponseOptions;
+        return _this;
+    }
+    JSONPBackend.prototype.createConnection = function (request) {
+        return new JSONPConnection(request, this._browserJSONP, this._baseResponseOptions);
+    };
+    JSONPBackend.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    /** @nocollapse */
+    JSONPBackend.ctorParameters = function () { return [
+        { type: BrowserJsonp },
+        { type: ResponseOptions }
+    ]; };
+    return JSONPBackend;
+}(ConnectionBackend));
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+var XSSI_PREFIX = /^\)\]\}',?\n/;
+/**
+ * Creates connections using `XMLHttpRequest`. Given a fully-qualified
+ * request, an `XHRConnection` will immediately create an `XMLHttpRequest` object and send the
+ * request.
+ *
+ * This class would typically not be created or interacted with directly inside applications, though
+ * the {@link MockConnection} may be interacted with in tests.
+ *
+ * @deprecated see https://angular.io/guide/http
+ */
+var XHRConnection = /** @class */ (function () {
+    function XHRConnection(req, browserXHR, baseResponseOptions) {
+        var _this = this;
+        this.request = req;
+        this.response = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](function (responseObserver) {
+            var _xhr = browserXHR.build();
+            _xhr.open(RequestMethod[req.method].toUpperCase(), req.url);
+            if (req.withCredentials != null) {
+                _xhr.withCredentials = req.withCredentials;
+            }
+            // load event handler
+            var onLoad = function () {
+                // normalize IE9 bug (http://bugs.jquery.com/ticket/1450)
+                var status = _xhr.status === 1223 ? 204 : _xhr.status;
+                var body = null;
+                // HTTP 204 means no content
+                if (status !== 204) {
+                    // responseText is the old-school way of retrieving response (supported by IE8 & 9)
+                    // response/responseType properties were introduced in ResourceLoader Level2 spec
+                    // (supported by IE10)
+                    body = (typeof _xhr.response === 'undefined') ? _xhr.responseText : _xhr.response;
+                    // Implicitly strip a potential XSSI prefix.
+                    if (typeof body === 'string') {
+                        body = body.replace(XSSI_PREFIX, '');
+                    }
+                }
+                // fix status code when it is 0 (0 status is undocumented).
+                // Occurs when accessing file resources or on Android 4.1 stock browser
+                // while retrieving files from application cache.
+                if (status === 0) {
+                    status = body ? 200 : 0;
+                }
+                var headers = Headers.fromResponseHeaderString(_xhr.getAllResponseHeaders());
+                // IE 9 does not provide the way to get URL of response
+                var url = getResponseURL(_xhr) || req.url;
+                var statusText = _xhr.statusText || 'OK';
+                var responseOptions = new ResponseOptions({ body: body, status: status, headers: headers, statusText: statusText, url: url });
+                if (baseResponseOptions != null) {
+                    responseOptions = baseResponseOptions.merge(responseOptions);
+                }
+                var response = new Response(responseOptions);
+                response.ok = isSuccess(status);
+                if (response.ok) {
+                    responseObserver.next(response);
+                    // TODO(gdi2290): defer complete if array buffer until done
+                    responseObserver.complete();
+                    return;
+                }
+                responseObserver.error(response);
+            };
+            // error event handler
+            var onError = function (err) {
+                var responseOptions = new ResponseOptions({
+                    body: err,
+                    type: ResponseType.Error,
+                    status: _xhr.status,
+                    statusText: _xhr.statusText,
+                });
+                if (baseResponseOptions != null) {
+                    responseOptions = baseResponseOptions.merge(responseOptions);
+                }
+                responseObserver.error(new Response(responseOptions));
+            };
+            _this.setDetectedContentType(req, _xhr);
+            if (req.headers == null) {
+                req.headers = new Headers();
+            }
+            if (!req.headers.has('Accept')) {
+                req.headers.append('Accept', 'application/json, text/plain, */*');
+            }
+            req.headers.forEach(function (values, name) { return _xhr.setRequestHeader(name, values.join(',')); });
+            // Select the correct buffer type to store the response
+            if (req.responseType != null && _xhr.responseType != null) {
+                switch (req.responseType) {
+                    case ResponseContentType.ArrayBuffer:
+                        _xhr.responseType = 'arraybuffer';
+                        break;
+                    case ResponseContentType.Json:
+                        _xhr.responseType = 'json';
+                        break;
+                    case ResponseContentType.Text:
+                        _xhr.responseType = 'text';
+                        break;
+                    case ResponseContentType.Blob:
+                        _xhr.responseType = 'blob';
+                        break;
+                    default:
+                        throw new Error('The selected responseType is not supported');
+                }
+            }
+            _xhr.addEventListener('load', onLoad);
+            _xhr.addEventListener('error', onError);
+            _xhr.send(_this.request.getBody());
+            return function () {
+                _xhr.removeEventListener('load', onLoad);
+                _xhr.removeEventListener('error', onError);
+                _xhr.abort();
+            };
+        });
+    }
+    XHRConnection.prototype.setDetectedContentType = function (req /** TODO Request */, _xhr /** XMLHttpRequest */) {
+        // Skip if a custom Content-Type header is provided
+        if (req.headers != null && req.headers.get('Content-Type') != null) {
+            return;
+        }
+        // Set the detected content type
+        switch (req.contentType) {
+            case ContentType.NONE:
+                break;
+            case ContentType.JSON:
+                _xhr.setRequestHeader('content-type', 'application/json');
+                break;
+            case ContentType.FORM:
+                _xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                break;
+            case ContentType.TEXT:
+                _xhr.setRequestHeader('content-type', 'text/plain');
+                break;
+            case ContentType.BLOB:
+                var blob = req.blob();
+                if (blob.type) {
+                    _xhr.setRequestHeader('content-type', blob.type);
+                }
+                break;
+        }
+    };
+    return XHRConnection;
+}());
+/**
+ * `XSRFConfiguration` sets up Cross Site Request Forgery (XSRF) protection for the application
+ * using a cookie. See https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)
+ * for more information on XSRF.
+ *
+ * Applications can configure custom cookie and header names by binding an instance of this class
+ * with different `cookieName` and `headerName` values. See the main HTTP documentation for more
+ * details.
+ *
+ * @deprecated see https://angular.io/guide/http
+ */
+var CookieXSRFStrategy = /** @class */ (function () {
+    function CookieXSRFStrategy(_cookieName, _headerName) {
+        if (_cookieName === void 0) { _cookieName = 'XSRF-TOKEN'; }
+        if (_headerName === void 0) { _headerName = 'X-XSRF-TOKEN'; }
+        this._cookieName = _cookieName;
+        this._headerName = _headerName;
+    }
+    CookieXSRFStrategy.prototype.configureRequest = function (req) {
+        var xsrfToken = Object(_angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["ɵgetDOM"])().getCookie(this._cookieName);
+        if (xsrfToken) {
+            req.headers.set(this._headerName, xsrfToken);
+        }
+    };
+    return CookieXSRFStrategy;
+}());
+/**
+ * Creates {@link XHRConnection} instances.
+ *
+ * This class would typically not be used by end users, but could be
+ * overridden if a different backend implementation should be used,
+ * such as in a node backend.
+ *
+ * ### Example
+ *
+ * ```
+ * import {Http, MyNodeBackend, HTTP_PROVIDERS, BaseRequestOptions} from '@angular/http';
+ * @Component({
+ *   viewProviders: [
+ *     HTTP_PROVIDERS,
+ *     {provide: Http, useFactory: (backend, options) => {
+ *       return new Http(backend, options);
+ *     }, deps: [MyNodeBackend, BaseRequestOptions]}]
+ * })
+ * class MyComponent {
+ *   constructor(http:Http) {
+ *     http.request('people.json').subscribe(res => this.people = res.json());
+ *   }
+ * }
+ * ```
+ * @deprecated see https://angular.io/guide/http
+ */
+var XHRBackend = /** @class */ (function () {
+    function XHRBackend(_browserXHR, _baseResponseOptions, _xsrfStrategy) {
+        this._browserXHR = _browserXHR;
+        this._baseResponseOptions = _baseResponseOptions;
+        this._xsrfStrategy = _xsrfStrategy;
+    }
+    XHRBackend.prototype.createConnection = function (request) {
+        this._xsrfStrategy.configureRequest(request);
+        return new XHRConnection(request, this._browserXHR, this._baseResponseOptions);
+    };
+    XHRBackend.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    /** @nocollapse */
+    XHRBackend.ctorParameters = function () { return [
+        { type: BrowserXhr },
+        { type: ResponseOptions },
+        { type: XSRFStrategy }
+    ]; };
+    return XHRBackend;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Creates a request options object to be optionally provided when instantiating a
+ * {@link Request}.
+ *
+ * This class is based on the `RequestInit` description in the [Fetch
+ * Spec](https://fetch.spec.whatwg.org/#requestinit).
+ *
+ * All values are null by default. Typical defaults can be found in the {@link BaseRequestOptions}
+ * class, which sub-classes `RequestOptions`.
+ *
+ * ```typescript
+ * import {RequestOptions, Request, RequestMethod} from '@angular/http';
+ *
+ * const options = new RequestOptions({
+ *   method: RequestMethod.Post,
+ *   url: 'https://google.com'
+ * });
+ * const req = new Request(options);
+ * console.log('req.method:', RequestMethod[req.method]); // Post
+ * console.log('options.url:', options.url); // https://google.com
+ * ```
+ *
+ * @deprecated see https://angular.io/guide/http
+ */
+var RequestOptions = /** @class */ (function () {
+    // TODO(Dzmitry): remove search when this.search is removed
+    function RequestOptions(opts) {
+        if (opts === void 0) { opts = {}; }
+        var method = opts.method, headers = opts.headers, body = opts.body, url = opts.url, search = opts.search, params = opts.params, withCredentials = opts.withCredentials, responseType = opts.responseType;
+        this.method = method != null ? normalizeMethodName(method) : null;
+        this.headers = headers != null ? headers : null;
+        this.body = body != null ? body : null;
+        this.url = url != null ? url : null;
+        this.params = this._mergeSearchParams(params || search);
+        this.withCredentials = withCredentials != null ? withCredentials : null;
+        this.responseType = responseType != null ? responseType : null;
+    }
+    Object.defineProperty(RequestOptions.prototype, "search", {
+        /**
+         * @deprecated from 4.0.0. Use params instead.
+         */
+        get: function () { return this.params; },
+        /**
+         * @deprecated from 4.0.0. Use params instead.
+         */
+        set: function (params) { this.params = params; },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Creates a copy of the `RequestOptions` instance, using the optional input as values to override
+     * existing values. This method will not change the values of the instance on which it is being
+     * called.
+     *
+     * Note that `headers` and `search` will override existing values completely if present in
+     * the `options` object. If these values should be merged, it should be done prior to calling
+     * `merge` on the `RequestOptions` instance.
+     *
+     * ```typescript
+     * import {RequestOptions, Request, RequestMethod} from '@angular/http';
+     *
+     * const options = new RequestOptions({
+     *   method: RequestMethod.Post
+     * });
+     * const req = new Request(options.merge({
+     *   url: 'https://google.com'
+     * }));
+     * console.log('req.method:', RequestMethod[req.method]); // Post
+     * console.log('options.url:', options.url); // null
+     * console.log('req.url:', req.url); // https://google.com
+     * ```
+     */
+    RequestOptions.prototype.merge = function (options) {
+        return new RequestOptions({
+            method: options && options.method != null ? options.method : this.method,
+            headers: options && options.headers != null ? options.headers : new Headers(this.headers),
+            body: options && options.body != null ? options.body : this.body,
+            url: options && options.url != null ? options.url : this.url,
+            params: options && this._mergeSearchParams(options.params || options.search),
+            withCredentials: options && options.withCredentials != null ? options.withCredentials :
+                this.withCredentials,
+            responseType: options && options.responseType != null ? options.responseType :
+                this.responseType
+        });
+    };
+    RequestOptions.prototype._mergeSearchParams = function (params) {
+        if (!params)
+            return this.params;
+        if (params instanceof URLSearchParams) {
+            return params.clone();
+        }
+        if (typeof params === 'string') {
+            return new URLSearchParams(params);
+        }
+        return this._parseParams(params);
+    };
+    RequestOptions.prototype._parseParams = function (objParams) {
+        var _this = this;
+        if (objParams === void 0) { objParams = {}; }
+        var params = new URLSearchParams();
+        Object.keys(objParams).forEach(function (key) {
+            var value = objParams[key];
+            if (Array.isArray(value)) {
+                value.forEach(function (item) { return _this._appendParam(key, item, params); });
+            }
+            else {
+                _this._appendParam(key, value, params);
+            }
+        });
+        return params;
+    };
+    RequestOptions.prototype._appendParam = function (key, value, params) {
+        if (typeof value !== 'string') {
+            value = JSON.stringify(value);
+        }
+        params.append(key, value);
+    };
+    return RequestOptions;
+}());
+/**
+ * Subclass of {@link RequestOptions}, with default values.
+ *
+ * Default values:
+ *  * method: {@link RequestMethod RequestMethod.Get}
+ *  * headers: empty {@link Headers} object
+ *
+ * This class could be extended and bound to the {@link RequestOptions} class
+ * when configuring an {@link Injector}, in order to override the default options
+ * used by {@link Http} to create and send {@link Request Requests}.
+ *
+ * ```typescript
+ * import {BaseRequestOptions, RequestOptions} from '@angular/http';
+ *
+ * class MyOptions extends BaseRequestOptions {
+ *   search: string = 'coreTeam=true';
+ * }
+ *
+ * {provide: RequestOptions, useClass: MyOptions};
+ * ```
+ *
+ * The options could also be extended when manually creating a {@link Request}
+ * object.
+ *
+ * ```
+ * import {BaseRequestOptions, Request, RequestMethod} from '@angular/http';
+ *
+ * const options = new BaseRequestOptions();
+ * const req = new Request(options.merge({
+ *   method: RequestMethod.Post,
+ *   url: 'https://google.com'
+ * }));
+ * console.log('req.method:', RequestMethod[req.method]); // Post
+ * console.log('options.url:', options.url); // null
+ * console.log('req.url:', req.url); // https://google.com
+ * ```
+ *
+ * @deprecated see https://angular.io/guide/http
+ */
+var BaseRequestOptions = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(BaseRequestOptions, _super);
+    function BaseRequestOptions() {
+        return _super.call(this, { method: RequestMethod.Get, headers: new Headers() }) || this;
+    }
+    BaseRequestOptions.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    /** @nocollapse */
+    BaseRequestOptions.ctorParameters = function () { return []; };
+    return BaseRequestOptions;
+}(RequestOptions));
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+// TODO(jeffbcross): properly implement body accessors
+/**
+ * Creates `Request` instances from provided values.
+ *
+ * The Request's interface is inspired by the Request constructor defined in the [Fetch
+ * Spec](https://fetch.spec.whatwg.org/#request-class),
+ * but is considered a static value whose body can be accessed many times. There are other
+ * differences in the implementation, but this is the most significant.
+ *
+ * `Request` instances are typically created by higher-level classes, like {@link Http} and
+ * {@link Jsonp}, but it may occasionally be useful to explicitly create `Request` instances.
+ * One such example is when creating services that wrap higher-level services, like {@link Http},
+ * where it may be useful to generate a `Request` with arbitrary headers and search params.
+ *
+ * ```typescript
+ * import {Injectable, Injector} from '@angular/core';
+ * import {HTTP_PROVIDERS, Http, Request, RequestMethod} from '@angular/http';
+ *
+ * @Injectable()
+ * class AutoAuthenticator {
+ *   constructor(public http:Http) {}
+ *   request(url:string) {
+ *     return this.http.request(new Request({
+ *       method: RequestMethod.Get,
+ *       url: url,
+ *       search: 'password=123'
+ *     }));
+ *   }
+ * }
+ *
+ * var injector = Injector.resolveAndCreate([HTTP_PROVIDERS, AutoAuthenticator]);
+ * var authenticator = injector.get(AutoAuthenticator);
+ * authenticator.request('people.json').subscribe(res => {
+ *   //URL should have included '?password=123'
+ *   console.log('people', res.json());
+ * });
+ * ```
+ *
+ * @deprecated see https://angular.io/guide/http
+ */
+var Request = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(Request, _super);
+    function Request(requestOptions) {
+        var _this = _super.call(this) || this;
+        // TODO: assert that url is present
+        var url = requestOptions.url;
+        _this.url = requestOptions.url;
+        var paramsArg = requestOptions.params || requestOptions.search;
+        if (paramsArg) {
+            var params = void 0;
+            if (typeof paramsArg === 'object' && !(paramsArg instanceof URLSearchParams)) {
+                params = urlEncodeParams(paramsArg).toString();
+            }
+            else {
+                params = paramsArg.toString();
+            }
+            if (params.length > 0) {
+                var prefix = '?';
+                if (_this.url.indexOf('?') != -1) {
+                    prefix = (_this.url[_this.url.length - 1] == '&') ? '' : '&';
+                }
+                // TODO: just delete search-query-looking string in url?
+                _this.url = url + prefix + params;
+            }
+        }
+        _this._body = requestOptions.body;
+        _this.method = normalizeMethodName(requestOptions.method);
+        // TODO(jeffbcross): implement behavior
+        // Defaults to 'omit', consistent with browser
+        _this.headers = new Headers(requestOptions.headers);
+        _this.contentType = _this.detectContentType();
+        _this.withCredentials = requestOptions.withCredentials;
+        _this.responseType = requestOptions.responseType;
+        return _this;
+    }
+    /**
+     * Returns the content type enum based on header options.
+     */
+    Request.prototype.detectContentType = function () {
+        switch (this.headers.get('content-type')) {
+            case 'application/json':
+                return ContentType.JSON;
+            case 'application/x-www-form-urlencoded':
+                return ContentType.FORM;
+            case 'multipart/form-data':
+                return ContentType.FORM_DATA;
+            case 'text/plain':
+            case 'text/html':
+                return ContentType.TEXT;
+            case 'application/octet-stream':
+                return this._body instanceof ArrayBuffer$1 ? ContentType.ARRAY_BUFFER : ContentType.BLOB;
+            default:
+                return this.detectContentTypeFromBody();
+        }
+    };
+    /**
+     * Returns the content type of request's body based on its type.
+     */
+    Request.prototype.detectContentTypeFromBody = function () {
+        if (this._body == null) {
+            return ContentType.NONE;
+        }
+        else if (this._body instanceof URLSearchParams) {
+            return ContentType.FORM;
+        }
+        else if (this._body instanceof FormData) {
+            return ContentType.FORM_DATA;
+        }
+        else if (this._body instanceof Blob$1) {
+            return ContentType.BLOB;
+        }
+        else if (this._body instanceof ArrayBuffer$1) {
+            return ContentType.ARRAY_BUFFER;
+        }
+        else if (this._body && typeof this._body === 'object') {
+            return ContentType.JSON;
+        }
+        else {
+            return ContentType.TEXT;
+        }
+    };
+    /**
+     * Returns the request's body according to its type. If body is undefined, return
+     * null.
+     */
+    Request.prototype.getBody = function () {
+        switch (this.contentType) {
+            case ContentType.JSON:
+                return this.text();
+            case ContentType.FORM:
+                return this.text();
+            case ContentType.FORM_DATA:
+                return this._body;
+            case ContentType.TEXT:
+                return this.text();
+            case ContentType.BLOB:
+                return this.blob();
+            case ContentType.ARRAY_BUFFER:
+                return this.arrayBuffer();
+            default:
+                return null;
+        }
+    };
+    return Request;
+}(Body));
+function urlEncodeParams(params) {
+    var searchParams = new URLSearchParams();
+    Object.keys(params).forEach(function (key) {
+        var value = params[key];
+        if (value && Array.isArray(value)) {
+            value.forEach(function (element) { return searchParams.append(key, element.toString()); });
+        }
+        else {
+            searchParams.append(key, value.toString());
+        }
+    });
+    return searchParams;
+}
+var noop = function () { };
+var w = typeof window == 'object' ? window : noop;
+var FormData = w /** TODO #9100 */['FormData'] || noop;
+var Blob$1 = w /** TODO #9100 */['Blob'] || noop;
+var ArrayBuffer$1 = w /** TODO #9100 */['ArrayBuffer'] || noop;
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+function httpRequest(backend, request) {
+    return backend.createConnection(request).response;
+}
+function mergeOptions(defaultOpts, providedOpts, method, url) {
+    var newOptions = defaultOpts;
+    if (providedOpts) {
+        // Hack so Dart can used named parameters
+        return newOptions.merge(new RequestOptions({
+            method: providedOpts.method || method,
+            url: providedOpts.url || url,
+            search: providedOpts.search,
+            params: providedOpts.params,
+            headers: providedOpts.headers,
+            body: providedOpts.body,
+            withCredentials: providedOpts.withCredentials,
+            responseType: providedOpts.responseType
+        }));
+    }
+    return newOptions.merge(new RequestOptions({ method: method, url: url }));
+}
+/**
+ * Performs http requests using `XMLHttpRequest` as the default backend.
+ *
+ * `Http` is available as an injectable class, with methods to perform http requests. Calling
+ * `request` returns an `Observable` which will emit a single {@link Response} when a
+ * response is received.
+ *
+ * ### Example
+ *
+ * ```typescript
+ * import {Http, HTTP_PROVIDERS} from '@angular/http';
+ * import {map} from 'rxjs/operators';
+ *
+ * @Component({
+ *   selector: 'http-app',
+ *   viewProviders: [HTTP_PROVIDERS],
+ *   templateUrl: 'people.html'
+ * })
+ * class PeopleComponent {
+ *   constructor(http: Http) {
+ *     http.get('people.json')
+ *       // Call map on the response observable to get the parsed people object
+ *       .pipe(map(res => res.json()))
+ *       // Subscribe to the observable to get the parsed people object and attach it to the
+ *       // component
+ *       .subscribe(people => this.people = people);
+ *   }
+ * }
+ * ```
+ *
+ *
+ * ### Example
+ *
+ * ```
+ * http.get('people.json').subscribe((res:Response) => this.people = res.json());
+ * ```
+ *
+ * The default construct used to perform requests, `XMLHttpRequest`, is abstracted as a "Backend" (
+ * {@link XHRBackend} in this case), which could be mocked with dependency injection by replacing
+ * the {@link XHRBackend} provider, as in the following example:
+ *
+ * ### Example
+ *
+ * ```typescript
+ * import {BaseRequestOptions, Http} from '@angular/http';
+ * import {MockBackend} from '@angular/http/testing';
+ * var injector = Injector.resolveAndCreate([
+ *   BaseRequestOptions,
+ *   MockBackend,
+ *   {provide: Http, useFactory:
+ *       function(backend, defaultOptions) {
+ *         return new Http(backend, defaultOptions);
+ *       },
+ *       deps: [MockBackend, BaseRequestOptions]}
+ * ]);
+ * var http = injector.get(Http);
+ * http.get('request-from-mock-backend.json').subscribe((res:Response) => doSomething(res));
+ * ```
+ *
+ * @deprecated see https://angular.io/guide/http
+ */
+var Http = /** @class */ (function () {
+    function Http(_backend, _defaultOptions) {
+        this._backend = _backend;
+        this._defaultOptions = _defaultOptions;
+    }
+    /**
+     * Performs any type of http request. First argument is required, and can either be a url or
+     * a {@link Request} instance. If the first argument is a url, an optional {@link RequestOptions}
+     * object can be provided as the 2nd argument. The options object will be merged with the values
+     * of {@link BaseRequestOptions} before performing the request.
+     */
+    Http.prototype.request = function (url, options) {
+        var responseObservable;
+        if (typeof url === 'string') {
+            responseObservable = httpRequest(this._backend, new Request(mergeOptions(this._defaultOptions, options, RequestMethod.Get, url)));
+        }
+        else if (url instanceof Request) {
+            responseObservable = httpRequest(this._backend, url);
+        }
+        else {
+            throw new Error('First argument must be a url string or Request instance.');
+        }
+        return responseObservable;
+    };
+    /**
+     * Performs a request with `get` http method.
+     */
+    Http.prototype.get = function (url, options) {
+        return this.request(new Request(mergeOptions(this._defaultOptions, options, RequestMethod.Get, url)));
+    };
+    /**
+     * Performs a request with `post` http method.
+     */
+    Http.prototype.post = function (url, body, options) {
+        return this.request(new Request(mergeOptions(this._defaultOptions.merge(new RequestOptions({ body: body })), options, RequestMethod.Post, url)));
+    };
+    /**
+     * Performs a request with `put` http method.
+     */
+    Http.prototype.put = function (url, body, options) {
+        return this.request(new Request(mergeOptions(this._defaultOptions.merge(new RequestOptions({ body: body })), options, RequestMethod.Put, url)));
+    };
+    /**
+     * Performs a request with `delete` http method.
+     */
+    Http.prototype.delete = function (url, options) {
+        return this.request(new Request(mergeOptions(this._defaultOptions, options, RequestMethod.Delete, url)));
+    };
+    /**
+     * Performs a request with `patch` http method.
+     */
+    Http.prototype.patch = function (url, body, options) {
+        return this.request(new Request(mergeOptions(this._defaultOptions.merge(new RequestOptions({ body: body })), options, RequestMethod.Patch, url)));
+    };
+    /**
+     * Performs a request with `head` http method.
+     */
+    Http.prototype.head = function (url, options) {
+        return this.request(new Request(mergeOptions(this._defaultOptions, options, RequestMethod.Head, url)));
+    };
+    /**
+     * Performs a request with `options` http method.
+     */
+    Http.prototype.options = function (url, options) {
+        return this.request(new Request(mergeOptions(this._defaultOptions, options, RequestMethod.Options, url)));
+    };
+    Http.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    /** @nocollapse */
+    Http.ctorParameters = function () { return [
+        { type: ConnectionBackend },
+        { type: RequestOptions }
+    ]; };
+    return Http;
+}());
+/**
+ * @deprecated see https://angular.io/guide/http
+ */
+var Jsonp = /** @class */ (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_1__["__extends"])(Jsonp, _super);
+    function Jsonp(backend, defaultOptions) {
+        return _super.call(this, backend, defaultOptions) || this;
+    }
+    /**
+     * Performs any type of http request. First argument is required, and can either be a url or
+     * a {@link Request} instance. If the first argument is a url, an optional {@link RequestOptions}
+     * object can be provided as the 2nd argument. The options object will be merged with the values
+     * of {@link BaseRequestOptions} before performing the request.
+     *
+     * @security Regular XHR is the safest alternative to JSONP for most applications, and is
+     * supported by all current browsers. Because JSONP creates a `<script>` element with
+     * contents retrieved from a remote source, attacker-controlled data introduced by an untrusted
+     * source could expose your application to XSS risks. Data exposed by JSONP may also be
+     * readable by malicious third-party websites. In addition, JSONP introduces potential risk for
+     * future security issues (e.g. content sniffing).  For more detail, see the
+     * [Security Guide](http://g.co/ng/security).
+     */
+    Jsonp.prototype.request = function (url, options) {
+        var responseObservable;
+        if (typeof url === 'string') {
+            url =
+                new Request(mergeOptions(this._defaultOptions, options, RequestMethod.Get, url));
+        }
+        if (url instanceof Request) {
+            if (url.method !== RequestMethod.Get) {
+                throw new Error('JSONP requests must use GET request method.');
+            }
+            responseObservable = httpRequest(this._backend, url);
+        }
+        else {
+            throw new Error('First argument must be a url string or Request instance.');
+        }
+        return responseObservable;
+    };
+    Jsonp.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+    ];
+    /** @nocollapse */
+    Jsonp.ctorParameters = function () { return [
+        { type: ConnectionBackend },
+        { type: RequestOptions }
+    ]; };
+    return Jsonp;
+}(Http));
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * The http module provides services to perform http requests. To get started, see the {@link Http}
+ * class.
+ */
+function _createDefaultCookieXSRFStrategy() {
+    return new CookieXSRFStrategy();
+}
+function httpFactory(xhrBackend, requestOptions) {
+    return new Http(xhrBackend, requestOptions);
+}
+function jsonpFactory(jsonpBackend, requestOptions) {
+    return new Jsonp(jsonpBackend, requestOptions);
+}
+/**
+ * The module that includes http's providers
+ *
+ * @deprecated see https://angular.io/guide/http
+ */
+var HttpModule = /** @class */ (function () {
+    function HttpModule() {
+    }
+    HttpModule.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
+                    providers: [
+                        // TODO(pascal): use factory type annotations once supported in DI
+                        // issue: https://github.com/angular/angular/issues/3183
+                        { provide: Http, useFactory: httpFactory, deps: [XHRBackend, RequestOptions] },
+                        BrowserXhr,
+                        { provide: RequestOptions, useClass: BaseRequestOptions },
+                        { provide: ResponseOptions, useClass: BaseResponseOptions },
+                        XHRBackend,
+                        { provide: XSRFStrategy, useFactory: _createDefaultCookieXSRFStrategy },
+                    ],
+                },] }
+    ];
+    return HttpModule;
+}());
+/**
+ * The module that includes jsonp's providers
+ *
+ * @deprecated see https://angular.io/guide/http
+ */
+var JsonpModule = /** @class */ (function () {
+    function JsonpModule() {
+    }
+    JsonpModule.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
+                    providers: [
+                        // TODO(pascal): use factory type annotations once supported in DI
+                        // issue: https://github.com/angular/angular/issues/3183
+                        { provide: Jsonp, useFactory: jsonpFactory, deps: [JSONPBackend, RequestOptions] },
+                        BrowserJsonp,
+                        { provide: RequestOptions, useClass: BaseRequestOptions },
+                        { provide: ResponseOptions, useClass: BaseResponseOptions },
+                        JSONPBackend,
+                    ],
+                },] }
+    ];
+    return JsonpModule;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the common package.
+ */
+/**
+ * @deprecated see https://angular.io/guide/http
+ */
+var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Version"]('6.0.6');
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of this package.
+ */
+
+// This file only reexports content of the `src` folder. Keep it that way.
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+// This file is not used to build this module. It is only used during editing
+// by the TypeScript language service and during build for verification. `ngc`
+// replaces this file with production index.ts when it rewrites private symbol
+// names.
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+//# sourceMappingURL=http.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/@angular/platform-browser-dynamic/fesm5/platform-browser-dynamic.js":
 /*!******************************************************************************************!*\
   !*** ./node_modules/@angular/platform-browser-dynamic/fesm5/platform-browser-dynamic.js ***!
@@ -56178,7 +54866,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /**
- * @license Angular v6.0.4
+ * @license Angular v6.0.6
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -56615,7 +55303,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
  * @description
  * Entry point for all public APIs of the common package.
  */
-var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.0.4');
+var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.0.6');
 
 /**
  * @license
@@ -56728,7 +55416,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /**
- * @license Angular v6.0.4
+ * @license Angular v6.0.6
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -59166,7 +57854,7 @@ var By = /** @class */ (function () {
  * @description
  * Entry point for all public APIs of the common package.
  */
-var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.0.4');
+var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.0.6');
 
 /**
  * @license
@@ -59217,7 +57905,7 @@ var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.0.4')
 /*!******************************************************!*\
   !*** ./node_modules/@angular/router/fesm5/router.js ***!
   \******************************************************/
-/*! exports provided: ɵangular_packages_router_router_a, ɵangular_packages_router_router_g, ɵangular_packages_router_router_h, ɵangular_packages_router_router_i, ɵangular_packages_router_router_d, ɵangular_packages_router_router_c, ɵangular_packages_router_router_j, ɵangular_packages_router_router_f, ɵangular_packages_router_router_b, ɵangular_packages_router_router_e, ɵangular_packages_router_router_k, ɵangular_packages_router_router_l, RouterLink, RouterLinkWithHref, RouterLinkActive, RouterOutlet, ActivationEnd, ActivationStart, ChildActivationEnd, ChildActivationStart, GuardsCheckEnd, GuardsCheckStart, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, ResolveEnd, ResolveStart, RouteConfigLoadEnd, RouteConfigLoadStart, RouterEvent, RoutesRecognized, RouteReuseStrategy, Router, ROUTES, ROUTER_CONFIGURATION, ROUTER_INITIALIZER, RouterModule, provideRoutes, ChildrenOutletContexts, OutletContext, NoPreloading, PreloadAllModules, PreloadingStrategy, RouterPreloader, ActivatedRoute, ActivatedRouteSnapshot, RouterState, RouterStateSnapshot, PRIMARY_OUTLET, convertToParamMap, UrlHandlingStrategy, DefaultUrlSerializer, UrlSegment, UrlSegmentGroup, UrlSerializer, UrlTree, VERSION, ɵROUTER_PROVIDERS, ɵflatten */
+/*! exports provided: ɵangular_packages_router_router_a, ɵangular_packages_router_router_g, ɵangular_packages_router_router_h, ɵangular_packages_router_router_i, ɵangular_packages_router_router_d, ɵangular_packages_router_router_c, ɵangular_packages_router_router_j, ɵangular_packages_router_router_f, ɵangular_packages_router_router_b, ɵangular_packages_router_router_e, ɵangular_packages_router_router_k, ɵangular_packages_router_router_l, RouterLink, RouterLinkWithHref, RouterLinkActive, RouterOutlet, ActivationEnd, ActivationStart, ChildActivationEnd, ChildActivationStart, GuardsCheckEnd, GuardsCheckStart, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, ResolveEnd, ResolveStart, RouteConfigLoadEnd, RouteConfigLoadStart, RouterEvent, RoutesRecognized, RouteReuseStrategy, Router, ROUTES, ROUTER_CONFIGURATION, ROUTER_INITIALIZER, RouterModule, provideRoutes, ChildrenOutletContexts, OutletContext, NoPreloading, PreloadAllModules, PreloadingStrategy, RouterPreloader, ActivatedRoute, ActivatedRouteSnapshot, RouterState, RouterStateSnapshot, PRIMARY_OUTLET, convertToParamMap, UrlHandlingStrategy, DefaultUrlSerializer, UrlSegment, UrlSegmentGroup, UrlSerializer, UrlTree, VERSION, ɵEmptyOutletComponent, ɵROUTER_PROVIDERS, ɵflatten */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -59280,6 +57968,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UrlSerializer", function() { return UrlSerializer; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UrlTree", function() { return UrlTree; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VERSION", function() { return VERSION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵEmptyOutletComponent", function() { return EmptyOutletComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵROUTER_PROVIDERS", function() { return ROUTER_PROVIDERS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵflatten", function() { return flatten; });
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
@@ -59289,7 +57978,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /**
- * @license Angular v6.0.4
+ * @license Angular v6.0.6
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -59715,6 +58404,31 @@ var ActivationEnd = /** @class */ (function () {
  * found in the LICENSE file at https://angular.io/license
  */
 /**
+ * This component is used internally within the router to be a placeholder when an empty
+ * router-outlet is needed. For example, with a config such as:
+ *
+ * `{path: 'parent', outlet: 'nav', children: [...]}`
+ *
+ * In order to render, there needs to be a component on this config, which will default
+ * to this `EmptyOutletComponent`.
+ */
+var EmptyOutletComponent = /** @class */ (function () {
+    function EmptyOutletComponent() {
+    }
+    EmptyOutletComponent.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"], args: [{ template: "<router-outlet></router-outlet>" }] }
+    ];
+    return EmptyOutletComponent;
+}());
+
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * @description
  *
  * Name of the primary outlet.
@@ -59824,8 +58538,9 @@ function validateNode(route, fullPath) {
     if (Array.isArray(route)) {
         throw new Error("Invalid configuration of route '" + fullPath + "': Array cannot be specified");
     }
-    if (!route.component && (route.outlet && route.outlet !== PRIMARY_OUTLET)) {
-        throw new Error("Invalid configuration of route '" + fullPath + "': a componentless route cannot have a named outlet set");
+    if (!route.component && !route.children && !route.loadChildren &&
+        (route.outlet && route.outlet !== PRIMARY_OUTLET)) {
+        throw new Error("Invalid configuration of route '" + fullPath + "': a componentless route without children or loadChildren cannot have a named outlet set");
     }
     if (route.redirectTo && route.children) {
         throw new Error("Invalid configuration of route '" + fullPath + "': redirectTo and children cannot be used together");
@@ -59879,9 +58594,16 @@ function getFullPath(parentPath, currentRoute) {
         return parentPath + "/" + currentRoute.path;
     }
 }
-function copyConfig(r) {
-    var children = r.children && r.children.map(copyConfig);
-    return children ? Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, r, { children: children }) : Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, r);
+/**
+ * Makes a copy of the config and adds any default required properties.
+ */
+function standardizeConfig(r) {
+    var children = r.children && r.children.map(standardizeConfig);
+    var c = children ? Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, r, { children: children }) : Object(tslib__WEBPACK_IMPORTED_MODULE_2__["__assign"])({}, r);
+    if (!c.component && (children || c.loadChildren) && (c.outlet && c.outlet !== PRIMARY_OUTLET)) {
+        c.component = EmptyOutletComponent;
+    }
+    return c;
 }
 
 /**
@@ -62478,7 +61200,7 @@ var RouterConfigLoader = /** @class */ (function () {
                 _this.onLoadEndListener(route);
             }
             var module = factory.create(parentInjector);
-            return new LoadedRouterConfig(flatten(module.injector.get(ROUTES)).map(copyConfig), module);
+            return new LoadedRouterConfig(flatten(module.injector.get(ROUTES)).map(standardizeConfig), module);
         }));
     };
     RouterConfigLoader.prototype.loadModuleFactory = function (loadChildren) {
@@ -62686,7 +61408,7 @@ var Router = /** @class */ (function () {
      */
     Router.prototype.resetConfig = function (config) {
         validateConfig(config);
-        this.config = config.map(copyConfig);
+        this.config = config.map(standardizeConfig);
         this.navigated = false;
         this.lastSuccessfulId = -1;
     };
@@ -64076,7 +62798,7 @@ var RouterPreloader = /** @class */ (function () {
  *
  *
  */
-var ROUTER_DIRECTIVES = [RouterOutlet, RouterLink, RouterLinkWithHref, RouterLinkActive];
+var ROUTER_DIRECTIVES = [RouterOutlet, RouterLink, RouterLinkWithHref, RouterLinkActive, EmptyOutletComponent];
 /**
  * @description
  *
@@ -64217,7 +62939,11 @@ var RouterModule = /** @class */ (function () {
         return { ngModule: RouterModule, providers: [provideRoutes(routes)] };
     };
     RouterModule.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"], args: [{ declarations: ROUTER_DIRECTIVES, exports: ROUTER_DIRECTIVES },] }
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"], args: [{
+                    declarations: ROUTER_DIRECTIVES,
+                    exports: ROUTER_DIRECTIVES,
+                    entryComponents: [EmptyOutletComponent]
+                },] }
     ];
     /** @nocollapse */
     RouterModule.ctorParameters = function () { return [
@@ -64418,7 +63144,7 @@ function provideRouterInitializer() {
  * @description
  * Entry point for all public APIs of the common package.
  */
-var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.0.4');
+var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.0.6');
 
 /**
  * @license
@@ -64473,36 +63199,1139 @@ var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.0.4')
 
 /***/ }),
 
-/***/ "./node_modules/inherits/inherits_browser.js":
-/*!***************************************************!*\
-  !*** ./node_modules/inherits/inherits_browser.js ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/@ngx-pwa/local-storage/fesm5/local-storage.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@ngx-pwa/local-storage/fesm5/local-storage.js ***!
+  \********************************************************************/
+/*! exports provided: LocalDatabase, IndexedDBDatabase, LocalStorageDatabase, MockLocalDatabase, JSONValidator, LocalStorage, localStorageProviders, LOCAL_STORAGE_PREFIX, ɵa */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-if (typeof Object.create === 'function') {
-  // implementation from standard node.js 'util' module
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    ctor.prototype = Object.create(superCtor.prototype, {
-      constructor: {
-        value: ctor,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
-  };
-} else {
-  // old school shim for old browsers
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    var TempCtor = function () {}
-    TempCtor.prototype = superCtor.prototype
-    ctor.prototype = new TempCtor()
-    ctor.prototype.constructor = ctor
-  }
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LocalDatabase", function() { return LocalDatabase; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IndexedDBDatabase", function() { return IndexedDBDatabase; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LocalStorageDatabase", function() { return LocalStorageDatabase; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MockLocalDatabase", function() { return MockLocalDatabase; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JSONValidator", function() { return JSONValidator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LocalStorage", function() { return LocalStorage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "localStorageProviders", function() { return localStorageProviders; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOCAL_STORAGE_PREFIX", function() { return LOCAL_STORAGE_PREFIX; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return localDatabaseFactory; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
+
+
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+var LOCAL_STORAGE_PREFIX = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken"]('localStoragePrefix', { providedIn: 'root', factory: function () { return ''; } });
+/**
+ * @record
+ */
+
+/**
+ * @param {?} config
+ * @return {?}
+ */
+function localStorageProviders(config) {
+    return [
+        config.prefix ? { provide: LOCAL_STORAGE_PREFIX, useValue: config.prefix } : []
+    ];
 }
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+var IndexedDBDatabase = /** @class */ (function () {
+    /**
+     * Connects to IndexedDB
+     */
+    function IndexedDBDatabase(prefix) {
+        if (prefix === void 0) { prefix = null; }
+        this.prefix = prefix;
+        /**
+         * IndexedDB database name for local storage
+         */
+        this.dbName = 'ngStorage';
+        /**
+         * IndexedDB object store name for local storage
+         */
+        this.objectStoreName = 'localStorage';
+        /**
+         * IndexedDB key path name for local storage (where an item's key will be stored)
+         */
+        this.keyPath = 'key';
+        /**
+         * IndexedDB data path name for local storage (where items' value will be stored)
+         */
+        this.dataPath = 'value';
+        if (prefix) {
+            this.dbName = prefix + "_" + this.dbName;
+        }
+        if (prefix) {
+            this.dbName = prefix + "_" + this.dbName;
+        }
+        /* Creating the RxJS ReplaySubject */
+        this.database = new rxjs__WEBPACK_IMPORTED_MODULE_2__["ReplaySubject"]();
+        /* Connecting to IndexedDB */
+        this.connect();
+    }
+    /**
+     * Gets an item value in local storage
+     * @param key The item's key
+     * @returns The item's value if the key exists, null otherwise, wrapped in an RxJS Observable
+     */
+    /**
+     * Gets an item value in local storage
+     * @template T
+     * @param {?} key The item's key
+     * @return {?} The item's value if the key exists, null otherwise, wrapped in an RxJS Observable
+     */
+    IndexedDBDatabase.prototype.getItem = /**
+     * Gets an item value in local storage
+     * @template T
+     * @param {?} key The item's key
+     * @return {?} The item's value if the key exists, null otherwise, wrapped in an RxJS Observable
+     */
+    function (key) {
+        var _this = this;
+        /* Opening a trasaction and requesting the item in local storage */
+        return this.transaction().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (transaction) { return transaction.get(key); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])(function (request) {
+            /* Listening to the success event, and passing the item value if found, null otherwise */
+            var /** @type {?} */ success = (/** @type {?} */ (Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(request, 'success'))).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (event) { return (/** @type {?} */ (event.target)).result; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (result) { return result && (_this.dataPath in result) ? (/** @type {?} */ (result[_this.dataPath])) : null; }));
+            /* Merging success and errors events and autoclosing the observable */
+            return (/** @type {?} */ (Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["race"])(success, _this.toErrorObservable(request, "getter"))))
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])());
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])());
+    };
+    /**
+     * Sets an item in local storage
+     * @param key The item's key
+     * @param data The item's value, must NOT be null or undefined
+     * @returns An RxJS Observable to wait the end of the operation
+     */
+    /**
+     * Sets an item in local storage
+     * @param {?} key The item's key
+     * @param {?} data The item's value, must NOT be null or undefined
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    IndexedDBDatabase.prototype.setItem = /**
+     * Sets an item in local storage
+     * @param {?} key The item's key
+     * @param {?} data The item's value, must NOT be null or undefined
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    function (key, data) {
+        var _this = this;
+        /* Storing null is not correctly supported by IndexedDB and unnecessary here */
+        if (data == null) {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(true);
+        }
+        /* Opening a transaction and checking if the item already exists in local storage */
+        return this.getItem(key).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (existingData) { return (existingData == null) ? 'add' : 'put'; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])(function (method) {
+            /* Opening a transaction */
+            return _this.transaction('readwrite').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])(function (transaction) {
+                var /** @type {?} */ request;
+                /* Adding or updating local storage, based on previous checking */
+                switch (method) {
+                    case 'add':
+                        request = transaction.add((_a = {}, _a[_this.dataPath] = data, _a), key);
+                        break;
+                    case 'put':
+                    default:
+                        request = transaction.put((_b = {}, _b[_this.dataPath] = data, _b), key);
+                        break;
+                }
+                /* Merging success (passing true) and error events and autoclosing the observable */
+                return (/** @type {?} */ (Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["race"])(_this.toSuccessObservable(request), _this.toErrorObservable(request, "setter"))))
+                    .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])());
+                var _a, _b;
+            }));
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])());
+    };
+    /**
+     * Deletes an item in local storage
+     * @param key The item's key
+     * @returns An RxJS Observable to wait the end of the operation
+     */
+    /**
+     * Deletes an item in local storage
+     * @param {?} key The item's key
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    IndexedDBDatabase.prototype.removeItem = /**
+     * Deletes an item in local storage
+     * @param {?} key The item's key
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    function (key) {
+        var _this = this;
+        /* Opening a transaction and checking if the item exists in local storage */
+        return this.getItem(key).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])(function (data) {
+            /* If the item exists in local storage */
+            if (data != null) {
+                /* Opening a transaction */
+                return _this.transaction('readwrite').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])(function (transaction) {
+                    /* Deleting the item in local storage */
+                    var /** @type {?} */ request = transaction.delete(key);
+                    /* Merging success (passing true) and error events and autoclosing the observable */
+                    return (/** @type {?} */ (Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["race"])(_this.toSuccessObservable(request), _this.toErrorObservable(request, "remover"))))
+                        .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])());
+                }));
+            }
+            /* Passing true if the item does not exist in local storage */
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(true);
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])());
+    };
+    /**
+     * Deletes all items from local storage
+     * @returns An RxJS Observable to wait the end of the operation
+     */
+    /**
+     * Deletes all items from local storage
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    IndexedDBDatabase.prototype.clear = /**
+     * Deletes all items from local storage
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    function () {
+        var _this = this;
+        /* Opening a transaction */
+        return this.transaction('readwrite').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])(function (transaction) {
+            /* Deleting all items from local storage */
+            var /** @type {?} */ request = transaction.clear();
+            /* Merging success (passing true) and error events and autoclosing the observable */
+            return (/** @type {?} */ (Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["race"])(_this.toSuccessObservable(request), _this.toErrorObservable(request, "clearer"))))
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])());
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])());
+    };
+    /**
+     * Connects to IndexedDB and creates the object store on first time
+     */
+    /**
+     * Connects to IndexedDB and creates the object store on first time
+     * @return {?}
+     */
+    IndexedDBDatabase.prototype.connect = /**
+     * Connects to IndexedDB and creates the object store on first time
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        /* Connecting to IndexedDB */
+        var /** @type {?} */ request = indexedDB.open(this.dbName);
+        /* Listening the event fired on first connection, creating the object store for local storage */
+        (/** @type {?} */ (Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(request, 'upgradeneeded')))
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])())
+            .subscribe(function (event) {
+            /* Getting the database connection */
+            var /** @type {?} */ database = /** @type {?} */ ((/** @type {?} */ (event.target)).result);
+            /* Checking if the object store already exists, to avoid error */
+            if (!database.objectStoreNames.contains(_this.objectStoreName)) {
+                /* Creating the object store for local storage */
+                database.createObjectStore(_this.objectStoreName);
+            }
+        });
+        /* Listening the success event and converting to an RxJS Observable */
+        var /** @type {?} */ success = /** @type {?} */ (Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(request, 'success'));
+        /* Merging success and errors events */
+        (/** @type {?} */ (Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["race"])(success, this.toErrorObservable(request, "connection"))))
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["first"])())
+            .subscribe(function (event) {
+            /* Storing the database connection for further access */
+            /* Storing the database connection for further access */
+            _this.database.next(/** @type {?} */ ((/** @type {?} */ (event.target)).result));
+        }, function (error) {
+            _this.database.error(/** @type {?} */ (error));
+        });
+    };
+    /**
+     * Opens an IndexedDB transaction and gets the local storage object store
+     * @param mode Default to 'readonly' for read operations, or 'readwrite' for write operations
+     * @returns An IndexedDB transaction object store, wrapped in an RxJS Observable
+     */
+    /**
+     * Opens an IndexedDB transaction and gets the local storage object store
+     * @param {?=} mode Default to 'readonly' for read operations, or 'readwrite' for write operations
+     * @return {?} An IndexedDB transaction object store, wrapped in an RxJS Observable
+     */
+    IndexedDBDatabase.prototype.transaction = /**
+     * Opens an IndexedDB transaction and gets the local storage object store
+     * @param {?=} mode Default to 'readonly' for read operations, or 'readwrite' for write operations
+     * @return {?} An IndexedDB transaction object store, wrapped in an RxJS Observable
+     */
+    function (mode) {
+        var _this = this;
+        if (mode === void 0) { mode = 'readonly'; }
+        /* From the IndexedDB connection, opening a transaction and getting the local storage objet store */
+        return this.database
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (database) { return database.transaction([_this.objectStoreName], mode).objectStore(_this.objectStoreName); }));
+    };
+    /**
+     * Transforms a IndexedDB success event in an RxJS Observable
+     * @param request The request to listen
+     * @returns A RxJS Observable with true value
+     */
+    /**
+     * Transforms a IndexedDB success event in an RxJS Observable
+     * @param {?} request The request to listen
+     * @return {?} A RxJS Observable with true value
+     */
+    IndexedDBDatabase.prototype.toSuccessObservable = /**
+     * Transforms a IndexedDB success event in an RxJS Observable
+     * @param {?} request The request to listen
+     * @return {?} A RxJS Observable with true value
+     */
+    function (request) {
+        /* Transforming a IndexedDB success event in an RxJS Observable with true value */
+        return (/** @type {?} */ (Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(request, 'success')))
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function () { return true; }));
+    };
+    /**
+     * Transforms a IndexedDB error event in an RxJS ErrorObservable
+     * @param request The request to listen
+     * @param error Optionnal details about the error's origin
+     * @returns A RxJS ErrorObservable
+     */
+    /**
+     * Transforms a IndexedDB error event in an RxJS ErrorObservable
+     * @param {?} request The request to listen
+     * @param {?=} error Optionnal details about the error's origin
+     * @return {?} A RxJS ErrorObservable
+     */
+    IndexedDBDatabase.prototype.toErrorObservable = /**
+     * Transforms a IndexedDB error event in an RxJS ErrorObservable
+     * @param {?} request The request to listen
+     * @param {?=} error Optionnal details about the error's origin
+     * @return {?} A RxJS ErrorObservable
+     */
+    function (request, error) {
+        if (error === void 0) { error = ""; }
+        /* Transforming a IndexedDB error event in an RxJS ErrorObservable */
+        return (/** @type {?} */ (Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(request, 'error')))
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])(function (event) { return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])(new Error("IndexedDB " + error + " issue : " + request.error.message + ".")); }));
+    };
+    IndexedDBDatabase.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"], args: [{
+                    providedIn: 'root'
+                },] },
+    ];
+    /** @nocollapse */
+    IndexedDBDatabase.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [LOCAL_STORAGE_PREFIX,] },] },
+    ]; };
+    /** @nocollapse */ IndexedDBDatabase.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["defineInjectable"])({ factory: function IndexedDBDatabase_Factory() { return new IndexedDBDatabase(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["inject"])(LOCAL_STORAGE_PREFIX, 8)); }, token: IndexedDBDatabase, providedIn: "root" });
+    return IndexedDBDatabase;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+var LocalStorageDatabase = /** @class */ (function () {
+    function LocalStorageDatabase(userPrefix) {
+        if (userPrefix === void 0) { userPrefix = null; }
+        this.userPrefix = userPrefix;
+        /* Initializing native localStorage right now to be able to check its support on class instanciation */
+        this.prefix = '';
+        if (userPrefix) {
+            this.prefix = userPrefix + "_";
+        }
+    }
+    /**
+     * Gets an item value in local storage
+     * @param key The item's key
+     * @returns The item's value if the key exists, null otherwise, wrapped in an RxJS Observable
+     */
+    /**
+     * Gets an item value in local storage
+     * @template T
+     * @param {?} key The item's key
+     * @return {?} The item's value if the key exists, null otherwise, wrapped in an RxJS Observable
+     */
+    LocalStorageDatabase.prototype.getItem = /**
+     * Gets an item value in local storage
+     * @template T
+     * @param {?} key The item's key
+     * @return {?} The item's value if the key exists, null otherwise, wrapped in an RxJS Observable
+     */
+    function (key) {
+        var /** @type {?} */ unparsedData = localStorage.getItem("" + this.prefix + key);
+        var /** @type {?} */ parsedData = null;
+        if (unparsedData != null) {
+            try {
+                parsedData = JSON.parse(unparsedData);
+            }
+            catch (/** @type {?} */ error) {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])(new Error("Invalid data in localStorage."));
+            }
+        }
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(parsedData);
+    };
+    /**
+     * Sets an item in local storage
+     * @param key The item's key
+     * @param data The item's value, must NOT be null or undefined
+     * @returns An RxJS Observable to wait the end of the operation
+     */
+    /**
+     * Sets an item in local storage
+     * @param {?} key The item's key
+     * @param {?} data The item's value, must NOT be null or undefined
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    LocalStorageDatabase.prototype.setItem = /**
+     * Sets an item in local storage
+     * @param {?} key The item's key
+     * @param {?} data The item's value, must NOT be null or undefined
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    function (key, data) {
+        localStorage.setItem("" + this.prefix + key, JSON.stringify(data));
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(true);
+    };
+    /**
+     * Deletes an item in local storage
+     * @param key The item's key
+     * @returns An RxJS Observable to wait the end of the operation
+     */
+    /**
+     * Deletes an item in local storage
+     * @param {?} key The item's key
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    LocalStorageDatabase.prototype.removeItem = /**
+     * Deletes an item in local storage
+     * @param {?} key The item's key
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    function (key) {
+        localStorage.removeItem("" + this.prefix + key);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(true);
+    };
+    /**
+     * Deletes all items from local storage
+     * @returns An RxJS Observable to wait the end of the operation
+     */
+    /**
+     * Deletes all items from local storage
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    LocalStorageDatabase.prototype.clear = /**
+     * Deletes all items from local storage
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    function () {
+        localStorage.clear();
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(true);
+    };
+    LocalStorageDatabase.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"], args: [{
+                    providedIn: 'root'
+                },] },
+    ];
+    /** @nocollapse */
+    LocalStorageDatabase.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [LOCAL_STORAGE_PREFIX,] },] },
+    ]; };
+    /** @nocollapse */ LocalStorageDatabase.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["defineInjectable"])({ factory: function LocalStorageDatabase_Factory() { return new LocalStorageDatabase(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["inject"])(LOCAL_STORAGE_PREFIX, 8)); }, token: LocalStorageDatabase, providedIn: "root" });
+    return LocalStorageDatabase;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+var MockLocalDatabase = /** @class */ (function () {
+    function MockLocalDatabase() {
+        this.localStorage = new Map();
+    }
+    /**
+     * Gets an item value in local storage
+     * @param key The item's key
+     * @returns The item's value if the key exists, null otherwise, wrapped in an RxJS Observable
+     */
+    /**
+     * Gets an item value in local storage
+     * @template T
+     * @param {?} key The item's key
+     * @return {?} The item's value if the key exists, null otherwise, wrapped in an RxJS Observable
+     */
+    MockLocalDatabase.prototype.getItem = /**
+     * Gets an item value in local storage
+     * @template T
+     * @param {?} key The item's key
+     * @return {?} The item's value if the key exists, null otherwise, wrapped in an RxJS Observable
+     */
+    function (key) {
+        var /** @type {?} */ rawData = this.localStorage.get(key);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])((rawData !== undefined) ? rawData : null);
+    };
+    /**
+     * Sets an item in local storage
+     * @param key The item's key
+     * @param data The item's value, must NOT be null or undefined
+     * @returns An RxJS Observable to wait the end of the operation
+     */
+    /**
+     * Sets an item in local storage
+     * @param {?} key The item's key
+     * @param {?} data The item's value, must NOT be null or undefined
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    MockLocalDatabase.prototype.setItem = /**
+     * Sets an item in local storage
+     * @param {?} key The item's key
+     * @param {?} data The item's value, must NOT be null or undefined
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    function (key, data) {
+        this.localStorage.set(key, data);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(true);
+    };
+    /**
+     * Deletes an item in local storage
+     * @param key The item's key
+     * @returns An RxJS Observable to wait the end of the operation
+     */
+    /**
+     * Deletes an item in local storage
+     * @param {?} key The item's key
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    MockLocalDatabase.prototype.removeItem = /**
+     * Deletes an item in local storage
+     * @param {?} key The item's key
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    function (key) {
+        this.localStorage.delete(key);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(true);
+    };
+    /**
+     * Deletes all items from local storage
+     * @returns An RxJS Observable to wait the end of the operation
+     */
+    /**
+     * Deletes all items from local storage
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    MockLocalDatabase.prototype.clear = /**
+     * Deletes all items from local storage
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    function () {
+        this.localStorage.clear();
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(true);
+    };
+    MockLocalDatabase.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"], args: [{
+                    providedIn: 'root'
+                },] },
+    ];
+    /** @nocollapse */ MockLocalDatabase.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["defineInjectable"])({ factory: function MockLocalDatabase_Factory() { return new MockLocalDatabase(); }, token: MockLocalDatabase, providedIn: "root" });
+    return MockLocalDatabase;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * @param {?} platformId
+ * @param {?} prefix
+ * @return {?}
+ */
+function localDatabaseFactory(platformId, prefix) {
+    if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_1__["isPlatformBrowser"])(platformId) && ('indexedDB' in window) && (indexedDB !== undefined) && (indexedDB !== null)) {
+        /* Try with IndexedDB in modern browsers */
+        return new IndexedDBDatabase(prefix);
+    }
+    else if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_1__["isPlatformBrowser"])(platformId) && ('localStorage' in window) && (localStorage !== undefined) && (localStorage !== null)) {
+        /* Try with localStorage in old browsers (IE9) */
+        return new LocalStorageDatabase(prefix);
+    }
+    else {
+        /* Fake database for server-side rendering (Universal) */
+        return new MockLocalDatabase();
+    }
+}
+
+/**
+ * @abstract
+ */
+var LocalDatabase = /** @class */ (function () {
+    function LocalDatabase() {
+    }
+    LocalDatabase.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"], args: [{
+                    providedIn: 'root',
+                    useFactory: localDatabaseFactory,
+                    deps: [
+                        _angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"],
+                        [new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Optional"](), LOCAL_STORAGE_PREFIX]
+                    ]
+                },] },
+    ];
+    /** @nocollapse */ LocalDatabase.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["defineInjectable"])({ factory: function LocalDatabase_Factory() { return localDatabaseFactory(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["inject"])(_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["inject"])(LOCAL_STORAGE_PREFIX, 8)); }, token: LocalDatabase, providedIn: "root" });
+    return LocalDatabase;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * \@todo Add other JSON Schema validation features
+ */
+var JSONValidator = /** @class */ (function () {
+    function JSONValidator() {
+    }
+    /**
+     * Validate a JSON data against a JSON Schema
+     * @param data JSON data to validate
+     * @param schema Subset of JSON Schema.
+     * Types are enforced to validate everything:
+     * each value MUST have 'type' or 'properties' or 'items' or 'const' or 'enum'.
+     * Therefore, unlike the spec, booleans are not allowed as schemas.
+     * Not all validation features are supported: just follow the interface.
+     * @returns If data is valid : true, if it is invalid : false, and throws if the schema is invalid
+     */
+    /**
+     * Validate a JSON data against a JSON Schema
+     * @param {?} data JSON data to validate
+     * @param {?} schema Subset of JSON Schema.
+     * Types are enforced to validate everything:
+     * each value MUST have 'type' or 'properties' or 'items' or 'const' or 'enum'.
+     * Therefore, unlike the spec, booleans are not allowed as schemas.
+     * Not all validation features are supported: just follow the interface.
+     * @return {?} If data is valid : true, if it is invalid : false, and throws if the schema is invalid
+     */
+    JSONValidator.prototype.validate = /**
+     * Validate a JSON data against a JSON Schema
+     * @param {?} data JSON data to validate
+     * @param {?} schema Subset of JSON Schema.
+     * Types are enforced to validate everything:
+     * each value MUST have 'type' or 'properties' or 'items' or 'const' or 'enum'.
+     * Therefore, unlike the spec, booleans are not allowed as schemas.
+     * Not all validation features are supported: just follow the interface.
+     * @return {?} If data is valid : true, if it is invalid : false, and throws if the schema is invalid
+     */
+    function (data, schema) {
+        /** @todo When TS 2.8, explore if this is possible with conditional types */
+        if (((!(schema.hasOwnProperty('const') && schema.const !== undefined)
+            && !(schema.hasOwnProperty('enum') && schema.enum != null) && !(schema.hasOwnProperty('type') && schema.type != null))
+            || schema.type === 'array' || schema.type === 'object')
+            && !(schema.hasOwnProperty('properties') && schema.properties != null) && !(schema.hasOwnProperty('items') && schema.items != null)) {
+            throw new Error("Each value must have a 'type' or 'properties' or 'items' or 'const' or 'enum', to enforce strict types.");
+        }
+        if (schema.hasOwnProperty('const') && schema.const !== undefined && (data !== schema.const)) {
+            return false;
+        }
+        if (!this.validateEnum(data, schema)) {
+            return false;
+        }
+        if (!this.validateType(data, schema)) {
+            return false;
+        }
+        if (!this.validateItems(data, schema)) {
+            return false;
+        }
+        if (!this.validateProperties(data, schema)) {
+            return false;
+        }
+        if (!this.validateRequired(data, schema)) {
+            return false;
+        }
+        return true;
+    };
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    JSONValidator.prototype.isObjectNotNull = /**
+     * @param {?} value
+     * @return {?}
+     */
+    function (value) {
+        return (value !== null) && (typeof value === 'object');
+    };
+    /**
+     * @param {?} data
+     * @param {?} schema
+     * @return {?}
+     */
+    JSONValidator.prototype.validateProperties = /**
+     * @param {?} data
+     * @param {?} schema
+     * @return {?}
+     */
+    function (data, schema) {
+        if (!schema.hasOwnProperty('properties') || (schema.properties == null)) {
+            return true;
+        }
+        if (!this.isObjectNotNull(data)) {
+            return false;
+        }
+        /**
+             * Check if the object doesn't have more properties than expected
+             * Equivalent of additionalProperties: false
+             */
+        if (Object.keys(schema.properties).length !== Object.keys(data).length) {
+            return false;
+        }
+        /* Recursively validate all properties */
+        for (var /** @type {?} */ property in schema.properties) {
+            if (schema.properties.hasOwnProperty(property) && data.hasOwnProperty(property)) {
+                if (!this.validate(data[property], schema.properties[property])) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    };
+    /**
+     * @param {?} data
+     * @param {?} schema
+     * @return {?}
+     */
+    JSONValidator.prototype.validateRequired = /**
+     * @param {?} data
+     * @param {?} schema
+     * @return {?}
+     */
+    function (data, schema) {
+        if (!schema.hasOwnProperty('required') || (schema.required == null)) {
+            return true;
+        }
+        if (!this.isObjectNotNull(data)) {
+            return false;
+        }
+        for (var _i = 0, _a = schema.required; _i < _a.length; _i++) {
+            var requiredProp = _a[_i];
+            /* Checks if the property is present in the schema 'properties' */
+            if (!schema.properties || !schema.properties.hasOwnProperty(requiredProp)) {
+                throw new Error("'required' properties must be described in 'properties' too.");
+            }
+            /* Checks if the property is present in the data */
+            if (!data.hasOwnProperty(requiredProp)) {
+                return false;
+            }
+        }
+        return true;
+    };
+    /**
+     * @param {?} data
+     * @param {?} schema
+     * @return {?}
+     */
+    JSONValidator.prototype.validateEnum = /**
+     * @param {?} data
+     * @param {?} schema
+     * @return {?}
+     */
+    function (data, schema) {
+        if (!schema.hasOwnProperty('enum') || (schema.enum == null)) {
+            return true;
+        }
+        /** @todo Move to ES2016 .includes() ? */
+        return (schema.enum.indexOf(data) !== -1);
+    };
+    /**
+     * @param {?} data
+     * @param {?} schema
+     * @return {?}
+     */
+    JSONValidator.prototype.validateType = /**
+     * @param {?} data
+     * @param {?} schema
+     * @return {?}
+     */
+    function (data, schema) {
+        if (!schema.hasOwnProperty('type') || (schema.type == null)) {
+            return true;
+        }
+        switch (schema.type) {
+            case 'null':
+                return data === null;
+            case 'string':
+                return this.validateString(data, schema);
+            case 'number':
+            case 'integer':
+                return this.validateNumber(data, schema);
+            case 'boolean':
+                return typeof data === 'boolean';
+            case 'object':
+                return typeof data === 'object';
+            case 'array':
+                return Array.isArray(data);
+        }
+    };
+    /**
+     * @param {?} data
+     * @param {?} schema
+     * @return {?}
+     */
+    JSONValidator.prototype.validateItems = /**
+     * @param {?} data
+     * @param {?} schema
+     * @return {?}
+     */
+    function (data, schema) {
+        if (!schema.hasOwnProperty('items') || (schema.items == null)) {
+            return true;
+        }
+        if (!Array.isArray(data)) {
+            return false;
+        }
+        if (schema.hasOwnProperty('maxItems') && (schema.maxItems != null)) {
+            if (!Number.isInteger(schema.maxItems) || schema.maxItems < 0) {
+                throw new Error("'maxItems' must be a non-negative integer.");
+            }
+            if (data.length > schema.maxItems) {
+                return false;
+            }
+        }
+        if (schema.hasOwnProperty('minItems') && (schema.minItems != null)) {
+            if (!Number.isInteger(schema.minItems) || schema.minItems < 0) {
+                throw new Error("'minItems' must be a non-negative integer.");
+            }
+            if (data.length < schema.minItems) {
+                return false;
+            }
+        }
+        if (schema.hasOwnProperty('uniqueItems') && (schema.uniqueItems != null)) {
+            if (schema.uniqueItems) {
+                var /** @type {?} */ dataSet = new Set(data);
+                if (data.length !== dataSet.size) {
+                    return false;
+                }
+            }
+        }
+        if (Array.isArray(schema.items)) {
+            return this.validateItemsList(data, schema);
+        }
+        for (var _i = 0, data_1 = data; _i < data_1.length; _i++) {
+            var value = data_1[_i];
+            if (!this.validate(value, schema.items)) {
+                return false;
+            }
+        }
+        return true;
+    };
+    /**
+     * @param {?} data
+     * @param {?} schema
+     * @return {?}
+     */
+    JSONValidator.prototype.validateItemsList = /**
+     * @param {?} data
+     * @param {?} schema
+     * @return {?}
+     */
+    function (data, schema) {
+        var /** @type {?} */ items = /** @type {?} */ (schema.items);
+        if (data.length !== items.length) {
+            return false;
+        }
+        for (var /** @type {?} */ i = 0; i < items.length; i += 1) {
+            if (!this.validate(data[i], items[i])) {
+                return false;
+            }
+        }
+        return true;
+    };
+    /**
+     * @param {?} data
+     * @param {?} schema
+     * @return {?}
+     */
+    JSONValidator.prototype.validateString = /**
+     * @param {?} data
+     * @param {?} schema
+     * @return {?}
+     */
+    function (data, schema) {
+        if (typeof data !== 'string') {
+            return false;
+        }
+        if (schema.hasOwnProperty('maxLength') && (schema.maxLength != null)) {
+            if (!Number.isInteger(schema.maxLength) || schema.maxLength < 0) {
+                throw new Error("'maxLength' must be a non-negative integer.");
+            }
+            if (data.length > schema.maxLength) {
+                return false;
+            }
+        }
+        if (schema.hasOwnProperty('minLength') && (schema.minLength != null)) {
+            if (!Number.isInteger(schema.minLength) || schema.minLength < 0) {
+                throw new Error("'minLength' must be a non-negative integer.");
+            }
+            if (data.length < schema.minLength) {
+                return false;
+            }
+        }
+        if (schema.hasOwnProperty('pattern') && (schema.pattern != null)) {
+            var /** @type {?} */ regularExpression = new RegExp(schema.pattern);
+            if (!regularExpression.test(data)) {
+                return false;
+            }
+        }
+        return true;
+    };
+    /**
+     * @param {?} data
+     * @param {?} schema
+     * @return {?}
+     */
+    JSONValidator.prototype.validateNumber = /**
+     * @param {?} data
+     * @param {?} schema
+     * @return {?}
+     */
+    function (data, schema) {
+        if (typeof data !== 'number') {
+            return false;
+        }
+        if ((schema.type === 'integer') && !Number.isInteger(data)) {
+            return false;
+        }
+        if (schema.hasOwnProperty('multipleOf') && (schema.multipleOf != null)) {
+            if (schema.multipleOf <= 0) {
+                throw new Error("'multipleOf' must be a number strictly greater than 0.");
+            }
+            if (!Number.isInteger(data / schema.multipleOf)) {
+                return false;
+            }
+        }
+        if (schema.hasOwnProperty('maximum') && (schema.maximum != null)) {
+            if (data > schema.maximum) {
+                return false;
+            }
+        }
+        if (schema.hasOwnProperty('exclusiveMaximum') && (schema.exclusiveMaximum != null)) {
+            if (data >= schema.exclusiveMaximum) {
+                return false;
+            }
+        }
+        if (schema.hasOwnProperty('minimum') && (schema.minimum != null)) {
+            if (data < schema.minimum) {
+                return false;
+            }
+        }
+        if (schema.hasOwnProperty('exclusiveMinimum') && (schema.exclusiveMinimum != null)) {
+            if (data <= schema.exclusiveMinimum) {
+                return false;
+            }
+        }
+        return true;
+    };
+    JSONValidator.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"], args: [{
+                    providedIn: 'root'
+                },] },
+    ];
+    /** @nocollapse */ JSONValidator.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["defineInjectable"])({ factory: function JSONValidator_Factory() { return new JSONValidator(); }, token: JSONValidator, providedIn: "root" });
+    return JSONValidator;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * @record
+ */
+
+var LocalStorage = /** @class */ (function () {
+    function LocalStorage(database, jsonValidator) {
+        this.database = database;
+        this.jsonValidator = jsonValidator;
+        this.getItemOptionsDefault = {
+            schema: null
+        };
+    }
+    /**
+     * Gets an item value in local storage
+     * @param key The item's key
+     * @returns The item's value if the key exists, null otherwise, wrapped in an RxJS Observable
+     */
+    /**
+     * Gets an item value in local storage
+     * @template T
+     * @param {?} key The item's key
+     * @param {?=} options
+     * @return {?} The item's value if the key exists, null otherwise, wrapped in an RxJS Observable
+     */
+    LocalStorage.prototype.getItem = /**
+     * Gets an item value in local storage
+     * @template T
+     * @param {?} key The item's key
+     * @param {?=} options
+     * @return {?} The item's value if the key exists, null otherwise, wrapped in an RxJS Observable
+     */
+    function (key, options) {
+        var _this = this;
+        if (options === void 0) { options = this.getItemOptionsDefault; }
+        return this.database.getItem(key).pipe(/* Validate data upon a json schema if requested */
+        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["mergeMap"])(function (data) {
+            if (options.schema && data !== null) {
+                var /** @type {?} */ validation = true;
+                try {
+                    validation = _this.jsonValidator.validate(data, options.schema);
+                }
+                catch (/** @type {?} */ error) {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])(error);
+                }
+                if (!validation) {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])(new Error("JSON invalid"));
+                }
+            }
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(data);
+        }));
+    };
+    /**
+     * Sets an item in local storage
+     * @param key The item's key
+     * @param data The item's value, must NOT be null or undefined
+     * @returns An RxJS Observable to wait the end of the operation
+     */
+    /**
+     * Sets an item in local storage
+     * @param {?} key The item's key
+     * @param {?} data The item's value, must NOT be null or undefined
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    LocalStorage.prototype.setItem = /**
+     * Sets an item in local storage
+     * @param {?} key The item's key
+     * @param {?} data The item's value, must NOT be null or undefined
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    function (key, data) {
+        return this.database.setItem(key, data);
+    };
+    /**
+     * Deletes an item in local storage
+     * @param key The item's key
+     * @returns An RxJS Observable to wait the end of the operation
+     */
+    /**
+     * Deletes an item in local storage
+     * @param {?} key The item's key
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    LocalStorage.prototype.removeItem = /**
+     * Deletes an item in local storage
+     * @param {?} key The item's key
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    function (key) {
+        return this.database.removeItem(key);
+    };
+    /**
+     * Deletes all items from local storage
+     * @returns An RxJS Observable to wait the end of the operation
+     */
+    /**
+     * Deletes all items from local storage
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    LocalStorage.prototype.clear = /**
+     * Deletes all items from local storage
+     * @return {?} An RxJS Observable to wait the end of the operation
+     */
+    function () {
+        return this.database.clear();
+    };
+    /**
+     * Sets an item in local storage, and auto-subscribes
+     * @param key The item's key
+     * @param data The item's value, must NOT be null or undefined
+     */
+    /**
+     * Sets an item in local storage, and auto-subscribes
+     * @param {?} key The item's key
+     * @param {?} data The item's value, must NOT be null or undefined
+     * @return {?}
+     */
+    LocalStorage.prototype.setItemSubscribe = /**
+     * Sets an item in local storage, and auto-subscribes
+     * @param {?} key The item's key
+     * @param {?} data The item's value, must NOT be null or undefined
+     * @return {?}
+     */
+    function (key, data) {
+        this.setItem(key, data).subscribe(function () { }, function () { });
+    };
+    /**
+     * Deletes an item in local storage, and auto-subscribes
+     * @param key The item's key
+     */
+    /**
+     * Deletes an item in local storage, and auto-subscribes
+     * @param {?} key The item's key
+     * @return {?}
+     */
+    LocalStorage.prototype.removeItemSubscribe = /**
+     * Deletes an item in local storage, and auto-subscribes
+     * @param {?} key The item's key
+     * @return {?}
+     */
+    function (key) {
+        this.removeItem(key).subscribe(function () { }, function () { });
+    };
+    /** Deletes all items from local storage, and auto-subscribes */
+    /**
+     * Deletes all items from local storage, and auto-subscribes
+     * @return {?}
+     */
+    LocalStorage.prototype.clearSubscribe = /**
+     * Deletes all items from local storage, and auto-subscribes
+     * @return {?}
+     */
+    function () {
+        this.clear().subscribe(function () { }, function () { });
+    };
+    LocalStorage.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"], args: [{
+                    providedIn: 'root'
+                },] },
+    ];
+    /** @nocollapse */
+    LocalStorage.ctorParameters = function () { return [
+        { type: LocalDatabase, },
+        { type: JSONValidator, },
+    ]; };
+    /** @nocollapse */ LocalStorage.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["defineInjectable"])({ factory: function LocalStorage_Factory() { return new LocalStorage(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["inject"])(LocalDatabase), Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["inject"])(JSONValidator)); }, token: LocalStorage, providedIn: "root" });
+    return LocalStorage;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+//# sourceMappingURL=local-storage.js.map
 
 
 /***/ }),
@@ -64675,41 +64504,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _internal_config__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./internal/config */ "./node_modules/rxjs/_esm5/internal/config.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "config", function() { return _internal_config__WEBPACK_IMPORTED_MODULE_50__["config"]; });
 
-/* Observable */
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 
 
 
 
-/* Subjects */
-
-
-
-
-/* Schedulers */
-
-
-
-
-
-
-/* Subscription */
-
-
-/* Notification */
-
-/* Utils */
-
-
-
-
-/* Error types */
-
-
-
-
-
-/* Static observable creation exports */
 
 
 
@@ -64734,10 +64533,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* Constants */
 
 
-/* Config */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //# sourceMappingURL=index.js.map
 
@@ -64761,9 +64580,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * @class AsyncSubject<T>
- */
 var AsyncSubject = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AsyncSubject, _super);
     function AsyncSubject() {
@@ -64773,7 +64589,6 @@ var AsyncSubject = /*@__PURE__*/ (function (_super) {
         _this.hasCompleted = false;
         return _this;
     }
-    /** @deprecated This is an internal implementation detail, do not use. */
     AsyncSubject.prototype._subscribe = function (subscriber) {
         if (this.hasError) {
             subscriber.error(this.thrownError);
@@ -64829,9 +64644,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * @class BehaviorSubject<T>
- */
 var BehaviorSubject = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](BehaviorSubject, _super);
     function BehaviorSubject(_value) {
@@ -64846,7 +64658,6 @@ var BehaviorSubject = /*@__PURE__*/ (function (_super) {
         enumerable: true,
         configurable: true
     });
-    /** @deprecated This is an internal implementation detail, do not use. */
     BehaviorSubject.prototype._subscribe = function (subscriber) {
         var subscription = _super.prototype._subscribe.call(this, subscriber);
         if (subscription && !subscription.closed) {
@@ -64891,11 +64702,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var InnerSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](InnerSubscriber, _super);
     function InnerSubscriber(parent, outerValue, outerIndex) {
@@ -64942,20 +64748,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Represents a push-based event or value that an {@link Observable} can emit.
- * This class is particularly useful for operators that manage notifications,
- * like {@link materialize}, {@link dematerialize}, {@link observeOn}, and
- * others. Besides wrapping the actual delivered value, it also annotates it
- * with metadata of, for instance, what type of push message it is (`next`,
- * `error`, or `complete`).
- *
- * @see {@link materialize}
- * @see {@link dematerialize}
- * @see {@link observeOn}
- *
- * @class Notification<T>
- */
 var Notification = /*@__PURE__*/ (function () {
     function Notification(kind, value, error) {
         this.kind = kind;
@@ -64963,11 +64755,6 @@ var Notification = /*@__PURE__*/ (function () {
         this.error = error;
         this.hasValue = kind === 'N';
     }
-    /**
-     * Delivers to the given `observer` the value wrapped by this Notification.
-     * @param {Observer} observer
-     * @return
-     */
     Notification.prototype.observe = function (observer) {
         switch (this.kind) {
             case 'N':
@@ -64978,14 +64765,6 @@ var Notification = /*@__PURE__*/ (function () {
                 return observer.complete && observer.complete();
         }
     };
-    /**
-     * Given some {@link Observer} callbacks, deliver the value represented by the
-     * current Notification to the correctly corresponding callback.
-     * @param {function(value: T): void} next An Observer `next` callback.
-     * @param {function(err: any): void} [error] An Observer `error` callback.
-     * @param {function(): void} [complete] An Observer `complete` callback.
-     * @return {any}
-     */
     Notification.prototype.do = function (next, error, complete) {
         var kind = this.kind;
         switch (kind) {
@@ -64997,15 +64776,6 @@ var Notification = /*@__PURE__*/ (function () {
                 return complete && complete();
         }
     };
-    /**
-     * Takes an Observer or its individual callback functions, and calls `observe`
-     * or `do` methods accordingly.
-     * @param {Observer|function(value: T): void} nextOrObserver An Observer or
-     * the `next` callback.
-     * @param {function(err: any): void} [error] An Observer `error` callback.
-     * @param {function(): void} [complete] An Observer `complete` callback.
-     * @return {any}
-     */
     Notification.prototype.accept = function (nextOrObserver, error, complete) {
         if (nextOrObserver && typeof nextOrObserver.next === 'function') {
             return this.observe(nextOrObserver);
@@ -65014,11 +64784,6 @@ var Notification = /*@__PURE__*/ (function () {
             return this.do(nextOrObserver, error, complete);
         }
     };
-    /**
-     * Returns a simple Observable that just delivers the notification represented
-     * by this Notification instance.
-     * @return {any}
-     */
     Notification.prototype.toObservable = function () {
         var kind = this.kind;
         switch (kind) {
@@ -65031,36 +64796,15 @@ var Notification = /*@__PURE__*/ (function () {
         }
         throw new Error('unexpected notification kind value');
     };
-    /**
-     * A shortcut to create a Notification instance of the type `next` from a
-     * given value.
-     * @param {T} value The `next` value.
-     * @return {Notification<T>} The "next" Notification representing the
-     * argument.
-     * @nocollapse
-     */
     Notification.createNext = function (value) {
         if (typeof value !== 'undefined') {
             return new Notification('N', value);
         }
         return Notification.undefinedValueNotification;
     };
-    /**
-     * A shortcut to create a Notification instance of the type `error` from a
-     * given error.
-     * @param {any} [err] The `error` error.
-     * @return {Notification<T>} The "error" Notification representing the
-     * argument.
-     * @nocollapse
-     */
     Notification.createError = function (err) {
         return new Notification('E', undefined, err);
     };
-    /**
-     * A shortcut to create a Notification instance of the type `complete`.
-     * @return {Notification<any>} The valueless "complete" Notification.
-     * @nocollapse
-     */
     Notification.createComplete = function () {
         return Notification.completeNotification;
     };
@@ -65093,154 +64837,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * A representation of any set of values over any amount of time. This is the most basic building block
- * of RxJS.
- *
- * @class Observable<T>
- */
 var Observable = /*@__PURE__*/ (function () {
-    /**
-     * @constructor
-     * @param {Function} subscribe the function that is called when the Observable is
-     * initially subscribed to. This function is given a Subscriber, to which new values
-     * can be `next`ed, or an `error` method can be called to raise an error, or
-     * `complete` can be called to notify of a successful completion.
-     */
     function Observable(subscribe) {
-        /** Internal implementation detail, do not use directly. */
         this._isScalar = false;
         if (subscribe) {
             this._subscribe = subscribe;
         }
     }
-    /**
-     * Creates a new Observable, with this Observable as the source, and the passed
-     * operator defined as the new observable's operator.
-     * @method lift
-     * @param {Operator} operator the operator defining the operation to take on the observable
-     * @return {Observable} a new observable with the Operator applied
-     */
     Observable.prototype.lift = function (operator) {
         var observable = new Observable();
         observable.source = this;
         observable.operator = operator;
         return observable;
     };
-    /**
-     * Invokes an execution of an Observable and registers Observer handlers for notifications it will emit.
-     *
-     * <span class="informal">Use it when you have all these Observables, but still nothing is happening.</span>
-     *
-     * `subscribe` is not a regular operator, but a method that calls Observable's internal `subscribe` function. It
-     * might be for example a function that you passed to a {@link create} static factory, but most of the time it is
-     * a library implementation, which defines what and when will be emitted by an Observable. This means that calling
-     * `subscribe` is actually the moment when Observable starts its work, not when it is created, as it is often
-     * thought.
-     *
-     * Apart from starting the execution of an Observable, this method allows you to listen for values
-     * that an Observable emits, as well as for when it completes or errors. You can achieve this in two
-     * following ways.
-     *
-     * The first way is creating an object that implements {@link Observer} interface. It should have methods
-     * defined by that interface, but note that it should be just a regular JavaScript object, which you can create
-     * yourself in any way you want (ES6 class, classic function constructor, object literal etc.). In particular do
-     * not attempt to use any RxJS implementation details to create Observers - you don't need them. Remember also
-     * that your object does not have to implement all methods. If you find yourself creating a method that doesn't
-     * do anything, you can simply omit it. Note however, that if `error` method is not provided, all errors will
-     * be left uncaught.
-     *
-     * The second way is to give up on Observer object altogether and simply provide callback functions in place of its methods.
-     * This means you can provide three functions as arguments to `subscribe`, where first function is equivalent
-     * of a `next` method, second of an `error` method and third of a `complete` method. Just as in case of Observer,
-     * if you do not need to listen for something, you can omit a function, preferably by passing `undefined` or `null`,
-     * since `subscribe` recognizes these functions by where they were placed in function call. When it comes
-     * to `error` function, just as before, if not provided, errors emitted by an Observable will be thrown.
-     *
-     * Whatever style of calling `subscribe` you use, in both cases it returns a Subscription object.
-     * This object allows you to call `unsubscribe` on it, which in turn will stop work that an Observable does and will clean
-     * up all resources that an Observable used. Note that cancelling a subscription will not call `complete` callback
-     * provided to `subscribe` function, which is reserved for a regular completion signal that comes from an Observable.
-     *
-     * Remember that callbacks provided to `subscribe` are not guaranteed to be called asynchronously.
-     * It is an Observable itself that decides when these functions will be called. For example {@link of}
-     * by default emits all its values synchronously. Always check documentation for how given Observable
-     * will behave when subscribed and if its default behavior can be modified with a {@link Scheduler}.
-     *
-     * @example <caption>Subscribe with an Observer</caption>
-     * const sumObserver = {
-     *   sum: 0,
-     *   next(value) {
-     *     console.log('Adding: ' + value);
-     *     this.sum = this.sum + value;
-     *   },
-     *   error() { // We actually could just remove this method,
-     *   },        // since we do not really care about errors right now.
-     *   complete() {
-     *     console.log('Sum equals: ' + this.sum);
-     *   }
-     * };
-     *
-     * Rx.Observable.of(1, 2, 3) // Synchronously emits 1, 2, 3 and then completes.
-     * .subscribe(sumObserver);
-     *
-     * // Logs:
-     * // "Adding: 1"
-     * // "Adding: 2"
-     * // "Adding: 3"
-     * // "Sum equals: 6"
-     *
-     *
-     * @example <caption>Subscribe with functions</caption>
-     * let sum = 0;
-     *
-     * Rx.Observable.of(1, 2, 3)
-     * .subscribe(
-     *   function(value) {
-     *     console.log('Adding: ' + value);
-     *     sum = sum + value;
-     *   },
-     *   undefined,
-     *   function() {
-     *     console.log('Sum equals: ' + sum);
-     *   }
-     * );
-     *
-     * // Logs:
-     * // "Adding: 1"
-     * // "Adding: 2"
-     * // "Adding: 3"
-     * // "Sum equals: 6"
-     *
-     *
-     * @example <caption>Cancel a subscription</caption>
-     * const subscription = Rx.Observable.interval(1000).subscribe(
-     *   num => console.log(num),
-     *   undefined,
-     *   () => console.log('completed!') // Will not be called, even
-     * );                                // when cancelling subscription
-     *
-     *
-     * setTimeout(() => {
-     *   subscription.unsubscribe();
-     *   console.log('unsubscribed!');
-     * }, 2500);
-     *
-     * // Logs:
-     * // 0 after 1s
-     * // 1 after 2s
-     * // "unsubscribed!" after 2.5s
-     *
-     *
-     * @param {Observer|Function} observerOrNext (optional) Either an observer with methods to be called,
-     *  or the first of three possible handlers, which is the handler for each value emitted from the subscribed
-     *  Observable.
-     * @param {Function} error (optional) A handler for a terminal event resulting from an error. If no error handler is provided,
-     *  the error will be thrown as unhandled.
-     * @param {Function} complete (optional) A handler for a terminal event resulting from successful completion.
-     * @return {ISubscription} a subscription reference to the registered handlers
-     * @method subscribe
-     */
     Observable.prototype.subscribe = function (observerOrNext, error, complete) {
         var operator = this.operator;
         var sink = Object(_util_toSubscriber__WEBPACK_IMPORTED_MODULE_0__["toSubscriber"])(observerOrNext, error, complete);
@@ -65248,7 +64857,9 @@ var Observable = /*@__PURE__*/ (function () {
             operator.call(sink, this.source);
         }
         else {
-            sink.add(this.source || !sink.syncErrorThrowable ? this._subscribe(sink) : this._trySubscribe(sink));
+            sink.add(this.source || (_config__WEBPACK_IMPORTED_MODULE_3__["config"].useDeprecatedSynchronousErrorHandling && !sink.syncErrorThrowable) ?
+                this._subscribe(sink) :
+                this._trySubscribe(sink));
         }
         if (_config__WEBPACK_IMPORTED_MODULE_3__["config"].useDeprecatedSynchronousErrorHandling) {
             if (sink.syncErrorThrowable) {
@@ -65260,7 +64871,6 @@ var Observable = /*@__PURE__*/ (function () {
         }
         return sink;
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     Observable.prototype._trySubscribe = function (sink) {
         try {
             return this._subscribe(sink);
@@ -65273,19 +64883,10 @@ var Observable = /*@__PURE__*/ (function () {
             sink.error(err);
         }
     };
-    /**
-     * @method forEach
-     * @param {Function} next a handler for each value emitted by the observable
-     * @param {PromiseConstructor} [promiseCtor] a constructor function used to instantiate the Promise
-     * @return {Promise} a promise that either resolves on observable completion or
-     *  rejects with the handled error
-     */
     Observable.prototype.forEach = function (next, promiseCtor) {
         var _this = this;
         promiseCtor = getPromiseCtor(promiseCtor);
         return new promiseCtor(function (resolve, reject) {
-            // Must be declared in a separate statement to avoid a RefernceError when
-            // accessing subscription below in the closure due to Temporal Dead Zone.
             var subscription;
             subscription = _this.subscribe(function (value) {
                 try {
@@ -65300,38 +64901,13 @@ var Observable = /*@__PURE__*/ (function () {
             }, reject, resolve);
         });
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     Observable.prototype._subscribe = function (subscriber) {
         var source = this.source;
         return source && source.subscribe(subscriber);
     };
-    /**
-     * An interop point defined by the es7-observable spec https://github.com/zenparsing/es-observable
-     * @method Symbol.observable
-     * @return {Observable} this instance of the observable
-     */
     Observable.prototype[_internal_symbol_observable__WEBPACK_IMPORTED_MODULE_1__["observable"]] = function () {
         return this;
     };
-    /* tslint:enable:max-line-length */
-    /**
-     * Used to stitch together functional operators into a chain.
-     * @method pipe
-     * @return {Observable} the Observable result of all of the operators having
-     * been called in the order they were passed in.
-     *
-     * @example
-     *
-     * import { map, filter, scan } from 'rxjs/operators';
-     *
-     * Rx.Observable.interval(1000)
-     *   .pipe(
-     *     filter(x => x % 2 === 0),
-     *     map(x => x + x),
-     *     scan((acc, x) => acc + x)
-     *   )
-     *   .subscribe(x => console.log(x))
-     */
     Observable.prototype.pipe = function () {
         var operations = [];
         for (var _i = 0; _i < arguments.length; _i++) {
@@ -65342,7 +64918,6 @@ var Observable = /*@__PURE__*/ (function () {
         }
         return Object(_util_pipe__WEBPACK_IMPORTED_MODULE_2__["pipeFromArray"])(operations)(this);
     };
-    /* tslint:enable:max-line-length */
     Observable.prototype.toPromise = function (promiseCtor) {
         var _this = this;
         promiseCtor = getPromiseCtor(promiseCtor);
@@ -65351,30 +64926,12 @@ var Observable = /*@__PURE__*/ (function () {
             _this.subscribe(function (x) { return value = x; }, function (err) { return reject(err); }, function () { return resolve(value); });
         });
     };
-    // HACK: Since TypeScript inherits static properties too, we have to
-    // fight against TypeScript here so Subject can have a different static create signature
-    /**
-     * Creates a new cold Observable by calling the Observable constructor
-     * @static true
-     * @owner Observable
-     * @method create
-     * @param {Function} subscribe? the subscriber function to be passed to the Observable constructor
-     * @return {Observable} a new cold observable
-     * @nocollapse
-     */
     Observable.create = function (subscribe) {
         return new Observable(subscribe);
     };
     return Observable;
 }());
 
-/**
- * Decides between a passed promise constructor from consuming code,
- * A default configured promise constructor, and the native promise
- * constructor and returns it. If nothing can be found, it will throw
- * an error.
- * @param promiseCtor The optional promise constructor to passed by consuming code
- */
 function getPromiseCtor(promiseCtor) {
     if (!promiseCtor) {
         promiseCtor = _config__WEBPACK_IMPORTED_MODULE_3__["config"].Promise || Promise;
@@ -65437,11 +64994,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var OuterSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](OuterSubscriber, _super);
     function OuterSubscriber() {
@@ -65489,9 +65041,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * @class ReplaySubject<T>
- */
 var ReplaySubject = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ReplaySubject, _super);
     function ReplaySubject(bufferSize, windowTime, scheduler) {
@@ -65519,8 +65068,6 @@ var ReplaySubject = /*@__PURE__*/ (function (_super) {
     ReplaySubject.prototype.nextInfiniteTimeWindow = function (value) {
         var _events = this._events;
         _events.push(value);
-        // Since this method is invoked in every next() call than the buffer
-        // can overgrow the max size only by one item
         if (_events.length > this._bufferSize) {
             _events.shift();
         }
@@ -65531,9 +65078,7 @@ var ReplaySubject = /*@__PURE__*/ (function (_super) {
         this._trimBufferThenGetEvents();
         _super.prototype.next.call(this, value);
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     ReplaySubject.prototype._subscribe = function (subscriber) {
-        // When `_infiniteTimeWindow === true` then the buffer is already trimmed
         var _infiniteTimeWindow = this._infiniteTimeWindow;
         var _events = _infiniteTimeWindow ? this._events : this._trimBufferThenGetEvents();
         var scheduler = this.scheduler;
@@ -65580,9 +65125,6 @@ var ReplaySubject = /*@__PURE__*/ (function (_super) {
         var _events = this._events;
         var eventsCount = _events.length;
         var spliceCount = 0;
-        // Trim events that fall out of the time window.
-        // Start at the front of the list. Break early once
-        // we encounter an event that falls within the window.
         while (spliceCount < eventsCount) {
             if ((now - _events[spliceCount].time) < _windowTime) {
                 break;
@@ -65622,25 +65164,6 @@ var ReplayEvent = /*@__PURE__*/ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Scheduler", function() { return Scheduler; });
-/**
- * An execution context and a data structure to order tasks and schedule their
- * execution. Provides a notion of (potentially virtual) time, through the
- * `now()` getter method.
- *
- * Each unit of work in a Scheduler is called an {@link Action}.
- *
- * ```ts
- * class Scheduler {
- *   now(): number;
- *   schedule(work, delay?, state?): Subscription;
- * }
- * ```
- *
- * @class Scheduler
- * @deprecated Scheduler is an internal implementation detail of RxJS, and
- * should not be used directly. Rather, create your own class and implement
- * {@link SchedulerLike}
- */
 var Scheduler = /*@__PURE__*/ (function () {
     function Scheduler(SchedulerAction, now) {
         if (now === void 0) {
@@ -65649,30 +65172,12 @@ var Scheduler = /*@__PURE__*/ (function () {
         this.SchedulerAction = SchedulerAction;
         this.now = now;
     }
-    /**
-     * Schedules a function, `work`, for execution. May happen at some point in
-     * the future, according to the `delay` parameter, if specified. May be passed
-     * some context object, `state`, which will be passed to the `work` function.
-     *
-     * The given arguments will be processed an stored as an Action object in a
-     * queue of actions.
-     *
-     * @param {function(state: ?T): ?Subscription} work A function representing a
-     * task, or some unit of work to be executed by the Scheduler.
-     * @param {number} [delay] Time to wait before executing the work, where the
-     * time unit is implicit and defined by the Scheduler itself.
-     * @param {T} [state] Some contextual data that the `work` function uses when
-     * called by the Scheduler.
-     * @return {Subscription} A subscription in order to be able to unsubscribe
-     * the scheduled work.
-     */
     Scheduler.prototype.schedule = function (work, delay, state) {
         if (delay === void 0) {
             delay = 0;
         }
         return new this.SchedulerAction(this, work).schedule(state, delay);
     };
-    /** @nocollapse */
     Scheduler.now = Date.now ? Date.now : function () { return +new Date(); };
     return Scheduler;
 }());
@@ -65709,9 +65214,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * @class SubjectSubscriber<T>
- */
 var SubjectSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SubjectSubscriber, _super);
     function SubjectSubscriber(destination) {
@@ -65722,9 +65224,6 @@ var SubjectSubscriber = /*@__PURE__*/ (function (_super) {
     return SubjectSubscriber;
 }(_Subscriber__WEBPACK_IMPORTED_MODULE_2__["Subscriber"]));
 
-/**
- * @class Subject<T>
- */
 var Subject = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](Subject, _super);
     function Subject() {
@@ -65790,7 +65289,6 @@ var Subject = /*@__PURE__*/ (function (_super) {
         this.closed = true;
         this.observers = null;
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     Subject.prototype._trySubscribe = function (subscriber) {
         if (this.closed) {
             throw new _util_ObjectUnsubscribedError__WEBPACK_IMPORTED_MODULE_4__["ObjectUnsubscribedError"]();
@@ -65799,7 +65297,6 @@ var Subject = /*@__PURE__*/ (function (_super) {
             return _super.prototype._trySubscribe.call(this, subscriber);
         }
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     Subject.prototype._subscribe = function (subscriber) {
         if (this.closed) {
             throw new _util_ObjectUnsubscribedError__WEBPACK_IMPORTED_MODULE_4__["ObjectUnsubscribedError"]();
@@ -65822,16 +65319,12 @@ var Subject = /*@__PURE__*/ (function (_super) {
         observable.source = this;
         return observable;
     };
-    /**@nocollapse */
     Subject.create = function (destination, source) {
         return new AnonymousSubject(destination, source);
     };
     return Subject;
 }(_Observable__WEBPACK_IMPORTED_MODULE_1__["Observable"]));
 
-/**
- * @class AnonymousSubject<T>
- */
 var AnonymousSubject = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AnonymousSubject, _super);
     function AnonymousSubject(destination, source) {
@@ -65858,7 +65351,6 @@ var AnonymousSubject = /*@__PURE__*/ (function (_super) {
             this.destination.complete();
         }
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     AnonymousSubject.prototype._subscribe = function (subscriber) {
         var source = this.source;
         if (source) {
@@ -65891,11 +65383,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscription PURE_IMPORTS_END */
 
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SubjectSubscription = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SubjectSubscription, _super);
     function SubjectSubscription(subject, subscriber) {
@@ -65954,31 +65441,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Implements the {@link Observer} interface and extends the
- * {@link Subscription} class. While the {@link Observer} is the public API for
- * consuming the values of an {@link Observable}, all Observers get converted to
- * a Subscriber, in order to provide Subscription-like capabilities such as
- * `unsubscribe`. Subscriber is a common type in RxJS, and crucial for
- * implementing operators, but it is rarely used as a public API.
- *
- * @class Subscriber<T>
- */
 var Subscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](Subscriber, _super);
-    /**
-     * @param {Observer|function(value: T): void} [destinationOrNext] A partially
-     * defined Observer or a `next` callback function.
-     * @param {function(e: ?any): void} [error] The `error` callback of an
-     * Observer.
-     * @param {function(): void} [complete] The `complete` callback of an
-     * Observer.
-     */
     function Subscriber(destinationOrNext, error, complete) {
         var _this = _super.call(this) || this;
-        /** @internal */ _this.syncErrorValue = null;
-        /** @internal */ _this.syncErrorThrown = false;
-        /** @internal */ _this.syncErrorThrowable = false;
+        _this.syncErrorValue = null;
+        _this.syncErrorThrown = false;
+        _this.syncErrorThrowable = false;
         _this.isStopped = false;
         switch (arguments.length) {
             case 0:
@@ -65990,8 +65459,6 @@ var Subscriber = /*@__PURE__*/ (function (_super) {
                     break;
                 }
                 if (typeof destinationOrNext === 'object') {
-                    // HACK(benlesh): For situations where Node has multiple copies of rxjs in
-                    // node_modules, we cannot rely on `instanceof` checks
                     if (isTrustedSubscriber(destinationOrNext)) {
                         var trustedSubscriber = destinationOrNext[_internal_symbol_rxSubscriber__WEBPACK_IMPORTED_MODULE_4__["rxSubscriber"]]();
                         _this.syncErrorThrowable = trustedSubscriber.syncErrorThrowable;
@@ -66012,54 +65479,22 @@ var Subscriber = /*@__PURE__*/ (function (_super) {
         return _this;
     }
     Subscriber.prototype[_internal_symbol_rxSubscriber__WEBPACK_IMPORTED_MODULE_4__["rxSubscriber"]] = function () { return this; };
-    /**
-     * A static factory for a Subscriber, given a (potentially partial) definition
-     * of an Observer.
-     * @param {function(x: ?T): void} [next] The `next` callback of an Observer.
-     * @param {function(e: ?any): void} [error] The `error` callback of an
-     * Observer.
-     * @param {function(): void} [complete] The `complete` callback of an
-     * Observer.
-     * @return {Subscriber<T>} A Subscriber wrapping the (partially defined)
-     * Observer represented by the given arguments.
-     * @nocollapse
-     */
     Subscriber.create = function (next, error, complete) {
         var subscriber = new Subscriber(next, error, complete);
         subscriber.syncErrorThrowable = false;
         return subscriber;
     };
-    /**
-     * The {@link Observer} callback to receive notifications of type `next` from
-     * the Observable, with a value. The Observable may call this method 0 or more
-     * times.
-     * @param {T} [value] The `next` value.
-     * @return {void}
-     */
     Subscriber.prototype.next = function (value) {
         if (!this.isStopped) {
             this._next(value);
         }
     };
-    /**
-     * The {@link Observer} callback to receive notifications of type `error` from
-     * the Observable, with an attached {@link Error}. Notifies the Observer that
-     * the Observable has experienced an error condition.
-     * @param {any} [err] The `error` exception.
-     * @return {void}
-     */
     Subscriber.prototype.error = function (err) {
         if (!this.isStopped) {
             this.isStopped = true;
             this._error(err);
         }
     };
-    /**
-     * The {@link Observer} callback to receive a valueless notification of type
-     * `complete` from the Observable. Notifies the Observer that the Observable
-     * has finished sending push-based notifications.
-     * @return {void}
-     */
     Subscriber.prototype.complete = function () {
         if (!this.isStopped) {
             this.isStopped = true;
@@ -66084,7 +65519,6 @@ var Subscriber = /*@__PURE__*/ (function (_super) {
         this.destination.complete();
         this.unsubscribe();
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     Subscriber.prototype._unsubscribeAndRecycle = function () {
         var _a = this, _parent = _a._parent, _parents = _a._parents;
         this._parent = null;
@@ -66099,11 +65533,6 @@ var Subscriber = /*@__PURE__*/ (function (_super) {
     return Subscriber;
 }(_Subscription__WEBPACK_IMPORTED_MODULE_3__["Subscription"]));
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SafeSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SafeSubscriber, _super);
     function SafeSubscriber(_parentSubscriber, observerOrNext, error, complete) {
@@ -66230,7 +65659,6 @@ var SafeSubscriber = /*@__PURE__*/ (function (_super) {
         }
         return false;
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     SafeSubscriber.prototype._unsubscribe = function () {
         var _parentSubscriber = this._parentSubscriber;
         this._context = null;
@@ -66270,45 +65698,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Represents a disposable resource, such as the execution of an Observable. A
- * Subscription has one important method, `unsubscribe`, that takes no argument
- * and just disposes the resource held by the subscription.
- *
- * Additionally, subscriptions may be grouped together through the `add()`
- * method, which will attach a child Subscription to the current Subscription.
- * When a Subscription is unsubscribed, all its children (and its grandchildren)
- * will be unsubscribed as well.
- *
- * @class Subscription
- */
 var Subscription = /*@__PURE__*/ (function () {
-    /**
-     * @param {function(): void} [unsubscribe] A function describing how to
-     * perform the disposal of resources when the `unsubscribe` method is called.
-     */
     function Subscription(unsubscribe) {
-        /**
-         * A flag to indicate whether this Subscription has already been unsubscribed.
-         * @type {boolean}
-         */
         this.closed = false;
-        /** @internal */
         this._parent = null;
-        /** @internal */
         this._parents = null;
-        /** @internal */
         this._subscriptions = null;
         if (unsubscribe) {
             this._unsubscribe = unsubscribe;
         }
     }
-    /**
-     * Disposes the resources held by the subscription. May, for instance, cancel
-     * an ongoing Observable execution or cancel any other type of work that
-     * started when the Subscription was created.
-     * @return {void}
-     */
     Subscription.prototype.unsubscribe = function () {
         var hasErrors = false;
         var errors;
@@ -66319,17 +65718,11 @@ var Subscription = /*@__PURE__*/ (function () {
         this.closed = true;
         this._parent = null;
         this._parents = null;
-        // null out _subscriptions first so any child subscriptions that attempt
-        // to remove themselves from this subscription will noop
         this._subscriptions = null;
         var index = -1;
         var len = _parents ? _parents.length : 0;
-        // if this._parent is null, then so is this._parents, and we
-        // don't have to remove ourselves from any parent subscriptions.
         while (_parent) {
             _parent.remove(this);
-            // if this._parents is null or index >= len,
-            // then _parent is set to null, and the loop exits
             _parent = ++index < len && _parents[index] || null;
         }
         if (Object(_util_isFunction__WEBPACK_IMPORTED_MODULE_2__["isFunction"])(_unsubscribe)) {
@@ -66365,24 +65758,6 @@ var Subscription = /*@__PURE__*/ (function () {
             throw new _util_UnsubscriptionError__WEBPACK_IMPORTED_MODULE_5__["UnsubscriptionError"](errors);
         }
     };
-    /**
-     * Adds a tear down to be called during the unsubscribe() of this
-     * Subscription.
-     *
-     * If the tear down being added is a subscription that is already
-     * unsubscribed, is the same reference `add` is being called on, or is
-     * `Subscription.EMPTY`, it will not be added.
-     *
-     * If this subscription is already in an `closed` state, the passed
-     * tear down logic will be executed immediately.
-     *
-     * @param {TeardownLogic} teardown The additional logic to execute on
-     * teardown.
-     * @return {Subscription} Returns the Subscription used or created to be
-     * added to the inner subscriptions list. This Subscription can be used with
-     * `remove()` to remove the passed teardown logic from the inner subscriptions
-     * list.
-     */
     Subscription.prototype.add = function (teardown) {
         if (!teardown || (teardown === Subscription.EMPTY)) {
             return Subscription.EMPTY;
@@ -66402,7 +65777,7 @@ var Subscription = /*@__PURE__*/ (function () {
                     subscription.unsubscribe();
                     return subscription;
                 }
-                else if (typeof subscription._addParent !== 'function' /* quack quack */) {
+                else if (typeof subscription._addParent !== 'function') {
                     var tmp = subscription;
                     subscription = new Subscription();
                     subscription._subscriptions = [tmp];
@@ -66416,12 +65791,6 @@ var Subscription = /*@__PURE__*/ (function () {
         subscription._addParent(this);
         return subscription;
     };
-    /**
-     * Removes a Subscription from the internal list of subscriptions that will
-     * unsubscribe during the unsubscribe process of this Subscription.
-     * @param {Subscription} subscription The subscription to remove.
-     * @return {void}
-     */
     Subscription.prototype.remove = function (subscription) {
         var subscriptions = this._subscriptions;
         if (subscriptions) {
@@ -66431,25 +65800,18 @@ var Subscription = /*@__PURE__*/ (function () {
             }
         }
     };
-    /** @internal */
     Subscription.prototype._addParent = function (parent) {
         var _a = this, _parent = _a._parent, _parents = _a._parents;
         if (!_parent || _parent === parent) {
-            // If we don't have a parent, or the new parent is the same as the
-            // current parent, then set this._parent to the new parent.
             this._parent = parent;
         }
         else if (!_parents) {
-            // If there's already one parent, but not multiple, allocate an Array to
-            // store the rest of the parent Subscriptions.
             this._parents = [parent];
         }
         else if (_parents.indexOf(parent) === -1) {
-            // Only add the new parent to the _parents list if it's not already there.
             _parents.push(parent);
         }
     };
-    /** @nocollapse */
     Subscription.EMPTY = (function (empty) {
         empty.closed = true;
         return empty;
@@ -66477,24 +65839,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "config", function() { return config; });
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 var _enable_super_gross_mode_that_will_cause_bad_things = false;
-/**
- * The global configuration object for RxJS, used to configure things
- * like what Promise contructor should used to create Promises
- */
 var config = {
-    /**
-     * The promise constructor used by default for methods such as
-     * {@link toPromise} and {@link forEach}
-     */
     Promise: undefined,
-    /**
-     * If true, turns on synchronous error rethrowing, which is a deprecated behavior
-     * in v6 and higher. This behavior enables bad patterns like wrapping a subscribe
-     * call in a try/catch block. It also enables producer interference, a nasty bug
-     * where a multicast can be broken for all observers by a downstream consumer with
-     * an unhandled error. DO NOT USE THIS FLAG UNLESS IT'S NEEDED TO BY TIME
-     * FOR MIGRATION REASONS.
-     */
     set useDeprecatedSynchronousErrorHandling(value) {
         if (value) {
             var error = /*@__PURE__*/ new Error();
@@ -66538,9 +65884,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * @class ConnectableObservable<T>
- */
 var ConnectableObservable = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ConnectableObservable, _super);
     function ConnectableObservable(source, subjectFactory) {
@@ -66548,11 +65891,9 @@ var ConnectableObservable = /*@__PURE__*/ (function (_super) {
         _this.source = source;
         _this.subjectFactory = subjectFactory;
         _this._refCount = 0;
-        /** @internal */
         _this._isComplete = false;
         return _this;
     }
-    /** @deprecated This is an internal implementation detail, do not use. */
     ConnectableObservable.prototype._subscribe = function (subscriber) {
         return this.getSubject().subscribe(subscriber);
     };
@@ -66669,29 +66010,6 @@ var RefCountSubscriber = /*@__PURE__*/ (function (_super) {
             this.connection = null;
             return;
         }
-        ///
-        // Compare the local RefCountSubscriber's connection Subscription to the
-        // connection Subscription on the shared ConnectableObservable. In cases
-        // where the ConnectableObservable source synchronously emits values, and
-        // the RefCountSubscriber's downstream Observers synchronously unsubscribe,
-        // execution continues to here before the RefCountOperator has a chance to
-        // supply the RefCountSubscriber with the shared connection Subscription.
-        // For example:
-        // ```
-        // Observable.range(0, 10)
-        //   .publish()
-        //   .refCount()
-        //   .take(5)
-        //   .subscribe();
-        // ```
-        // In order to account for this case, RefCountSubscriber should only dispose
-        // the ConnectableObservable's shared connection Subscription if the
-        // connection Subscription exists, *and* either:
-        //   a. RefCountSubscriber doesn't have a reference to the shared connection
-        //      Subscription yet, or,
-        //   b. RefCountSubscriber's connection Subscription reference is identical
-        //      to the shared connection Subscription
-        ///
         var connection = this.connection;
         var sharedConnection = connectable._connection;
         this.connection = null;
@@ -66725,11 +66043,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @extends {Ignored}
- * @hide true
- */
 var SubscribeOnObservable = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SubscribeOnObservable, _super);
     function SubscribeOnObservable(source, delayTime, scheduler) {
@@ -66751,7 +66064,6 @@ var SubscribeOnObservable = /*@__PURE__*/ (function (_super) {
         }
         return _this;
     }
-    /** @nocollapse */
     SubscribeOnObservable.create = function (source, delay, scheduler) {
         if (delay === void 0) {
             delay = 0;
@@ -66761,12 +66073,10 @@ var SubscribeOnObservable = /*@__PURE__*/ (function (_super) {
         }
         return new SubscribeOnObservable(source, delay, scheduler);
     };
-    /** @nocollapse */
     SubscribeOnObservable.dispatch = function (arg) {
         var source = arg.source, subscriber = arg.subscriber;
         return this.add(source.subscribe(subscriber));
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     SubscribeOnObservable.prototype._subscribe = function (subscriber) {
         var delay = this.delayTime;
         var source = this.source;
@@ -66804,124 +66114,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// tslint:enable:max-line-length
-/**
- * Converts a callback API to a function that returns an Observable.
- *
- * <span class="informal">Give it a function `f` of type `f(x, callback)` and
- * it will return a function `g` that when called as `g(x)` will output an
- * Observable.</span>
- *
- * `bindCallback` is not an operator because its input and output are not
- * Observables. The input is a function `func` with some parameters, the
- * last parameter must be a callback function that `func` calls when it is
- * done.
- *
- * The output of `bindCallback` is a function that takes the same parameters
- * as `func`, except the last one (the callback). When the output function
- * is called with arguments it will return an Observable. If function `func`
- * calls its callback with one argument the Observable will emit that value.
- * If on the other hand the callback is called with multiple values the resulting
- * Observable will emit an array with said values as arguments.
- *
- * It is very important to remember that input function `func` is not called
- * when the output function is, but rather when the Observable returned by the output
- * function is subscribed. This means if `func` makes an AJAX request, that request
- * will be made every time someone subscribes to the resulting Observable, but not before.
- *
- * The last optional parameter - {@link Scheduler} - can be used to control when the call
- * to `func` happens after someone subscribes to Observable, as well as when results
- * passed to callback will be emitted. By default, the subscription to  an Observable calls `func`
- * synchronously, but using `Scheduler.async` as the last parameter will defer the call to `func`,
- * just like wrapping the call in `setTimeout` with a timeout of `0` would. If you use the async Scheduler
- * and call `subscribe` on the output Observable all function calls that are currently executing
- * will end before `func` is invoked.
- *
- * By default results passed to the callback are emitted immediately after `func` invokes the callback.
- * In particular, if the callback is called synchronously the subscription of the resulting Observable
- * will call the `next` function synchronously as well.  If you want to defer that call,
- * you may use `Scheduler.async` just as before.  This means that by using `Scheduler.async` you can
- * ensure that `func` always calls its callback asynchronously, thus avoiding terrifying Zalgo.
- *
- * Note that the Observable created by the output function will always emit a single value
- * and then complete immediately. If `func` calls the callback multiple times, values from subsequent
- * calls will not appear in the stream. If you need to listen for multiple calls,
- *  you probably want to use {@link fromEvent} or {@link fromEventPattern} instead.
- *
- * If `func` depends on some context (`this` property) and is not already bound the context of `func`
- * will be the context that the output function has at call time. In particular, if `func`
- * is called as a method of some objec and if `func` is not already bound, in order to preserve the context
- * it is recommended that the context of the output function is set to that object as well.
- *
- * If the input function calls its callback in the "node style" (i.e. first argument to callback is
- * optional error parameter signaling whether the call failed or not), {@link bindNodeCallback}
- * provides convenient error handling and probably is a better choice.
- * `bindCallback` will treat such functions the same as any other and error parameters
- * (whether passed or not) will always be interpreted as regular callback argument.
- *
- *
- * @example <caption>Convert jQuery's getJSON to an Observable API</caption>
- * // Suppose we have jQuery.getJSON('/my/url', callback)
- * var getJSONAsObservable = bindCallback(jQuery.getJSON);
- * var result = getJSONAsObservable('/my/url');
- * result.subscribe(x => console.log(x), e => console.error(e));
- *
- *
- * @example <caption>Receive an array of arguments passed to a callback</caption>
- * someFunction((a, b, c) => {
- *   console.log(a); // 5
- *   console.log(b); // 'some string'
- *   console.log(c); // {someProperty: 'someValue'}
- * });
- *
- * const boundSomeFunction = bindCallback(someFunction);
- * boundSomeFunction().subscribe(values => {
- *   console.log(values) // [5, 'some string', {someProperty: 'someValue'}]
- * });
- *
- *
- * @example <caption>Compare behaviour with and without async Scheduler</caption>
- * function iCallMyCallbackSynchronously(cb) {
- *   cb();
- * }
- *
- * const boundSyncFn = bindCallback(iCallMyCallbackSynchronously);
- * const boundAsyncFn = bindCallback(iCallMyCallbackSynchronously, null, Rx.Scheduler.async);
- *
- * boundSyncFn().subscribe(() => console.log('I was sync!'));
- * boundAsyncFn().subscribe(() => console.log('I was async!'));
- * console.log('This happened...');
- *
- * // Logs:
- * // I was sync!
- * // This happened...
- * // I was async!
- *
- *
- * @example <caption>Use bindCallback on an object method</caption>
- * const boundMethod = bindCallback(someObject.methodWithCallback);
- * boundMethod.call(someObject) // make sure methodWithCallback has access to someObject
- * .subscribe(subscriber);
- *
- *
- * @see {@link bindNodeCallback}
- * @see {@link from}
- * @see {@link fromPromise}
- *
- * @param {function} func A function with a callback as the last parameter.
- * @param {Scheduler} [scheduler] The scheduler on which to schedule the
- * callbacks.
- * @return {function(...params: *): Observable} A function which returns the
- * Observable that delivers the same values the callback would deliver.
- * @name bindCallback
- */
 function bindCallback(callbackFunc, resultSelector, scheduler) {
     if (resultSelector) {
         if (Object(_util_isScheduler__WEBPACK_IMPORTED_MODULE_4__["isScheduler"])(resultSelector)) {
             scheduler = resultSelector;
         }
         else {
-            // DEPRECATED PATH
             return function () {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
@@ -67034,115 +66232,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Converts a Node.js-style callback API to a function that returns an
- * Observable.
- *
- * <span class="informal">It's just like {@link bindCallback}, but the
- * callback is expected to be of type `callback(error, result)`.</span>
- *
- * `bindNodeCallback` is not an operator because its input and output are not
- * Observables. The input is a function `func` with some parameters, but the
- * last parameter must be a callback function that `func` calls when it is
- * done. The callback function is expected to follow Node.js conventions,
- * where the first argument to the callback is an error object, signaling
- * whether call was successful. If that object is passed to callback, it means
- * something went wrong.
- *
- * The output of `bindNodeCallback` is a function that takes the same
- * parameters as `func`, except the last one (the callback). When the output
- * function is called with arguments, it will return an Observable.
- * If `func` calls its callback with error parameter present, Observable will
- * error with that value as well. If error parameter is not passed, Observable will emit
- * second parameter. If there are more parameters (third and so on),
- * Observable will emit an array with all arguments, except first error argument.
- *
- * Note that `func` will not be called at the same time output function is,
- * but rather whenever resulting Observable is subscribed. By default call to
- * `func` will happen synchronously after subscription, but that can be changed
- * with proper {@link Scheduler} provided as optional third parameter. Scheduler
- * can also control when values from callback will be emitted by Observable.
- * To find out more, check out documentation for {@link bindCallback}, where
- * Scheduler works exactly the same.
- *
- * As in {@link bindCallback}, context (`this` property) of input function will be set to context
- * of returned function, when it is called.
- *
- * After Observable emits value, it will complete immediately. This means
- * even if `func` calls callback again, values from second and consecutive
- * calls will never appear on the stream. If you need to handle functions
- * that call callbacks multiple times, check out {@link fromEvent} or
- * {@link fromEventPattern} instead.
- *
- * Note that `bindNodeCallback` can be used in non-Node.js environments as well.
- * "Node.js-style" callbacks are just a convention, so if you write for
- * browsers or any other environment and API you use implements that callback style,
- * `bindNodeCallback` can be safely used on that API functions as well.
- *
- * Remember that Error object passed to callback does not have to be an instance
- * of JavaScript built-in `Error` object. In fact, it does not even have to an object.
- * Error parameter of callback function is interpreted as "present", when value
- * of that parameter is truthy. It could be, for example, non-zero number, non-empty
- * string or boolean `true`. In all of these cases resulting Observable would error
- * with that value. This means usually regular style callbacks will fail very often when
- * `bindNodeCallback` is used. If your Observable errors much more often then you
- * would expect, check if callback really is called in Node.js-style and, if not,
- * switch to {@link bindCallback} instead.
- *
- * Note that even if error parameter is technically present in callback, but its value
- * is falsy, it still won't appear in array emitted by Observable.
- *
- *
- * @example <caption>Read a file from the filesystem and get the data as an Observable</caption>
- * import * as fs from 'fs';
- * var readFileAsObservable = bindNodeCallback(fs.readFile);
- * var result = readFileAsObservable('./roadNames.txt', 'utf8');
- * result.subscribe(x => console.log(x), e => console.error(e));
- *
- *
- * @example <caption>Use on function calling callback with multiple arguments</caption>
- * someFunction((err, a, b) => {
- *   console.log(err); // null
- *   console.log(a); // 5
- *   console.log(b); // "some string"
- * });
- * var boundSomeFunction = bindNodeCallback(someFunction);
- * boundSomeFunction()
- * .subscribe(value => {
- *   console.log(value); // [5, "some string"]
- * });
- *
- * @example <caption>Use on function calling callback in regular style</caption>
- * someFunction(a => {
- *   console.log(a); // 5
- * });
- * var boundSomeFunction = bindNodeCallback(someFunction);
- * boundSomeFunction()
- * .subscribe(
- *   value => {}             // never gets called
- *   err => console.log(err) // 5
- * );
- *
- *
- * @see {@link bindCallback}
- * @see {@link from}
- * @see {@link fromPromise}
- *
- * @param {function} func Function with a Node.js-style callback as the last parameter.
- * @param {Scheduler} [scheduler] The scheduler on which to schedule the
- * callbacks.
- * @return {function(...params: *): Observable} A function which returns the
- * Observable that delivers the same values the Node.js callback would
- * deliver.
- * @name bindNodeCallback
- */
 function bindNodeCallback(callbackFunc, resultSelector, scheduler) {
     if (resultSelector) {
         if (Object(_util_isScheduler__WEBPACK_IMPORTED_MODULE_3__["isScheduler"])(resultSelector)) {
             scheduler = resultSelector;
         }
         else {
-            // DEPRECATED PATH
             return function () {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
@@ -67268,112 +66363,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var NONE = {};
-/* tslint:enable:max-line-length */
-/**
- * Combines multiple Observables to create an Observable whose values are
- * calculated from the latest values of each of its input Observables.
- *
- * <span class="informal">Whenever any input Observable emits a value, it
- * computes a formula using the latest values from all the inputs, then emits
- * the output of that formula.</span>
- *
- * <img src="./img/combineLatest.png" width="100%">
- *
- * `combineLatest` combines the values from all the Observables passed as
- * arguments. This is done by subscribing to each Observable in order and,
- * whenever any Observable emits, collecting an array of the most recent
- * values from each Observable. So if you pass `n` Observables to operator,
- * returned Observable will always emit an array of `n` values, in order
- * corresponding to order of passed Observables (value from the first Observable
- * on the first place and so on).
- *
- * Static version of `combineLatest` accepts either an array of Observables
- * or each Observable can be put directly as an argument. Note that array of
- * Observables is good choice, if you don't know beforehand how many Observables
- * you will combine. Passing empty array will result in Observable that
- * completes immediately.
- *
- * To ensure output array has always the same length, `combineLatest` will
- * actually wait for all input Observables to emit at least once,
- * before it starts emitting results. This means if some Observable emits
- * values before other Observables started emitting, all that values but last
- * will be lost. On the other hand, is some Observable does not emit value but
- * completes, resulting Observable will complete at the same moment without
- * emitting anything, since it will be now impossible to include value from
- * completed Observable in resulting array. Also, if some input Observable does
- * not emit any value and never completes, `combineLatest` will also never emit
- * and never complete, since, again, it will wait for all streams to emit some
- * value.
- *
- * If at least one Observable was passed to `combineLatest` and all passed Observables
- * emitted something, resulting Observable will complete when all combined
- * streams complete. So even if some Observable completes, result of
- * `combineLatest` will still emit values when other Observables do. In case
- * of completed Observable, its value from now on will always be the last
- * emitted value. On the other hand, if any Observable errors, `combineLatest`
- * will error immediately as well, and all other Observables will be unsubscribed.
- *
- * `combineLatest` accepts as optional parameter `project` function, which takes
- * as arguments all values that would normally be emitted by resulting Observable.
- * `project` can return any kind of value, which will be then emitted by Observable
- * instead of default array. Note that `project` does not take as argument that array
- * of values, but values themselves. That means default `project` can be imagined
- * as function that takes all its arguments and puts them into an array.
- *
- *
- * @example <caption>Combine two timer Observables</caption>
- * const firstTimer = Rx.Observable.timer(0, 1000); // emit 0, 1, 2... after every second, starting from now
- * const secondTimer = Rx.Observable.timer(500, 1000); // emit 0, 1, 2... after every second, starting 0,5s from now
- * const combinedTimers = Rx.Observable.combineLatest(firstTimer, secondTimer);
- * combinedTimers.subscribe(value => console.log(value));
- * // Logs
- * // [0, 0] after 0.5s
- * // [1, 0] after 1s
- * // [1, 1] after 1.5s
- * // [2, 1] after 2s
- *
- *
- * @example <caption>Combine an array of Observables</caption>
- * const observables = [1, 5, 10].map(
- *   n => Rx.Observable.of(n).delay(n * 1000).startWith(0) // emit 0 and then emit n after n seconds
- * );
- * const combined = Rx.Observable.combineLatest(observables);
- * combined.subscribe(value => console.log(value));
- * // Logs
- * // [0, 0, 0] immediately
- * // [1, 0, 0] after 1s
- * // [1, 5, 0] after 5s
- * // [1, 5, 10] after 10s
- *
- *
- * @example <caption>Use project function to dynamically calculate the Body-Mass Index</caption>
- * var weight = Rx.Observable.of(70, 72, 76, 79, 75);
- * var height = Rx.Observable.of(1.76, 1.77, 1.78);
- * var bmi = Rx.Observable.combineLatest(weight, height, (w, h) => w / (h * h));
- * bmi.subscribe(x => console.log('BMI is ' + x));
- *
- * // With output to console:
- * // BMI is 24.212293388429753
- * // BMI is 23.93948099205209
- * // BMI is 23.671253629592222
- *
- *
- * @see {@link combineAll}
- * @see {@link merge}
- * @see {@link withLatestFrom}
- *
- * @param {ObservableInput} observable1 An input Observable to combine with other Observables.
- * @param {ObservableInput} observable2 An input Observable to combine with other Observables.
- * More than one input Observables may be given as arguments
- * or an array of Observables may be given as the first argument.
- * @param {function} [project] An optional function to project the values from
- * the combined latest values into a new value on the output Observable.
- * @param {Scheduler} [scheduler=null] The IScheduler to use for subscribing to
- * each input Observable.
- * @return {Observable} An Observable of projected values from the most recent
- * values from each input Observable, or an array of the most recent values from
- * each input Observable.
- */
 function combineLatest() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -67387,8 +66376,6 @@ function combineLatest() {
     if (typeof observables[observables.length - 1] === 'function') {
         resultSelector = observables.pop();
     }
-    // if the first and only other argument besides the resultSelector is an array
-    // assume it's been called with `combineLatest([obs1, obs2, obs3], resultSelector)`
     if (observables.length === 1 && Object(_util_isArray__WEBPACK_IMPORTED_MODULE_2__["isArray"])(observables[0])) {
         observables = observables[0];
     }
@@ -67404,11 +66391,6 @@ var CombineLatestOperator = /*@__PURE__*/ (function () {
     return CombineLatestOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var CombineLatestSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](CombineLatestSubscriber, _super);
     function CombineLatestSubscriber(destination, resultSelector) {
@@ -67497,100 +66479,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Creates an output Observable which sequentially emits all values from given
- * Observable and then moves on to the next.
- *
- * <span class="informal">Concatenates multiple Observables together by
- * sequentially emitting their values, one Observable after the other.</span>
- *
- * <img src="./img/concat.png" width="100%">
- *
- * `concat` joins multiple Observables together, by subscribing to them one at a time and
- * merging their results into the output Observable. You can pass either an array of
- * Observables, or put them directly as arguments. Passing an empty array will result
- * in Observable that completes immediately.
- *
- * `concat` will subscribe to first input Observable and emit all its values, without
- * changing or affecting them in any way. When that Observable completes, it will
- * subscribe to then next Observable passed and, again, emit its values. This will be
- * repeated, until the operator runs out of Observables. When last input Observable completes,
- * `concat` will complete as well. At any given moment only one Observable passed to operator
- * emits values. If you would like to emit values from passed Observables concurrently, check out
- * {@link merge} instead, especially with optional `concurrent` parameter. As a matter of fact,
- * `concat` is an equivalent of `merge` operator with `concurrent` parameter set to `1`.
- *
- * Note that if some input Observable never completes, `concat` will also never complete
- * and Observables following the one that did not complete will never be subscribed. On the other
- * hand, if some Observable simply completes immediately after it is subscribed, it will be
- * invisible for `concat`, which will just move on to the next Observable.
- *
- * If any Observable in chain errors, instead of passing control to the next Observable,
- * `concat` will error immediately as well. Observables that would be subscribed after
- * the one that emitted error, never will.
- *
- * If you pass to `concat` the same Observable many times, its stream of values
- * will be "replayed" on every subscription, which means you can repeat given Observable
- * as many times as you like. If passing the same Observable to `concat` 1000 times becomes tedious,
- * you can always use {@link repeat}.
- *
- * @example <caption>Concatenate a timer counting from 0 to 3 with a synchronous sequence from 1 to 10</caption>
- * var timer = Rx.Observable.interval(1000).take(4);
- * var sequence = Rx.Observable.range(1, 10);
- * var result = Rx.Observable.concat(timer, sequence);
- * result.subscribe(x => console.log(x));
- *
- * // results in:
- * // 0 -1000ms-> 1 -1000ms-> 2 -1000ms-> 3 -immediate-> 1 ... 10
- *
- *
- * @example <caption>Concatenate an array of 3 Observables</caption>
- * var timer1 = Rx.Observable.interval(1000).take(10);
- * var timer2 = Rx.Observable.interval(2000).take(6);
- * var timer3 = Rx.Observable.interval(500).take(10);
- * var result = Rx.Observable.concat([timer1, timer2, timer3]); // note that array is passed
- * result.subscribe(x => console.log(x));
- *
- * // results in the following:
- * // (Prints to console sequentially)
- * // -1000ms-> 0 -1000ms-> 1 -1000ms-> ... 9
- * // -2000ms-> 0 -2000ms-> 1 -2000ms-> ... 5
- * // -500ms-> 0 -500ms-> 1 -500ms-> ... 9
- *
- *
- * @example <caption>Concatenate the same Observable to repeat it</caption>
- * const timer = Rx.Observable.interval(1000).take(2);
- *
- * Rx.Observable.concat(timer, timer) // concating the same Observable!
- * .subscribe(
- *   value => console.log(value),
- *   err => {},
- *   () => console.log('...and it is done!')
- * );
- *
- * // Logs:
- * // 0 after 1s
- * // 1 after 2s
- * // 0 after 3s
- * // 1 after 4s
- * // "...and it is done!" also after 4s
- *
- * @see {@link concatAll}
- * @see {@link concatMap}
- * @see {@link concatMapTo}
- *
- * @param {ObservableInput} input1 An input Observable to concatenate with others.
- * @param {ObservableInput} input2 An input Observable to concatenate with others.
- * More than one input Observables may be given as argument.
- * @param {Scheduler} [scheduler=null] An optional IScheduler to schedule each
- * Observable subscription on.
- * @return {Observable} All values of each passed Observable merged into a
- * single Observable, in order, in serial fashion.
- * @static true
- * @name concat
- * @owner Observable
- */
 function concat() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -67621,54 +66509,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _empty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./empty */ "./node_modules/rxjs/_esm5/internal/observable/empty.js");
 /** PURE_IMPORTS_START _Observable,_from,_empty PURE_IMPORTS_END */
 
- // lol
 
-/**
- * Creates an Observable that, on subscribe, calls an Observable factory to
- * make an Observable for each new Observer.
- *
- * <span class="informal">Creates the Observable lazily, that is, only when it
- * is subscribed.
- * </span>
- *
- * <img src="./img/defer.png" width="100%">
- *
- * `defer` allows you to create the Observable only when the Observer
- * subscribes, and create a fresh Observable for each Observer. It waits until
- * an Observer subscribes to it, and then it generates an Observable,
- * typically with an Observable factory function. It does this afresh for each
- * subscriber, so although each subscriber may think it is subscribing to the
- * same Observable, in fact each subscriber gets its own individual
- * Observable.
- *
- * @example <caption>Subscribe to either an Observable of clicks or an Observable of interval, at random</caption>
- * var clicksOrInterval = Rx.Observable.defer(function () {
- *   if (Math.random() > 0.5) {
- *     return Rx.Observable.fromEvent(document, 'click');
- *   } else {
- *     return Rx.Observable.interval(1000);
- *   }
- * });
- * clicksOrInterval.subscribe(x => console.log(x));
- *
- * // Results in the following behavior:
- * // If the result of Math.random() is greater than 0.5 it will listen
- * // for clicks anywhere on the "document"; when document is clicked it
- * // will log a MouseEvent object to the console. If the result is less
- * // than 0.5 it will emit ascending numbers, one every second(1000ms).
- *
- * @see {@link create}
- *
- * @param {function(): SubscribableOrPromise} observableFactory The Observable
- * factory function to invoke for each Observer that subscribes to the output
- * Observable. May also return a Promise, which will be converted on the fly
- * to an Observable.
- * @return {Observable} An Observable whose Observers' subscriptions trigger
- * an invocation of the given Observable factory function.
- * @static true
- * @name defer
- * @owner Observable
- */
+
 function defer(observableFactory) {
     return new _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (subscriber) {
         var input;
@@ -67703,55 +66545,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ "./node_modules/rxjs/_esm5/internal/Observable.js");
 /** PURE_IMPORTS_START _Observable PURE_IMPORTS_END */
 
-/**
- * The same Observable instance returned by any call to {@link empty} without a
- * {@link Scheduler}. It is preferrable to use this over `empty()`.
- */
 var EMPTY = /*@__PURE__*/ new _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (subscriber) { return subscriber.complete(); });
-/**
- * Creates an Observable that emits no items to the Observer and immediately
- * emits a complete notification.
- *
- * <span class="informal">Just emits 'complete', and nothing else.
- * </span>
- *
- * <img src="./img/empty.png" width="100%">
- *
- * This static operator is useful for creating a simple Observable that only
- * emits the complete notification. It can be used for composing with other
- * Observables, such as in a {@link mergeMap}.
- *
- * @example <caption>Emit the number 7, then complete.</caption>
- * var result = Rx.Observable.empty().startWith(7);
- * result.subscribe(x => console.log(x));
- *
- * @example <caption>Map and flatten only odd numbers to the sequence 'a', 'b', 'c'</caption>
- * var interval = Rx.Observable.interval(1000);
- * var result = interval.mergeMap(x =>
- *   x % 2 === 1 ? Rx.Observable.of('a', 'b', 'c') : Rx.Observable.empty()
- * );
- * result.subscribe(x => console.log(x));
- *
- * // Results in the following to the console:
- * // x is equal to the count on the interval eg(0,1,2,3,...)
- * // x will occur every 1000ms
- * // if x % 2 is equal to 1 print abc
- * // if x % 2 is not equal to 1 nothing will be output
- *
- * @see {@link create}
- * @see {@link never}
- * @see {@link of}
- * @see {@link throw}
- *
- * @param {Scheduler} [scheduler] A {@link IScheduler} to use for scheduling
- * the emission of the complete notification.
- * @return {Observable} An "empty" Observable: emits only the complete
- * notification.
- * @static true
- * @name empty
- * @owner Observable
- * @deprecated Deprecated in favor of using EMPTY constant.
- */
 function empty(scheduler) {
     return scheduler ? emptyScheduled(scheduler) : EMPTY;
 }
@@ -67788,109 +66582,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Joins last values emitted by passed Observables.
- *
- * <span class="informal">Wait for Observables to complete and then combine last values they emitted.</span>
- *
- * <img src="./img/forkJoin.png" width="100%">
- *
- * `forkJoin` is an operator that takes any number of Observables which can be passed either as an array
- * or directly as arguments. If no input Observables are provided, resulting stream will complete
- * immediately.
- *
- * `forkJoin` will wait for all passed Observables to complete and then it will emit an array with last
- * values from corresponding Observables. So if you pass `n` Observables to the operator, resulting
- * array will have `n` values, where first value is the last thing emitted by the first Observable,
- * second value is the last thing emitted by the second Observable and so on. That means `forkJoin` will
- * not emit more than once and it will complete after that. If you need to emit combined values not only
- * at the end of lifecycle of passed Observables, but also throughout it, try out {@link combineLatest}
- * or {@link zip} instead.
- *
- * In order for resulting array to have the same length as the number of input Observables, whenever any of
- * that Observables completes without emitting any value, `forkJoin` will complete at that moment as well
- * and it will not emit anything either, even if it already has some last values from other Observables.
- * Conversely, if there is an Observable that never completes, `forkJoin` will never complete as well,
- * unless at any point some other Observable completes without emitting value, which brings us back to
- * the previous case. Overall, in order for `forkJoin` to emit a value, all Observables passed as arguments
- * have to emit something at least once and complete.
- *
- * If any input Observable errors at some point, `forkJoin` will error as well and all other Observables
- * will be immediately unsubscribed.
- *
- * Optionally `forkJoin` accepts project function, that will be called with values which normally
- * would land in emitted array. Whatever is returned by project function, will appear in output
- * Observable instead. This means that default project can be thought of as a function that takes
- * all its arguments and puts them into an array. Note that project function will be called only
- * when output Observable is supposed to emit a result.
- *
- * @example <caption>Use forkJoin with operator emitting immediately</caption>
- * import { forkJoin, of } from 'rxjs';
- *
- * const observable = forkJoin(
- *   of(1, 2, 3, 4),
- *   of(5, 6, 7, 8)
- * );
- * observable.subscribe(
- *   value => console.log(value),
- *   err => {},
- *   () => console.log('This is how it ends!')
- * );
- *
- * // Logs:
- * // [4, 8]
- * // "This is how it ends!"
- *
- *
- * @example <caption>Use forkJoin with operator emitting after some time</caption>
- * import { forkJoin, interval } from 'rxjs';
- * import { take } from 'rxjs/operators';
- *
- * const observable = forkJoin(
- *   interval(1000).pipe(take(3)), // emit 0, 1, 2 every second and complete
- *   interval(500).pipe(take(4)) // emit 0, 1, 2, 3 every half a second and complete
- * );
- * observable.subscribe(
- *   value => console.log(value),
- *   err => {},
- *   () => console.log('This is how it ends!')
- * );
- *
- * // Logs:
- * // [2, 3] after 3 seconds
- * // "This is how it ends!" immediately after
- *
- *
- * @example <caption>Use forkJoin with project function</caption>
- * import { jorkJoin, interval } from 'rxjs';
- * import { take } from 'rxjs/operators';
- *
- * const observable = forkJoin(
- *   interval(1000).pipe(take(3)), // emit 0, 1, 2 every second and complete
- *   interval(500).pipe(take(4)), // emit 0, 1, 2, 3 every half a second and complete
- *   (n, m) => n + m
- * );
- * observable.subscribe(
- *   value => console.log(value),
- *   err => {},
- *   () => console.log('This is how it ends!')
- * );
- *
- * // Logs:
- * // 5 after 3 seconds
- * // "This is how it ends!" immediately after
- *
- * @see {@link combineLatest}
- * @see {@link zip}
- *
- * @param {...ObservableInput} sources Any number of Observables provided either as an array or as an arguments
- * passed directly to the operator.
- * @param {function} [project] Function that takes values emitted by input Observables and returns value
- * that will appear in resulting Observable instead of default array.
- * @return {Observable} Observable emitting either an array of last values emitted by passed Observables
- * or value from project function.
- */
 function forkJoin() {
     var sources = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -67898,11 +66589,8 @@ function forkJoin() {
     }
     var resultSelector;
     if (typeof sources[sources.length - 1] === 'function') {
-        // DEPRECATED PATH
         resultSelector = sources.pop();
     }
-    // if the first and only other argument is an array
-    // assume it's been called with `forkJoin([obs1, obs2, obs3])`
     if (sources.length === 1 && Object(_util_isArray__WEBPACK_IMPORTED_MODULE_2__["isArray"])(sources[0])) {
         sources = sources[0];
     }
@@ -67910,18 +66598,12 @@ function forkJoin() {
         return _empty__WEBPACK_IMPORTED_MODULE_3__["EMPTY"];
     }
     if (resultSelector) {
-        // DEPRECATED PATH
         return forkJoin(sources).pipe(Object(_operators_map__WEBPACK_IMPORTED_MODULE_6__["map"])(function (args) { return resultSelector.apply(void 0, args); }));
     }
     return new _Observable__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (subscriber) {
         return new ForkJoinSubscriber(subscriber, sources);
     });
 }
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var ForkJoinSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ForkJoinSubscriber, _super);
     function ForkJoinSubscriber(destination, sources) {
@@ -68093,126 +66775,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var toString = Object.prototype.toString;
-/* tslint:enable:max-line-length */
-/**
- * Creates an Observable that emits events of a specific type coming from the
- * given event target.
- *
- * <span class="informal">Creates an Observable from DOM events, or Node.js
- * EventEmitter events or others.</span>
- *
- * <img src="./img/fromEvent.png" width="100%">
- *
- * `fromEvent` accepts as a first argument event target, which is an object with methods
- * for registering event handler functions. As a second argument it takes string that indicates
- * type of event we want to listen for. `fromEvent` supports selected types of event targets,
- * which are described in detail below. If your event target does not match any of the ones listed,
- * you should use {@link fromEventPattern}, which can be used on arbitrary APIs.
- * When it comes to APIs supported by `fromEvent`, their methods for adding and removing event
- * handler functions have different names, but they all accept a string describing event type
- * and function itself, which will be called whenever said event happens.
- *
- * Every time resulting Observable is subscribed, event handler function will be registered
- * to event target on given event type. When that event fires, value
- * passed as a first argument to registered function will be emitted by output Observable.
- * When Observable is unsubscribed, function will be unregistered from event target.
- *
- * Note that if event target calls registered function with more than one argument, second
- * and following arguments will not appear in resulting stream. In order to get access to them,
- * you can pass to `fromEvent` optional project function, which will be called with all arguments
- * passed to event handler. Output Observable will then emit value returned by project function,
- * instead of the usual value.
- *
- * Remember that event targets listed below are checked via duck typing. It means that
- * no matter what kind of object you have and no matter what environment you work in,
- * you can safely use `fromEvent` on that object if it exposes described methods (provided
- * of course they behave as was described above). So for example if Node.js library exposes
- * event target which has the same method names as DOM EventTarget, `fromEvent` is still
- * a good choice.
- *
- * If the API you use is more callback then event handler oriented (subscribed
- * callback function fires only once and thus there is no need to manually
- * unregister it), you should use {@link bindCallback} or {@link bindNodeCallback}
- * instead.
- *
- * `fromEvent` supports following types of event targets:
- *
- * **DOM EventTarget**
- *
- * This is an object with `addEventListener` and `removeEventListener` methods.
- *
- * In the browser, `addEventListener` accepts - apart from event type string and event
- * handler function arguments - optional third parameter, which is either an object or boolean,
- * both used for additional configuration how and when passed function will be called. When
- * `fromEvent` is used with event target of that type, you can provide this values
- * as third parameter as well.
- *
- * **Node.js EventEmitter**
- *
- * An object with `addListener` and `removeListener` methods.
- *
- * **JQuery-style event target**
- *
- * An object with `on` and `off` methods
- *
- * **DOM NodeList**
- *
- * List of DOM Nodes, returned for example by `document.querySelectorAll` or `Node.childNodes`.
- *
- * Although this collection is not event target in itself, `fromEvent` will iterate over all Nodes
- * it contains and install event handler function in every of them. When returned Observable
- * is unsubscribed, function will be removed from all Nodes.
- *
- * **DOM HtmlCollection**
- *
- * Just as in case of NodeList it is a collection of DOM nodes. Here as well event handler function is
- * installed and removed in each of elements.
- *
- *
- * @example <caption>Emits clicks happening on the DOM document</caption>
- * var clicks = fromEvent(document, 'click');
- * clicks.subscribe(x => console.log(x));
- *
- * // Results in:
- * // MouseEvent object logged to console every time a click
- * // occurs on the document.
- *
- *
- * @example <caption>Use addEventListener with capture option</caption>
- * var clicksInDocument = fromEvent(document, 'click', true); // note optional configuration parameter
- *                                                                          // which will be passed to addEventListener
- * var clicksInDiv = fromEvent(someDivInDocument, 'click');
- *
- * clicksInDocument.subscribe(() => console.log('document'));
- * clicksInDiv.subscribe(() => console.log('div'));
- *
- * // By default events bubble UP in DOM tree, so normally
- * // when we would click on div in document
- * // "div" would be logged first and then "document".
- * // Since we specified optional `capture` option, document
- * // will catch event when it goes DOWN DOM tree, so console
- * // will log "document" and then "div".
- *
- * @see {@link bindCallback}
- * @see {@link bindNodeCallback}
- * @see {@link fromEventPattern}
- *
- * @param {FromEventTarget<T>} target The DOM EventTarget, Node.js
- * EventEmitter, JQuery-like event target, NodeList or HTMLCollection to attach the event handler to.
- * @param {string} eventName The event name of interest, being emitted by the
- * `target`.
- * @param {EventListenerOptions} [options] Options to pass through to addEventListener
- * @return {Observable<T>}
- * @name fromEvent
- */
 function fromEvent(target, eventName, options, resultSelector) {
     if (Object(_util_isFunction__WEBPACK_IMPORTED_MODULE_2__["isFunction"])(options)) {
-        // DEPRECATED PATH
         resultSelector = options;
         options = undefined;
     }
     if (resultSelector) {
-        // DEPRECATED PATH
         return fromEvent(target, eventName, options).pipe(Object(_operators_map__WEBPACK_IMPORTED_MODULE_3__["map"])(function (args) { return Object(_util_isArray__WEBPACK_IMPORTED_MODULE_1__["isArray"])(args) ? resultSelector.apply(void 0, args) : resultSelector(args); }));
     }
     return new _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (subscriber) {
@@ -68287,52 +66855,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Creates an Observable from an API based on addHandler/removeHandler
- * functions.
- *
- * <span class="informal">Converts any addHandler/removeHandler API to an
- * Observable.</span>
- *
- * <img src="./img/fromEventPattern.png" width="100%">
- *
- * Creates an Observable by using the `addHandler` and `removeHandler`
- * functions to add and remove the handlers. The `addHandler` is
- * called when the output Observable is subscribed, and `removeHandler` is
- * called when the Subscription is unsubscribed.
- *
- * @example <caption>Emits clicks happening on the DOM document</caption>
- * function addClickHandler(handler) {
- *   document.addEventListener('click', handler);
- * }
- *
- * function removeClickHandler(handler) {
- *   document.removeEventListener('click', handler);
- * }
- *
- * var clicks = fromEventPattern(
- *   addClickHandler,
- *   removeClickHandler
- * );
- * clicks.subscribe(x => console.log(x));
- *
- * @see {@link from}
- * @see {@link fromEvent}
- *
- * @param {function(handler: Function): any} addHandler A function that takes
- * a `handler` function as argument and attaches it somehow to the actual
- * source of events.
- * @param {function(handler: Function, signal?: any): void} [removeHandler] An optional function that
- * takes a `handler` function as argument and removes it in case it was
- * previously attached using `addHandler`. if addHandler returns signal to teardown when remove,
- * removeHandler function will forward it.
- * @return {Observable<T>}
- * @name fromEventPattern
- */
 function fromEventPattern(addHandler, removeHandler, resultSelector) {
     if (resultSelector) {
-        // DEPRECATED PATH
         return fromEventPattern(addHandler, removeHandler).pipe(Object(_operators_map__WEBPACK_IMPORTED_MODULE_3__["map"])(function (args) { return Object(_util_isArray__WEBPACK_IMPORTED_MODULE_1__["isArray"])(args) ? resultSelector.apply(void 0, args) : resultSelector(args); }));
     }
     return new _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (subscriber) {
@@ -68393,7 +66917,6 @@ function fromIterable(input, scheduler) {
             var sub = new _Subscription__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
             var iterator;
             sub.add(function () {
-                // Finalize generators
                 if (iterator && typeof iterator.return === 'function') {
                     iterator.return();
                 }
@@ -68676,87 +67199,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _defer,_empty PURE_IMPORTS_END */
 
 
-/**
- * Decides at subscription time which Observable will actually be subscribed.
- *
- * <span class="informal">`If` statement for Observables.</span>
- *
- * `if` accepts a condition function and two Observables. When
- * an Observable returned by the operator is subscribed, condition function will be called.
- * Based on what boolean it returns at that moment, consumer will subscribe either to
- * the first Observable (if condition was true) or to the second (if condition was false). Condition
- * function may also not return anything - in that case condition will be evaluated as false and
- * second Observable will be subscribed.
- *
- * Note that Observables for both cases (true and false) are optional. If condition points to an Observable that
- * was left undefined, resulting stream will simply complete immediately. That allows you to, rather
- * then controlling which Observable will be subscribed, decide at runtime if consumer should have access
- * to given Observable or not.
- *
- * If you have more complex logic that requires decision between more than two Observables, {@link defer}
- * will probably be a better choice. Actually `if` can be easily implemented with {@link defer}
- * and exists only for convenience and readability reasons.
- *
- *
- * @example <caption>Change at runtime which Observable will be subscribed</caption>
- * let subscribeToFirst;
- * const firstOrSecond = Rx.Observable.if(
- *   () => subscribeToFirst,
- *   Rx.Observable.of('first'),
- *   Rx.Observable.of('second')
- * );
- *
- * subscribeToFirst = true;
- * firstOrSecond.subscribe(value => console.log(value));
- *
- * // Logs:
- * // "first"
- *
- * subscribeToFirst = false;
- * firstOrSecond.subscribe(value => console.log(value));
- *
- * // Logs:
- * // "second"
- *
- *
- * @example <caption>Control an access to an Observable</caption>
- * let accessGranted;
- * const observableIfYouHaveAccess = Rx.Observable.if(
- *   () => accessGranted,
- *   Rx.Observable.of('It seems you have an access...') // Note that only one Observable is passed to the operator.
- * );
- *
- * accessGranted = true;
- * observableIfYouHaveAccess.subscribe(
- *   value => console.log(value),
- *   err => {},
- *   () => console.log('The end')
- * );
- *
- * // Logs:
- * // "It seems you have an access..."
- * // "The end"
- *
- * accessGranted = false;
- * observableIfYouHaveAccess.subscribe(
- *   value => console.log(value),
- *   err => {},
- *   () => console.log('The end')
- * );
- *
- * // Logs:
- * // "The end"
- *
- * @see {@link defer}
- *
- * @param {function(): boolean} condition Condition which Observable should be chosen.
- * @param {Observable} [trueObservable] An Observable that will be subscribed if condition is true.
- * @param {Observable} [falseObservable] An Observable that will be subscribed if condition is false.
- * @return {Observable} Either first or second Observable, depending on condition.
- * @static true
- * @name iif
- * @owner Observable
- */
 function iif(condition, trueResult, falseResult) {
     if (trueResult === void 0) {
         trueResult = _empty__WEBPACK_IMPORTED_MODULE_1__["EMPTY"];
@@ -68788,39 +67230,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Creates an Observable that emits sequential numbers every specified
- * interval of time, on a specified IScheduler.
- *
- * <span class="informal">Emits incremental numbers periodically in time.
- * </span>
- *
- * <img src="./img/interval.png" width="100%">
- *
- * `interval` returns an Observable that emits an infinite sequence of
- * ascending integers, with a constant interval of time of your choosing
- * between those emissions. The first emission is not sent immediately, but
- * only after the first period has passed. By default, this operator uses the
- * `async` IScheduler to provide a notion of time, but you may pass any
- * IScheduler to it.
- *
- * @example <caption>Emits ascending numbers, one every second (1000ms)</caption>
- * var numbers = Rx.Observable.interval(1000);
- * numbers.subscribe(x => console.log(x));
- *
- * @see {@link timer}
- * @see {@link delay}
- *
- * @param {number} [period=0] The interval size in milliseconds (by default)
- * or the time unit determined by the scheduler's clock.
- * @param {Scheduler} [scheduler=async] The IScheduler to use for scheduling
- * the emission of values, and providing a notion of "time".
- * @return {Observable} An Observable that emits a sequential number each time
- * interval.
- * @static true
- * @name interval
- * @owner Observable
- */
 function interval(period, scheduler) {
     if (period === void 0) {
         period = 0;
@@ -68868,67 +67277,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Creates an output Observable which concurrently emits all values from every
- * given input Observable.
- *
- * <span class="informal">Flattens multiple Observables together by blending
- * their values into one Observable.</span>
- *
- * <img src="./img/merge.png" width="100%">
- *
- * `merge` subscribes to each given input Observable (as arguments), and simply
- * forwards (without doing any transformation) all the values from all the input
- * Observables to the output Observable. The output Observable only completes
- * once all input Observables have completed. Any error delivered by an input
- * Observable will be immediately emitted on the output Observable.
- *
- * @example <caption>Merge together two Observables: 1s interval and clicks</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var timer = Rx.Observable.interval(1000);
- * var clicksOrTimer = Rx.Observable.merge(clicks, timer);
- * clicksOrTimer.subscribe(x => console.log(x));
- *
- * // Results in the following:
- * // timer will emit ascending values, one every second(1000ms) to console
- * // clicks logs MouseEvents to console everytime the "document" is clicked
- * // Since the two streams are merged you see these happening
- * // as they occur.
- *
- * @example <caption>Merge together 3 Observables, but only 2 run concurrently</caption>
- * var timer1 = Rx.Observable.interval(1000).take(10);
- * var timer2 = Rx.Observable.interval(2000).take(6);
- * var timer3 = Rx.Observable.interval(500).take(10);
- * var concurrent = 2; // the argument
- * var merged = Rx.Observable.merge(timer1, timer2, timer3, concurrent);
- * merged.subscribe(x => console.log(x));
- *
- * // Results in the following:
- * // - First timer1 and timer2 will run concurrently
- * // - timer1 will emit a value every 1000ms for 10 iterations
- * // - timer2 will emit a value every 2000ms for 6 iterations
- * // - after timer1 hits it's max iteration, timer2 will
- * //   continue, and timer3 will start to run concurrently with timer2
- * // - when timer2 hits it's max iteration it terminates, and
- * //   timer3 will continue to emit a value every 500ms until it is complete
- *
- * @see {@link mergeAll}
- * @see {@link mergeMap}
- * @see {@link mergeMapTo}
- * @see {@link mergeScan}
- *
- * @param {...ObservableInput} observables Input Observables to merge together.
- * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of input
- * Observables being subscribed to concurrently.
- * @param {Scheduler} [scheduler=null] The IScheduler to use for managing
- * concurrency of input Observables.
- * @return {Observable} an Observable that emits items that are the result of
- * every input Observable.
- * @static true
- * @name merge
- * @owner Observable
- */
 function merge() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -68972,33 +67320,7 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _Observable,_util_noop PURE_IMPORTS_END */
 
 
-/**
- * An Observable that emits no items to the Observer and never completes.
- *
- * <img src="./img/never.png" width="100%">
- *
- * A simple Observable that emits neither values nor errors nor the completion
- * notification. It can be used for testing purposes or for composing with other
- * Observables. Please note that by never emitting a complete notification, this
- * Observable keeps the subscription from being disposed automatically.
- * Subscriptions need to be manually disposed.
- *
- * @example <caption>Emit the number 7, then never emit anything else (not even complete).</caption>
- * function info() {
- *   console.log('Will not be called');
- * }
- * var result = NEVER.startWith(7);
- * result.subscribe(x => console.log(x), info, info);
- *
- * @see {@link create}
- * @see {@link EMPTY}
- * @see {@link of}
- * @see {@link throwError}
- */
 var NEVER = /*@__PURE__*/ new _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"](_util_noop__WEBPACK_IMPORTED_MODULE_1__["noop"]);
-/**
- * @deprecated Deprecated in favor of using NEVER constant.
- */
 function never() {
     return NEVER;
 }
@@ -69071,63 +67393,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * When any of the provided Observable emits an complete or error notification, it immediately subscribes to the next one
- * that was passed.
- *
- * <span class="informal">Execute series of Observables no matter what, even if it means swallowing errors.</span>
- *
- * <img src="./img/onErrorResumeNext.png" width="100%">
- *
- * `onErrorResumeNext` Will subscribe to each observable source it is provided, in order.
- * If the source it's subscribed to emits an error or completes, it will move to the next source
- * without error.
- *
- * If `onErrorResumeNext` is provided no arguments, or a single, empty array, it will return {@link EMPTY}.
- *
- * `onErrorResumeNext` is basically {@link concat}, only it will continue, even if one of its
- * sources emits an error.
- *
- * Note that there is no way to handle any errors thrown by sources via the resuult of
- * `onErrorResumeNext`. If you want to handle errors thrown in any given source, you can
- * always use the {@link catchError} operator on them before passing them into `onErrorResumeNext`.
- *
- * @example <caption>Subscribe to the next Observable after map fails</caption>
- * import { onErrorResumeNext, of } from 'rxjs/create';
- * import { map } from 'rxjs/operators';
- *
- * onErrorResumeNext(
- *  of(1, 2, 3, 0).pipe(
- *    map(x => {
- *      if (x === 0) throw Error();
- *      return 10 / x;
- *    })
- *  ),
- *  of(1, 2, 3),
- * )
- * .subscribe(
- *   val => console.log(val),
- *   err => console.log(err),          // Will never be called.
- *   () => console.log('done')
- * );
- *
- * // Logs:
- * // 10
- * // 5
- * // 3.3333333333333335
- * // 1
- * // 2
- * // 3
- * // "done"
- *
- * @see {@link concat}
- * @see {@link catch}
- *
- * @param {...ObservableInput} sources Observables (or anything that *is* observable) passed either directly or as an array.
- * @return {Observable} An Observable that concatenates all sources, one after the other,
- * ignoring all errors, such that any error causes it to move on to the next source.
- */
 function onErrorResumeNext() {
     var sources = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -69170,37 +67435,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _Observable,_Subscription PURE_IMPORTS_END */
 
 
-/**
- * Convert an object into an observable sequence of [key, value] pairs
- * using an optional IScheduler to enumerate the object.
- *
- * @example <caption>Converts a javascript object to an Observable</caption>
- * var obj = {
- *   foo: 42,
- *   bar: 56,
- *   baz: 78
- * };
- *
- * var source = Rx.Observable.pairs(obj);
- *
- * var subscription = source.subscribe(
- *   function (x) {
- *     console.log('Next: %s', x);
- *   },
- *   function (err) {
- *     console.log('Error: %s', err);
- *   },
- *   function () {
- *     console.log('Completed');
- *   });
- *
- * @param {Object} obj The object to inspect and turn into an
- * Observable sequence.
- * @param {Scheduler} [scheduler] An optional IScheduler to run the
- * enumeration of the input sequence on.
- * @returns {(Observable<[string, T]>)} An observable sequence of
- * [key, value] pairs from the object.
- */
 function pairs(obj, scheduler) {
     if (!scheduler) {
         return new _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (subscriber) {
@@ -69223,7 +67457,6 @@ function pairs(obj, scheduler) {
         });
     }
 }
-/** @internal */
 function dispatch(state) {
     var keys = state.keys, index = state.index, subscriber = state.subscriber, subscription = state.subscription, obj = state.obj;
     if (!subscriber.closed) {
@@ -69270,8 +67503,6 @@ function race() {
     for (var _i = 0; _i < arguments.length; _i++) {
         observables[_i] = arguments[_i];
     }
-    // if the only argument is an array, it was most likely called with
-    // `race([obs1, obs2, ...])`
     if (observables.length === 1) {
         if (Object(_util_isArray__WEBPACK_IMPORTED_MODULE_1__["isArray"])(observables[0])) {
             observables = observables[0];
@@ -69291,11 +67522,6 @@ var RaceOperator = /*@__PURE__*/ (function () {
     return RaceOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var RaceSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](RaceSubscriber, _super);
     function RaceSubscriber(destination) {
@@ -69362,36 +67588,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ "./node_modules/rxjs/_esm5/internal/Observable.js");
 /** PURE_IMPORTS_START _Observable PURE_IMPORTS_END */
 
-/**
- * Creates an Observable that emits a sequence of numbers within a specified
- * range.
- *
- * <span class="informal">Emits a sequence of numbers in a range.</span>
- *
- * <img src="./img/range.png" width="100%">
- *
- * `range` operator emits a range of sequential integers, in order, where you
- * select the `start` of the range and its `length`. By default, uses no
- * IScheduler and just delivers the notifications synchronously, but may use
- * an optional IScheduler to regulate those deliveries.
- *
- * @example <caption>Emits the numbers 1 to 10</caption>
- * var numbers = Rx.Observable.range(1, 10);
- * numbers.subscribe(x => console.log(x));
- *
- * @see {@link timer}
- * @see {@link interval}
- *
- * @param {number} [start=0] The value of the first integer in the sequence.
- * @param {number} [count=0] The number of sequential integers to generate.
- * @param {Scheduler} [scheduler] A {@link IScheduler} to use for scheduling
- * the emissions of the notifications.
- * @return {Observable} An Observable of numbers that emits a finite range of
- * sequential integers.
- * @static true
- * @name range
- * @owner Observable
- */
 function range(start, count, scheduler) {
     if (start === void 0) {
         start = 0;
@@ -69422,7 +67618,6 @@ function range(start, count, scheduler) {
         return undefined;
     });
 }
-/** @internal */
 function dispatch(state) {
     var start = state.start, index = state.index, count = state.count, subscriber = state.subscriber;
     if (index >= count) {
@@ -69482,50 +67677,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ "./node_modules/rxjs/_esm5/internal/Observable.js");
 /** PURE_IMPORTS_START _Observable PURE_IMPORTS_END */
 
-/**
- * Creates an Observable that emits no items to the Observer and immediately
- * emits an error notification.
- *
- * <span class="informal">Just emits 'error', and nothing else.
- * </span>
- *
- * <img src="./img/throw.png" width="100%">
- *
- * This static operator is useful for creating a simple Observable that only
- * emits the error notification. It can be used for composing with other
- * Observables, such as in a {@link mergeMap}.
- *
- * @example <caption>Emit the number 7, then emit an error.</caption>
- * import { throwError, concat, of } from 'rxjs/create';
- *
- * const result = concat(of(7), throwError(new Error('oops!')));
- * result.subscribe(x => console.log(x), e => console.error(e));
- *
- * @example <caption>Map and flatten numbers to the sequence 'a', 'b', 'c', but throw an error for 13</caption>
- * import { throwError, interval, of } from 'rxjs/create';
- * import { mergeMap } from 'rxjs/operators';
- *
- * interval(1000).pipe(
- *   mergeMap(x => x === 13 ?
- *     throwError('Thirteens are bad') :
- *     of('a', 'b', 'c')
- *   )
- * ).subscribe(x => console.log(x), e => console.error(e));
- *
- * @see {@link create}
- * @see {@link empty}
- * @see {@link never}
- * @see {@link of}
- *
- * @param {any} error The particular Error to pass to the error notification.
- * @param {Scheduler} [scheduler] A {@link IScheduler} to use for scheduling
- * the emission of the error notification.
- * @return {Observable} An error Observable: emits only the error notification
- * using the given error argument.
- * @static true
- * @name throw
- * @owner Observable
- */
 function throwError(error, scheduler) {
     if (!scheduler) {
         return new _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (subscriber) { return subscriber.error(error); });
@@ -69562,48 +67713,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Creates an Observable that starts emitting after an `initialDelay` and
- * emits ever increasing numbers after each `period` of time thereafter.
- *
- * <span class="informal">Its like {@link interval}, but you can specify when
- * should the emissions start.</span>
- *
- * <img src="./img/timer.png" width="100%">
- *
- * `timer` returns an Observable that emits an infinite sequence of ascending
- * integers, with a constant interval of time, `period` of your choosing
- * between those emissions. The first emission happens after the specified
- * `initialDelay`. The initial delay may be a {@link Date}. By default, this
- * operator uses the `async` IScheduler to provide a notion of time, but you
- * may pass any IScheduler to it. If `period` is not specified, the output
- * Observable emits only one value, `0`. Otherwise, it emits an infinite
- * sequence.
- *
- * @example <caption>Emits ascending numbers, one every second (1000ms), starting after 3 seconds</caption>
- * var numbers = Rx.Observable.timer(3000, 1000);
- * numbers.subscribe(x => console.log(x));
- *
- * @example <caption>Emits one number after five seconds</caption>
- * var numbers = Rx.Observable.timer(5000);
- * numbers.subscribe(x => console.log(x));
- *
- * @see {@link interval}
- * @see {@link delay}
- *
- * @param {number|Date} [dueTime] The initial delay time to wait before
- * emitting the first value of `0`.
- * @param {number|SchedulerLike} [periodOrScheduler] The period of time between emissions of the
- * subsequent numbers.
- * @param {SchedulerLike} [scheduler=async] The IScheduler to use for scheduling
- * the emission of values, and providing a notion of "time".
- * @return {Observable} An Observable that emits a `0` after the
- * `initialDelay` and ever increasing numbers after each `period` of time
- * thereafter.
- * @static true
- * @name timer
- * @owner Observable
- */
 function timer(dueTime, periodOrScheduler, scheduler) {
     if (dueTime === void 0) {
         dueTime = 0;
@@ -69659,36 +67768,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _empty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./empty */ "./node_modules/rxjs/_esm5/internal/observable/empty.js");
 /** PURE_IMPORTS_START _Observable,_from,_empty PURE_IMPORTS_END */
 
- // from from from! LAWL
 
-/**
- * Creates an Observable that uses a resource which will be disposed at the same time as the Observable.
- *
- * <span class="informal">Use it when you catch yourself cleaning up after an Observable.</span>
- *
- * `using` is a factory operator, which accepts two functions. First function returns a disposable resource.
- * It can be an arbitrary object that implements `unsubscribe` method. Second function will be injected with
- * that object and should return an Observable. That Observable can use resource object during its execution.
- * Both functions passed to `using` will be called every time someone subscribes - neither an Observable nor
- * resource object will be shared in any way between subscriptions.
- *
- * When Observable returned by `using` is subscribed, Observable returned from the second function will be subscribed
- * as well. All its notifications (nexted values, completion and error events) will be emitted unchanged by the output
- * Observable. If however someone unsubscribes from the Observable or source Observable completes or errors by itself,
- * the `unsubscribe` method on resource object will be called. This can be used to do any necessary clean up, which
- * otherwise would have to be handled by hand. Note that complete or error notifications are not emitted when someone
- * cancels subscription to an Observable via `unsubscribe`, so `using` can be used as a hook, allowing you to make
- * sure that all resources which need to exist during an Observable execution will be disposed at appropriate time.
- *
- * @see {@link defer}
- *
- * @param {function(): ISubscription} resourceFactory A function which creates any resource object
- * that implements `unsubscribe` method.
- * @param {function(resource: ISubscription): Observable<T>} observableFactory A function which
- * creates an Observable, that can use injected resource object.
- * @return {Observable<T>} An Observable that behaves the same as Observable returned by `observableFactory`, but
- * which - when completed, errored or unsubscribed - will also call `unsubscribe` on created resource object.
- */
+
 function using(resourceFactory, observableFactory) {
     return new _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"](function (subscriber) {
         var resource;
@@ -69749,38 +67830,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Combines multiple Observables to create an Observable whose values are calculated from the values, in order, of each
- * of its input Observables.
- *
- * If the latest parameter is a function, this function is used to compute the created value from the input values.
- * Otherwise, an array of the input values is returned.
- *
- * @example <caption>Combine age and name from different sources</caption>
- *
- * let age$ = Observable.of<number>(27, 25, 29);
- * let name$ = Observable.of<string>('Foo', 'Bar', 'Beer');
- * let isDev$ = Observable.of<boolean>(true, true, false);
- *
- * Observable
- *     .zip(age$,
- *          name$,
- *          isDev$,
- *          (age: number, name: string, isDev: boolean) => ({ age, name, isDev }))
- *     .subscribe(x => console.log(x));
- *
- * // outputs
- * // { age: 27, name: 'Foo', isDev: true }
- * // { age: 25, name: 'Bar', isDev: true }
- * // { age: 29, name: 'Beer', isDev: false }
- *
- * @param observables
- * @return {Observable<R>}
- * @static true
- * @name zip
- * @owner Observable
- */
 function zip() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -69802,11 +67851,6 @@ var ZipOperator = /*@__PURE__*/ (function () {
     return ZipOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var ZipSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ZipSubscriber, _super);
     function ZipSubscriber(destination, resultSelector, values) {
@@ -69846,7 +67890,7 @@ var ZipSubscriber = /*@__PURE__*/ (function (_super) {
                 this.add(iterator.subscribe(iterator, i));
             }
             else {
-                this.active--; // not an observable
+                this.active--;
             }
         }
     };
@@ -69860,7 +67904,6 @@ var ZipSubscriber = /*@__PURE__*/ (function (_super) {
         var iterators = this.iterators;
         var len = iterators.length;
         var destination = this.destination;
-        // abort if not all of them have values
         for (var i = 0; i < len; i++) {
             var iterator = iterators[i];
             if (typeof iterator.hasValue === 'function' && !iterator.hasValue()) {
@@ -69872,8 +67915,6 @@ var ZipSubscriber = /*@__PURE__*/ (function (_super) {
         for (var i = 0; i < len; i++) {
             var iterator = iterators[i];
             var result = iterator.next();
-            // check to see if it's completed now that you've gotten
-            // the next value.
             if (iterator.hasCompleted()) {
                 shouldComplete = true;
             }
@@ -69949,11 +67990,6 @@ var StaticArrayIterator = /*@__PURE__*/ (function () {
     };
     return StaticArrayIterator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var ZipBufferIterator = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ZipBufferIterator, _super);
     function ZipBufferIterator(destination, parent, observable) {
@@ -69968,8 +68004,6 @@ var ZipBufferIterator = /*@__PURE__*/ (function (_super) {
     ZipBufferIterator.prototype[_internal_symbol_iterator__WEBPACK_IMPORTED_MODULE_6__["iterator"]] = function () {
         return this;
     };
-    // NOTE: there is actually a name collision here with Subscriber.next and Iterator.next
-    //    this is legit because `next()` will never be called by a subscription in this case.
     ZipBufferIterator.prototype.next = function () {
         var buffer = this.buffer;
         if (buffer.length === 0 && this.isComplete) {
@@ -70029,46 +68063,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Ignores source values for a duration determined by another Observable, then
- * emits the most recent value from the source Observable, then repeats this
- * process.
- *
- * <span class="informal">It's like {@link auditTime}, but the silencing
- * duration is determined by a second Observable.</span>
- *
- * <img src="./img/audit.png" width="100%">
- *
- * `audit` is similar to `throttle`, but emits the last value from the silenced
- * time window, instead of the first value. `audit` emits the most recent value
- * from the source Observable on the output Observable as soon as its internal
- * timer becomes disabled, and ignores source values while the timer is enabled.
- * Initially, the timer is disabled. As soon as the first source value arrives,
- * the timer is enabled by calling the `durationSelector` function with the
- * source value, which returns the "duration" Observable. When the duration
- * Observable emits a value or completes, the timer is disabled, then the most
- * recent source value is emitted on the output Observable, and this process
- * repeats for the next source value.
- *
- * @example <caption>Emit clicks at a rate of at most one click per second</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.audit(ev => Rx.Observable.interval(1000));
- * result.subscribe(x => console.log(x));
- *
- * @see {@link auditTime}
- * @see {@link debounce}
- * @see {@link delayWhen}
- * @see {@link sample}
- * @see {@link throttle}
- *
- * @param {function(value: T): SubscribableOrPromise} durationSelector A function
- * that receives a value from the source Observable, for computing the silencing
- * duration, returned as an Observable or a Promise.
- * @return {Observable<T>} An Observable that performs rate-limiting of
- * emissions from the source Observable.
- * @method audit
- * @owner Observable
- */
 function audit(durationSelector) {
     return function auditOperatorFunction(source) {
         return source.lift(new AuditOperator(durationSelector));
@@ -70083,11 +68077,6 @@ var AuditOperator = /*@__PURE__*/ (function () {
     };
     return AuditOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var AuditSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AuditSubscriber, _super);
     function AuditSubscriber(destination, durationSelector) {
@@ -70158,48 +68147,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Ignores source values for `duration` milliseconds, then emits the most recent
- * value from the source Observable, then repeats this process.
- *
- * <span class="informal">When it sees a source values, it ignores that plus
- * the next ones for `duration` milliseconds, and then it emits the most recent
- * value from the source.</span>
- *
- * <img src="./img/auditTime.png" width="100%">
- *
- * `auditTime` is similar to `throttleTime`, but emits the last value from the
- * silenced time window, instead of the first value. `auditTime` emits the most
- * recent value from the source Observable on the output Observable as soon as
- * its internal timer becomes disabled, and ignores source values while the
- * timer is enabled. Initially, the timer is disabled. As soon as the first
- * source value arrives, the timer is enabled. After `duration` milliseconds (or
- * the time unit determined internally by the optional `scheduler`) has passed,
- * the timer is disabled, then the most recent source value is emitted on the
- * output Observable, and this process repeats for the next source value.
- * Optionally takes a {@link IScheduler} for managing timers.
- *
- * @example <caption>Emit clicks at a rate of at most one click per second</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.auditTime(1000);
- * result.subscribe(x => console.log(x));
- *
- * @see {@link audit}
- * @see {@link debounceTime}
- * @see {@link delay}
- * @see {@link sampleTime}
- * @see {@link throttleTime}
- *
- * @param {number} duration Time to wait before emitting the most recent source
- * value, measured in milliseconds or the time unit determined internally
- * by the optional `scheduler`.
- * @param {Scheduler} [scheduler=async] The {@link IScheduler} to use for
- * managing the timers that handle the rate-limiting behavior.
- * @return {Observable<T>} An Observable that performs rate-limiting of
- * emissions from the source Observable.
- * @method auditTime
- * @owner Observable
- */
 function auditTime(duration, scheduler) {
     if (scheduler === void 0) {
         scheduler = _scheduler_async__WEBPACK_IMPORTED_MODULE_0__["async"];
@@ -70228,38 +68175,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Buffers the source Observable values until `closingNotifier` emits.
- *
- * <span class="informal">Collects values from the past as an array, and emits
- * that array only when another Observable emits.</span>
- *
- * <img src="./img/buffer.png" width="100%">
- *
- * Buffers the incoming Observable values until the given `closingNotifier`
- * Observable emits a value, at which point it emits the buffer on the output
- * Observable and starts a new buffer internally, awaiting the next time
- * `closingNotifier` emits.
- *
- * @example <caption>On every click, emit array of most recent interval events</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var interval = Rx.Observable.interval(1000);
- * var buffered = interval.buffer(clicks);
- * buffered.subscribe(x => console.log(x));
- *
- * @see {@link bufferCount}
- * @see {@link bufferTime}
- * @see {@link bufferToggle}
- * @see {@link bufferWhen}
- * @see {@link window}
- *
- * @param {Observable<any>} closingNotifier An Observable that signals the
- * buffer to be emitted on the output Observable.
- * @return {Observable<T[]>} An Observable of buffers, which are arrays of
- * values.
- * @method buffer
- * @owner Observable
- */
 function buffer(closingNotifier) {
     return function bufferOperatorFunction(source) {
         return source.lift(new BufferOperator(closingNotifier));
@@ -70274,11 +68189,6 @@ var BufferOperator = /*@__PURE__*/ (function () {
     };
     return BufferOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var BufferSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](BufferSubscriber, _super);
     function BufferSubscriber(destination, closingNotifier) {
@@ -70317,47 +68227,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Buffers the source Observable values until the size hits the maximum
- * `bufferSize` given.
- *
- * <span class="informal">Collects values from the past as an array, and emits
- * that array only when its size reaches `bufferSize`.</span>
- *
- * <img src="./img/bufferCount.png" width="100%">
- *
- * Buffers a number of values from the source Observable by `bufferSize` then
- * emits the buffer and clears it, and starts a new buffer each
- * `startBufferEvery` values. If `startBufferEvery` is not provided or is
- * `null`, then new buffers are started immediately at the start of the source
- * and when each buffer closes and is emitted.
- *
- * @example <caption>Emit the last two click events as an array</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var buffered = clicks.bufferCount(2);
- * buffered.subscribe(x => console.log(x));
- *
- * @example <caption>On every click, emit the last two click events as an array</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var buffered = clicks.bufferCount(2, 1);
- * buffered.subscribe(x => console.log(x));
- *
- * @see {@link buffer}
- * @see {@link bufferTime}
- * @see {@link bufferToggle}
- * @see {@link bufferWhen}
- * @see {@link pairwise}
- * @see {@link windowCount}
- *
- * @param {number} bufferSize The maximum size of the buffer emitted.
- * @param {number} [startBufferEvery] Interval at which to start a new buffer.
- * For example if `startBufferEvery` is `2`, then a new buffer will be started
- * on every other value from the source. A new buffer is started at the
- * beginning of the source by default.
- * @return {Observable<T[]>} An Observable of arrays of buffered values.
- * @method bufferCount
- * @owner Observable
- */
 function bufferCount(bufferSize, startBufferEvery) {
     if (startBufferEvery === void 0) {
         startBufferEvery = null;
@@ -70382,11 +68251,6 @@ var BufferCountOperator = /*@__PURE__*/ (function () {
     };
     return BufferCountOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var BufferCountSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](BufferCountSubscriber, _super);
     function BufferCountSubscriber(destination, bufferSize) {
@@ -70412,11 +68276,6 @@ var BufferCountSubscriber = /*@__PURE__*/ (function (_super) {
     };
     return BufferCountSubscriber;
 }(_Subscriber__WEBPACK_IMPORTED_MODULE_1__["Subscriber"]));
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var BufferSkipCountSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](BufferSkipCountSubscriber, _super);
     function BufferSkipCountSubscriber(destination, bufferSize, startBufferEvery) {
@@ -70478,50 +68337,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Buffers the source Observable values for a specific time period.
- *
- * <span class="informal">Collects values from the past as an array, and emits
- * those arrays periodically in time.</span>
- *
- * <img src="./img/bufferTime.png" width="100%">
- *
- * Buffers values from the source for a specific time duration `bufferTimeSpan`.
- * Unless the optional argument `bufferCreationInterval` is given, it emits and
- * resets the buffer every `bufferTimeSpan` milliseconds. If
- * `bufferCreationInterval` is given, this operator opens the buffer every
- * `bufferCreationInterval` milliseconds and closes (emits and resets) the
- * buffer every `bufferTimeSpan` milliseconds. When the optional argument
- * `maxBufferSize` is specified, the buffer will be closed either after
- * `bufferTimeSpan` milliseconds or when it contains `maxBufferSize` elements.
- *
- * @example <caption>Every second, emit an array of the recent click events</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var buffered = clicks.bufferTime(1000);
- * buffered.subscribe(x => console.log(x));
- *
- * @example <caption>Every 5 seconds, emit the click events from the next 2 seconds</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var buffered = clicks.bufferTime(2000, 5000);
- * buffered.subscribe(x => console.log(x));
- *
- * @see {@link buffer}
- * @see {@link bufferCount}
- * @see {@link bufferToggle}
- * @see {@link bufferWhen}
- * @see {@link windowTime}
- *
- * @param {number} bufferTimeSpan The amount of time to fill each buffer array.
- * @param {number} [bufferCreationInterval] The interval at which to start new
- * buffers.
- * @param {number} [maxBufferSize] The maximum buffer size.
- * @param {Scheduler} [scheduler=async] The scheduler on which to schedule the
- * intervals that determine buffer boundaries.
- * @return {Observable<T[]>} An observable of arrays of buffered values.
- * @method bufferTime
- * @owner Observable
- */
 function bufferTime(bufferTimeSpan) {
     var length = arguments.length;
     var scheduler = _scheduler_async__WEBPACK_IMPORTED_MODULE_1__["async"];
@@ -70559,11 +68374,6 @@ var Context = /*@__PURE__*/ (function () {
     }
     return Context;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var BufferTimeSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](BufferTimeSubscriber, _super);
     function BufferTimeSubscriber(destination, bufferTimeSpan, bufferCreationInterval, maxBufferSize, scheduler) {
@@ -70615,7 +68425,6 @@ var BufferTimeSubscriber = /*@__PURE__*/ (function (_super) {
         }
         _super.prototype._complete.call(this);
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     BufferTimeSubscriber.prototype._unsubscribe = function () {
         this.contexts = null;
     };
@@ -70694,44 +68503,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Buffers the source Observable values starting from an emission from
- * `openings` and ending when the output of `closingSelector` emits.
- *
- * <span class="informal">Collects values from the past as an array. Starts
- * collecting only when `opening` emits, and calls the `closingSelector`
- * function to get an Observable that tells when to close the buffer.</span>
- *
- * <img src="./img/bufferToggle.png" width="100%">
- *
- * Buffers values from the source by opening the buffer via signals from an
- * Observable provided to `openings`, and closing and sending the buffers when
- * a Subscribable or Promise returned by the `closingSelector` function emits.
- *
- * @example <caption>Every other second, emit the click events from the next 500ms</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var openings = Rx.Observable.interval(1000);
- * var buffered = clicks.bufferToggle(openings, i =>
- *   i % 2 ? Rx.Observable.interval(500) : Rx.Observable.empty()
- * );
- * buffered.subscribe(x => console.log(x));
- *
- * @see {@link buffer}
- * @see {@link bufferCount}
- * @see {@link bufferTime}
- * @see {@link bufferWhen}
- * @see {@link windowToggle}
- *
- * @param {SubscribableOrPromise<O>} openings A Subscribable or Promise of notifications to start new
- * buffers.
- * @param {function(value: O): SubscribableOrPromise} closingSelector A function that takes
- * the value emitted by the `openings` observable and returns a Subscribable or Promise,
- * which, when it emits, signals that the associated buffer should be emitted
- * and cleared.
- * @return {Observable<T[]>} An observable of arrays of buffered values.
- * @method bufferToggle
- * @owner Observable
- */
 function bufferToggle(openings, closingSelector) {
     return function bufferToggleOperatorFunction(source) {
         return source.lift(new BufferToggleOperator(openings, closingSelector));
@@ -70747,11 +68518,6 @@ var BufferToggleOperator = /*@__PURE__*/ (function () {
     };
     return BufferToggleOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var BufferToggleSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](BufferToggleSubscriber, _super);
     function BufferToggleSubscriber(destination, openings, closingSelector) {
@@ -70866,39 +68632,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Buffers the source Observable values, using a factory function of closing
- * Observables to determine when to close, emit, and reset the buffer.
- *
- * <span class="informal">Collects values from the past as an array. When it
- * starts collecting values, it calls a function that returns an Observable that
- * tells when to close the buffer and restart collecting.</span>
- *
- * <img src="./img/bufferWhen.png" width="100%">
- *
- * Opens a buffer immediately, then closes the buffer when the observable
- * returned by calling `closingSelector` function emits a value. When it closes
- * the buffer, it immediately opens a new buffer and repeats the process.
- *
- * @example <caption>Emit an array of the last clicks every [1-5] random seconds</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var buffered = clicks.bufferWhen(() =>
- *   Rx.Observable.interval(1000 + Math.random() * 4000)
- * );
- * buffered.subscribe(x => console.log(x));
- *
- * @see {@link buffer}
- * @see {@link bufferCount}
- * @see {@link bufferTime}
- * @see {@link bufferToggle}
- * @see {@link windowWhen}
- *
- * @param {function(): Observable} closingSelector A function that takes no
- * arguments and returns an Observable that signals buffer closure.
- * @return {Observable<T[]>} An observable of arrays of buffered values.
- * @method bufferWhen
- * @owner Observable
- */
 function bufferWhen(closingSelector) {
     return function (source) {
         return source.lift(new BufferWhenOperator(closingSelector));
@@ -70913,11 +68646,6 @@ var BufferWhenOperator = /*@__PURE__*/ (function () {
     };
     return BufferWhenOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var BufferWhenSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](BufferWhenSubscriber, _super);
     function BufferWhenSubscriber(destination, closingSelector) {
@@ -70937,7 +68665,6 @@ var BufferWhenSubscriber = /*@__PURE__*/ (function (_super) {
         }
         _super.prototype._complete.call(this);
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     BufferWhenSubscriber.prototype._unsubscribe = function () {
         this.buffer = null;
         this.subscribing = false;
@@ -71017,11 +68744,6 @@ var CatchOperator = /*@__PURE__*/ (function () {
     };
     return CatchOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var CatchSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](CatchSubscriber, _super);
     function CatchSubscriber(destination, selector, caught) {
@@ -71030,11 +68752,6 @@ var CatchSubscriber = /*@__PURE__*/ (function (_super) {
         _this.caught = caught;
         return _this;
     }
-    // NOTE: overriding `error` instead of `_error` because we don't want
-    // to have this flag this subscriber as `isStopped`. We can mimic the
-    // behavior of the RetrySubscriber (from the `retry` operator), where
-    // we unsubscribe from our source chain, reset our Subscriber flags,
-    // then subscribe to the selector result.
     CatchSubscriber.prototype.error = function (err) {
         if (!this.isStopped) {
             var result = void 0;
@@ -71095,10 +68812,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var none = {};
-/* tslint:enable:max-line-length */
-/**
- * @deprecated Deprecated in favor of static combineLatest.
- */
 function combineLatest() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -71108,8 +68821,6 @@ function combineLatest() {
     if (typeof observables[observables.length - 1] === 'function') {
         project = observables.pop();
     }
-    // if the first and only other argument besides the resultSelector is an array
-    // assume it's been called with `combineLatest([obs1, obs2, obs3], project)`
     if (observables.length === 1 && Object(_util_isArray__WEBPACK_IMPORTED_MODULE_0__["isArray"])(observables[0])) {
         observables = observables[0].slice();
     }
@@ -71133,10 +68844,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _observable_concat__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/concat */ "./node_modules/rxjs/_esm5/internal/observable/concat.js");
 /** PURE_IMPORTS_START _observable_concat PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
-/**
- * @deprecated Deprecated in favor of static concat.
- */
 function concat() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -71162,54 +68869,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mergeAll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mergeAll */ "./node_modules/rxjs/_esm5/internal/operators/mergeAll.js");
 /** PURE_IMPORTS_START _mergeAll PURE_IMPORTS_END */
 
-/**
- * Converts a higher-order Observable into a first-order Observable by
- * concatenating the inner Observables in order.
- *
- * <span class="informal">Flattens an Observable-of-Observables by putting one
- * inner Observable after the other.</span>
- *
- * <img src="./img/concatAll.png" width="100%">
- *
- * Joins every Observable emitted by the source (a higher-order Observable), in
- * a serial fashion. It subscribes to each inner Observable only after the
- * previous inner Observable has completed, and merges all of their values into
- * the returned observable.
- *
- * __Warning:__ If the source Observable emits Observables quickly and
- * endlessly, and the inner Observables it emits generally complete slower than
- * the source emits, you can run into memory issues as the incoming Observables
- * collect in an unbounded buffer.
- *
- * Note: `concatAll` is equivalent to `mergeAll` with concurrency parameter set
- * to `1`.
- *
- * @example <caption>For each click event, tick every second from 0 to 3, with no concurrency</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var higherOrder = clicks.map(ev => Rx.Observable.interval(1000).take(4));
- * var firstOrder = higherOrder.concatAll();
- * firstOrder.subscribe(x => console.log(x));
- *
- * // Results in the following:
- * // (results are not concurrent)
- * // For every click on the "document" it will emit values 0 to 3 spaced
- * // on a 1000ms interval
- * // one click = 1000ms-> 0 -1000ms-> 1 -1000ms-> 2 -1000ms-> 3
- *
- * @see {@link combineAll}
- * @see {@link concat}
- * @see {@link concatMap}
- * @see {@link concatMapTo}
- * @see {@link exhaust}
- * @see {@link mergeAll}
- * @see {@link switch}
- * @see {@link zipAll}
- *
- * @return {Observable} An Observable emitting values from all the inner
- * Observables concatenated.
- * @method concatAll
- * @owner Observable
- */
 function concatAll() {
     return Object(_mergeAll__WEBPACK_IMPORTED_MODULE_0__["mergeAll"])(1);
 }
@@ -71231,58 +68890,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mergeMap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mergeMap */ "./node_modules/rxjs/_esm5/internal/operators/mergeMap.js");
 /** PURE_IMPORTS_START _mergeMap PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
-/**
- * Projects each source value to an Observable which is merged in the output
- * Observable, in a serialized fashion waiting for each one to complete before
- * merging the next.
- *
- * <span class="informal">Maps each value to an Observable, then flattens all of
- * these inner Observables using {@link concatAll}.</span>
- *
- * <img src="./img/concatMap.png" width="100%">
- *
- * Returns an Observable that emits items based on applying a function that you
- * supply to each item emitted by the source Observable, where that function
- * returns an (so-called "inner") Observable. Each new inner Observable is
- * concatenated with the previous inner Observable.
- *
- * __Warning:__ if source values arrive endlessly and faster than their
- * corresponding inner Observables can complete, it will result in memory issues
- * as inner Observables amass in an unbounded buffer waiting for their turn to
- * be subscribed to.
- *
- * Note: `concatMap` is equivalent to `mergeMap` with concurrency parameter set
- * to `1`.
- *
- * @example <caption>For each click event, tick every second from 0 to 3, with no concurrency</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.concatMap(ev => Rx.Observable.interval(1000).take(4));
- * result.subscribe(x => console.log(x));
- *
- * // Results in the following:
- * // (results are not concurrent)
- * // For every click on the "document" it will emit values 0 to 3 spaced
- * // on a 1000ms interval
- * // one click = 1000ms-> 0 -1000ms-> 1 -1000ms-> 2 -1000ms-> 3
- *
- * @see {@link concat}
- * @see {@link concatAll}
- * @see {@link concatMapTo}
- * @see {@link exhaustMap}
- * @see {@link mergeMap}
- * @see {@link switchMap}
- *
- * @param {function(value: T, ?index: number): ObservableInput} project A function
- * that, when applied to an item emitted by the source Observable, returns an
- * Observable.
- * @return {Observable} An Observable that emits the result of applying the
- * projection function (and the optional `resultSelector`) to each item emitted
- * by the source Observable and taking values from each projected inner
- * Observable sequentially.
- * @method concatMap
- * @owner Observable
- */
 function concatMap(project, resultSelector) {
     return Object(_mergeMap__WEBPACK_IMPORTED_MODULE_0__["mergeMap"])(project, resultSelector, 1);
 }
@@ -71304,55 +68911,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _concatMap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./concatMap */ "./node_modules/rxjs/_esm5/internal/operators/concatMap.js");
 /** PURE_IMPORTS_START _concatMap PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
-/**
- * Projects each source value to the same Observable which is merged multiple
- * times in a serialized fashion on the output Observable.
- *
- * <span class="informal">It's like {@link concatMap}, but maps each value
- * always to the same inner Observable.</span>
- *
- * <img src="./img/concatMapTo.png" width="100%">
- *
- * Maps each source value to the given Observable `innerObservable` regardless
- * of the source value, and then flattens those resulting Observables into one
- * single Observable, which is the output Observable. Each new `innerObservable`
- * instance emitted on the output Observable is concatenated with the previous
- * `innerObservable` instance.
- *
- * __Warning:__ if source values arrive endlessly and faster than their
- * corresponding inner Observables can complete, it will result in memory issues
- * as inner Observables amass in an unbounded buffer waiting for their turn to
- * be subscribed to.
- *
- * Note: `concatMapTo` is equivalent to `mergeMapTo` with concurrency parameter
- * set to `1`.
- *
- * @example <caption>For each click event, tick every second from 0 to 3, with no concurrency</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.concatMapTo(Rx.Observable.interval(1000).take(4));
- * result.subscribe(x => console.log(x));
- *
- * // Results in the following:
- * // (results are not concurrent)
- * // For every click on the "document" it will emit values 0 to 3 spaced
- * // on a 1000ms interval
- * // one click = 1000ms-> 0 -1000ms-> 1 -1000ms-> 2 -1000ms-> 3
- *
- * @see {@link concat}
- * @see {@link concatAll}
- * @see {@link concatMap}
- * @see {@link mergeMapTo}
- * @see {@link switchMapTo}
- *
- * @param {ObservableInput} innerObservable An Observable to replace each value from
- * the source Observable.
- * @return {Observable} An observable of values merged together by joining the
- * passed observable with itself, one after the other, for each value emitted
- * from the source.
- * @method concatMapTo
- * @owner Observable
- */
 function concatMapTo(innerObservable, resultSelector) {
     return Object(_concatMap__WEBPACK_IMPORTED_MODULE_0__["concatMap"])(function () { return innerObservable; }, resultSelector);
 }
@@ -71376,54 +68934,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Counts the number of emissions on the source and emits that number when the
- * source completes.
- *
- * <span class="informal">Tells how many values were emitted, when the source
- * completes.</span>
- *
- * <img src="./img/count.png" width="100%">
- *
- * `count` transforms an Observable that emits values into an Observable that
- * emits a single value that represents the number of values emitted by the
- * source Observable. If the source Observable terminates with an error, `count`
- * will pass this error notification along without emitting a value first. If
- * the source Observable does not terminate at all, `count` will neither emit
- * a value nor terminate. This operator takes an optional `predicate` function
- * as argument, in which case the output emission will represent the number of
- * source values that matched `true` with the `predicate`.
- *
- * @example <caption>Counts how many seconds have passed before the first click happened</caption>
- * var seconds = Rx.Observable.interval(1000);
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var secondsBeforeClick = seconds.takeUntil(clicks);
- * var result = secondsBeforeClick.count();
- * result.subscribe(x => console.log(x));
- *
- * @example <caption>Counts how many odd numbers are there between 1 and 7</caption>
- * var numbers = Rx.Observable.range(1, 7);
- * var result = numbers.count(i => i % 2 === 1);
- * result.subscribe(x => console.log(x));
- *
- * // Results in:
- * // 4
- *
- * @see {@link max}
- * @see {@link min}
- * @see {@link reduce}
- *
- * @param {function(value: T, i: number, source: Observable<T>): boolean} [predicate] A
- * boolean function to select what values are to be counted. It is provided with
- * arguments of:
- * - `value`: the value from the source Observable.
- * - `index`: the (zero-based) "index" of the value from the source Observable.
- * - `source`: the source Observable instance itself.
- * @return {Observable} An Observable of one number that represents the count as
- * described above.
- * @method count
- * @owner Observable
- */
 function count(predicate) {
     return function (source) { return source.lift(new CountOperator(predicate, source)); };
 }
@@ -71437,11 +68947,6 @@ var CountOperator = /*@__PURE__*/ (function () {
     };
     return CountOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var CountSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](CountSubscriber, _super);
     function CountSubscriber(destination, predicate, source) {
@@ -71501,48 +69006,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits a value from the source Observable only after a particular time span
- * determined by another Observable has passed without another source emission.
- *
- * <span class="informal">It's like {@link debounceTime}, but the time span of
- * emission silence is determined by a second Observable.</span>
- *
- * <img src="./img/debounce.png" width="100%">
- *
- * `debounce` delays values emitted by the source Observable, but drops previous
- * pending delayed emissions if a new value arrives on the source Observable.
- * This operator keeps track of the most recent value from the source
- * Observable, and spawns a duration Observable by calling the
- * `durationSelector` function. The value is emitted only when the duration
- * Observable emits a value or completes, and if no other value was emitted on
- * the source Observable since the duration Observable was spawned. If a new
- * value appears before the duration Observable emits, the previous value will
- * be dropped and will not be emitted on the output Observable.
- *
- * Like {@link debounceTime}, this is a rate-limiting operator, and also a
- * delay-like operator since output emissions do not necessarily occur at the
- * same time as they did on the source Observable.
- *
- * @example <caption>Emit the most recent click after a burst of clicks</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.debounce(() => Rx.Observable.interval(1000));
- * result.subscribe(x => console.log(x));
- *
- * @see {@link audit}
- * @see {@link debounceTime}
- * @see {@link delayWhen}
- * @see {@link throttle}
- *
- * @param {function(value: T): SubscribableOrPromise} durationSelector A function
- * that receives a value from the source Observable, for computing the timeout
- * duration for each source value, returned as an Observable or a Promise.
- * @return {Observable} An Observable that delays the emissions of the source
- * Observable by the specified duration Observable returned by
- * `durationSelector`, and may drop some values if they occur too frequently.
- * @method debounce
- * @owner Observable
- */
 function debounce(durationSelector) {
     return function (source) { return source.lift(new DebounceOperator(durationSelector)); };
 }
@@ -71555,11 +69018,6 @@ var DebounceOperator = /*@__PURE__*/ (function () {
     };
     return DebounceOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var DebounceSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](DebounceSubscriber, _super);
     function DebounceSubscriber(destination, durationSelector) {
@@ -71612,11 +69070,6 @@ var DebounceSubscriber = /*@__PURE__*/ (function (_super) {
                 subscription.unsubscribe();
                 this.remove(subscription);
             }
-            // This must be done *before* passing the value
-            // along to the destination because it's possible for
-            // the value to synchronously re-enter this operator
-            // recursively if the duration selector Observable
-            // emits synchronously
             this.value = null;
             this.hasValue = false;
             _super.prototype._next.call(this, value);
@@ -71646,52 +69099,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits a value from the source Observable only after a particular time span
- * has passed without another source emission.
- *
- * <span class="informal">It's like {@link delay}, but passes only the most
- * recent value from each burst of emissions.</span>
- *
- * <img src="./img/debounceTime.png" width="100%">
- *
- * `debounceTime` delays values emitted by the source Observable, but drops
- * previous pending delayed emissions if a new value arrives on the source
- * Observable. This operator keeps track of the most recent value from the
- * source Observable, and emits that only when `dueTime` enough time has passed
- * without any other value appearing on the source Observable. If a new value
- * appears before `dueTime` silence occurs, the previous value will be dropped
- * and will not be emitted on the output Observable.
- *
- * This is a rate-limiting operator, because it is impossible for more than one
- * value to be emitted in any time window of duration `dueTime`, but it is also
- * a delay-like operator since output emissions do not occur at the same time as
- * they did on the source Observable. Optionally takes a {@link IScheduler} for
- * managing timers.
- *
- * @example <caption>Emit the most recent click after a burst of clicks</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.debounceTime(1000);
- * result.subscribe(x => console.log(x));
- *
- * @see {@link auditTime}
- * @see {@link debounce}
- * @see {@link delay}
- * @see {@link sampleTime}
- * @see {@link throttleTime}
- *
- * @param {number} dueTime The timeout duration in milliseconds (or the time
- * unit determined internally by the optional `scheduler`) for the window of
- * time required to wait for emission silence before emitting the most recent
- * source value.
- * @param {Scheduler} [scheduler=async] The {@link IScheduler} to use for
- * managing the timers that handle the timeout for each value.
- * @return {Observable} An Observable that delays the emissions of the source
- * Observable by the specified `dueTime`, and may drop some values if they occur
- * too frequently.
- * @method debounceTime
- * @owner Observable
- */
 function debounceTime(dueTime, scheduler) {
     if (scheduler === void 0) {
         scheduler = _scheduler_async__WEBPACK_IMPORTED_MODULE_2__["async"];
@@ -71708,11 +69115,6 @@ var DebounceTimeOperator = /*@__PURE__*/ (function () {
     };
     return DebounceTimeOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var DebounceTimeSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](DebounceTimeSubscriber, _super);
     function DebounceTimeSubscriber(destination, dueTime, scheduler) {
@@ -71738,11 +69140,6 @@ var DebounceTimeSubscriber = /*@__PURE__*/ (function (_super) {
         this.clearDebounce();
         if (this.hasValue) {
             var lastValue = this.lastValue;
-            // This must be done *before* passing the value
-            // along to the destination because it's possible for
-            // the value to synchronously re-enter this operator
-            // recursively when scheduled with things like
-            // VirtualScheduler/TestScheduler.
             this.lastValue = null;
             this.hasValue = false;
             this.destination.next(lastValue);
@@ -71781,37 +69178,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/* tslint:enable:max-line-length */
-/**
- * Emits a given value if the source Observable completes without emitting any
- * `next` value, otherwise mirrors the source Observable.
- *
- * <span class="informal">If the source Observable turns out to be empty, then
- * this operator will emit a default value.</span>
- *
- * <img src="./img/defaultIfEmpty.png" width="100%">
- *
- * `defaultIfEmpty` emits the values emitted by the source Observable or a
- * specified default value if the source Observable is empty (completes without
- * having emitted any `next` value).
- *
- * @example <caption>If no clicks happen in 5 seconds, then emit "no clicks"</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var clicksBeforeFive = clicks.takeUntil(Rx.Observable.interval(5000));
- * var result = clicksBeforeFive.defaultIfEmpty('no clicks');
- * result.subscribe(x => console.log(x));
- *
- * @see {@link empty}
- * @see {@link last}
- *
- * @param {any} [defaultValue=null] The default value used if the source
- * Observable is empty.
- * @return {Observable} An Observable that emits either the specified
- * `defaultValue` if the source Observable emits no items, or the values emitted
- * by the source Observable.
- * @method defaultIfEmpty
- * @owner Observable
- */
 function defaultIfEmpty(defaultValue) {
     if (defaultValue === void 0) {
         defaultValue = null;
@@ -71827,11 +69193,6 @@ var DefaultIfEmptyOperator = /*@__PURE__*/ (function () {
     };
     return DefaultIfEmptyOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var DefaultIfEmptySubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](DefaultIfEmptySubscriber, _super);
     function DefaultIfEmptySubscriber(destination, defaultValue) {
@@ -71878,45 +69239,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Delays the emission of items from the source Observable by a given timeout or
- * until a given Date.
- *
- * <span class="informal">Time shifts each item by some specified amount of
- * milliseconds.</span>
- *
- * <img src="./img/delay.png" width="100%">
- *
- * If the delay argument is a Number, this operator time shifts the source
- * Observable by that amount of time expressed in milliseconds. The relative
- * time intervals between the values are preserved.
- *
- * If the delay argument is a Date, this operator time shifts the start of the
- * Observable execution until the given date occurs.
- *
- * @example <caption>Delay each click by one second</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var delayedClicks = clicks.delay(1000); // each click emitted after 1 second
- * delayedClicks.subscribe(x => console.log(x));
- *
- * @example <caption>Delay all clicks until a future date happens</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var date = new Date('March 15, 2050 12:00:00'); // in the future
- * var delayedClicks = clicks.delay(date); // click emitted only after that date
- * delayedClicks.subscribe(x => console.log(x));
- *
- * @see {@link debounceTime}
- * @see {@link delayWhen}
- *
- * @param {number|Date} delay The delay duration in milliseconds (a `number`) or
- * a `Date` until which the emission of the source items is delayed.
- * @param {Scheduler} [scheduler=async] The IScheduler to use for
- * managing the timers that handle the time-shift for each item.
- * @return {Observable} An Observable that delays the emissions of the source
- * Observable by the specified timeout or Date.
- * @method delay
- * @owner Observable
- */
 function delay(delay, scheduler) {
     if (scheduler === void 0) {
         scheduler = _scheduler_async__WEBPACK_IMPORTED_MODULE_1__["async"];
@@ -71935,11 +69257,6 @@ var DelayOperator = /*@__PURE__*/ (function () {
     };
     return DelayOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var DelaySubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](DelaySubscriber, _super);
     function DelaySubscriber(destination, delay, scheduler) {
@@ -72031,51 +69348,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Delays the emission of items from the source Observable by a given time span
- * determined by the emissions of another Observable.
- *
- * <span class="informal">It's like {@link delay}, but the time span of the
- * delay duration is determined by a second Observable.</span>
- *
- * <img src="./img/delayWhen.png" width="100%">
- *
- * `delayWhen` time shifts each emitted value from the source Observable by a
- * time span determined by another Observable. When the source emits a value,
- * the `delayDurationSelector` function is called with the source value as
- * argument, and should return an Observable, called the "duration" Observable.
- * The source value is emitted on the output Observable only when the duration
- * Observable emits a value or completes.
- *
- * Optionally, `delayWhen` takes a second argument, `subscriptionDelay`, which
- * is an Observable. When `subscriptionDelay` emits its first value or
- * completes, the source Observable is subscribed to and starts behaving like
- * described in the previous paragraph. If `subscriptionDelay` is not provided,
- * `delayWhen` will subscribe to the source Observable as soon as the output
- * Observable is subscribed.
- *
- * @example <caption>Delay each click by a random amount of time, between 0 and 5 seconds</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var delayedClicks = clicks.delayWhen(event =>
- *   Rx.Observable.interval(Math.random() * 5000)
- * );
- * delayedClicks.subscribe(x => console.log(x));
- *
- * @see {@link debounce}
- * @see {@link delay}
- *
- * @param {function(value: T): Observable} delayDurationSelector A function that
- * returns an Observable for each value emitted by the source Observable, which
- * is then used to delay the emission of that item on the output Observable
- * until the Observable returned from this function emits a value.
- * @param {Observable} subscriptionDelay An Observable that triggers the
- * subscription to the source Observable once it emits any value.
- * @return {Observable} An Observable that delays the emissions of the source
- * Observable by an amount of time specified by the Observable returned by
- * `delayDurationSelector`.
- * @method delayWhen
- * @owner Observable
- */
 function delayWhen(delayDurationSelector, subscriptionDelay) {
     if (subscriptionDelay) {
         return function (source) {
@@ -72094,11 +69366,6 @@ var DelayWhenOperator = /*@__PURE__*/ (function () {
     };
     return DelayWhenOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var DelayWhenSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](DelayWhenSubscriber, _super);
     function DelayWhenSubscriber(destination, delayDurationSelector) {
@@ -72106,7 +69373,6 @@ var DelayWhenSubscriber = /*@__PURE__*/ (function (_super) {
         _this.delayDurationSelector = delayDurationSelector;
         _this.completed = false;
         _this.delayNotifierSubscriptions = [];
-        _this.values = [];
         return _this;
     }
     DelayWhenSubscriber.prototype.notifyNext = function (outerValue, innerValue, outerIndex, innerIndex, innerSub) {
@@ -72142,13 +69408,10 @@ var DelayWhenSubscriber = /*@__PURE__*/ (function (_super) {
     DelayWhenSubscriber.prototype.removeSubscription = function (subscription) {
         subscription.unsubscribe();
         var subscriptionIdx = this.delayNotifierSubscriptions.indexOf(subscription);
-        var value = null;
         if (subscriptionIdx !== -1) {
-            value = this.values[subscriptionIdx];
             this.delayNotifierSubscriptions.splice(subscriptionIdx, 1);
-            this.values.splice(subscriptionIdx, 1);
         }
-        return value;
+        return subscription.outerValue;
     };
     DelayWhenSubscriber.prototype.tryDelay = function (delayNotifier, value) {
         var notifierSubscription = Object(_util_subscribeToResult__WEBPACK_IMPORTED_MODULE_4__["subscribeToResult"])(this, delayNotifier, value);
@@ -72156,7 +69419,6 @@ var DelayWhenSubscriber = /*@__PURE__*/ (function (_super) {
             this.add(notifierSubscription);
             this.delayNotifierSubscriptions.push(notifierSubscription);
         }
-        this.values.push(value);
     };
     DelayWhenSubscriber.prototype.tryComplete = function () {
         if (this.completed && this.delayNotifierSubscriptions.length === 0) {
@@ -72165,11 +69427,6 @@ var DelayWhenSubscriber = /*@__PURE__*/ (function (_super) {
     };
     return DelayWhenSubscriber;
 }(_OuterSubscriber__WEBPACK_IMPORTED_MODULE_3__["OuterSubscriber"]));
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SubscriptionDelayObservable = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SubscriptionDelayObservable, _super);
     function SubscriptionDelayObservable(source, subscriptionDelay) {
@@ -72178,17 +69435,11 @@ var SubscriptionDelayObservable = /*@__PURE__*/ (function (_super) {
         _this.subscriptionDelay = subscriptionDelay;
         return _this;
     }
-    /** @deprecated This is an internal implementation detail, do not use. */
     SubscriptionDelayObservable.prototype._subscribe = function (subscriber) {
         this.subscriptionDelay.subscribe(new SubscriptionDelaySubscriber(subscriber, this.source));
     };
     return SubscriptionDelayObservable;
 }(_Observable__WEBPACK_IMPORTED_MODULE_2__["Observable"]));
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SubscriptionDelaySubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SubscriptionDelaySubscriber, _super);
     function SubscriptionDelaySubscriber(parent, source) {
@@ -72237,46 +69488,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Converts an Observable of {@link Notification} objects into the emissions
- * that they represent.
- *
- * <span class="informal">Unwraps {@link Notification} objects as actual `next`,
- * `error` and `complete` emissions. The opposite of {@link materialize}.</span>
- *
- * <img src="./img/dematerialize.png" width="100%">
- *
- * `dematerialize` is assumed to operate an Observable that only emits
- * {@link Notification} objects as `next` emissions, and does not emit any
- * `error`. Such Observable is the output of a `materialize` operation. Those
- * notifications are then unwrapped using the metadata they contain, and emitted
- * as `next`, `error`, and `complete` on the output Observable.
- *
- * Use this operator in conjunction with {@link materialize}.
- *
- * @example <caption>Convert an Observable of Notifications to an actual Observable</caption>
- * var notifA = new Rx.Notification('N', 'A');
- * var notifB = new Rx.Notification('N', 'B');
- * var notifE = new Rx.Notification('E', void 0,
- *   new TypeError('x.toUpperCase is not a function')
- * );
- * var materialized = Rx.Observable.of(notifA, notifB, notifE);
- * var upperCase = materialized.dematerialize();
- * upperCase.subscribe(x => console.log(x), e => console.error(e));
- *
- * // Results in:
- * // A
- * // B
- * // TypeError: x.toUpperCase is not a function
- *
- * @see {@link Notification}
- * @see {@link materialize}
- *
- * @return {Observable} An Observable that emits items and notifications
- * embedded in Notification objects emitted by the source Observable.
- * @method dematerialize
- * @owner Observable
- */
 function dematerialize() {
     return function dematerializeOperatorFunction(source) {
         return source.lift(new DeMaterializeOperator());
@@ -72290,11 +69501,6 @@ var DeMaterializeOperator = /*@__PURE__*/ (function () {
     };
     return DeMaterializeOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var DeMaterializeSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](DeMaterializeSubscriber, _super);
     function DeMaterializeSubscriber(destination) {
@@ -72328,51 +69534,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Returns an Observable that emits all items emitted by the source Observable that are distinct by comparison from previous items.
- *
- * If a keySelector function is provided, then it will project each value from the source observable into a new value that it will
- * check for equality with previously projected values. If a keySelector function is not provided, it will use each value from the
- * source observable directly with an equality check against previous values.
- *
- * In JavaScript runtimes that support `Set`, this operator will use a `Set` to improve performance of the distinct value checking.
- *
- * In other runtimes, this operator will use a minimal implementation of `Set` that relies on an `Array` and `indexOf` under the
- * hood, so performance will degrade as more values are checked for distinction. Even in newer browsers, a long-running `distinct`
- * use might result in memory leaks. To help alleviate this in some scenarios, an optional `flushes` parameter is also provided so
- * that the internal `Set` can be "flushed", basically clearing it of values.
- *
- * @example <caption>A simple example with numbers</caption>
- * Observable.of(1, 1, 2, 2, 2, 1, 2, 3, 4, 3, 2, 1)
- *   .distinct()
- *   .subscribe(x => console.log(x)); // 1, 2, 3, 4
- *
- * @example <caption>An example using a keySelector function</caption>
- * interface Person {
- *    age: number,
- *    name: string
- * }
- *
- * Observable.of<Person>(
- *     { age: 4, name: 'Foo'},
- *     { age: 7, name: 'Bar'},
- *     { age: 5, name: 'Foo'})
- *     .distinct((p: Person) => p.name)
- *     .subscribe(x => console.log(x));
- *
- * // displays:
- * // { age: 4, name: 'Foo' }
- * // { age: 7, name: 'Bar' }
- *
- * @see {@link distinctUntilChanged}
- * @see {@link distinctUntilKeyChanged}
- *
- * @param {function} [keySelector] Optional function to select which value you want to check as distinct.
- * @param {Observable} [flushes] Optional Observable for flushing the internal HashSet of the operator.
- * @return {Observable} An Observable that emits items from the source Observable with distinct values.
- * @method distinct
- * @owner Observable
- */
 function distinct(keySelector, flushes) {
     return function (source) { return source.lift(new DistinctOperator(keySelector, flushes)); };
 }
@@ -72386,11 +69547,6 @@ var DistinctOperator = /*@__PURE__*/ (function () {
     };
     return DistinctOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var DistinctSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](DistinctSubscriber, _super);
     function DistinctSubscriber(destination, keySelector, flushes) {
@@ -72462,46 +69618,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Returns an Observable that emits all items emitted by the source Observable that are distinct by comparison from the previous item.
- *
- * If a comparator function is provided, then it will be called for each item to test for whether or not that value should be emitted.
- *
- * If a comparator function is not provided, an equality check is used by default.
- *
- * @example <caption>A simple example with numbers</caption>
- * Observable.of(1, 1, 2, 2, 2, 1, 1, 2, 3, 3, 4)
- *   .distinctUntilChanged()
- *   .subscribe(x => console.log(x)); // 1, 2, 1, 2, 3, 4
- *
- * @example <caption>An example using a compare function</caption>
- * interface Person {
- *    age: number,
- *    name: string
- * }
- *
- * Observable.of<Person>(
- *     { age: 4, name: 'Foo'},
- *     { age: 7, name: 'Bar'},
- *     { age: 5, name: 'Foo'})
- *     { age: 6, name: 'Foo'})
- *     .distinctUntilChanged((p: Person, q: Person) => p.name === q.name)
- *     .subscribe(x => console.log(x));
- *
- * // displays:
- * // { age: 4, name: 'Foo' }
- * // { age: 7, name: 'Bar' }
- * // { age: 5, name: 'Foo' }
- *
- * @see {@link distinct}
- * @see {@link distinctUntilKeyChanged}
- *
- * @param {function} [compare] Optional comparison function called to test if an item is distinct from the previous item in the source.
- * @return {Observable} An Observable that emits items from the source Observable with distinct values.
- * @method distinctUntilChanged
- * @owner Observable
- */
 function distinctUntilChanged(compare, keySelector) {
     return function (source) { return source.lift(new DistinctUntilChangedOperator(compare, keySelector)); };
 }
@@ -72515,11 +69631,6 @@ var DistinctUntilChangedOperator = /*@__PURE__*/ (function () {
     };
     return DistinctUntilChangedOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var DistinctUntilChangedSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](DistinctUntilChangedSubscriber, _super);
     function DistinctUntilChangedSubscriber(destination, compare, keySelector) {
@@ -72578,64 +69689,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _distinctUntilChanged__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./distinctUntilChanged */ "./node_modules/rxjs/_esm5/internal/operators/distinctUntilChanged.js");
 /** PURE_IMPORTS_START _distinctUntilChanged PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
-/**
- * Returns an Observable that emits all items emitted by the source Observable that are distinct by comparison from the previous item,
- * using a property accessed by using the key provided to check if the two items are distinct.
- *
- * If a comparator function is provided, then it will be called for each item to test for whether or not that value should be emitted.
- *
- * If a comparator function is not provided, an equality check is used by default.
- *
- * @example <caption>An example comparing the name of persons</caption>
- *
- *  interface Person {
- *     age: number,
- *     name: string
- *  }
- *
- * Observable.of<Person>(
- *     { age: 4, name: 'Foo'},
- *     { age: 7, name: 'Bar'},
- *     { age: 5, name: 'Foo'},
- *     { age: 6, name: 'Foo'})
- *     .distinctUntilKeyChanged('name')
- *     .subscribe(x => console.log(x));
- *
- * // displays:
- * // { age: 4, name: 'Foo' }
- * // { age: 7, name: 'Bar' }
- * // { age: 5, name: 'Foo' }
- *
- * @example <caption>An example comparing the first letters of the name</caption>
- *
- * interface Person {
- *     age: number,
- *     name: string
- *  }
- *
- * Observable.of<Person>(
- *     { age: 4, name: 'Foo1'},
- *     { age: 7, name: 'Bar'},
- *     { age: 5, name: 'Foo2'},
- *     { age: 6, name: 'Foo3'})
- *     .distinctUntilKeyChanged('name', (x: string, y: string) => x.substring(0, 3) === y.substring(0, 3))
- *     .subscribe(x => console.log(x));
- *
- * // displays:
- * // { age: 4, name: 'Foo1' }
- * // { age: 7, name: 'Bar' }
- * // { age: 5, name: 'Foo2' }
- *
- * @see {@link distinct}
- * @see {@link distinctUntilChanged}
- *
- * @param {string} key String key for object property lookup on each item.
- * @param {function} [compare] Optional comparison function called to test if an item is distinct from the previous item in the source.
- * @return {Observable} An Observable that emits items from the source Observable with distinct values based on the key specified.
- * @method distinctUntilKeyChanged
- * @owner Observable
- */
 function distinctUntilKeyChanged(key, compare) {
     return Object(_distinctUntilChanged__WEBPACK_IMPORTED_MODULE_0__["distinctUntilChanged"])(function (x, y) { return compare ? compare(x[key], y[key]) : x[key] === y[key]; });
 }
@@ -72665,48 +69718,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits the single value at the specified `index` in a sequence of emissions
- * from the source Observable.
- *
- * <span class="informal">Emits only the i-th value, then completes.</span>
- *
- * <img src="./img/elementAt.png" width="100%">
- *
- * `elementAt` returns an Observable that emits the item at the specified
- * `index` in the source Observable, or a default value if that `index` is out
- * of range and the `default` argument is provided. If the `default` argument is
- * not given and the `index` is out of range, the output Observable will emit an
- * `ArgumentOutOfRangeError` error.
- *
- * @example <caption>Emit only the third click event</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.elementAt(2);
- * result.subscribe(x => console.log(x));
- *
- * // Results in:
- * // click 1 = nothing
- * // click 2 = nothing
- * // click 3 = MouseEvent object logged to console
- *
- * @see {@link first}
- * @see {@link last}
- * @see {@link skip}
- * @see {@link single}
- * @see {@link take}
- *
- * @throws {ArgumentOutOfRangeError} When using `elementAt(i)`, it delivers an
- * ArgumentOutOrRangeError to the Observer's `error` callback if `i < 0` or the
- * Observable has completed before emitting the i-th `next` notification.
- *
- * @param {number} index Is the number `i` for the i-th source emission that has
- * happened since the subscription, starting from the number `0`.
- * @param {T} [defaultValue] The default value returned for missing indices.
- * @return {Observable} An Observable that emits a single item, if it is found.
- * Otherwise, will emit the default value if given. If not, then emits an error.
- * @method elementAt
- * @owner Observable
- */
 function elementAt(index, defaultValue) {
     if (index < 0) {
         throw new _util_ArgumentOutOfRangeError__WEBPACK_IMPORTED_MODULE_0__["ArgumentOutOfRangeError"]();
@@ -72744,19 +69755,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Returns an Observable that emits the items you specify as arguments after it finishes emitting
- * items emitted by the source Observable.
- *
- * @param {...T} values - Items you want the modified Observable to emit last.
- * @param {Scheduler} [scheduler] - A {@link IScheduler} to use for scheduling
- * the emissions of the `next` notifications.
- * @return {Observable} An Observable that emits the items emitted by the source Observable
- *  and then emits the items in the specified Iterable.
- * @method endWith
- * @owner Observable
- */
 function endWith() {
     var array = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -72802,20 +69800,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Returns an Observable that emits whether or not every item of the source satisfies the condition specified.
- *
- * @example <caption>A simple example emitting true if all elements are less than 5, false otherwise</caption>
- *  Observable.of(1, 2, 3, 4, 5, 6)
- *     .every(x => x < 5)
- *     .subscribe(x => console.log(x)); // -> false
- *
- * @param {function} predicate A function for determining if an item meets a specified condition.
- * @param {any} [thisArg] Optional object to use for `this` in the callback.
- * @return {Observable} An Observable of booleans that determines if all items of the source Observable meet the condition specified.
- * @method every
- * @owner Observable
- */
 function every(predicate, thisArg) {
     return function (source) { return source.lift(new EveryOperator(predicate, thisArg, source)); };
 }
@@ -72830,11 +69814,6 @@ var EveryOperator = /*@__PURE__*/ (function () {
     };
     return EveryOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var EverySubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](EverySubscriber, _super);
     function EverySubscriber(destination, predicate, thisArg, source) {
@@ -72890,41 +69869,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Converts a higher-order Observable into a first-order Observable by dropping
- * inner Observables while the previous inner Observable has not yet completed.
- *
- * <span class="informal">Flattens an Observable-of-Observables by dropping the
- * next inner Observables while the current inner is still executing.</span>
- *
- * <img src="./img/exhaust.png" width="100%">
- *
- * `exhaust` subscribes to an Observable that emits Observables, also known as a
- * higher-order Observable. Each time it observes one of these emitted inner
- * Observables, the output Observable begins emitting the items emitted by that
- * inner Observable. So far, it behaves like {@link mergeAll}. However,
- * `exhaust` ignores every new inner Observable if the previous Observable has
- * not yet completed. Once that one completes, it will accept and flatten the
- * next inner Observable and repeat this process.
- *
- * @example <caption>Run a finite timer for each click, only if there is no currently active timer</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var higherOrder = clicks.map((ev) => Rx.Observable.interval(1000).take(5));
- * var result = higherOrder.exhaust();
- * result.subscribe(x => console.log(x));
- *
- * @see {@link combineAll}
- * @see {@link concatAll}
- * @see {@link switch}
- * @see {@link mergeAll}
- * @see {@link exhaustMap}
- * @see {@link zipAll}
- *
- * @return {Observable} An Observable that takes a source of Observables and propagates the first observable
- * exclusively until it completes before subscribing to the next.
- * @method exhaust
- * @owner Observable
- */
 function exhaust() {
     return function (source) { return source.lift(new SwitchFirstOperator()); };
 }
@@ -72936,11 +69880,6 @@ var SwitchFirstOperator = /*@__PURE__*/ (function () {
     };
     return SwitchFirstOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SwitchFirstSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SwitchFirstSubscriber, _super);
     function SwitchFirstSubscriber(destination) {
@@ -72996,47 +69935,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Projects each source value to an Observable which is merged in the output
- * Observable only if the previous projected Observable has completed.
- *
- * <span class="informal">Maps each value to an Observable, then flattens all of
- * these inner Observables using {@link exhaust}.</span>
- *
- * <img src="./img/exhaustMap.png" width="100%">
- *
- * Returns an Observable that emits items based on applying a function that you
- * supply to each item emitted by the source Observable, where that function
- * returns an (so-called "inner") Observable. When it projects a source value to
- * an Observable, the output Observable begins emitting the items emitted by
- * that projected Observable. However, `exhaustMap` ignores every new projected
- * Observable if the previous projected Observable has not yet completed. Once
- * that one completes, it will accept and flatten the next projected Observable
- * and repeat this process.
- *
- * @example <caption>Run a finite timer for each click, only if there is no currently active timer</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.exhaustMap((ev) => Rx.Observable.interval(1000).take(5));
- * result.subscribe(x => console.log(x));
- *
- * @see {@link concatMap}
- * @see {@link exhaust}
- * @see {@link mergeMap}
- * @see {@link switchMap}
- *
- * @param {function(value: T, ?index: number): ObservableInput} project A function
- * that, when applied to an item emitted by the source Observable, returns an
- * Observable.
- * @return {Observable} An Observable containing projected Observables
- * of each item of the source, ignoring projected Observables that start before
- * their preceding Observable has completed.
- * @method exhaustMap
- * @owner Observable
- */
 function exhaustMap(project, resultSelector) {
     if (resultSelector) {
-        // DEPRECATED PATH
         return function (source) { return source.pipe(exhaustMap(function (a, i) { return Object(_observable_from__WEBPACK_IMPORTED_MODULE_4__["from"])(project(a, i)).pipe(Object(_map__WEBPACK_IMPORTED_MODULE_3__["map"])(function (b, ii) { return resultSelector(a, b, i, ii); })); })); };
     }
     return function (source) {
@@ -73052,11 +69952,6 @@ var ExhauseMapOperator = /*@__PURE__*/ (function () {
     };
     return ExhauseMapOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var ExhaustMapSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ExhaustMapSubscriber, _super);
     function ExhaustMapSubscriber(destination, project) {
@@ -73133,52 +70028,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Recursively projects each source value to an Observable which is merged in
- * the output Observable.
- *
- * <span class="informal">It's similar to {@link mergeMap}, but applies the
- * projection function to every source value as well as every output value.
- * It's recursive.</span>
- *
- * <img src="./img/expand.png" width="100%">
- *
- * Returns an Observable that emits items based on applying a function that you
- * supply to each item emitted by the source Observable, where that function
- * returns an Observable, and then merging those resulting Observables and
- * emitting the results of this merger. *Expand* will re-emit on the output
- * Observable every source value. Then, each output value is given to the
- * `project` function which returns an inner Observable to be merged on the
- * output Observable. Those output values resulting from the projection are also
- * given to the `project` function to produce new output values. This is how
- * *expand* behaves recursively.
- *
- * @example <caption>Start emitting the powers of two on every click, at most 10 of them</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var powersOfTwo = clicks
- *   .mapTo(1)
- *   .expand(x => Rx.Observable.of(2 * x).delay(1000))
- *   .take(10);
- * powersOfTwo.subscribe(x => console.log(x));
- *
- * @see {@link mergeMap}
- * @see {@link mergeScan}
- *
- * @param {function(value: T, index: number) => Observable} project A function
- * that, when applied to an item emitted by the source or the output Observable,
- * returns an Observable.
- * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of input
- * Observables being subscribed to concurrently.
- * @param {Scheduler} [scheduler=null] The IScheduler to use for subscribing to
- * each projected inner Observable.
- * @return {Observable} An Observable that emits the source values and also
- * result of applying the projection function to each value emitted on the
- * output Observable and and merging the results of the Observables obtained
- * from this transformation.
- * @method expand
- * @owner Observable
- */
 function expand(project, concurrent, scheduler) {
     if (concurrent === void 0) {
         concurrent = Number.POSITIVE_INFINITY;
@@ -73201,11 +70050,6 @@ var ExpandOperator = /*@__PURE__*/ (function () {
     return ExpandOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var ExpandSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ExpandSubscriber, _super);
     function ExpandSubscriber(destination, project, concurrent, scheduler) {
@@ -73297,46 +70141,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/* tslint:enable:max-line-length */
-/**
- * Filter items emitted by the source Observable by only emitting those that
- * satisfy a specified predicate.
- *
- * <span class="informal">Like
- * [Array.prototype.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter),
- * it only emits a value from the source if it passes a criterion function.</span>
- *
- * <img src="./img/filter.png" width="100%">
- *
- * Similar to the well-known `Array.prototype.filter` method, this operator
- * takes values from the source Observable, passes them through a `predicate`
- * function and only emits those values that yielded `true`.
- *
- * @example <caption>Emit only click events whose target was a DIV element</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var clicksOnDivs = clicks.filter(ev => ev.target.tagName === 'DIV');
- * clicksOnDivs.subscribe(x => console.log(x));
- *
- * @see {@link distinct}
- * @see {@link distinctUntilChanged}
- * @see {@link distinctUntilKeyChanged}
- * @see {@link ignoreElements}
- * @see {@link partition}
- * @see {@link skip}
- *
- * @param {function(value: T, index: number): boolean} predicate A function that
- * evaluates each value emitted by the source Observable. If it returns `true`,
- * the value is emitted, if `false` the value is not passed to the output
- * Observable. The `index` parameter is the number `i` for the i-th source
- * emission that has happened since the subscription, starting from the number
- * `0`.
- * @param {any} [thisArg] An optional argument to determine the value of `this`
- * in the `predicate` function.
- * @return {Observable} An Observable of values from the source that were
- * allowed by the `predicate` function.
- * @method filter
- * @owner Observable
- */
 function filter(predicate, thisArg) {
     return function filterOperatorFunction(source) {
         return source.lift(new FilterOperator(predicate, thisArg));
@@ -73352,11 +70156,6 @@ var FilterOperator = /*@__PURE__*/ (function () {
     };
     return FilterOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var FilterSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](FilterSubscriber, _super);
     function FilterSubscriber(destination, predicate, thisArg) {
@@ -73366,8 +70165,6 @@ var FilterSubscriber = /*@__PURE__*/ (function (_super) {
         _this.count = 0;
         return _this;
     }
-    // the try catch block below is left specifically for
-    // optimization and perf reasons. a tryCatcher is not necessary here.
     FilterSubscriber.prototype._next = function (value) {
         var result;
         try {
@@ -73405,14 +70202,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Returns an Observable that mirrors the source Observable, but will call a specified function when
- * the source terminates on complete or error.
- * @param {function} callback Function to be called when source terminates.
- * @return {Observable} An Observable that mirrors the source, but will call the specified function on termination.
- * @method finally
- * @owner Observable
- */
 function finalize(callback) {
     return function (source) { return source.lift(new FinallyOperator(callback)); };
 }
@@ -73425,11 +70214,6 @@ var FinallyOperator = /*@__PURE__*/ (function () {
     };
     return FinallyOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var FinallySubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](FinallySubscriber, _super);
     function FinallySubscriber(destination, callback) {
@@ -73461,39 +70245,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Emits only the first value emitted by the source Observable that meets some
- * condition.
- *
- * <span class="informal">Finds the first value that passes some test and emits
- * that.</span>
- *
- * <img src="./img/find.png" width="100%">
- *
- * `find` searches for the first item in the source Observable that matches the
- * specified condition embodied by the `predicate`, and returns the first
- * occurrence in the source. Unlike {@link first}, the `predicate` is required
- * in `find`, and does not emit an error if a valid value is not found.
- *
- * @example <caption>Find and emit the first click that happens on a DIV element</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.find(ev => ev.target.tagName === 'DIV');
- * result.subscribe(x => console.log(x));
- *
- * @see {@link filter}
- * @see {@link first}
- * @see {@link findIndex}
- * @see {@link take}
- *
- * @param {function(value: T, index: number, source: Observable<T>): boolean} predicate
- * A function called with each item to test for condition matching.
- * @param {any} [thisArg] An optional argument to determine the value of `this`
- * in the `predicate` function.
- * @return {Observable<T>} An Observable of the first item that matches the
- * condition.
- * @method find
- * @owner Observable
- */
 function find(predicate, thisArg) {
     if (typeof predicate !== 'function') {
         throw new TypeError('predicate is not a function');
@@ -73513,11 +70264,6 @@ var FindValueOperator = /*@__PURE__*/ (function () {
     return FindValueOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var FindValueSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](FindValueSubscriber, _super);
     function FindValueSubscriber(destination, predicate, source, yieldIndex, thisArg) {
@@ -73571,40 +70317,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _operators_find__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../operators/find */ "./node_modules/rxjs/_esm5/internal/operators/find.js");
 /** PURE_IMPORTS_START _operators_find PURE_IMPORTS_END */
 
-/**
- * Emits only the index of the first value emitted by the source Observable that
- * meets some condition.
- *
- * <span class="informal">It's like {@link find}, but emits the index of the
- * found value, not the value itself.</span>
- *
- * <img src="./img/findIndex.png" width="100%">
- *
- * `findIndex` searches for the first item in the source Observable that matches
- * the specified condition embodied by the `predicate`, and returns the
- * (zero-based) index of the first occurrence in the source. Unlike
- * {@link first}, the `predicate` is required in `findIndex`, and does not emit
- * an error if a valid value is not found.
- *
- * @example <caption>Emit the index of first click that happens on a DIV element</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.findIndex(ev => ev.target.tagName === 'DIV');
- * result.subscribe(x => console.log(x));
- *
- * @see {@link filter}
- * @see {@link find}
- * @see {@link first}
- * @see {@link take}
- *
- * @param {function(value: T, index: number, source: Observable<T>): boolean} predicate
- * A function called with each item to test for condition matching.
- * @param {any} [thisArg] An optional argument to determine the value of `this`
- * in the `predicate` function.
- * @return {Observable} An Observable of the index of the first item that
- * matches the condition.
- * @method find
- * @owner Observable
- */
 function findIndex(predicate, thisArg) {
     return function (source) { return source.lift(new _operators_find__WEBPACK_IMPORTED_MODULE_0__["FindValueOperator"](predicate, source, true, thisArg)); };
 }
@@ -73636,49 +70348,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits only the first value (or the first value that meets some condition)
- * emitted by the source Observable.
- *
- * <span class="informal">Emits only the first value. Or emits only the first
- * value that passes some test.</span>
- *
- * <img src="./img/first.png" width="100%">
- *
- * If called with no arguments, `first` emits the first value of the source
- * Observable, then completes. If called with a `predicate` function, `first`
- * emits the first value of the source that matches the specified condition. It
- * may also take a `resultSelector` function to produce the output value from
- * the input value, and a `defaultValue` to emit in case the source completes
- * before it is able to emit a valid value. Throws an error if `defaultValue`
- * was not provided and a matching element is not found.
- *
- * @example <caption>Emit only the first click that happens on the DOM</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.first();
- * result.subscribe(x => console.log(x));
- *
- * @example <caption>Emits the first click that happens on a DIV</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.first(ev => ev.target.tagName === 'DIV');
- * result.subscribe(x => console.log(x));
- *
- * @see {@link filter}
- * @see {@link find}
- * @see {@link take}
- *
- * @throws {EmptyError} Delivers an EmptyError to the Observer's `error`
- * callback if the Observable completes before any `next` notification was sent.
- *
- * @param {function(value: T, index: number, source: Observable<T>): boolean} [predicate]
- * An optional function called with each item to test for condition matching.
- * @param {R} [defaultValue] The default value emitted in case no valid value
- * was found on the source.
- * @return {Observable<T|R>} An Observable of the first item that matches the
- * condition.
- * @method first
- * @owner Observable
- */
 function first(predicate, defaultValue) {
     var hasDefaultValue = arguments.length >= 2;
     return function (source) { return source.pipe(predicate ? Object(_filter__WEBPACK_IMPORTED_MODULE_1__["filter"])(function (v, i) { return predicate(v, i, source); }) : _util_identity__WEBPACK_IMPORTED_MODULE_5__["identity"], Object(_take__WEBPACK_IMPORTED_MODULE_2__["take"])(1), hasDefaultValue ? Object(_defaultIfEmpty__WEBPACK_IMPORTED_MODULE_3__["defaultIfEmpty"])(defaultValue) : Object(_throwIfEmpty__WEBPACK_IMPORTED_MODULE_4__["throwIfEmpty"])(function () { return new _util_EmptyError__WEBPACK_IMPORTED_MODULE_0__["EmptyError"](); })); };
@@ -73710,74 +70379,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Groups the items emitted by an Observable according to a specified criterion,
- * and emits these grouped items as `GroupedObservables`, one
- * {@link GroupedObservable} per group.
- *
- * <img src="./img/groupBy.png" width="100%">
- *
- * @example <caption>Group objects by id and return as array</caption>
- * Observable.of<Obj>({id: 1, name: 'aze1'},
- *                    {id: 2, name: 'sf2'},
- *                    {id: 2, name: 'dg2'},
- *                    {id: 1, name: 'erg1'},
- *                    {id: 1, name: 'df1'},
- *                    {id: 2, name: 'sfqfb2'},
- *                    {id: 3, name: 'qfs3'},
- *                    {id: 2, name: 'qsgqsfg2'}
- *     )
- *     .groupBy(p => p.id)
- *     .flatMap( (group$) => group$.reduce((acc, cur) => [...acc, cur], []))
- *     .subscribe(p => console.log(p));
- *
- * // displays:
- * // [ { id: 1, name: 'aze1' },
- * //   { id: 1, name: 'erg1' },
- * //   { id: 1, name: 'df1' } ]
- * //
- * // [ { id: 2, name: 'sf2' },
- * //   { id: 2, name: 'dg2' },
- * //   { id: 2, name: 'sfqfb2' },
- * //   { id: 2, name: 'qsgqsfg2' } ]
- * //
- * // [ { id: 3, name: 'qfs3' } ]
- *
- * @example <caption>Pivot data on the id field</caption>
- * Observable.of<Obj>({id: 1, name: 'aze1'},
- *                    {id: 2, name: 'sf2'},
- *                    {id: 2, name: 'dg2'},
- *                    {id: 1, name: 'erg1'},
- *                    {id: 1, name: 'df1'},
- *                    {id: 2, name: 'sfqfb2'},
- *                    {id: 3, name: 'qfs1'},
- *                    {id: 2, name: 'qsgqsfg2'}
- *                   )
- *     .groupBy(p => p.id, p => p.name)
- *     .flatMap( (group$) => group$.reduce((acc, cur) => [...acc, cur], ["" + group$.key]))
- *     .map(arr => ({'id': parseInt(arr[0]), 'values': arr.slice(1)}))
- *     .subscribe(p => console.log(p));
- *
- * // displays:
- * // { id: 1, values: [ 'aze1', 'erg1', 'df1' ] }
- * // { id: 2, values: [ 'sf2', 'dg2', 'sfqfb2', 'qsgqsfg2' ] }
- * // { id: 3, values: [ 'qfs1' ] }
- *
- * @param {function(value: T): K} keySelector A function that extracts the key
- * for each item.
- * @param {function(value: T): R} [elementSelector] A function that extracts the
- * return element for each item.
- * @param {function(grouped: GroupedObservable<K,R>): Observable<any>} [durationSelector]
- * A function that returns an Observable to determine how long each group should
- * exist.
- * @return {Observable<GroupedObservable<K,R>>} An Observable that emits
- * GroupedObservables, each of which corresponds to a unique key value and each
- * of which emits those items from the source Observable that share that key
- * value.
- * @method groupBy
- * @owner Observable
- */
 function groupBy(keySelector, elementSelector, durationSelector, subjectSelector) {
     return function (source) {
         return source.lift(new GroupByOperator(keySelector, elementSelector, durationSelector, subjectSelector));
@@ -73795,11 +70396,6 @@ var GroupByOperator = /*@__PURE__*/ (function () {
     };
     return GroupByOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var GroupBySubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](GroupBySubscriber, _super);
     function GroupBySubscriber(destination, keySelector, elementSelector, durationSelector, subjectSelector) {
@@ -73896,11 +70492,6 @@ var GroupBySubscriber = /*@__PURE__*/ (function (_super) {
     };
     return GroupBySubscriber;
 }(_Subscriber__WEBPACK_IMPORTED_MODULE_1__["Subscriber"]));
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var GroupDurationSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](GroupDurationSubscriber, _super);
     function GroupDurationSubscriber(key, group, parent) {
@@ -73913,7 +70504,6 @@ var GroupDurationSubscriber = /*@__PURE__*/ (function (_super) {
     GroupDurationSubscriber.prototype._next = function (value) {
         this.complete();
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     GroupDurationSubscriber.prototype._unsubscribe = function () {
         var _a = this, parent = _a.parent, key = _a.key;
         this.key = this.parent = null;
@@ -73923,17 +70513,8 @@ var GroupDurationSubscriber = /*@__PURE__*/ (function (_super) {
     };
     return GroupDurationSubscriber;
 }(_Subscriber__WEBPACK_IMPORTED_MODULE_1__["Subscriber"]));
-/**
- * An Observable representing values belonging to the same group represented by
- * a common key. The values emitted by a GroupedObservable come from the source
- * Observable. The common key is available as the field `key` on a
- * GroupedObservable instance.
- *
- * @class GroupedObservable<K, T>
- */
 var GroupedObservable = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](GroupedObservable, _super);
-    /** @deprecated Do not construct this type. Internal use only */
     function GroupedObservable(key, groupSubject, refCountSubscription) {
         var _this = _super.call(this) || this;
         _this.key = key;
@@ -73941,7 +70522,6 @@ var GroupedObservable = /*@__PURE__*/ (function (_super) {
         _this.refCountSubscription = refCountSubscription;
         return _this;
     }
-    /** @deprecated This is an internal implementation detail, do not use. */
     GroupedObservable.prototype._subscribe = function (subscriber) {
         var subscription = new _Subscription__WEBPACK_IMPORTED_MODULE_2__["Subscription"]();
         var _a = this, refCountSubscription = _a.refCountSubscription, groupSubject = _a.groupSubject;
@@ -73954,11 +70534,6 @@ var GroupedObservable = /*@__PURE__*/ (function (_super) {
     return GroupedObservable;
 }(_Observable__WEBPACK_IMPORTED_MODULE_3__["Observable"]));
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var InnerRefCountSubscription = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](InnerRefCountSubscription, _super);
     function InnerRefCountSubscription(parent) {
@@ -73999,16 +70574,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Ignores all items emitted by the source Observable and only passes calls of `complete` or `error`.
- *
- * <img src="./img/ignoreElements.png" width="100%">
- *
- * @return {Observable} An empty Observable that only calls `complete`
- * or `error`, based on which one is called by the source Observable.
- * @method ignoreElements
- * @owner Observable
- */
 function ignoreElements() {
     return function ignoreElementsOperatorFunction(source) {
         return source.lift(new IgnoreElementsOperator());
@@ -74022,18 +70587,12 @@ var IgnoreElementsOperator = /*@__PURE__*/ (function () {
     };
     return IgnoreElementsOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var IgnoreElementsSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](IgnoreElementsSubscriber, _super);
     function IgnoreElementsSubscriber() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     IgnoreElementsSubscriber.prototype._next = function (unused) {
-        // Do nothing
     };
     return IgnoreElementsSubscriber;
 }(_Subscriber__WEBPACK_IMPORTED_MODULE_1__["Subscriber"]));
@@ -74068,11 +70627,6 @@ var IsEmptyOperator = /*@__PURE__*/ (function () {
     };
     return IsEmptyOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var IsEmptySubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](IsEmptySubscriber, _super);
     function IsEmptySubscriber(destination) {
@@ -74119,23 +70673,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Returns an Observable that emits only the last item emitted by the source Observable.
- * It optionally takes a predicate function as a parameter, in which case, rather than emitting
- * the last item from the source Observable, the resulting Observable will emit the last item
- * from the source Observable that satisfies the predicate.
- *
- * <img src="./img/last.png" width="100%">
- *
- * @throws {EmptyError} Delivers an EmptyError to the Observer's `error`
- * callback if the Observable completes before any `next` notification was sent.
- * @param {function} [predicate] - The condition any source emitted item has to satisfy.
- * @param {any} [defaultValue] - An optional default value to provide if last
- * predicate isn't met or no values were emitted.
- * @return {Observable} An Observable that emits only the last item satisfying the given condition
- * from the source, or an NoSuchElementException if no such items are emitted.
- * @throws - Throws if no items that match the predicate are emitted by the source Observable.
- */
 function last(predicate, defaultValue) {
     var hasDefaultValue = arguments.length >= 2;
     return function (source) { return source.pipe(predicate ? Object(_filter__WEBPACK_IMPORTED_MODULE_1__["filter"])(function (v, i) { return predicate(v, i, source); }) : _util_identity__WEBPACK_IMPORTED_MODULE_5__["identity"], Object(_takeLast__WEBPACK_IMPORTED_MODULE_2__["takeLast"])(1), hasDefaultValue ? Object(_defaultIfEmpty__WEBPACK_IMPORTED_MODULE_4__["defaultIfEmpty"])(defaultValue) : Object(_throwIfEmpty__WEBPACK_IMPORTED_MODULE_3__["throwIfEmpty"])(function () { return new _util_EmptyError__WEBPACK_IMPORTED_MODULE_0__["EmptyError"](); })); };
@@ -74161,39 +70698,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Applies a given `project` function to each value emitted by the source
- * Observable, and emits the resulting values as an Observable.
- *
- * <span class="informal">Like [Array.prototype.map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map),
- * it passes each source value through a transformation function to get
- * corresponding output values.</span>
- *
- * <img src="./img/map.png" width="100%">
- *
- * Similar to the well known `Array.prototype.map` function, this operator
- * applies a projection to each value and emits that projection in the output
- * Observable.
- *
- * @example <caption>Map every click to the clientX position of that click</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var positions = clicks.map(ev => ev.clientX);
- * positions.subscribe(x => console.log(x));
- *
- * @see {@link mapTo}
- * @see {@link pluck}
- *
- * @param {function(value: T, index: number): R} project The function to apply
- * to each `value` emitted by the source Observable. The `index` parameter is
- * the number `i` for the i-th emission that has happened since the
- * subscription, starting from the number `0`.
- * @param {any} [thisArg] An optional argument to define what `this` is in the
- * `project` function.
- * @return {Observable<R>} An Observable that emits the values from the source
- * Observable transformed by the given `project` function.
- * @method map
- * @owner Observable
- */
 function map(project, thisArg) {
     return function mapOperation(source) {
         if (typeof project !== 'function') {
@@ -74213,11 +70717,6 @@ var MapOperator = /*@__PURE__*/ (function () {
     return MapOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var MapSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](MapSubscriber, _super);
     function MapSubscriber(destination, project, thisArg) {
@@ -74227,8 +70726,6 @@ var MapSubscriber = /*@__PURE__*/ (function (_super) {
         _this.thisArg = thisArg || _this;
         return _this;
     }
-    // NOTE: This looks unoptimized, but it's actually purposefully NOT
-    // using try/catch optimizations.
     MapSubscriber.prototype._next = function (value) {
         var result;
         try {
@@ -74262,32 +70759,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Emits the given constant value on the output Observable every time the source
- * Observable emits a value.
- *
- * <span class="informal">Like {@link map}, but it maps every source value to
- * the same output value every time.</span>
- *
- * <img src="./img/mapTo.png" width="100%">
- *
- * Takes a constant `value` as argument, and emits that whenever the source
- * Observable emits a value. In other words, ignores the actual source value,
- * and simply uses the emission moment to know when to emit the given `value`.
- *
- * @example <caption>Map every click to the string 'Hi'</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var greetings = clicks.mapTo('Hi');
- * greetings.subscribe(x => console.log(x));
- *
- * @see {@link map}
- *
- * @param {any} value The value to map each source value to.
- * @return {Observable} An Observable that emits the given `value` every time
- * the source Observable emits something.
- * @method mapTo
- * @owner Observable
- */
 function mapTo(value) {
     return function (source) { return source.lift(new MapToOperator(value)); };
 }
@@ -74300,11 +70771,6 @@ var MapToOperator = /*@__PURE__*/ (function () {
     };
     return MapToOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var MapToSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](MapToSubscriber, _super);
     function MapToSubscriber(destination, value) {
@@ -74339,50 +70805,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Represents all of the notifications from the source Observable as `next`
- * emissions marked with their original types within {@link Notification}
- * objects.
- *
- * <span class="informal">Wraps `next`, `error` and `complete` emissions in
- * {@link Notification} objects, emitted as `next` on the output Observable.
- * </span>
- *
- * <img src="./img/materialize.png" width="100%">
- *
- * `materialize` returns an Observable that emits a `next` notification for each
- * `next`, `error`, or `complete` emission of the source Observable. When the
- * source Observable emits `complete`, the output Observable will emit `next` as
- * a Notification of type "complete", and then it will emit `complete` as well.
- * When the source Observable emits `error`, the output will emit `next` as a
- * Notification of type "error", and then `complete`.
- *
- * This operator is useful for producing metadata of the source Observable, to
- * be consumed as `next` emissions. Use it in conjunction with
- * {@link dematerialize}.
- *
- * @example <caption>Convert a faulty Observable to an Observable of Notifications</caption>
- * var letters = Rx.Observable.of('a', 'b', 13, 'd');
- * var upperCase = letters.map(x => x.toUpperCase());
- * var materialized = upperCase.materialize();
- * materialized.subscribe(x => console.log(x));
- *
- * // Results in the following:
- * // - Notification {kind: "N", value: "A", error: undefined, hasValue: true}
- * // - Notification {kind: "N", value: "B", error: undefined, hasValue: true}
- * // - Notification {kind: "E", value: undefined, error: TypeError:
- * //   x.toUpperCase is not a function at MapSubscriber.letters.map.x
- * //   [as project] (http://1…, hasValue: false}
- *
- * @see {@link Notification}
- * @see {@link dematerialize}
- *
- * @return {Observable<Notification<T>>} An Observable that emits
- * {@link Notification} objects that wrap the original emissions from the source
- * Observable with metadata.
- * @method materialize
- * @owner Observable
- */
 function materialize() {
     return function materializeOperatorFunction(source) {
         return source.lift(new MaterializeOperator());
@@ -74396,11 +70818,6 @@ var MaterializeOperator = /*@__PURE__*/ (function () {
     };
     return MaterializeOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var MaterializeSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](MaterializeSubscriber, _super);
     function MaterializeSubscriber(destination) {
@@ -74439,37 +70856,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reduce__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reduce */ "./node_modules/rxjs/_esm5/internal/operators/reduce.js");
 /** PURE_IMPORTS_START _reduce PURE_IMPORTS_END */
 
-/**
- * The Max operator operates on an Observable that emits numbers (or items that can be compared with a provided function),
- * and when source Observable completes it emits a single item: the item with the largest value.
- *
- * <img src="./img/max.png" width="100%">
- *
- * @example <caption>Get the maximal value of a series of numbers</caption>
- * Rx.Observable.of(5, 4, 7, 2, 8)
- *   .max()
- *   .subscribe(x => console.log(x)); // -> 8
- *
- * @example <caption>Use a comparer function to get the maximal item</caption>
- * interface Person {
- *   age: number,
- *   name: string
- * }
- * Observable.of<Person>({age: 7, name: 'Foo'},
- *                       {age: 5, name: 'Bar'},
- *                       {age: 9, name: 'Beer'})
- *           .max<Person>((a: Person, b: Person) => a.age < b.age ? -1 : 1)
- *           .subscribe((x: Person) => console.log(x.name)); // -> 'Beer'
- * }
- *
- * @see {@link min}
- *
- * @param {Function} [comparer] - Optional comparer function that it will use instead of its default to compare the
- * value of two items.
- * @return {Observable} An Observable that emits item with the largest value.
- * @method max
- * @owner Observable
- */
 function max(comparer) {
     var max = (typeof comparer === 'function')
         ? function (x, y) { return comparer(x, y) > 0 ? x : y; }
@@ -74494,10 +70880,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _observable_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/merge */ "./node_modules/rxjs/_esm5/internal/observable/merge.js");
 /** PURE_IMPORTS_START _observable_merge PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
-/**
- * @deprecated Deprecated in favor of static merge.
- */
 function merge() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -74525,50 +70907,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _mergeMap,_util_identity PURE_IMPORTS_END */
 
 
-/**
- * Converts a higher-order Observable into a first-order Observable which
- * concurrently delivers all values that are emitted on the inner Observables.
- *
- * <span class="informal">Flattens an Observable-of-Observables.</span>
- *
- * <img src="./img/mergeAll.png" width="100%">
- *
- * `mergeAll` subscribes to an Observable that emits Observables, also known as
- * a higher-order Observable. Each time it observes one of these emitted inner
- * Observables, it subscribes to that and delivers all the values from the
- * inner Observable on the output Observable. The output Observable only
- * completes once all inner Observables have completed. Any error delivered by
- * a inner Observable will be immediately emitted on the output Observable.
- *
- * @example <caption>Spawn a new interval Observable for each click event, and blend their outputs as one Observable</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var higherOrder = clicks.map((ev) => Rx.Observable.interval(1000));
- * var firstOrder = higherOrder.mergeAll();
- * firstOrder.subscribe(x => console.log(x));
- *
- * @example <caption>Count from 0 to 9 every second for each click, but only allow 2 concurrent timers</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var higherOrder = clicks.map((ev) => Rx.Observable.interval(1000).take(10));
- * var firstOrder = higherOrder.mergeAll(2);
- * firstOrder.subscribe(x => console.log(x));
- *
- * @see {@link combineAll}
- * @see {@link concatAll}
- * @see {@link exhaust}
- * @see {@link merge}
- * @see {@link mergeMap}
- * @see {@link mergeMapTo}
- * @see {@link mergeScan}
- * @see {@link switch}
- * @see {@link zipAll}
- *
- * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of inner
- * Observables being subscribed to concurrently.
- * @return {Observable} An Observable that emits values coming from all the
- * inner Observables emitted by the source Observable.
- * @method mergeAll
- * @owner Observable
- */
 function mergeAll(concurrent) {
     if (concurrent === void 0) {
         concurrent = Number.POSITIVE_INFINITY;
@@ -74603,63 +70941,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Projects each source value to an Observable which is merged in the output
- * Observable.
- *
- * <span class="informal">Maps each value to an Observable, then flattens all of
- * these inner Observables using {@link mergeAll}.</span>
- *
- * <img src="./img/mergeMap.png" width="100%">
- *
- * Returns an Observable that emits items based on applying a function that you
- * supply to each item emitted by the source Observable, where that function
- * returns an Observable, and then merging those resulting Observables and
- * emitting the results of this merger.
- *
- * @example <caption>Map and flatten each letter to an Observable ticking every 1 second</caption>
- * var letters = Rx.Observable.of('a', 'b', 'c');
- * var result = letters.mergeMap(x =>
- *   Rx.Observable.interval(1000).map(i => x+i)
- * );
- * result.subscribe(x => console.log(x));
- *
- * // Results in the following:
- * // a0
- * // b0
- * // c0
- * // a1
- * // b1
- * // c1
- * // continues to list a,b,c with respective ascending integers
- *
- * @see {@link concatMap}
- * @see {@link exhaustMap}
- * @see {@link merge}
- * @see {@link mergeAll}
- * @see {@link mergeMapTo}
- * @see {@link mergeScan}
- * @see {@link switchMap}
- *
- * @param {function(value: T, ?index: number): ObservableInput} project A function
- * that, when applied to an item emitted by the source Observable, returns an
- * Observable.
- * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of input
- * Observables being subscribed to concurrently.
- * @return {Observable} An Observable that emits the result of applying the
- * projection function (and the optional `resultSelector`) to each item emitted
- * by the source Observable and merging the results of the Observables obtained
- * from this transformation.
- * @method mergeMap
- * @owner Observable
- */
 function mergeMap(project, resultSelector, concurrent) {
     if (concurrent === void 0) {
         concurrent = Number.POSITIVE_INFINITY;
     }
     if (typeof resultSelector === 'function') {
-        // DEPRECATED PATH
         return function (source) { return source.pipe(mergeMap(function (a, i) { return Object(_observable_from__WEBPACK_IMPORTED_MODULE_4__["from"])(project(a, i)).pipe(Object(_map__WEBPACK_IMPORTED_MODULE_3__["map"])(function (b, ii) { return resultSelector(a, b, i, ii); })); }, concurrent)); };
     }
     else if (typeof resultSelector === 'number') {
@@ -74681,11 +70967,6 @@ var MergeMapOperator = /*@__PURE__*/ (function () {
     return MergeMapOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var MergeMapSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](MergeMapSubscriber, _super);
     function MergeMapSubscriber(destination, project, concurrent) {
@@ -74766,41 +71047,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mergeMap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mergeMap */ "./node_modules/rxjs/_esm5/internal/operators/mergeMap.js");
 /** PURE_IMPORTS_START _mergeMap PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
-/**
- * Projects each source value to the same Observable which is merged multiple
- * times in the output Observable.
- *
- * <span class="informal">It's like {@link mergeMap}, but maps each value always
- * to the same inner Observable.</span>
- *
- * <img src="./img/mergeMapTo.png" width="100%">
- *
- * Maps each source value to the given Observable `innerObservable` regardless
- * of the source value, and then merges those resulting Observables into one
- * single Observable, which is the output Observable.
- *
- * @example <caption>For each click event, start an interval Observable ticking every 1 second</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.mergeMapTo(Rx.Observable.interval(1000));
- * result.subscribe(x => console.log(x));
- *
- * @see {@link concatMapTo}
- * @see {@link merge}
- * @see {@link mergeAll}
- * @see {@link mergeMap}
- * @see {@link mergeScan}
- * @see {@link switchMapTo}
- *
- * @param {ObservableInput} innerObservable An Observable to replace each value from
- * the source Observable.
- * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of input
- * Observables being subscribed to concurrently.
- * @return {Observable} An Observable that emits items from the given
- * `innerObservable`
- * @method mergeMapTo
- * @owner Observable
- */
 function mergeMapTo(innerObservable, resultSelector, concurrent) {
     if (concurrent === void 0) {
         concurrent = Number.POSITIVE_INFINITY;
@@ -74841,37 +71087,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Applies an accumulator function over the source Observable where the
- * accumulator function itself returns an Observable, then each intermediate
- * Observable returned is merged into the output Observable.
- *
- * <span class="informal">It's like {@link scan}, but the Observables returned
- * by the accumulator are merged into the outer Observable.</span>
- *
- * @example <caption>Count the number of click events</caption>
- * const click$ = Rx.Observable.fromEvent(document, 'click');
- * const one$ = click$.mapTo(1);
- * const seed = 0;
- * const count$ = one$.mergeScan((acc, one) => Rx.Observable.of(acc + one), seed);
- * count$.subscribe(x => console.log(x));
- *
- * // Results:
- * 1
- * 2
- * 3
- * 4
- * // ...and so on for each click
- *
- * @param {function(acc: R, value: T): Observable<R>} accumulator
- * The accumulator function called on each source value.
- * @param seed The initial accumulation value.
- * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of
- * input Observables being subscribed to concurrently.
- * @return {Observable<R>} An observable of the accumulated values.
- * @method mergeScan
- * @owner Observable
- */
 function mergeScan(accumulator, seed, concurrent) {
     if (concurrent === void 0) {
         concurrent = Number.POSITIVE_INFINITY;
@@ -74890,11 +71105,6 @@ var MergeScanOperator = /*@__PURE__*/ (function () {
     return MergeScanOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var MergeScanSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](MergeScanSubscriber, _super);
     function MergeScanSubscriber(destination, accumulator, acc, concurrent) {
@@ -74979,37 +71189,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reduce__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reduce */ "./node_modules/rxjs/_esm5/internal/operators/reduce.js");
 /** PURE_IMPORTS_START _reduce PURE_IMPORTS_END */
 
-/**
- * The Min operator operates on an Observable that emits numbers (or items that can be compared with a provided function),
- * and when source Observable completes it emits a single item: the item with the smallest value.
- *
- * <img src="./img/min.png" width="100%">
- *
- * @example <caption>Get the minimal value of a series of numbers</caption>
- * Rx.Observable.of(5, 4, 7, 2, 8)
- *   .min()
- *   .subscribe(x => console.log(x)); // -> 2
- *
- * @example <caption>Use a comparer function to get the minimal item</caption>
- * interface Person {
- *   age: number,
- *   name: string
- * }
- * Observable.of<Person>({age: 7, name: 'Foo'},
- *                       {age: 5, name: 'Bar'},
- *                       {age: 9, name: 'Beer'})
- *           .min<Person>( (a: Person, b: Person) => a.age < b.age ? -1 : 1)
- *           .subscribe((x: Person) => console.log(x.name)); // -> 'Bar'
- * }
- *
- * @see {@link max}
- *
- * @param {Function} [comparer] - Optional comparer function that it will use instead of its default to compare the
- * value of two items.
- * @return {Observable<R>} An Observable that emits item with the smallest value.
- * @method min
- * @owner Observable
- */
 function min(comparer) {
     var min = (typeof comparer === 'function')
         ? function (x, y) { return comparer(x, y) < 0 ? x : y; }
@@ -75035,26 +71214,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _observable_ConnectableObservable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/ConnectableObservable */ "./node_modules/rxjs/_esm5/internal/observable/ConnectableObservable.js");
 /** PURE_IMPORTS_START _observable_ConnectableObservable PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
-/**
- * Returns an Observable that emits the results of invoking a specified selector on items
- * emitted by a ConnectableObservable that shares a single subscription to the underlying stream.
- *
- * <img src="./img/multicast.png" width="100%">
- *
- * @param {Function|Subject} subjectOrSubjectFactory - Factory function to create an intermediate subject through
- * which the source sequence's elements will be multicast to the selector function
- * or Subject to push source elements into.
- * @param {Function} [selector] - Optional selector function that can use the multicasted source stream
- * as many times as needed, without causing multiple subscriptions to the source stream.
- * Subscribers to the given source will receive all notifications of the source from the
- * time of the subscription forward.
- * @return {Observable} An Observable that emits the results of invoking the selector
- * on the items emitted by a `ConnectableObservable` that shares a single subscription to
- * the underlying stream.
- * @method multicast
- * @owner Observable
- */
 function multicast(subjectOrSubjectFactory, selector) {
     return function multicastOperatorFunction(source) {
         var subjectFactory;
@@ -75115,52 +71274,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- *
- * Re-emits all notifications from source Observable with specified scheduler.
- *
- * <span class="informal">Ensure a specific scheduler is used, from outside of an Observable.</span>
- *
- * `observeOn` is an operator that accepts a scheduler as a first parameter, which will be used to reschedule
- * notifications emitted by the source Observable. It might be useful, if you do not have control over
- * internal scheduler of a given Observable, but want to control when its values are emitted nevertheless.
- *
- * Returned Observable emits the same notifications (nexted values, complete and error events) as the source Observable,
- * but rescheduled with provided scheduler. Note that this doesn't mean that source Observables internal
- * scheduler will be replaced in any way. Original scheduler still will be used, but when the source Observable emits
- * notification, it will be immediately scheduled again - this time with scheduler passed to `observeOn`.
- * An anti-pattern would be calling `observeOn` on Observable that emits lots of values synchronously, to split
- * that emissions into asynchronous chunks. For this to happen, scheduler would have to be passed into the source
- * Observable directly (usually into the operator that creates it). `observeOn` simply delays notifications a
- * little bit more, to ensure that they are emitted at expected moments.
- *
- * As a matter of fact, `observeOn` accepts second parameter, which specifies in milliseconds with what delay notifications
- * will be emitted. The main difference between {@link delay} operator and `observeOn` is that `observeOn`
- * will delay all notifications - including error notifications - while `delay` will pass through error
- * from source Observable immediately when it is emitted. In general it is highly recommended to use `delay` operator
- * for any kind of delaying of values in the stream, while using `observeOn` to specify which scheduler should be used
- * for notification emissions in general.
- *
- * @example <caption>Ensure values in subscribe are called just before browser repaint.</caption>
- * const intervals = Rx.Observable.interval(10); // Intervals are scheduled
- *                                               // with async scheduler by default...
- *
- * intervals
- * .observeOn(Rx.Scheduler.animationFrame)       // ...but we will observe on animationFrame
- * .subscribe(val => {                           // scheduler to ensure smooth animation.
- *   someDiv.style.height = val + 'px';
- * });
- *
- * @see {@link delay}
- *
- * @param {SchedulerLike} scheduler Scheduler that will be used to reschedule notifications from source Observable.
- * @param {number} [delay] Number of milliseconds that states with what delay every notification should be rescheduled.
- * @return {Observable<T>} Observable that emits the same notifications as the source Observable,
- * but with provided scheduler.
- *
- * @method observeOn
- * @owner Observable
- */
 function observeOn(scheduler, delay) {
     if (delay === void 0) {
         delay = 0;
@@ -75183,11 +71296,6 @@ var ObserveOnOperator = /*@__PURE__*/ (function () {
     return ObserveOnOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var ObserveOnSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ObserveOnSubscriber, _super);
     function ObserveOnSubscriber(destination, scheduler, delay) {
@@ -75199,7 +71307,6 @@ var ObserveOnSubscriber = /*@__PURE__*/ (function (_super) {
         _this.delay = delay;
         return _this;
     }
-    /** @nocollapse */
     ObserveOnSubscriber.dispatch = function (arg) {
         var notification = arg.notification, destination = arg.destination;
         notification.observe(destination);
@@ -75255,68 +71362,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * When any of the provided Observable emits an complete or error notification, it immediately subscribes to the next one
- * that was passed.
- *
- * <span class="informal">Execute series of Observables no matter what, even if it means swallowing errors.</span>
- *
- * <img src="./img/onErrorResumeNext.png" width="100%">
- *
- * `onErrorResumeNext` is an operator that accepts a series of Observables, provided either directly as
- * arguments or as an array. If no single Observable is provided, returned Observable will simply behave the same
- * as the source.
- *
- * `onErrorResumeNext` returns an Observable that starts by subscribing and re-emitting values from the source Observable.
- * When its stream of values ends - no matter if Observable completed or emitted an error - `onErrorResumeNext`
- * will subscribe to the first Observable that was passed as an argument to the method. It will start re-emitting
- * its values as well and - again - when that stream ends, `onErrorResumeNext` will proceed to subscribing yet another
- * Observable in provided series, no matter if previous Observable completed or ended with an error. This will
- * be happening until there is no more Observables left in the series, at which point returned Observable will
- * complete - even if the last subscribed stream ended with an error.
- *
- * `onErrorResumeNext` can be therefore thought of as version of {@link concat} operator, which is more permissive
- * when it comes to the errors emitted by its input Observables. While `concat` subscribes to the next Observable
- * in series only if previous one successfully completed, `onErrorResumeNext` subscribes even if it ended with
- * an error.
- *
- * Note that you do not get any access to errors emitted by the Observables. In particular do not
- * expect these errors to appear in error callback passed to {@link subscribe}. If you want to take
- * specific actions based on what error was emitted by an Observable, you should try out {@link catch} instead.
- *
- *
- * @example <caption>Subscribe to the next Observable after map fails</caption>
- * Rx.Observable.of(1, 2, 3, 0)
- *   .map(x => {
- *       if (x === 0) { throw Error(); }
-         return 10 / x;
- *   })
- *   .onErrorResumeNext(Rx.Observable.of(1, 2, 3))
- *   .subscribe(
- *     val => console.log(val),
- *     err => console.log(err),          // Will never be called.
- *     () => console.log('that\'s it!')
- *   );
- *
- * // Logs:
- * // 10
- * // 5
- * // 3.3333333333333335
- * // 1
- * // 2
- * // 3
- * // "that's it!"
- *
- * @see {@link concat}
- * @see {@link catch}
- *
- * @param {...ObservableInput} observables Observables passed either directly or as an array.
- * @return {Observable} An Observable that emits values from source Observable, but - if it errors - subscribes
- * to the next passed Observable and so on, until it completes or runs out of Observables.
- * @method onErrorResumeNext
- * @owner Observable
- */
 function onErrorResumeNext() {
     var nextSources = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -75327,7 +71372,6 @@ function onErrorResumeNext() {
     }
     return function (source) { return source.lift(new OnErrorResumeNextOperator(nextSources)); };
 }
-/* tslint:enable:max-line-length */
 function onErrorResumeNextStatic() {
     var nextSources = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -75400,41 +71444,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Groups pairs of consecutive emissions together and emits them as an array of
- * two values.
- *
- * <span class="informal">Puts the current value and previous value together as
- * an array, and emits that.</span>
- *
- * <img src="./img/pairwise.png" width="100%">
- *
- * The Nth emission from the source Observable will cause the output Observable
- * to emit an array [(N-1)th, Nth] of the previous and the current value, as a
- * pair. For this reason, `pairwise` emits on the second and subsequent
- * emissions from the source Observable, but not on the first emission, because
- * there is no previous value in that case.
- *
- * @example <caption>On every click (starting from the second), emit the relative distance to the previous click</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var pairs = clicks.pairwise();
- * var distance = pairs.map(pair => {
- *   var x0 = pair[0].clientX;
- *   var y0 = pair[0].clientY;
- *   var x1 = pair[1].clientX;
- *   var y1 = pair[1].clientY;
- *   return Math.sqrt(Math.pow(x0 - x1, 2) + Math.pow(y0 - y1, 2));
- * });
- * distance.subscribe(x => console.log(x));
- *
- * @see {@link buffer}
- * @see {@link bufferCount}
- *
- * @return {Observable<Array<T>>} An Observable of pairs (as arrays) of
- * consecutive values from the source Observable.
- * @method pairwise
- * @owner Observable
- */
 function pairwise() {
     return function (source) { return source.lift(new PairwiseOperator()); };
 }
@@ -75446,11 +71455,6 @@ var PairwiseOperator = /*@__PURE__*/ (function () {
     };
     return PairwiseOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var PairwiseSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PairwiseSubscriber, _super);
     function PairwiseSubscriber(destination) {
@@ -75489,47 +71493,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _util_not,_filter PURE_IMPORTS_END */
 
 
-/**
- * Splits the source Observable into two, one with values that satisfy a
- * predicate, and another with values that don't satisfy the predicate.
- *
- * <span class="informal">It's like {@link filter}, but returns two Observables:
- * one like the output of {@link filter}, and the other with values that did not
- * pass the condition.</span>
- *
- * <img src="./img/partition.png" width="100%">
- *
- * `partition` outputs an array with two Observables that partition the values
- * from the source Observable through the given `predicate` function. The first
- * Observable in that array emits source values for which the predicate argument
- * returns true. The second Observable emits source values for which the
- * predicate returns false. The first behaves like {@link filter} and the second
- * behaves like {@link filter} with the predicate negated.
- *
- * @example <caption>Partition click events into those on DIV elements and those elsewhere</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var parts = clicks.partition(ev => ev.target.tagName === 'DIV');
- * var clicksOnDivs = parts[0];
- * var clicksElsewhere = parts[1];
- * clicksOnDivs.subscribe(x => console.log('DIV clicked: ', x));
- * clicksElsewhere.subscribe(x => console.log('Other clicked: ', x));
- *
- * @see {@link filter}
- *
- * @param {function(value: T, index: number): boolean} predicate A function that
- * evaluates each value emitted by the source Observable. If it returns `true`,
- * the value is emitted on the first Observable in the returned array, if
- * `false` the value is emitted on the second Observable in the array. The
- * `index` parameter is the number `i` for the i-th source emission that has
- * happened since the subscription, starting from the number `0`.
- * @param {any} [thisArg] An optional argument to determine the value of `this`
- * in the `predicate` function.
- * @return {[Observable<T>, Observable<T>]} An array with two Observables: one
- * with values that passed the predicate, and another with values that did not
- * pass the predicate.
- * @method partition
- * @owner Observable
- */
 function partition(predicate, thisArg) {
     return function (source) {
         return [
@@ -75556,32 +71519,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map */ "./node_modules/rxjs/_esm5/internal/operators/map.js");
 /** PURE_IMPORTS_START _map PURE_IMPORTS_END */
 
-/**
- * Maps each source value (an object) to its specified nested property.
- *
- * <span class="informal">Like {@link map}, but meant only for picking one of
- * the nested properties of every emitted object.</span>
- *
- * <img src="./img/pluck.png" width="100%">
- *
- * Given a list of strings describing a path to an object property, retrieves
- * the value of a specified nested property from all values in the source
- * Observable. If a property can't be resolved, it will return `undefined` for
- * that value.
- *
- * @example <caption>Map every click to the tagName of the clicked target element</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var tagNames = clicks.pluck('target', 'tagName');
- * tagNames.subscribe(x => console.log(x));
- *
- * @see {@link map}
- *
- * @param {...string} properties The nested properties to pluck from each source
- * value (an object).
- * @return {Observable} A new Observable of property values from the source values.
- * @method pluck
- * @owner Observable
- */
 function pluck() {
     var properties = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -75629,20 +71566,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _Subject,_multicast PURE_IMPORTS_END */
 
 
-/* tslint:enable:max-line-length */
-/**
- * Returns a ConnectableObservable, which is a variety of Observable that waits until its connect method is called
- * before it begins emitting items to those Observers that have subscribed to it.
- *
- * <img src="./img/publish.png" width="100%">
- *
- * @param {Function} [selector] - Optional selector function which can use the multicasted source sequence as many times
- * as needed, without causing multiple subscriptions to the source sequence.
- * Subscribers to the given source will receive all notifications of the source from the time of the subscription on.
- * @return A ConnectableObservable that upon connection causes the source Observable to emit items to its Observers.
- * @method publish
- * @owner Observable
- */
 function publish(selector) {
     return selector ?
         Object(_multicast__WEBPACK_IMPORTED_MODULE_1__["multicast"])(function () { return new _Subject__WEBPACK_IMPORTED_MODULE_0__["Subject"](); }, selector) :
@@ -75668,12 +71591,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _BehaviorSubject,_multicast PURE_IMPORTS_END */
 
 
-/**
- * @param value
- * @return {ConnectableObservable<T>}
- * @method publishBehavior
- * @owner Observable
- */
 function publishBehavior(value) {
     return function (source) { return Object(_multicast__WEBPACK_IMPORTED_MODULE_1__["multicast"])(new _BehaviorSubject__WEBPACK_IMPORTED_MODULE_0__["BehaviorSubject"](value))(source); };
 }
@@ -75720,7 +71637,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _ReplaySubject,_multicast PURE_IMPORTS_END */
 
 
-/* tslint:enable:max-line-length */
 function publishReplay(bufferSize, windowTime, selectorOrScheduler, scheduler) {
     if (selectorOrScheduler && typeof selectorOrScheduler !== 'function') {
         scheduler = selectorOrScheduler;
@@ -75749,24 +71665,12 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _util_isArray,_observable_race PURE_IMPORTS_END */
 
 
-/* tslint:enable:max-line-length */
-/**
- * Returns an Observable that mirrors the first source Observable to emit an item
- * from the combination of this Observable and supplied Observables.
- * @param {...Observables} ...observables Sources used to race for which Observable emits first.
- * @return {Observable} An Observable that mirrors the output of the first Observable to emit an item.
- * @method race
- * @owner Observable
- * @deprecated Deprecated in favor of static race.
- */
 function race() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         observables[_i] = arguments[_i];
     }
     return function raceOperatorFunction(source) {
-        // if the only argument is an array, it was most likely called with
-        // `pair([obs1, obs2, ...])`
         if (observables.length === 1 && Object(_util_isArray__WEBPACK_IMPORTED_MODULE_0__["isArray"])(observables[0])) {
             observables = observables[0];
         }
@@ -75797,57 +71701,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Applies an accumulator function over the source Observable, and returns the
- * accumulated result when the source completes, given an optional seed value.
- *
- * <span class="informal">Combines together all values emitted on the source,
- * using an accumulator function that knows how to join a new source value into
- * the accumulation from the past.</span>
- *
- * <img src="./img/reduce.png" width="100%">
- *
- * Like
- * [Array.prototype.reduce()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce),
- * `reduce` applies an `accumulator` function against an accumulation and each
- * value of the source Observable (from the past) to reduce it to a single
- * value, emitted on the output Observable. Note that `reduce` will only emit
- * one value, only when the source Observable completes. It is equivalent to
- * applying operator {@link scan} followed by operator {@link last}.
- *
- * Returns an Observable that applies a specified `accumulator` function to each
- * item emitted by the source Observable. If a `seed` value is specified, then
- * that value will be used as the initial value for the accumulator. If no seed
- * value is specified, the first item of the source is used as the seed.
- *
- * @example <caption>Count the number of click events that happened in 5 seconds</caption>
- * var clicksInFiveSeconds = Rx.Observable.fromEvent(document, 'click')
- *   .takeUntil(Rx.Observable.interval(5000));
- * var ones = clicksInFiveSeconds.mapTo(1);
- * var seed = 0;
- * var count = ones.reduce((acc, one) => acc + one, seed);
- * count.subscribe(x => console.log(x));
- *
- * @see {@link count}
- * @see {@link expand}
- * @see {@link mergeScan}
- * @see {@link scan}
- *
- * @param {function(acc: R, value: T, index: number): R} accumulator The accumulator function
- * called on each source value.
- * @param {R} [seed] The initial accumulation value.
- * @return {Observable<R>} An Observable that emits a single value that is the
- * result of accumulating the values emitted by the source Observable.
- * @method reduce
- * @owner Observable
- */
 function reduce(accumulator, seed) {
-    // providing a seed of `undefined` *should* be valid and trigger
-    // hasSeed! so don't use `seed !== undefined` checks!
-    // For this reason, we have to check it here at the original call site
-    // otherwise inside Operator/Subscriber we won't know if `undefined`
-    // means they didn't provide anything or if they literally provided `undefined`
     if (arguments.length >= 2) {
         return function reduceOperatorFunctionWithSeed(source) {
             return Object(_util_pipe__WEBPACK_IMPORTED_MODULE_3__["pipe"])(Object(_scan__WEBPACK_IMPORTED_MODULE_0__["scan"])(accumulator, seed), Object(_takeLast__WEBPACK_IMPORTED_MODULE_1__["takeLast"])(1), Object(_defaultIfEmpty__WEBPACK_IMPORTED_MODULE_2__["defaultIfEmpty"])(seed))(source);
@@ -75924,29 +71778,6 @@ var RefCountSubscriber = /*@__PURE__*/ (function (_super) {
             this.connection = null;
             return;
         }
-        ///
-        // Compare the local RefCountSubscriber's connection Subscription to the
-        // connection Subscription on the shared ConnectableObservable. In cases
-        // where the ConnectableObservable source synchronously emits values, and
-        // the RefCountSubscriber's downstream Observers synchronously unsubscribe,
-        // execution continues to here before the RefCountOperator has a chance to
-        // supply the RefCountSubscriber with the shared connection Subscription.
-        // For example:
-        // ```
-        // Observable.range(0, 10)
-        //   .publish()
-        //   .refCount()
-        //   .take(5)
-        //   .subscribe();
-        // ```
-        // In order to account for this case, RefCountSubscriber should only dispose
-        // the ConnectableObservable's shared connection Subscription if the
-        // connection Subscription exists, *and* either:
-        //   a. RefCountSubscriber doesn't have a reference to the shared connection
-        //      Subscription yet, or,
-        //   b. RefCountSubscriber's connection Subscription reference is identical
-        //      to the shared connection Subscription
-        ///
         var connection = this.connection;
         var sharedConnection = connectable._connection;
         this.connection = null;
@@ -75978,18 +71809,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Returns an Observable that repeats the stream of items emitted by the source Observable at most count times.
- *
- * <img src="./img/repeat.png" width="100%">
- *
- * @param {number} [count] The number of times the source Observable items are repeated, a count of 0 will yield
- * an empty Observable.
- * @return {Observable} An Observable that repeats the stream of items emitted by the source Observable at most
- * count times.
- * @method repeat
- * @owner Observable
- */
 function repeat(count) {
     if (count === void 0) {
         count = -1;
@@ -76016,11 +71835,6 @@ var RepeatOperator = /*@__PURE__*/ (function () {
     };
     return RepeatOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var RepeatSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](RepeatSubscriber, _super);
     function RepeatSubscriber(destination, count, source) {
@@ -76071,20 +71885,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Returns an Observable that mirrors the source Observable with the exception of a `complete`. If the source
- * Observable calls `complete`, this method will emit to the Observable returned from `notifier`. If that Observable
- * calls `complete` or `error`, then this method will call `complete` or `error` on the child subscription. Otherwise
- * this method will resubscribe to the source Observable.
- *
- * <img src="./img/repeatWhen.png" width="100%">
- *
- * @param {function(notifications: Observable): Observable} notifier - Receives an Observable of notifications with
- * which a user can `complete` or `error`, aborting the repetition.
- * @return {Observable} The source Observable modified with repeat logic.
- * @method repeatWhen
- * @owner Observable
- */
 function repeatWhen(notifier) {
     return function (source) { return source.lift(new RepeatWhenOperator(notifier)); };
 }
@@ -76097,11 +71897,6 @@ var RepeatWhenOperator = /*@__PURE__*/ (function () {
     };
     return RepeatWhenOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var RepeatWhenSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](RepeatWhenSubscriber, _super);
     function RepeatWhenSubscriber(destination, notifier, source) {
@@ -76133,7 +71928,6 @@ var RepeatWhenSubscriber = /*@__PURE__*/ (function (_super) {
             this.notifications.next();
         }
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     RepeatWhenSubscriber.prototype._unsubscribe = function () {
         var _a = this, notifications = _a.notifications, retriesSubscription = _a.retriesSubscription;
         if (notifications) {
@@ -76146,7 +71940,6 @@ var RepeatWhenSubscriber = /*@__PURE__*/ (function (_super) {
         }
         this.retries = null;
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     RepeatWhenSubscriber.prototype._unsubscribeAndRecycle = function () {
         var _unsubscribe = this._unsubscribe;
         this._unsubscribe = null;
@@ -76185,22 +71978,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Returns an Observable that mirrors the source Observable with the exception of an `error`. If the source Observable
- * calls `error`, this method will resubscribe to the source Observable for a maximum of `count` resubscriptions (given
- * as a number parameter) rather than propagating the `error` call.
- *
- * <img src="./img/retry.png" width="100%">
- *
- * Any and all items emitted by the source Observable will be emitted by the resulting Observable, even those emitted
- * during failed subscriptions. For example, if an Observable fails at first but emits [1, 2] then succeeds the second
- * time and emits: [1, 2, 3, 4, 5] then the complete stream of emissions and notifications
- * would be: [1, 2, 1, 2, 3, 4, 5, `complete`].
- * @param {number} count - Number of retry attempts before failing.
- * @return {Observable} The source Observable modified with the retry logic.
- * @method retry
- * @owner Observable
- */
 function retry(count) {
     if (count === void 0) {
         count = -1;
@@ -76217,11 +71994,6 @@ var RetryOperator = /*@__PURE__*/ (function () {
     };
     return RetryOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var RetrySubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](RetrySubscriber, _super);
     function RetrySubscriber(destination, count, source) {
@@ -76272,20 +72044,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Returns an Observable that mirrors the source Observable with the exception of an `error`. If the source Observable
- * calls `error`, this method will emit the Throwable that caused the error to the Observable returned from `notifier`.
- * If that Observable calls `complete` or `error` then this method will call `complete` or `error` on the child
- * subscription. Otherwise this method will resubscribe to the source Observable.
- *
- * <img src="./img/retryWhen.png" width="100%">
- *
- * @param {function(errors: Observable): Observable} notifier - Receives an Observable of notifications with which a
- * user can `complete` or `error`, aborting the retry.
- * @return {Observable} The source Observable modified with retry logic.
- * @method retryWhen
- * @owner Observable
- */
 function retryWhen(notifier) {
     return function (source) { return source.lift(new RetryWhenOperator(notifier, source)); };
 }
@@ -76299,11 +72057,6 @@ var RetryWhenOperator = /*@__PURE__*/ (function () {
     };
     return RetryWhenOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var RetryWhenSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](RetryWhenSubscriber, _super);
     function RetryWhenSubscriber(destination, notifier, source) {
@@ -76336,7 +72089,6 @@ var RetryWhenSubscriber = /*@__PURE__*/ (function (_super) {
             errors.next(err);
         }
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     RetryWhenSubscriber.prototype._unsubscribe = function () {
         var _a = this, errors = _a.errors, retriesSubscription = _a.retriesSubscription;
         if (errors) {
@@ -76380,40 +72132,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits the most recently emitted value from the source Observable whenever
- * another Observable, the `notifier`, emits.
- *
- * <span class="informal">It's like {@link sampleTime}, but samples whenever
- * the `notifier` Observable emits something.</span>
- *
- * <img src="./img/sample.png" width="100%">
- *
- * Whenever the `notifier` Observable emits a value or completes, `sample`
- * looks at the source Observable and emits whichever value it has most recently
- * emitted since the previous sampling, unless the source has not emitted
- * anything since the previous sampling. The `notifier` is subscribed to as soon
- * as the output Observable is subscribed.
- *
- * @example <caption>On every click, sample the most recent "seconds" timer</caption>
- * var seconds = Rx.Observable.interval(1000);
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = seconds.sample(clicks);
- * result.subscribe(x => console.log(x));
- *
- * @see {@link audit}
- * @see {@link debounce}
- * @see {@link sampleTime}
- * @see {@link throttle}
- *
- * @param {Observable<any>} notifier The Observable to use for sampling the
- * source Observable.
- * @return {Observable<T>} An Observable that emits the results of sampling the
- * values emitted by the source Observable whenever the notifier Observable
- * emits value or completes.
- * @method sample
- * @owner Observable
- */
 function sample(notifier) {
     return function (source) { return source.lift(new SampleOperator(notifier)); };
 }
@@ -76429,11 +72147,6 @@ var SampleOperator = /*@__PURE__*/ (function () {
     };
     return SampleOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SampleSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SampleSubscriber, _super);
     function SampleSubscriber() {
@@ -76481,42 +72194,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits the most recently emitted value from the source Observable within
- * periodic time intervals.
- *
- * <span class="informal">Samples the source Observable at periodic time
- * intervals, emitting what it samples.</span>
- *
- * <img src="./img/sampleTime.png" width="100%">
- *
- * `sampleTime` periodically looks at the source Observable and emits whichever
- * value it has most recently emitted since the previous sampling, unless the
- * source has not emitted anything since the previous sampling. The sampling
- * happens periodically in time every `period` milliseconds (or the time unit
- * defined by the optional `scheduler` argument). The sampling starts as soon as
- * the output Observable is subscribed.
- *
- * @example <caption>Every second, emit the most recent click at most once</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.sampleTime(1000);
- * result.subscribe(x => console.log(x));
- *
- * @see {@link auditTime}
- * @see {@link debounceTime}
- * @see {@link delay}
- * @see {@link sample}
- * @see {@link throttleTime}
- *
- * @param {number} period The sampling period expressed in milliseconds or the
- * time unit determined internally by the optional `scheduler`.
- * @param {Scheduler} [scheduler=async] The {@link IScheduler} to use for
- * managing the timers that handle the sampling.
- * @return {Observable<T>} An Observable that emits the results of sampling the
- * values emitted by the source Observable at the specified time interval.
- * @method sampleTime
- * @owner Observable
- */
 function sampleTime(period, scheduler) {
     if (scheduler === void 0) {
         scheduler = _scheduler_async__WEBPACK_IMPORTED_MODULE_2__["async"];
@@ -76533,11 +72210,6 @@ var SampleTimeOperator = /*@__PURE__*/ (function () {
     };
     return SampleTimeOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SampleTimeSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SampleTimeSubscriber, _super);
     function SampleTimeSubscriber(destination, period, scheduler) {
@@ -76585,51 +72257,8 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/* tslint:enable:max-line-length */
-/**
- * Applies an accumulator function over the source Observable, and returns each
- * intermediate result, with an optional seed value.
- *
- * <span class="informal">It's like {@link reduce}, but emits the current
- * accumulation whenever the source emits a value.</span>
- *
- * <img src="./img/scan.png" width="100%">
- *
- * Combines together all values emitted on the source, using an accumulator
- * function that knows how to join a new source value into the accumulation from
- * the past. Is similar to {@link reduce}, but emits the intermediate
- * accumulations.
- *
- * Returns an Observable that applies a specified `accumulator` function to each
- * item emitted by the source Observable. If a `seed` value is specified, then
- * that value will be used as the initial value for the accumulator. If no seed
- * value is specified, the first item of the source is used as the seed.
- *
- * @example <caption>Count the number of click events</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var ones = clicks.mapTo(1);
- * var seed = 0;
- * var count = ones.scan((acc, one) => acc + one, seed);
- * count.subscribe(x => console.log(x));
- *
- * @see {@link expand}
- * @see {@link mergeScan}
- * @see {@link reduce}
- *
- * @param {function(acc: R, value: T, index: number): R} accumulator
- * The accumulator function called on each source value.
- * @param {T|R} [seed] The initial accumulation value.
- * @return {Observable<R>} An observable of the accumulated values.
- * @method scan
- * @owner Observable
- */
 function scan(accumulator, seed) {
     var hasSeed = false;
-    // providing a seed of `undefined` *should* be valid and trigger
-    // hasSeed! so don't use `seed !== undefined` checks!
-    // For this reason, we have to check it here at the original call site
-    // otherwise inside Operator/Subscriber we won't know if `undefined`
-    // means they didn't provide anything or if they literally provided `undefined`
     if (arguments.length >= 2) {
         hasSeed = true;
     }
@@ -76651,11 +72280,6 @@ var ScanOperator = /*@__PURE__*/ (function () {
     };
     return ScanOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var ScanSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ScanSubscriber, _super);
     function ScanSubscriber(destination, accumulator, _seed, hasSeed) {
@@ -76726,58 +72350,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Compares all values of two observables in sequence using an optional comparor function
- * and returns an observable of a single boolean value representing whether or not the two sequences
- * are equal.
- *
- * <span class="informal">Checks to see of all values emitted by both observables are equal, in order.</span>
- *
- * <img src="./img/sequenceEqual.png" width="100%">
- *
- * `sequenceEqual` subscribes to two observables and buffers incoming values from each observable. Whenever either
- * observable emits a value, the value is buffered and the buffers are shifted and compared from the bottom
- * up; If any value pair doesn't match, the returned observable will emit `false` and complete. If one of the
- * observables completes, the operator will wait for the other observable to complete; If the other
- * observable emits before completing, the returned observable will emit `false` and complete. If one observable never
- * completes or emits after the other complets, the returned observable will never complete.
- *
- * @example <caption>figure out if the Konami code matches</caption>
- * var code = Rx.Observable.from([
- *  "ArrowUp",
- *  "ArrowUp",
- *  "ArrowDown",
- *  "ArrowDown",
- *  "ArrowLeft",
- *  "ArrowRight",
- *  "ArrowLeft",
- *  "ArrowRight",
- *  "KeyB",
- *  "KeyA",
- *  "Enter" // no start key, clearly.
- * ]);
- *
- * var keys = Rx.Observable.fromEvent(document, 'keyup')
- *  .map(e => e.code);
- * var matches = keys.bufferCount(11, 1)
- *  .mergeMap(
- *    last11 =>
- *      Rx.Observable.from(last11)
- *        .sequenceEqual(code)
- *   );
- * matches.subscribe(matched => console.log('Successful cheat at Contra? ', matched));
- *
- * @see {@link combineLatest}
- * @see {@link zip}
- * @see {@link withLatestFrom}
- *
- * @param {Observable} compareTo The observable sequence to compare the source sequence to.
- * @param {function} [comparor] An optional function to compare each value pair
- * @return {Observable} An Observable of a single boolean value representing whether or not
- * the values emitted by both observables were equal in sequence.
- * @method sequenceEqual
- * @owner Observable
- */
 function sequenceEqual(compareTo, comparor) {
     return function (source) { return source.lift(new SequenceEqualOperator(compareTo, comparor)); };
 }
@@ -76792,11 +72364,6 @@ var SequenceEqualOperator = /*@__PURE__*/ (function () {
     return SequenceEqualOperator;
 }());
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SequenceEqualSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SequenceEqualSubscriber, _super);
     function SequenceEqualSubscriber(destination, compareTo, comparor) {
@@ -76906,18 +72473,6 @@ __webpack_require__.r(__webpack_exports__);
 function shareSubjectFactory() {
     return new _Subject__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
 }
-/**
- * Returns a new Observable that multicasts (shares) the original Observable. As long as there is at least one
- * Subscriber this Observable will be subscribed and emitting data. When all subscribers have unsubscribed it will
- * unsubscribe from the source Observable. Because the Observable is multicasting it makes the stream `hot`.
- * This is an alias for .multicast(() => new Subject()).refCount().
- *
- * <img src="./img/share.png" width="100%">
- *
- * @return {Observable<T>} An Observable that upon connection causes the source Observable to emit items to its Observers.
- * @method share
- * @owner Observable
- */
 function share() {
     return function (source) { return Object(_refCount__WEBPACK_IMPORTED_MODULE_1__["refCount"])()(Object(_multicast__WEBPACK_IMPORTED_MODULE_0__["multicast"])(shareSubjectFactory)(source)); };
 }
@@ -76939,10 +72494,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ReplaySubject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ReplaySubject */ "./node_modules/rxjs/_esm5/internal/ReplaySubject.js");
 /** PURE_IMPORTS_START _ReplaySubject PURE_IMPORTS_END */
 
-/**
- * @method shareReplay
- * @owner Observable
- */
 function shareReplay(bufferSize, windowTime, scheduler) {
     return function (source) { return source.lift(shareReplayOperator(bufferSize, windowTime, scheduler)); };
 }
@@ -77001,23 +72552,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Returns an Observable that emits the single item emitted by the source Observable that matches a specified
- * predicate, if that Observable emits one such item. If the source Observable emits more than one such item or no
- * items, notify of an IllegalArgumentException or NoSuchElementException respectively. If the source Observable
- * emits items but none match the specified predicate then `undefined` is emiited.
- *
- * <img src="./img/single.png" width="100%">
- *
- * @throws {EmptyError} Delivers an EmptyError to the Observer's `error`
- * callback if the Observable completes before any `next` notification was sent.
- * @param {Function} predicate - A predicate function to evaluate items emitted by the source Observable.
- * @return {Observable<T>} An Observable that emits the single item emitted by the source Observable that matches
- * the predicate or `undefined` when no items match.
- *
- * @method single
- * @owner Observable
- */
 function single(predicate) {
     return function (source) { return source.lift(new SingleOperator(predicate, source)); };
 }
@@ -77031,11 +72565,6 @@ var SingleOperator = /*@__PURE__*/ (function () {
     };
     return SingleOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SingleSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SingleSubscriber, _super);
     function SingleSubscriber(destination, predicate, source) {
@@ -77106,17 +72635,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Returns an Observable that skips the first `count` items emitted by the source Observable.
- *
- * <img src="./img/skip.png" width="100%">
- *
- * @param {Number} count - The number of times, items emitted by source Observable should be skipped.
- * @return {Observable} An Observable that skips values emitted by the source Observable.
- *
- * @method skip
- * @owner Observable
- */
 function skip(count) {
     return function (source) { return source.lift(new SkipOperator(count)); };
 }
@@ -77129,11 +72647,6 @@ var SkipOperator = /*@__PURE__*/ (function () {
     };
     return SkipOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SkipSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SkipSubscriber, _super);
     function SkipSubscriber(destination, total) {
@@ -77171,38 +72684,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Skip the last `count` values emitted by the source Observable.
- *
- * <img src="./img/skipLast.png" width="100%">
- *
- * `skipLast` returns an Observable that accumulates a queue with a length
- * enough to store the first `count` values. As more values are received,
- * values are taken from the front of the queue and produced on the result
- * sequence. This causes values to be delayed.
- *
- * @example <caption>Skip the last 2 values of an Observable with many values</caption>
- * var many = Rx.Observable.range(1, 5);
- * var skipLastTwo = many.skipLast(2);
- * skipLastTwo.subscribe(x => console.log(x));
- *
- * // Results in:
- * // 1 2 3
- *
- * @see {@link skip}
- * @see {@link skipUntil}
- * @see {@link skipWhile}
- * @see {@link take}
- *
- * @throws {ArgumentOutOfRangeError} When using `skipLast(i)`, it throws
- * ArgumentOutOrRangeError if `i < 0`.
- *
- * @param {number} count Number of elements to skip from the end of the source Observable.
- * @returns {Observable<T>} An Observable that skips the last count values
- * emitted by the source Observable.
- * @method skipLast
- * @owner Observable
- */
 function skipLast(count) {
     return function (source) { return source.lift(new SkipLastOperator(count)); };
 }
@@ -77215,8 +72696,6 @@ var SkipLastOperator = /*@__PURE__*/ (function () {
     }
     SkipLastOperator.prototype.call = function (subscriber, source) {
         if (this._skipCount === 0) {
-            // If we don't want to skip any values then just subscribe
-            // to Subscriber without any further logic.
             return source.subscribe(new _Subscriber__WEBPACK_IMPORTED_MODULE_1__["Subscriber"](subscriber));
         }
         else {
@@ -77225,11 +72704,6 @@ var SkipLastOperator = /*@__PURE__*/ (function () {
     };
     return SkipLastOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SkipLastSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SkipLastSubscriber, _super);
     function SkipLastSubscriber(destination, _skipCount) {
@@ -77277,18 +72751,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Returns an Observable that skips items emitted by the source Observable until a second Observable emits an item.
- *
- * <img src="./img/skipUntil.png" width="100%">
- *
- * @param {Observable} notifier - The second Observable that has to emit an item before the source Observable's elements begin to
- * be mirrored by the resulting Observable.
- * @return {Observable<T>} An Observable that skips items from the source Observable until the second Observable emits
- * an item, then emits the remaining items.
- * @method skipUntil
- * @owner Observable
- */
 function skipUntil(notifier) {
     return function (source) { return source.lift(new SkipUntilOperator(notifier)); };
 }
@@ -77301,11 +72763,6 @@ var SkipUntilOperator = /*@__PURE__*/ (function () {
     };
     return SkipUntilOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SkipUntilSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SkipUntilSubscriber, _super);
     function SkipUntilSubscriber(destination, notifier) {
@@ -77326,7 +72783,6 @@ var SkipUntilSubscriber = /*@__PURE__*/ (function (_super) {
         }
     };
     SkipUntilSubscriber.prototype.notifyComplete = function () {
-        /* do nothing */
     };
     return SkipUntilSubscriber;
 }(_OuterSubscriber__WEBPACK_IMPORTED_MODULE_1__["OuterSubscriber"]));
@@ -77350,18 +72806,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Returns an Observable that skips all items emitted by the source Observable as long as a specified condition holds
- * true, but emits all further source items as soon as the condition becomes false.
- *
- * <img src="./img/skipWhile.png" width="100%">
- *
- * @param {Function} predicate - A function to test each item emitted from the source Observable.
- * @return {Observable<T>} An Observable that begins emitting items emitted by the source Observable when the
- * specified predicate becomes false.
- * @method skipWhile
- * @owner Observable
- */
 function skipWhile(predicate) {
     return function (source) { return source.lift(new SkipWhileOperator(predicate)); };
 }
@@ -77374,11 +72818,6 @@ var SkipWhileOperator = /*@__PURE__*/ (function () {
     };
     return SkipWhileOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SkipWhileSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SkipWhileSubscriber, _super);
     function SkipWhileSubscriber(destination, predicate) {
@@ -77434,21 +72873,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Returns an Observable that emits the items you specify as arguments before it begins to emit
- * items emitted by the source Observable.
- *
- * <img src="./img/startWith.png" width="100%">
- *
- * @param {...T} values - Items you want the modified Observable to emit first.
- * @param {Scheduler} [scheduler] - A {@link IScheduler} to use for scheduling
- * the emissions of the `next` notifications.
- * @return {Observable} An Observable that emits the items in the specified Iterable and then emits the items
- * emitted by the source Observable.
- * @method startWith
- * @owner Observable
- */
 function startWith() {
     var array = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -77492,17 +72916,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _observable_SubscribeOnObservable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/SubscribeOnObservable */ "./node_modules/rxjs/_esm5/internal/observable/SubscribeOnObservable.js");
 /** PURE_IMPORTS_START _observable_SubscribeOnObservable PURE_IMPORTS_END */
 
-/**
- * Asynchronously subscribes Observers to this Observable on the specified IScheduler.
- *
- * <img src="./img/subscribeOn.png" width="100%">
- *
- * @param {Scheduler} scheduler - The IScheduler to perform subscription actions on.
- * @return {Observable<T>} The source Observable modified so that its subscriptions happen on the specified IScheduler.
- .
- * @method subscribeOn
- * @owner Observable
- */
 function subscribeOn(scheduler, delay) {
     if (delay === void 0) {
         delay = 0;
@@ -77570,46 +72983,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Projects each source value to an Observable which is merged in the output
- * Observable, emitting values only from the most recently projected Observable.
- *
- * <span class="informal">Maps each value to an Observable, then flattens all of
- * these inner Observables using {@link switch}.</span>
- *
- * <img src="./img/switchMap.png" width="100%">
- *
- * Returns an Observable that emits items based on applying a function that you
- * supply to each item emitted by the source Observable, where that function
- * returns an (so-called "inner") Observable. Each time it observes one of these
- * inner Observables, the output Observable begins emitting the items emitted by
- * that inner Observable. When a new inner Observable is emitted, `switchMap`
- * stops emitting items from the earlier-emitted inner Observable and begins
- * emitting items from the new one. It continues to behave like this for
- * subsequent inner Observables.
- *
- * @example <caption>Rerun an interval Observable on every click event</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.switchMap((ev) => Rx.Observable.interval(1000));
- * result.subscribe(x => console.log(x));
- *
- * @see {@link concatMap}
- * @see {@link exhaustMap}
- * @see {@link mergeMap}
- * @see {@link switch}
- * @see {@link switchMapTo}
- *
- * @param {function(value: T, ?index: number): ObservableInput} project A function
- * that, when applied to an item emitted by the source Observable, returns an
- * Observable.
- * @return {Observable} An Observable that emits the result of applying the
- * projection function (and the optional `resultSelector`) to each item emitted
- * by the source Observable and taking only the values from the most recently
- * projected inner Observable.
- * @method switchMap
- * @owner Observable
- */
 function switchMap(project, resultSelector) {
     if (typeof resultSelector === 'function') {
         return function (source) { return source.pipe(switchMap(function (a, i) { return Object(_observable_from__WEBPACK_IMPORTED_MODULE_4__["from"])(project(a, i)).pipe(Object(_map__WEBPACK_IMPORTED_MODULE_3__["map"])(function (b, ii) { return resultSelector(a, b, i, ii); })); })); };
@@ -77625,11 +72998,6 @@ var SwitchMapOperator = /*@__PURE__*/ (function () {
     };
     return SwitchMapOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var SwitchMapSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](SwitchMapSubscriber, _super);
     function SwitchMapSubscriber(destination, project) {
@@ -77696,41 +73064,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _switchMap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./switchMap */ "./node_modules/rxjs/_esm5/internal/operators/switchMap.js");
 /** PURE_IMPORTS_START _switchMap PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
-/**
- * Projects each source value to the same Observable which is flattened multiple
- * times with {@link switch} in the output Observable.
- *
- * <span class="informal">It's like {@link switchMap}, but maps each value
- * always to the same inner Observable.</span>
- *
- * <img src="./img/switchMapTo.png" width="100%">
- *
- * Maps each source value to the given Observable `innerObservable` regardless
- * of the source value, and then flattens those resulting Observables into one
- * single Observable, which is the output Observable. The output Observables
- * emits values only from the most recently emitted instance of
- * `innerObservable`.
- *
- * @example <caption>Rerun an interval Observable on every click event</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.switchMapTo(Rx.Observable.interval(1000));
- * result.subscribe(x => console.log(x));
- *
- * @see {@link concatMapTo}
- * @see {@link switch}
- * @see {@link switchMap}
- * @see {@link mergeMapTo}
- *
- * @param {ObservableInput} innerObservable An Observable to replace each value from
- * the source Observable.
- * @return {Observable} An Observable that emits items from the given
- * `innerObservable` (and optionally transformed through `resultSelector`) every
- * time a value is emitted on the source Observable, and taking only the values
- * from the most recently projected inner Observable.
- * @method switchMapTo
- * @owner Observable
- */
 function switchMapTo(innerObservable, resultSelector) {
     return resultSelector ? Object(_switchMap__WEBPACK_IMPORTED_MODULE_0__["switchMap"])(function () { return innerObservable; }, resultSelector) : Object(_switchMap__WEBPACK_IMPORTED_MODULE_0__["switchMap"])(function () { return innerObservable; });
 }
@@ -77758,39 +73091,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits only the first `count` values emitted by the source Observable.
- *
- * <span class="informal">Takes the first `count` values from the source, then
- * completes.</span>
- *
- * <img src="./img/take.png" width="100%">
- *
- * `take` returns an Observable that emits only the first `count` values emitted
- * by the source Observable. If the source emits fewer than `count` values then
- * all of its values are emitted. After that, it completes, regardless if the
- * source completes.
- *
- * @example <caption>Take the first 5 seconds of an infinite 1-second interval Observable</caption>
- * var interval = Rx.Observable.interval(1000);
- * var five = interval.take(5);
- * five.subscribe(x => console.log(x));
- *
- * @see {@link takeLast}
- * @see {@link takeUntil}
- * @see {@link takeWhile}
- * @see {@link skip}
- *
- * @throws {ArgumentOutOfRangeError} When using `take(i)`, it delivers an
- * ArgumentOutOrRangeError to the Observer's `error` callback if `i < 0`.
- *
- * @param {number} count The maximum number of `next` values to emit.
- * @return {Observable<T>} An Observable that emits only the first `count`
- * values emitted by the source Observable, or all of the values from the source
- * if the source emits fewer than `count` values.
- * @method take
- * @owner Observable
- */
 function take(count) {
     return function (source) {
         if (count === 0) {
@@ -77813,11 +73113,6 @@ var TakeOperator = /*@__PURE__*/ (function () {
     };
     return TakeOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var TakeSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](TakeSubscriber, _super);
     function TakeSubscriber(destination, total) {
@@ -77863,42 +73158,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits only the last `count` values emitted by the source Observable.
- *
- * <span class="informal">Remembers the latest `count` values, then emits those
- * only when the source completes.</span>
- *
- * <img src="./img/takeLast.png" width="100%">
- *
- * `takeLast` returns an Observable that emits at most the last `count` values
- * emitted by the source Observable. If the source emits fewer than `count`
- * values then all of its values are emitted. This operator must wait until the
- * `complete` notification emission from the source in order to emit the `next`
- * values on the output Observable, because otherwise it is impossible to know
- * whether or not more values will be emitted on the source. For this reason,
- * all values are emitted synchronously, followed by the complete notification.
- *
- * @example <caption>Take the last 3 values of an Observable with many values</caption>
- * var many = Rx.Observable.range(1, 100);
- * var lastThree = many.pipe(takeLast(3));
- * lastThree.subscribe(x => console.log(x));
- *
- * @see {@link take}
- * @see {@link takeUntil}
- * @see {@link takeWhile}
- * @see {@link skip}
- *
- * @throws {ArgumentOutOfRangeError} When using `takeLast(i)`, it delivers an
- * ArgumentOutOrRangeError to the Observer's `error` callback if `i < 0`.
- *
- * @param {number} count The maximum number of values to emit from the end of
- * the sequence of values emitted by the source Observable.
- * @return {Observable<T>} An Observable that emits at most the last count
- * values emitted by the source Observable.
- * @method takeLast
- * @owner Observable
- */
 function takeLast(count) {
     return function takeLastOperatorFunction(source) {
         if (count === 0) {
@@ -77921,11 +73180,6 @@ var TakeLastOperator = /*@__PURE__*/ (function () {
     };
     return TakeLastOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var TakeLastSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](TakeLastSubscriber, _super);
     function TakeLastSubscriber(destination, total) {
@@ -77984,40 +73238,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits the values emitted by the source Observable until a `notifier`
- * Observable emits a value.
- *
- * <span class="informal">Lets values pass until a second Observable,
- * `notifier`, emits a value. Then, it completes.</span>
- *
- * <img src="./img/takeUntil.png" width="100%">
- *
- * `takeUntil` subscribes and begins mirroring the source Observable. It also
- * monitors a second Observable, `notifier` that you provide. If the `notifier`
- * emits a value, the output Observable stops mirroring the source Observable
- * and completes. If the `notifier` doesn't emit any value and completes
- * then `takeUntil` will pass all values.
- *
- * @example <caption>Tick every second until the first click happens</caption>
- * var interval = Rx.Observable.interval(1000);
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = interval.takeUntil(clicks);
- * result.subscribe(x => console.log(x));
- *
- * @see {@link take}
- * @see {@link takeLast}
- * @see {@link takeWhile}
- * @see {@link skip}
- *
- * @param {Observable} notifier The Observable whose first emitted value will
- * cause the output Observable of `takeUntil` to stop emitting values from the
- * source Observable.
- * @return {Observable<T>} An Observable that emits the values from the source
- * Observable until such time as `notifier` emits its first value.
- * @method takeUntil
- * @owner Observable
- */
 function takeUntil(notifier) {
     return function (source) { return source.lift(new TakeUntilOperator(notifier)); };
 }
@@ -78036,11 +73256,6 @@ var TakeUntilOperator = /*@__PURE__*/ (function () {
     };
     return TakeUntilOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var TakeUntilSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](TakeUntilSubscriber, _super);
     function TakeUntilSubscriber(destination) {
@@ -78050,7 +73265,6 @@ var TakeUntilSubscriber = /*@__PURE__*/ (function (_super) {
         this.complete();
     };
     TakeUntilSubscriber.prototype.notifyComplete = function () {
-        // noop
     };
     return TakeUntilSubscriber;
 }(_OuterSubscriber__WEBPACK_IMPORTED_MODULE_1__["OuterSubscriber"]));
@@ -78074,42 +73288,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscriber PURE_IMPORTS_END */
 
 
-/**
- * Emits values emitted by the source Observable so long as each value satisfies
- * the given `predicate`, and then completes as soon as this `predicate` is not
- * satisfied.
- *
- * <span class="informal">Takes values from the source only while they pass the
- * condition given. When the first value does not satisfy, it completes.</span>
- *
- * <img src="./img/takeWhile.png" width="100%">
- *
- * `takeWhile` subscribes and begins mirroring the source Observable. Each value
- * emitted on the source is given to the `predicate` function which returns a
- * boolean, representing a condition to be satisfied by the source values. The
- * output Observable emits the source values until such time as the `predicate`
- * returns false, at which point `takeWhile` stops mirroring the source
- * Observable and completes the output Observable.
- *
- * @example <caption>Emit click events only while the clientX property is greater than 200</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.takeWhile(ev => ev.clientX > 200);
- * result.subscribe(x => console.log(x));
- *
- * @see {@link take}
- * @see {@link takeLast}
- * @see {@link takeUntil}
- * @see {@link skip}
- *
- * @param {function(value: T, index: number): boolean} predicate A function that
- * evaluates a value emitted by the source Observable and returns a boolean.
- * Also takes the (zero-based) index as the second argument.
- * @return {Observable<T>} An Observable that emits the values from the source
- * Observable so long as each value satisfies the condition defined by the
- * `predicate`, then completes.
- * @method takeWhile
- * @owner Observable
- */
 function takeWhile(predicate) {
     return function (source) { return source.lift(new TakeWhileOperator(predicate)); };
 }
@@ -78122,11 +73300,6 @@ var TakeWhileOperator = /*@__PURE__*/ (function () {
     };
     return TakeWhileOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var TakeWhileSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](TakeWhileSubscriber, _super);
     function TakeWhileSubscriber(destination, predicate) {
@@ -78182,48 +73355,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Perform a side effect for every emission on the source Observable, but return
- * an Observable that is identical to the source.
- *
- * <span class="informal">Intercepts each emission on the source and runs a
- * function, but returns an output which is identical to the source as long as errors don't occur.</span>
- *
- * <img src="./img/do.png" width="100%">
- *
- * Returns a mirrored Observable of the source Observable, but modified so that
- * the provided Observer is called to perform a side effect for every value,
- * error, and completion emitted by the source. Any errors that are thrown in
- * the aforementioned Observer or handlers are safely sent down the error path
- * of the output Observable.
- *
- * This operator is useful for debugging your Observables for the correct values
- * or performing other side effects.
- *
- * Note: this is different to a `subscribe` on the Observable. If the Observable
- * returned by `do` is not subscribed, the side effects specified by the
- * Observer will never happen. `do` therefore simply spies on existing
- * execution, it does not trigger an execution to happen like `subscribe` does.
- *
- * @example <caption>Map every click to the clientX position of that click, while also logging the click event</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var positions = clicks
- *   .do(ev => console.log(ev))
- *   .map(ev => ev.clientX);
- * positions.subscribe(x => console.log(x));
- *
- * @see {@link map}
- * @see {@link subscribe}
- *
- * @param {Observer|function} [nextOrObserver] A normal Observer object or a
- * callback for `next`.
- * @param {function} [error] Callback for errors in the source.
- * @param {function} [complete] Callback for the completion of the source.
- * @return {Observable} An Observable identical to the source, but runs the
- * specified Observer or callback(s) for each item.
- * @name tap
- */
 function tap(nextOrObserver, error, complete) {
     return function tapOperatorFunction(source) {
         return source.lift(new DoOperator(nextOrObserver, error, complete));
@@ -78240,11 +73371,6 @@ var DoOperator = /*@__PURE__*/ (function () {
     };
     return DoOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var TapSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](TapSubscriber, _super);
     function TapSubscriber(destination, observerOrNext, error, complete) {
@@ -78325,46 +73451,6 @@ var defaultThrottleConfig = {
     leading: true,
     trailing: false
 };
-/**
- * Emits a value from the source Observable, then ignores subsequent source
- * values for a duration determined by another Observable, then repeats this
- * process.
- *
- * <span class="informal">It's like {@link throttleTime}, but the silencing
- * duration is determined by a second Observable.</span>
- *
- * <img src="./img/throttle.png" width="100%">
- *
- * `throttle` emits the source Observable values on the output Observable
- * when its internal timer is disabled, and ignores source values when the timer
- * is enabled. Initially, the timer is disabled. As soon as the first source
- * value arrives, it is forwarded to the output Observable, and then the timer
- * is enabled by calling the `durationSelector` function with the source value,
- * which returns the "duration" Observable. When the duration Observable emits a
- * value or completes, the timer is disabled, and this process repeats for the
- * next source value.
- *
- * @example <caption>Emit clicks at a rate of at most one click per second</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.throttle(ev => Rx.Observable.interval(1000));
- * result.subscribe(x => console.log(x));
- *
- * @see {@link audit}
- * @see {@link debounce}
- * @see {@link delayWhen}
- * @see {@link sample}
- * @see {@link throttleTime}
- *
- * @param {function(value: T): SubscribableOrPromise} durationSelector A function
- * that receives a value from the source Observable, for computing the silencing
- * duration for each source value, returned as an Observable or a Promise.
- * @param {Object} config a configuration object to define `leading` and `trailing` behavior. Defaults
- * to `{ leading: true, trailing: false }`.
- * @return {Observable<T>} An Observable that performs the throttle operation to
- * limit the rate of emissions from the source.
- * @method throttle
- * @owner Observable
- */
 function throttle(durationSelector, config) {
     if (config === void 0) {
         config = defaultThrottleConfig;
@@ -78382,11 +73468,6 @@ var ThrottleOperator = /*@__PURE__*/ (function () {
     };
     return ThrottleOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc
- * @ignore
- * @extends {Ignored}
- */
 var ThrottleSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ThrottleSubscriber, _super);
     function ThrottleSubscriber(destination, durationSelector, _leading, _trailing) {
@@ -78476,47 +73557,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Emits a value from the source Observable, then ignores subsequent source
- * values for `duration` milliseconds, then repeats this process.
- *
- * <span class="informal">Lets a value pass, then ignores source values for the
- * next `duration` milliseconds.</span>
- *
- * <img src="./img/throttleTime.png" width="100%">
- *
- * `throttleTime` emits the source Observable values on the output Observable
- * when its internal timer is disabled, and ignores source values when the timer
- * is enabled. Initially, the timer is disabled. As soon as the first source
- * value arrives, it is forwarded to the output Observable, and then the timer
- * is enabled. After `duration` milliseconds (or the time unit determined
- * internally by the optional `scheduler`) has passed, the timer is disabled,
- * and this process repeats for the next source value. Optionally takes a
- * {@link IScheduler} for managing timers.
- *
- * @example <caption>Emit clicks at a rate of at most one click per second</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.throttleTime(1000);
- * result.subscribe(x => console.log(x));
- *
- * @see {@link auditTime}
- * @see {@link debounceTime}
- * @see {@link delay}
- * @see {@link sampleTime}
- * @see {@link throttle}
- *
- * @param {number} duration Time to wait before emitting another value after
- * emitting the last value, measured in milliseconds or the time unit determined
- * internally by the optional `scheduler`.
- * @param {Scheduler} [scheduler=async] The {@link IScheduler} to use for
- * managing the timers that handle the throttling.
- * @param {Object} config a configuration object to define `leading` and
- * `trailing` behavior. Defaults to `{ leading: true, trailing: false }`.
- * @return {Observable<T>} An Observable that performs the throttle operation to
- * limit the rate of emissions from the source.
- * @method throttleTime
- * @owner Observable
- */
 function throttleTime(duration, scheduler, config) {
     if (scheduler === void 0) {
         scheduler = _scheduler_async__WEBPACK_IMPORTED_MODULE_2__["async"];
@@ -78538,11 +73578,6 @@ var ThrottleTimeOperator = /*@__PURE__*/ (function () {
     };
     return ThrottleTimeOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var ThrottleTimeSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ThrottleTimeSubscriber, _super);
     function ThrottleTimeSubscriber(destination, duration, scheduler, leading, trailing) {
@@ -78617,29 +73652,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _tap,_util_EmptyError PURE_IMPORTS_END */
 
 
-/**
- * If the source observable completes without emitting a value, it will emit
- * an error. The error will be created at that time by the optional
- * `errorFactory` argument, otherwise, the error will be {@link ErrorEmpty}.
- *
- * @example
- *
- * const click$ = fromEvent(button, 'click');
- *
- * clicks$.pipe(
- *   takeUntil(timer(1000)),
- *   throwIfEmpty(
- *     () => new Error('the button was not clicked within 1 second')
- *   ),
- * )
- * .subscribe({
- *   next() { console.log('The button was clicked'); },
- *   error(err) { console.error(err); },
- * });
- * @param {Function} [errorFactory] A factory function called to produce the
- * error to be thrown when the source observable completes without emitting a
- * value.
- */
 var throwIfEmpty = function (errorFactory) {
     if (errorFactory === void 0) {
         errorFactory = defaultErrorFactory;
@@ -78688,9 +73700,7 @@ function timeInterval(scheduler) {
     }
     return function (source) {
         return Object(_observable_defer__WEBPACK_IMPORTED_MODULE_2__["defer"])(function () {
-            return source.pipe(
-            // HACK: the typings seem off with scan
-            Object(_scan__WEBPACK_IMPORTED_MODULE_1__["scan"])(function (_a, value) {
+            return source.pipe(Object(_scan__WEBPACK_IMPORTED_MODULE_1__["scan"])(function (_a, value) {
                 var current = _a.current;
                 return ({ value: value, current: scheduler.now(), last: current });
             }, { current: scheduler.now(), value: undefined, last: undefined }), Object(_map__WEBPACK_IMPORTED_MODULE_3__["map"])(function (_a) {
@@ -78732,71 +73742,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- *
- * Errors if Observable does not emit a value in given time span.
- *
- * <span class="informal">Timeouts on Observable that doesn't emit values fast enough.</span>
- *
- * <img src="./img/timeout.png" width="100%">
- *
- * `timeout` operator accepts as an argument either a number or a Date.
- *
- * If number was provided, it returns an Observable that behaves like a source
- * Observable, unless there is a period of time where there is no value emitted.
- * So if you provide `100` as argument and first value comes after 50ms from
- * the moment of subscription, this value will be simply re-emitted by the resulting
- * Observable. If however after that 100ms passes without a second value being emitted,
- * stream will end with an error and source Observable will be unsubscribed.
- * These checks are performed throughout whole lifecycle of Observable - from the moment
- * it was subscribed to, until it completes or errors itself. Thus every value must be
- * emitted within specified period since previous value.
- *
- * If provided argument was Date, returned Observable behaves differently. It throws
- * if Observable did not complete before provided Date. This means that periods between
- * emission of particular values do not matter in this case. If Observable did not complete
- * before provided Date, source Observable will be unsubscribed. Other than that, resulting
- * stream behaves just as source Observable.
- *
- * `timeout` accepts also a Scheduler as a second parameter. It is used to schedule moment (or moments)
- * when returned Observable will check if source stream emitted value or completed.
- *
- * @example <caption>Check if ticks are emitted within certain timespan</caption>
- * const seconds = Rx.Observable.interval(1000);
- *
- * seconds.timeout(1100) // Let's use bigger timespan to be safe,
- *                       // since `interval` might fire a bit later then scheduled.
- * .subscribe(
- *     value => console.log(value), // Will emit numbers just as regular `interval` would.
- *     err => console.log(err) // Will never be called.
- * );
- *
- * seconds.timeout(900).subscribe(
- *     value => console.log(value), // Will never be called.
- *     err => console.log(err) // Will emit error before even first value is emitted,
- *                             // since it did not arrive within 900ms period.
- * );
- *
- * @example <caption>Use Date to check if Observable completed</caption>
- * const seconds = Rx.Observable.interval(1000);
- *
- * seconds.timeout(new Date("December 17, 2020 03:24:00"))
- * .subscribe(
- *     value => console.log(value), // Will emit values as regular `interval` would
- *                                  // until December 17, 2020 at 03:24:00.
- *     err => console.log(err) // On December 17, 2020 at 03:24:00 it will emit an error,
- *                             // since Observable did not complete by then.
- * );
- *
- * @see {@link timeoutWith}
- *
- * @param {number|Date} due Number specifying period within which Observable must emit values
- *                          or Date specifying before when Observable should complete
- * @param {Scheduler} [scheduler] Scheduler controlling when timeout checks occur.
- * @return {Observable<T>} Observable that mirrors behaviour of source, unless timeout checks fail.
- * @method timeout
- * @owner Observable
- */
 function timeout(due, scheduler) {
     if (scheduler === void 0) {
         scheduler = _scheduler_async__WEBPACK_IMPORTED_MODULE_0__["async"];
@@ -78829,54 +73774,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- *
- * Errors if Observable does not emit a value in given time span, in case of which
- * subscribes to the second Observable.
- *
- * <span class="informal">It's a version of `timeout` operator that let's you specify fallback Observable.</span>
- *
- * <img src="./img/timeoutWith.png" width="100%">
- *
- * `timeoutWith` is a variation of `timeout` operator. It behaves exactly the same,
- * still accepting as a first argument either a number or a Date, which control - respectively -
- * when values of source Observable should be emitted or when it should complete.
- *
- * The only difference is that it accepts a second, required parameter. This parameter
- * should be an Observable which will be subscribed when source Observable fails any timeout check.
- * So whenever regular `timeout` would emit an error, `timeoutWith` will instead start re-emitting
- * values from second Observable. Note that this fallback Observable is not checked for timeouts
- * itself, so it can emit values and complete at arbitrary points in time. From the moment of a second
- * subscription, Observable returned from `timeoutWith` simply mirrors fallback stream. When that
- * stream completes, it completes as well.
- *
- * Scheduler, which in case of `timeout` is provided as as second argument, can be still provided
- * here - as a third, optional parameter. It still is used to schedule timeout checks and -
- * as a consequence - when second Observable will be subscribed, since subscription happens
- * immediately after failing check.
- *
- * @example <caption>Add fallback observable</caption>
- * const seconds = Rx.Observable.interval(1000);
- * const minutes = Rx.Observable.interval(60 * 1000);
- *
- * seconds.timeoutWith(900, minutes)
- *     .subscribe(
- *         value => console.log(value), // After 900ms, will start emitting `minutes`,
- *                                      // since first value of `seconds` will not arrive fast enough.
- *         err => console.log(err) // Would be called after 900ms in case of `timeout`,
- *                                 // but here will never be called.
- *     );
- *
- * @param {number|Date} due Number specifying period within which Observable must emit values
- *                          or Date specifying before when Observable should complete
- * @param {Observable<T>} withObservable Observable which will be subscribed if source fails timeout check.
- * @param {Scheduler} [scheduler] Scheduler controlling when timeout checks occur.
- * @return {Observable<T>} Observable that mirrors behaviour of source or, when timeout check fails, of an Observable
- *                          passed as a second parameter.
- * @method timeoutWith
- * @owner Observable
- */
 function timeoutWith(due, withObservable, scheduler) {
     if (scheduler === void 0) {
         scheduler = _scheduler_async__WEBPACK_IMPORTED_MODULE_1__["async"];
@@ -78899,11 +73796,6 @@ var TimeoutWithOperator = /*@__PURE__*/ (function () {
     };
     return TimeoutWithOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var TimeoutWithSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](TimeoutWithSubscriber, _super);
     function TimeoutWithSubscriber(destination, absoluteTimeout, waitFor, withObservable, scheduler) {
@@ -78924,11 +73816,6 @@ var TimeoutWithSubscriber = /*@__PURE__*/ (function (_super) {
     TimeoutWithSubscriber.prototype.scheduleTimeout = function () {
         var action = this.action;
         if (action) {
-            // Recycle the action if we've already scheduled one. All the production
-            // Scheduler Actions mutate their state/delay time and return themeselves.
-            // VirtualActions are immutable, so they create and return a clone. In this
-            // case, we need to set the action reference to the most recent VirtualAction,
-            // to ensure that's the one we clone from next time.
             this.action = action.schedule(this, this.waitFor);
         }
         else {
@@ -78941,7 +73828,6 @@ var TimeoutWithSubscriber = /*@__PURE__*/ (function (_super) {
         }
         _super.prototype._next.call(this, value);
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     TimeoutWithSubscriber.prototype._unsubscribe = function () {
         this.action = null;
         this.scheduler = null;
@@ -78970,18 +73856,11 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _scheduler_async,_map PURE_IMPORTS_END */
 
 
-/**
- * @param scheduler
- * @return {Observable<Timestamp<any>>|WebSocketSubject<T>|Observable<T>}
- * @method timestamp
- * @owner Observable
- */
 function timestamp(scheduler) {
     if (scheduler === void 0) {
         scheduler = _scheduler_async__WEBPACK_IMPORTED_MODULE_0__["async"];
     }
     return Object(_map__WEBPACK_IMPORTED_MODULE_1__["map"])(function (value) { return new Timestamp(value, scheduler.now()); });
-    // return (source: Observable<T>) => source.lift(new TimestampOperator(scheduler));
 }
 var Timestamp = /*@__PURE__*/ (function () {
     function Timestamp(value, timestamp) {
@@ -79043,42 +73922,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Branch out the source Observable values as a nested Observable whenever
- * `windowBoundaries` emits.
- *
- * <span class="informal">It's like {@link buffer}, but emits a nested Observable
- * instead of an array.</span>
- *
- * <img src="./img/window.png" width="100%">
- *
- * Returns an Observable that emits windows of items it collects from the source
- * Observable. The output Observable emits connected, non-overlapping
- * windows. It emits the current window and opens a new one whenever the
- * Observable `windowBoundaries` emits an item. Because each window is an
- * Observable, the output is a higher-order Observable.
- *
- * @example <caption>In every window of 1 second each, emit at most 2 click events</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var interval = Rx.Observable.interval(1000);
- * var result = clicks.window(interval)
- *   .map(win => win.take(2)) // each window has at most 2 emissions
- *   .mergeAll(); // flatten the Observable-of-Observables
- * result.subscribe(x => console.log(x));
- *
- * @see {@link windowCount}
- * @see {@link windowTime}
- * @see {@link windowToggle}
- * @see {@link windowWhen}
- * @see {@link buffer}
- *
- * @param {Observable<any>} windowBoundaries An Observable that completes the
- * previous window and starts a new window.
- * @return {Observable<Observable<T>>} An Observable of windows, which are
- * Observables emitting values of the source Observable.
- * @method window
- * @owner Observable
- */
 function window(windowBoundaries) {
     return function windowOperatorFunction(source) {
         return source.lift(new WindowOperator(windowBoundaries));
@@ -79098,11 +73941,6 @@ var WindowOperator = /*@__PURE__*/ (function () {
     };
     return WindowOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var WindowSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](WindowSubscriber, _super);
     function WindowSubscriber(destination) {
@@ -79131,7 +73969,6 @@ var WindowSubscriber = /*@__PURE__*/ (function (_super) {
         this.window.complete();
         this.destination.complete();
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     WindowSubscriber.prototype._unsubscribe = function () {
         this.window = null;
     };
@@ -79168,54 +74005,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Branch out the source Observable values as a nested Observable with each
- * nested Observable emitting at most `windowSize` values.
- *
- * <span class="informal">It's like {@link bufferCount}, but emits a nested
- * Observable instead of an array.</span>
- *
- * <img src="./img/windowCount.png" width="100%">
- *
- * Returns an Observable that emits windows of items it collects from the source
- * Observable. The output Observable emits windows every `startWindowEvery`
- * items, each containing no more than `windowSize` items. When the source
- * Observable completes or encounters an error, the output Observable emits
- * the current window and propagates the notification from the source
- * Observable. If `startWindowEvery` is not provided, then new windows are
- * started immediately at the start of the source and when each window completes
- * with size `windowSize`.
- *
- * @example <caption>Ignore every 3rd click event, starting from the first one</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.windowCount(3)
- *   .map(win => win.skip(1)) // skip first of every 3 clicks
- *   .mergeAll(); // flatten the Observable-of-Observables
- * result.subscribe(x => console.log(x));
- *
- * @example <caption>Ignore every 3rd click event, starting from the third one</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks.windowCount(2, 3)
- *   .mergeAll(); // flatten the Observable-of-Observables
- * result.subscribe(x => console.log(x));
- *
- * @see {@link window}
- * @see {@link windowTime}
- * @see {@link windowToggle}
- * @see {@link windowWhen}
- * @see {@link bufferCount}
- *
- * @param {number} windowSize The maximum number of values emitted by each
- * window.
- * @param {number} [startWindowEvery] Interval at which to start a new window.
- * For example if `startWindowEvery` is `2`, then a new window will be started
- * on every other value from the source. A new window is started at the
- * beginning of the source by default.
- * @return {Observable<Observable<T>>} An Observable of windows, which in turn
- * are Observable of values.
- * @method windowCount
- * @owner Observable
- */
 function windowCount(windowSize, startWindowEvery) {
     if (startWindowEvery === void 0) {
         startWindowEvery = 0;
@@ -79234,11 +74023,6 @@ var WindowCountOperator = /*@__PURE__*/ (function () {
     };
     return WindowCountOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var WindowCountSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](WindowCountSubscriber, _super);
     function WindowCountSubscriber(destination, windowSize, startWindowEvery) {
@@ -79377,11 +74161,6 @@ var CountedSubject = /*@__PURE__*/ (function (_super) {
     });
     return CountedSubject;
 }(_Subject__WEBPACK_IMPORTED_MODULE_1__["Subject"]));
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var WindowTimeSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](WindowTimeSubscriber, _super);
     function WindowTimeSubscriber(destination, windowTimeSpan, windowCreationInterval, maxWindowSize, scheduler) {
@@ -79504,47 +74283,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Branch out the source Observable values as a nested Observable starting from
- * an emission from `openings` and ending when the output of `closingSelector`
- * emits.
- *
- * <span class="informal">It's like {@link bufferToggle}, but emits a nested
- * Observable instead of an array.</span>
- *
- * <img src="./img/windowToggle.png" width="100%">
- *
- * Returns an Observable that emits windows of items it collects from the source
- * Observable. The output Observable emits windows that contain those items
- * emitted by the source Observable between the time when the `openings`
- * Observable emits an item and when the Observable returned by
- * `closingSelector` emits an item.
- *
- * @example <caption>Every other second, emit the click events from the next 500ms</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var openings = Rx.Observable.interval(1000);
- * var result = clicks.windowToggle(openings, i =>
- *   i % 2 ? Rx.Observable.interval(500) : Rx.Observable.empty()
- * ).mergeAll();
- * result.subscribe(x => console.log(x));
- *
- * @see {@link window}
- * @see {@link windowCount}
- * @see {@link windowTime}
- * @see {@link windowWhen}
- * @see {@link bufferToggle}
- *
- * @param {Observable<O>} openings An observable of notifications to start new
- * windows.
- * @param {function(value: O): Observable} closingSelector A function that takes
- * the value emitted by the `openings` observable and returns an Observable,
- * which, when it emits (either `next` or `complete`), signals that the
- * associated window should complete.
- * @return {Observable<Observable<T>>} An observable of windows, which in turn
- * are Observables.
- * @method windowToggle
- * @owner Observable
- */
 function windowToggle(openings, closingSelector) {
     return function (source) { return source.lift(new WindowToggleOperator(openings, closingSelector)); };
 }
@@ -79558,11 +74296,6 @@ var WindowToggleOperator = /*@__PURE__*/ (function () {
     };
     return WindowToggleOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var WindowToggleSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](WindowToggleSubscriber, _super);
     function WindowToggleSubscriber(destination, openings, closingSelector) {
@@ -79610,7 +74343,6 @@ var WindowToggleSubscriber = /*@__PURE__*/ (function (_super) {
         }
         _super.prototype._complete.call(this);
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     WindowToggleSubscriber.prototype._unsubscribe = function () {
         var contexts = this.contexts;
         this.contexts = null;
@@ -79700,44 +74432,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Branch out the source Observable values as a nested Observable using a
- * factory function of closing Observables to determine when to start a new
- * window.
- *
- * <span class="informal">It's like {@link bufferWhen}, but emits a nested
- * Observable instead of an array.</span>
- *
- * <img src="./img/windowWhen.png" width="100%">
- *
- * Returns an Observable that emits windows of items it collects from the source
- * Observable. The output Observable emits connected, non-overlapping windows.
- * It emits the current window and opens a new one whenever the Observable
- * produced by the specified `closingSelector` function emits an item. The first
- * window is opened immediately when subscribing to the output Observable.
- *
- * @example <caption>Emit only the first two clicks events in every window of [1-5] random seconds</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var result = clicks
- *   .windowWhen(() => Rx.Observable.interval(1000 + Math.random() * 4000))
- *   .map(win => win.take(2)) // each window has at most 2 emissions
- *   .mergeAll(); // flatten the Observable-of-Observables
- * result.subscribe(x => console.log(x));
- *
- * @see {@link window}
- * @see {@link windowCount}
- * @see {@link windowTime}
- * @see {@link windowToggle}
- * @see {@link bufferWhen}
- *
- * @param {function(): Observable} closingSelector A function that takes no
- * arguments and returns an Observable that signals (on either `next` or
- * `complete`) when to close the previous window and start a new one.
- * @return {Observable<Observable<T>>} An observable of windows, which in turn
- * are Observables.
- * @method windowWhen
- * @owner Observable
- */
 function windowWhen(closingSelector) {
     return function windowWhenOperatorFunction(source) {
         return source.lift(new WindowOperator(closingSelector));
@@ -79752,11 +74446,6 @@ var WindowOperator = /*@__PURE__*/ (function () {
     };
     return WindowOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var WindowSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](WindowSubscriber, _super);
     function WindowSubscriber(destination, closingSelector) {
@@ -79841,45 +74530,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* tslint:enable:max-line-length */
-/**
- * Combines the source Observable with other Observables to create an Observable
- * whose values are calculated from the latest values of each, only when the
- * source emits.
- *
- * <span class="informal">Whenever the source Observable emits a value, it
- * computes a formula using that value plus the latest values from other input
- * Observables, then emits the output of that formula.</span>
- *
- * <img src="./img/withLatestFrom.png" width="100%">
- *
- * `withLatestFrom` combines each value from the source Observable (the
- * instance) with the latest values from the other input Observables only when
- * the source emits a value, optionally using a `project` function to determine
- * the value to be emitted on the output Observable. All input Observables must
- * emit at least one value before the output Observable will emit a value.
- *
- * @example <caption>On every click event, emit an array with the latest timer event plus the click event</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var timer = Rx.Observable.interval(1000);
- * var result = clicks.withLatestFrom(timer);
- * result.subscribe(x => console.log(x));
- *
- * @see {@link combineLatest}
- *
- * @param {ObservableInput} other An input Observable to combine with the source
- * Observable. More than one input Observables may be given as argument.
- * @param {Function} [project] Projection function for combining values
- * together. Receives all values in order of the Observables passed, where the
- * first parameter is a value from the source Observable. (e.g.
- * `a.withLatestFrom(b, c, (a1, b1, c1) => a1 + b1 + c1)`). If this is not
- * passed, arrays will be emitted on the output Observable.
- * @return {Observable} An Observable of projected values from the most recent
- * values from each input Observable, or an array of the most recent values from
- * each input Observable.
- * @method withLatestFrom
- * @owner Observable
- */
 function withLatestFrom() {
     var args = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -79904,11 +74554,6 @@ var WithLatestFromOperator = /*@__PURE__*/ (function () {
     };
     return WithLatestFromOperator;
 }());
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var WithLatestFromSubscriber = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](WithLatestFromSubscriber, _super);
     function WithLatestFromSubscriber(destination, observables, project) {
@@ -79938,7 +74583,6 @@ var WithLatestFromSubscriber = /*@__PURE__*/ (function (_super) {
         }
     };
     WithLatestFromSubscriber.prototype.notifyComplete = function () {
-        // noop
     };
     WithLatestFromSubscriber.prototype._next = function (value) {
         if (this.toRespond.length === 0) {
@@ -79982,10 +74626,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _observable_zip__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../observable/zip */ "./node_modules/rxjs/_esm5/internal/observable/zip.js");
 /** PURE_IMPORTS_START _observable_zip PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
-/**
- * @deprecated Deprecated in favor of static zip.
- */
 function zip() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -80036,35 +74676,11 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Subscription PURE_IMPORTS_END */
 
 
-/**
- * A unit of work to be executed in a {@link Scheduler}. An action is typically
- * created from within a Scheduler and an RxJS user does not need to concern
- * themselves about creating and manipulating an Action.
- *
- * ```ts
- * class Action<T> extends Subscription {
- *   new (scheduler: Scheduler, work: (state?: T) => void);
- *   schedule(state?: T, delay: number = 0): Subscription;
- * }
- * ```
- *
- * @class Action<T>
- */
 var Action = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](Action, _super);
     function Action(scheduler, work) {
         return _super.call(this) || this;
     }
-    /**
-     * Schedules this action on its parent Scheduler for execution. May be passed
-     * some context object, `state`. May happen at some point in the future,
-     * according to the `delay` parameter, if specified.
-     * @param {T} [state] Some contextual data that the `work` function uses when
-     * called by the Scheduler.
-     * @param {number} [delay] Time to wait before executing the work, where the
-     * time unit is implicit and defined by the Scheduler.
-     * @return {void}
-     */
     Action.prototype.schedule = function (state, delay) {
         if (delay === void 0) {
             delay = 0;
@@ -80094,11 +74710,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_AsyncAction PURE_IMPORTS_END */
 
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var AnimationFrameAction = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AnimationFrameAction, _super);
     function AnimationFrameAction(scheduler, work) {
@@ -80111,35 +74722,23 @@ var AnimationFrameAction = /*@__PURE__*/ (function (_super) {
         if (delay === void 0) {
             delay = 0;
         }
-        // If delay is greater than 0, request as an async action.
         if (delay !== null && delay > 0) {
             return _super.prototype.requestAsyncId.call(this, scheduler, id, delay);
         }
-        // Push the action to the end of the scheduler queue.
         scheduler.actions.push(this);
-        // If an animation frame has already been requested, don't request another
-        // one. If an animation frame hasn't been requested yet, request one. Return
-        // the current animation frame request id.
         return scheduler.scheduled || (scheduler.scheduled = requestAnimationFrame(function () { return scheduler.flush(null); }));
     };
     AnimationFrameAction.prototype.recycleAsyncId = function (scheduler, id, delay) {
         if (delay === void 0) {
             delay = 0;
         }
-        // If delay exists and is greater than 0, or if the delay is null (the
-        // action wasn't rescheduled) but was originally scheduled as an async
-        // action, then recycle as an async action.
         if ((delay !== null && delay > 0) || (delay === null && this.delay > 0)) {
             return _super.prototype.recycleAsyncId.call(this, scheduler, id, delay);
         }
-        // If the scheduler queue is empty, cancel the requested animation frame and
-        // set the scheduled flag to undefined so the next AnimationFrameAction will
-        // request its own.
         if (scheduler.actions.length === 0) {
             cancelAnimationFrame(id);
             scheduler.scheduled = undefined;
         }
-        // Return undefined so the action knows to request a new async id if it's rescheduled.
         return undefined;
     };
     return AnimationFrameAction;
@@ -80216,11 +74815,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var AsapAction = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AsapAction, _super);
     function AsapAction(scheduler, work) {
@@ -80233,35 +74827,23 @@ var AsapAction = /*@__PURE__*/ (function (_super) {
         if (delay === void 0) {
             delay = 0;
         }
-        // If delay is greater than 0, request as an async action.
         if (delay !== null && delay > 0) {
             return _super.prototype.requestAsyncId.call(this, scheduler, id, delay);
         }
-        // Push the action to the end of the scheduler queue.
         scheduler.actions.push(this);
-        // If a microtask has already been scheduled, don't schedule another
-        // one. If a microtask hasn't been scheduled yet, schedule one now. Return
-        // the current scheduled microtask id.
         return scheduler.scheduled || (scheduler.scheduled = _util_Immediate__WEBPACK_IMPORTED_MODULE_1__["Immediate"].setImmediate(scheduler.flush.bind(scheduler, null)));
     };
     AsapAction.prototype.recycleAsyncId = function (scheduler, id, delay) {
         if (delay === void 0) {
             delay = 0;
         }
-        // If delay exists and is greater than 0, or if the delay is null (the
-        // action wasn't rescheduled) but was originally scheduled as an async
-        // action, then recycle as an async action.
         if ((delay !== null && delay > 0) || (delay === null && this.delay > 0)) {
             return _super.prototype.recycleAsyncId.call(this, scheduler, id, delay);
         }
-        // If the scheduler queue is empty, cancel the requested microtask and
-        // set the scheduled flag to undefined so the next AsapAction will schedule
-        // its own.
         if (scheduler.actions.length === 0) {
             _util_Immediate__WEBPACK_IMPORTED_MODULE_1__["Immediate"].clearImmediate(id);
             scheduler.scheduled = undefined;
         }
-        // Return undefined so the action knows to request a new async id if it's rescheduled.
         return undefined;
     };
     return AsapAction;
@@ -80336,11 +74918,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_Action PURE_IMPORTS_END */
 
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var AsyncAction = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](AsyncAction, _super);
     function AsyncAction(scheduler, work) {
@@ -80357,39 +74934,14 @@ var AsyncAction = /*@__PURE__*/ (function (_super) {
         if (this.closed) {
             return this;
         }
-        // Always replace the current state with the new state.
         this.state = state;
         var id = this.id;
         var scheduler = this.scheduler;
-        //
-        // Important implementation note:
-        //
-        // Actions only execute once by default, unless rescheduled from within the
-        // scheduled callback. This allows us to implement single and repeat
-        // actions via the same code path, without adding API surface area, as well
-        // as mimic traditional recursion but across asynchronous boundaries.
-        //
-        // However, JS runtimes and timers distinguish between intervals achieved by
-        // serial `setTimeout` calls vs. a single `setInterval` call. An interval of
-        // serial `setTimeout` calls can be individually delayed, which delays
-        // scheduling the next `setTimeout`, and so on. `setInterval` attempts to
-        // guarantee the interval callback will be invoked more precisely to the
-        // interval period, regardless of load.
-        //
-        // Therefore, we use `setInterval` to schedule single and repeat actions.
-        // If the action reschedules itself with the same delay, the interval is not
-        // canceled. If the action doesn't reschedule, or reschedules with a
-        // different delay, the interval will be canceled after scheduled callback
-        // execution.
-        //
         if (id != null) {
             this.id = this.recycleAsyncId(scheduler, id, delay);
         }
-        // Set the pending flag indicating that this action has been scheduled, or
-        // has recursively rescheduled itself.
         this.pending = true;
         this.delay = delay;
-        // If this action has already an async Id, don't request a new one.
         this.id = this.id || this.requestAsyncId(scheduler, this.id, delay);
         return this;
     };
@@ -80403,18 +74955,11 @@ var AsyncAction = /*@__PURE__*/ (function (_super) {
         if (delay === void 0) {
             delay = 0;
         }
-        // If this action is rescheduled with the same delay time, don't clear the interval id.
         if (delay !== null && this.delay === delay && this.pending === false) {
             return id;
         }
-        // Otherwise, if the action's delay time is different from the current delay,
-        // or the action has been rescheduled before it's executed, clear the interval id
         return clearInterval(id) && undefined || undefined;
     };
-    /**
-     * Immediately executes this action and the `work` it contains.
-     * @return {any}
-     */
     AsyncAction.prototype.execute = function (state, delay) {
         if (this.closed) {
             return new Error('executing a cancelled action');
@@ -80425,19 +74970,6 @@ var AsyncAction = /*@__PURE__*/ (function (_super) {
             return error;
         }
         else if (this.pending === false && this.id != null) {
-            // Dequeue if the action didn't reschedule itself. Don't call
-            // unsubscribe(), because the action could reschedule later.
-            // For example:
-            // ```
-            // scheduler.schedule(function doWork(counter) {
-            //   /* ... I'm a busy worker bee ... */
-            //   var originalAction = this;
-            //   /* wait 100ms before rescheduling the action */
-            //   setTimeout(function () {
-            //     originalAction.schedule(counter + 1);
-            //   }, 100);
-            // }, 1000);
-            // ```
             this.id = this.recycleAsyncId(this.scheduler, this.id, null);
         }
     };
@@ -80456,7 +74988,6 @@ var AsyncAction = /*@__PURE__*/ (function (_super) {
             return errorValue;
         }
     };
-    /** @deprecated This is an internal implementation detail, do not use. */
     AsyncAction.prototype._unsubscribe = function () {
         var id = this.id;
         var scheduler = this.scheduler;
@@ -80512,20 +75043,7 @@ var AsyncScheduler = /*@__PURE__*/ (function (_super) {
             }
         }) || this;
         _this.actions = [];
-        /**
-         * A flag to indicate whether the Scheduler is currently executing a batch of
-         * queued actions.
-         * @type {boolean}
-         * @deprecated internal use only
-         */
         _this.active = false;
-        /**
-         * An internal ID used to track the latest asynchronous task such as those
-         * coming from `setTimeout`, `setInterval`, `requestAnimationFrame`, and
-         * others.
-         * @type {any}
-         * @deprecated internal use only
-         */
         _this.scheduled = undefined;
         return _this;
     }
@@ -80552,7 +75070,7 @@ var AsyncScheduler = /*@__PURE__*/ (function (_super) {
             if (error = action.execute(action.state, action.delay)) {
                 break;
             }
-        } while (action = actions.shift()); // exhaust the scheduler queue
+        } while (action = actions.shift());
         this.active = false;
         if (error) {
             while (action = actions.shift()) {
@@ -80584,11 +75102,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START tslib,_AsyncAction PURE_IMPORTS_END */
 
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var QueueAction = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](QueueAction, _super);
     function QueueAction(scheduler, work) {
@@ -80618,13 +75131,9 @@ var QueueAction = /*@__PURE__*/ (function (_super) {
         if (delay === void 0) {
             delay = 0;
         }
-        // If delay exists and is greater than 0, or if the delay is null (the
-        // action wasn't rescheduled) but was originally scheduled as an async
-        // action, then recycle as an async action.
         if ((delay !== null && delay > 0) || (delay === null && this.delay > 0)) {
             return _super.prototype.requestAsyncId.call(this, scheduler, id, delay);
         }
-        // Otherwise flush the scheduler starting with this action.
         return scheduler.flush(this);
     };
     return QueueAction;
@@ -80696,11 +75205,6 @@ var VirtualTimeScheduler = /*@__PURE__*/ (function (_super) {
         _this.index = -1;
         return _this;
     }
-    /**
-     * Prompt the Scheduler to execute all of its queued actions, therefore
-     * clearing its queue.
-     * @return {void}
-     */
     VirtualTimeScheduler.prototype.flush = function () {
         var _a = this, actions = _a.actions, maxFrames = _a.maxFrames;
         var error, action;
@@ -80720,11 +75224,6 @@ var VirtualTimeScheduler = /*@__PURE__*/ (function (_super) {
     return VirtualTimeScheduler;
 }(_AsyncScheduler__WEBPACK_IMPORTED_MODULE_2__["AsyncScheduler"]));
 
-/**
- * We need this JSDoc comment for affecting ESDoc.
- * @ignore
- * @extends {Ignored}
- */
 var VirtualAction = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](VirtualAction, _super);
     function VirtualAction(scheduler, work, index) {
@@ -80747,10 +75246,6 @@ var VirtualAction = /*@__PURE__*/ (function (_super) {
             return _super.prototype.schedule.call(this, state, delay);
         }
         this.active = false;
-        // If an action is rescheduled, we save allocations by mutating its state,
-        // pushing it to the end of the scheduler queue, and recycling the action.
-        // But since the VirtualTimeScheduler is used for testing, VirtualActions
-        // must be immutable so they can be inspected later.
         var action = new VirtualAction(this.scheduler, this.work);
         this.add(action);
         return action.schedule(state, delay);
@@ -80818,36 +75313,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _AnimationFrameAction,_AnimationFrameScheduler PURE_IMPORTS_END */
 
 
-/**
- *
- * Animation Frame Scheduler
- *
- * <span class="informal">Perform task when `window.requestAnimationFrame` would fire</span>
- *
- * When `animationFrame` scheduler is used with delay, it will fall back to {@link async} scheduler
- * behaviour.
- *
- * Without delay, `animationFrame` scheduler can be used to create smooth browser animations.
- * It makes sure scheduled task will happen just before next browser content repaint,
- * thus performing animations as efficiently as possible.
- *
- * @example <caption>Schedule div height animation</caption>
- * const div = document.querySelector('.some-div');
- *
- * Rx.Scheduler.animationFrame.schedule(function(height) {
- *   div.style.height = height + "px";
- *
- *   this.schedule(height + 1);  // `this` references currently executing Action,
- *                               // which we reschedule with new state
- * }, 0, 0);
- *
- * // You will see .some-div element growing in height
- *
- *
- * @static true
- * @name animationFrame
- * @owner Scheduler
- */
 var animationFrame = /*@__PURE__*/ new _AnimationFrameScheduler__WEBPACK_IMPORTED_MODULE_1__["AnimationFrameScheduler"](_AnimationFrameAction__WEBPACK_IMPORTED_MODULE_0__["AnimationFrameAction"]);
 //# sourceMappingURL=animationFrame.js.map
 
@@ -80869,40 +75334,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _AsapAction,_AsapScheduler PURE_IMPORTS_END */
 
 
-/**
- *
- * Asap Scheduler
- *
- * <span class="informal">Perform task as fast as it can be performed asynchronously</span>
- *
- * `asap` scheduler behaves the same as {@link async} scheduler when you use it to delay task
- * in time. If however you set delay to `0`, `asap` will wait for current synchronously executing
- * code to end and then it will try to execute given task as fast as possible.
- *
- * `asap` scheduler will do its best to minimize time between end of currently executing code
- * and start of scheduled task. This makes it best candidate for performing so called "deferring".
- * Traditionally this was achieved by calling `setTimeout(deferredTask, 0)`, but that technique involves
- * some (although minimal) unwanted delay.
- *
- * Note that using `asap` scheduler does not necessarily mean that your task will be first to process
- * after currently executing code. In particular, if some task was also scheduled with `asap` before,
- * that task will execute first. That being said, if you need to schedule task asynchronously, but
- * as soon as possible, `asap` scheduler is your best bet.
- *
- * @example <caption>Compare async and asap scheduler</caption>
- *
- * Rx.Scheduler.async.schedule(() => console.log('async')); // scheduling 'async' first...
- * Rx.Scheduler.asap.schedule(() => console.log('asap'));
- *
- * // Logs:
- * // "asap"
- * // "async"
- * // ... but 'asap' goes first!
- *
- * @static true
- * @name asap
- * @owner Scheduler
- */
 var asap = /*@__PURE__*/ new _AsapScheduler__WEBPACK_IMPORTED_MODULE_1__["AsapScheduler"](_AsapAction__WEBPACK_IMPORTED_MODULE_0__["AsapAction"]);
 //# sourceMappingURL=asap.js.map
 
@@ -80924,48 +75355,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _AsyncAction,_AsyncScheduler PURE_IMPORTS_END */
 
 
-/**
- *
- * Async Scheduler
- *
- * <span class="informal">Schedule task as if you used setTimeout(task, duration)</span>
- *
- * `async` scheduler schedules tasks asynchronously, by putting them on the JavaScript
- * event loop queue. It is best used to delay tasks in time or to schedule tasks repeating
- * in intervals.
- *
- * If you just want to "defer" task, that is to perform it right after currently
- * executing synchronous code ends (commonly achieved by `setTimeout(deferredTask, 0)`),
- * better choice will be the {@link asap} scheduler.
- *
- * @example <caption>Use async scheduler to delay task</caption>
- * const task = () => console.log('it works!');
- *
- * Rx.Scheduler.async.schedule(task, 2000);
- *
- * // After 2 seconds logs:
- * // "it works!"
- *
- *
- * @example <caption>Use async scheduler to repeat task in intervals</caption>
- * function task(state) {
- *   console.log(state);
- *   this.schedule(state + 1, 1000); // `this` references currently executing Action,
- *                                   // which we reschedule with new state and delay
- * }
- *
- * Rx.Scheduler.async.schedule(task, 3000, 0);
- *
- * // Logs:
- * // 0 after 3s
- * // 1 after 4s
- * // 2 after 5s
- * // 3 after 6s
- *
- * @static true
- * @name async
- * @owner Scheduler
- */
 var async = /*@__PURE__*/ new _AsyncScheduler__WEBPACK_IMPORTED_MODULE_1__["AsyncScheduler"](_AsyncAction__WEBPACK_IMPORTED_MODULE_0__["AsyncAction"]);
 //# sourceMappingURL=async.js.map
 
@@ -80987,67 +75376,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _QueueAction,_QueueScheduler PURE_IMPORTS_END */
 
 
-/**
- *
- * Queue Scheduler
- *
- * <span class="informal">Put every next task on a queue, instead of executing it immediately</span>
- *
- * `queue` scheduler, when used with delay, behaves the same as {@link async} scheduler.
- *
- * When used without delay, it schedules given task synchronously - executes it right when
- * it is scheduled. However when called recursively, that is when inside the scheduled task,
- * another task is scheduled with queue scheduler, instead of executing immediately as well,
- * that task will be put on a queue and wait for current one to finish.
- *
- * This means that when you execute task with `queue` scheduler, you are sure it will end
- * before any other task scheduled with that scheduler will start.
- *
- * @examples <caption>Schedule recursively first, then do something</caption>
- *
- * Rx.Scheduler.queue.schedule(() => {
- *   Rx.Scheduler.queue.schedule(() => console.log('second')); // will not happen now, but will be put on a queue
- *
- *   console.log('first');
- * });
- *
- * // Logs:
- * // "first"
- * // "second"
- *
- *
- * @example <caption>Reschedule itself recursively</caption>
- *
- * Rx.Scheduler.queue.schedule(function(state) {
- *   if (state !== 0) {
- *     console.log('before', state);
- *     this.schedule(state - 1); // `this` references currently executing Action,
- *                               // which we reschedule with new state
- *     console.log('after', state);
- *   }
- * }, 0, 3);
- *
- * // In scheduler that runs recursively, you would expect:
- * // "before", 3
- * // "before", 2
- * // "before", 1
- * // "after", 1
- * // "after", 2
- * // "after", 3
- *
- * // But with queue it logs:
- * // "before", 3
- * // "after", 3
- * // "before", 2
- * // "after", 2
- * // "before", 1
- * // "after", 1
- *
- *
- * @static true
- * @name queue
- * @owner Scheduler
- */
 var queue = /*@__PURE__*/ new _QueueScheduler__WEBPACK_IMPORTED_MODULE_1__["QueueScheduler"](_QueueAction__WEBPACK_IMPORTED_MODULE_0__["QueueAction"]);
 //# sourceMappingURL=queue.js.map
 
@@ -81074,9 +75402,6 @@ function getSymbolIterator() {
     return Symbol.iterator;
 }
 var iterator = /*@__PURE__*/ getSymbolIterator();
-/**
- * @deprecated use {@link iterator} instead
- */
 var $$iterator = iterator;
 //# sourceMappingURL=iterator.js.map
 
@@ -81093,7 +75418,6 @@ var $$iterator = iterator;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "observable", function() { return observable; });
-/** Symbol.observable or a string "@@observable". Used for interop */
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 var observable = typeof Symbol === 'function' && Symbol.observable || '@@observable';
 //# sourceMappingURL=observable.js.map
@@ -81116,9 +75440,6 @@ __webpack_require__.r(__webpack_exports__);
 var rxSubscriber = (typeof Symbol === 'function' && typeof Symbol.for === 'function')
     ? /*@__PURE__*/ Symbol.for('rxSubscriber')
     : '@@rxSubscriber';
-/**
- * @deprecated use rxSubscriber instead
- */
 var $$rxSubscriber = rxSubscriber;
 //# sourceMappingURL=rxSubscriber.js.map
 
@@ -81138,16 +75459,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /** PURE_IMPORTS_START tslib PURE_IMPORTS_END */
 
-/**
- * An error thrown when an element was queried at a certain index of an
- * Observable, but no such index or position exists in that sequence.
- *
- * @see {@link elementAt}
- * @see {@link take}
- * @see {@link takeLast}
- *
- * @class ArgumentOutOfRangeError
- */
 var ArgumentOutOfRangeError = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ArgumentOutOfRangeError, _super);
     function ArgumentOutOfRangeError() {
@@ -81177,16 +75488,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /** PURE_IMPORTS_START tslib PURE_IMPORTS_END */
 
-/**
- * An error thrown when an Observable or a sequence was queried but has no
- * elements.
- *
- * @see {@link first}
- * @see {@link last}
- * @see {@link single}
- *
- * @class EmptyError
- */
 var EmptyError = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](EmptyError, _super);
     function EmptyError() {
@@ -81251,15 +75552,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /** PURE_IMPORTS_START tslib PURE_IMPORTS_END */
 
-/**
- * An error thrown when an action is invalid because the object has been
- * unsubscribed.
- *
- * @see {@link Subject}
- * @see {@link BehaviorSubject}
- *
- * @class ObjectUnsubscribedError
- */
 var ObjectUnsubscribedError = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](ObjectUnsubscribedError, _super);
     function ObjectUnsubscribedError() {
@@ -81289,13 +75581,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /** PURE_IMPORTS_START tslib PURE_IMPORTS_END */
 
-/**
- * An error thrown when duetime elapses.
- *
- * @see {@link timeout}
- *
- * @class TimeoutError
- */
 var TimeoutError = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](TimeoutError, _super);
     function TimeoutError() {
@@ -81325,10 +75610,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /** PURE_IMPORTS_START tslib PURE_IMPORTS_END */
 
-/**
- * An error thrown when one or more errors have occurred during the
- * `unsubscribe` of a {@link Subscription}.
- */
 var UnsubscriptionError = /*@__PURE__*/ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](UnsubscriptionError, _super);
     function UnsubscriptionError(errors) {
@@ -81357,7 +75638,6 @@ var UnsubscriptionError = /*@__PURE__*/ (function (_super) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "errorObject", function() { return errorObject; });
-// typeof any so that it we don't have to cast when comparing a result to the error object
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 var errorObject = { e: {} };
 //# sourceMappingURL=errorObject.js.map
@@ -81375,11 +75655,6 @@ var errorObject = { e: {} };
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hostReportError", function() { return hostReportError; });
-/**
- * Throws an error on another job so that it's picked up by the runtime's
- * uncaught error handling mechanism.
- * @param err the error to throw
- */
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 function hostReportError(err) {
     setTimeout(function () { throw err; });
@@ -81493,7 +75768,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _symbol_observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../symbol/observable */ "./node_modules/rxjs/_esm5/internal/symbol/observable.js");
 /** PURE_IMPORTS_START _symbol_observable PURE_IMPORTS_END */
 
-/** Identifies an input as being Observable (but not necessary an Rx Observable) */
 function isInteropObservable(input) {
     return input && typeof input[_symbol_observable__WEBPACK_IMPORTED_MODULE_0__["observable"]] === 'function';
 }
@@ -81515,7 +75789,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _symbol_iterator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../symbol/iterator */ "./node_modules/rxjs/_esm5/internal/symbol/iterator.js");
 /** PURE_IMPORTS_START _symbol_iterator PURE_IMPORTS_END */
 
-/** Identifies an input as being an Iterable */
 function isIterable(input) {
     return input && typeof input[_symbol_iterator__WEBPACK_IMPORTED_MODULE_0__["iterator"]] === 'function';
 }
@@ -81538,10 +75811,6 @@ __webpack_require__.r(__webpack_exports__);
 /** PURE_IMPORTS_START _isArray PURE_IMPORTS_END */
 
 function isNumeric(val) {
-    // parseFloat NaNs numeric-cast false positives (null|true|false|"")
-    // ...but misinterprets leading-number strings, particularly hex literals ("0x...")
-    // subtraction forces infinities to NaN
-    // adding 1 corrects loss of precision from parseFloat (#15100)
     return !Object(_isArray__WEBPACK_IMPORTED_MODULE_0__["isArray"])(val) && (val - parseFloat(val) + 1) >= 0;
 }
 //# sourceMappingURL=isNumeric.js.map
@@ -81581,10 +75850,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Observable */ "./node_modules/rxjs/_esm5/internal/Observable.js");
 /** PURE_IMPORTS_START _Observable PURE_IMPORTS_END */
 
-/**
- * Tests to see if the object is an RxJS {@link Observable}
- * @param obj the object to test
- */
 function isObservable(obj) {
     return !!obj && (obj instanceof _Observable__WEBPACK_IMPORTED_MODULE_0__["Observable"] || (typeof obj.lift === 'function' && typeof obj.subscribe === 'function'));
 }
@@ -81641,7 +75906,6 @@ function isScheduler(value) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "noop", function() { return noop; });
-/* tslint:disable:no-empty */
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 function noop() { }
 //# sourceMappingURL=noop.js.map
@@ -81687,7 +75951,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _noop__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./noop */ "./node_modules/rxjs/_esm5/internal/util/noop.js");
 /** PURE_IMPORTS_START _noop PURE_IMPORTS_END */
 
-/* tslint:enable:max-line-length */
 function pipe() {
     var fns = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -81695,7 +75958,6 @@ function pipe() {
     }
     return pipeFromArray(fns);
 }
-/* @internal */
 function pipeFromArray(fns) {
     if (!fns) {
         return _noop__WEBPACK_IMPORTED_MODULE_0__["noop"];
@@ -81756,6 +76018,9 @@ var subscribeTo = function (result) {
             }
         };
     }
+    else if (result && typeof result[_symbol_observable__WEBPACK_IMPORTED_MODULE_9__["observable"]] === 'function') {
+        return Object(_subscribeToObservable__WEBPACK_IMPORTED_MODULE_4__["subscribeToObservable"])(result);
+    }
     else if (Object(_isArrayLike__WEBPACK_IMPORTED_MODULE_5__["isArrayLike"])(result)) {
         return Object(_subscribeToArray__WEBPACK_IMPORTED_MODULE_1__["subscribeToArray"])(result);
     }
@@ -81764,9 +76029,6 @@ var subscribeTo = function (result) {
     }
     else if (result && typeof result[_symbol_iterator__WEBPACK_IMPORTED_MODULE_8__["iterator"]] === 'function') {
         return Object(_subscribeToIterable__WEBPACK_IMPORTED_MODULE_3__["subscribeToIterable"])(result);
-    }
-    else if (result && typeof result[_symbol_observable__WEBPACK_IMPORTED_MODULE_9__["observable"]] === 'function') {
-        return Object(_subscribeToObservable__WEBPACK_IMPORTED_MODULE_4__["subscribeToObservable"])(result);
     }
     else {
         var value = Object(_isObject__WEBPACK_IMPORTED_MODULE_7__["isObject"])(result) ? 'an invalid object' : "'" + result + "'";
@@ -81790,10 +76052,6 @@ var subscribeTo = function (result) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "subscribeToArray", function() { return subscribeToArray; });
-/**
- * Subscribes to an ArrayLike with a subscriber
- * @param array The array or array-like to subscribe to
- */
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 var subscribeToArray = function (array) {
     return function (subscriber) {
@@ -81837,7 +76095,6 @@ var subscribeToIterable = function (iterable) {
                 break;
             }
         } while (true);
-        // Finalize the iterator if it happens to be a Generator
         if (typeof iterator.return === 'function') {
             subscriber.add(function () {
                 if (iterator.return) {
@@ -81866,16 +76123,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _symbol_observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../symbol/observable */ "./node_modules/rxjs/_esm5/internal/symbol/observable.js");
 /** PURE_IMPORTS_START _symbol_observable PURE_IMPORTS_END */
 
-/**
- * Subscribes to an object that implements Symbol.observable with the given
- * Subscriber.
- * @param obj An object that implements Symbol.observable
- */
 var subscribeToObservable = function (obj) {
     return function (subscriber) {
         var obs = obj[_symbol_observable__WEBPACK_IMPORTED_MODULE_0__["observable"]]();
         if (typeof obs.subscribe !== 'function') {
-            // Should be caught by observable subscribe function error handling.
             throw new TypeError('Provided object does not correctly implement Symbol.observable');
         }
         else {
@@ -82330,7 +76581,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _internal_operators_zipAll__WEBPACK_IMPORTED_MODULE_102__ = __webpack_require__(/*! ../internal/operators/zipAll */ "./node_modules/rxjs/_esm5/internal/operators/zipAll.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "zipAll", function() { return _internal_operators_zipAll__WEBPACK_IMPORTED_MODULE_102__["zipAll"]; });
 
-/* Operator exports */
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 
 
@@ -82485,9 +76735,12 @@ and limitations under the License.
 ***************************************************************************** */
 /* global Reflect, Promise */
 
-var extendStatics = Object.setPrototypeOf ||
-    ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-    function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+var extendStatics = function(d, b) {
+    extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return extendStatics(d, b);
+};
 
 function __extends(d, b) {
     extendStatics(d, b);
@@ -82495,12 +76748,15 @@ function __extends(d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 }
 
-var __assign = Object.assign || function __assign(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
     }
-    return t;
+    return __assign.apply(this, arguments);
 }
 
 function __rest(s, e) {
@@ -82648,619 +76904,6 @@ function __importStar(mod) {
 
 function __importDefault(mod) {
     return (mod && mod.__esModule) ? mod : { default: mod };
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/util/support/isBufferBrowser.js":
-/*!******************************************************!*\
-  !*** ./node_modules/util/support/isBufferBrowser.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = function isBuffer(arg) {
-  return arg && typeof arg === 'object'
-    && typeof arg.copy === 'function'
-    && typeof arg.fill === 'function'
-    && typeof arg.readUInt8 === 'function';
-}
-
-/***/ }),
-
-/***/ "./node_modules/util/util.js":
-/*!***********************************!*\
-  !*** ./node_modules/util/util.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-var formatRegExp = /%[sdj%]/g;
-exports.format = function(f) {
-  if (!isString(f)) {
-    var objects = [];
-    for (var i = 0; i < arguments.length; i++) {
-      objects.push(inspect(arguments[i]));
-    }
-    return objects.join(' ');
-  }
-
-  var i = 1;
-  var args = arguments;
-  var len = args.length;
-  var str = String(f).replace(formatRegExp, function(x) {
-    if (x === '%%') return '%';
-    if (i >= len) return x;
-    switch (x) {
-      case '%s': return String(args[i++]);
-      case '%d': return Number(args[i++]);
-      case '%j':
-        try {
-          return JSON.stringify(args[i++]);
-        } catch (_) {
-          return '[Circular]';
-        }
-      default:
-        return x;
-    }
-  });
-  for (var x = args[i]; i < len; x = args[++i]) {
-    if (isNull(x) || !isObject(x)) {
-      str += ' ' + x;
-    } else {
-      str += ' ' + inspect(x);
-    }
-  }
-  return str;
-};
-
-
-// Mark that a method should not be used.
-// Returns a modified function which warns once by default.
-// If --no-deprecation is set, then it is a no-op.
-exports.deprecate = function(fn, msg) {
-  // Allow for deprecating things in the process of starting up.
-  if (isUndefined(global.process)) {
-    return function() {
-      return exports.deprecate(fn, msg).apply(this, arguments);
-    };
-  }
-
-  if (process.noDeprecation === true) {
-    return fn;
-  }
-
-  var warned = false;
-  function deprecated() {
-    if (!warned) {
-      if (process.throwDeprecation) {
-        throw new Error(msg);
-      } else if (process.traceDeprecation) {
-        console.trace(msg);
-      } else {
-        console.error(msg);
-      }
-      warned = true;
-    }
-    return fn.apply(this, arguments);
-  }
-
-  return deprecated;
-};
-
-
-var debugs = {};
-var debugEnviron;
-exports.debuglog = function(set) {
-  if (isUndefined(debugEnviron))
-    debugEnviron = process.env.NODE_DEBUG || '';
-  set = set.toUpperCase();
-  if (!debugs[set]) {
-    if (new RegExp('\\b' + set + '\\b', 'i').test(debugEnviron)) {
-      var pid = process.pid;
-      debugs[set] = function() {
-        var msg = exports.format.apply(exports, arguments);
-        console.error('%s %d: %s', set, pid, msg);
-      };
-    } else {
-      debugs[set] = function() {};
-    }
-  }
-  return debugs[set];
-};
-
-
-/**
- * Echos the value of a value. Trys to print the value out
- * in the best way possible given the different types.
- *
- * @param {Object} obj The object to print out.
- * @param {Object} opts Optional options object that alters the output.
- */
-/* legacy: obj, showHidden, depth, colors*/
-function inspect(obj, opts) {
-  // default options
-  var ctx = {
-    seen: [],
-    stylize: stylizeNoColor
-  };
-  // legacy...
-  if (arguments.length >= 3) ctx.depth = arguments[2];
-  if (arguments.length >= 4) ctx.colors = arguments[3];
-  if (isBoolean(opts)) {
-    // legacy...
-    ctx.showHidden = opts;
-  } else if (opts) {
-    // got an "options" object
-    exports._extend(ctx, opts);
-  }
-  // set default options
-  if (isUndefined(ctx.showHidden)) ctx.showHidden = false;
-  if (isUndefined(ctx.depth)) ctx.depth = 2;
-  if (isUndefined(ctx.colors)) ctx.colors = false;
-  if (isUndefined(ctx.customInspect)) ctx.customInspect = true;
-  if (ctx.colors) ctx.stylize = stylizeWithColor;
-  return formatValue(ctx, obj, ctx.depth);
-}
-exports.inspect = inspect;
-
-
-// http://en.wikipedia.org/wiki/ANSI_escape_code#graphics
-inspect.colors = {
-  'bold' : [1, 22],
-  'italic' : [3, 23],
-  'underline' : [4, 24],
-  'inverse' : [7, 27],
-  'white' : [37, 39],
-  'grey' : [90, 39],
-  'black' : [30, 39],
-  'blue' : [34, 39],
-  'cyan' : [36, 39],
-  'green' : [32, 39],
-  'magenta' : [35, 39],
-  'red' : [31, 39],
-  'yellow' : [33, 39]
-};
-
-// Don't use 'blue' not visible on cmd.exe
-inspect.styles = {
-  'special': 'cyan',
-  'number': 'yellow',
-  'boolean': 'yellow',
-  'undefined': 'grey',
-  'null': 'bold',
-  'string': 'green',
-  'date': 'magenta',
-  // "name": intentionally not styling
-  'regexp': 'red'
-};
-
-
-function stylizeWithColor(str, styleType) {
-  var style = inspect.styles[styleType];
-
-  if (style) {
-    return '\u001b[' + inspect.colors[style][0] + 'm' + str +
-           '\u001b[' + inspect.colors[style][1] + 'm';
-  } else {
-    return str;
-  }
-}
-
-
-function stylizeNoColor(str, styleType) {
-  return str;
-}
-
-
-function arrayToHash(array) {
-  var hash = {};
-
-  array.forEach(function(val, idx) {
-    hash[val] = true;
-  });
-
-  return hash;
-}
-
-
-function formatValue(ctx, value, recurseTimes) {
-  // Provide a hook for user-specified inspect functions.
-  // Check that value is an object with an inspect function on it
-  if (ctx.customInspect &&
-      value &&
-      isFunction(value.inspect) &&
-      // Filter out the util module, it's inspect function is special
-      value.inspect !== exports.inspect &&
-      // Also filter out any prototype objects using the circular check.
-      !(value.constructor && value.constructor.prototype === value)) {
-    var ret = value.inspect(recurseTimes, ctx);
-    if (!isString(ret)) {
-      ret = formatValue(ctx, ret, recurseTimes);
-    }
-    return ret;
-  }
-
-  // Primitive types cannot have properties
-  var primitive = formatPrimitive(ctx, value);
-  if (primitive) {
-    return primitive;
-  }
-
-  // Look up the keys of the object.
-  var keys = Object.keys(value);
-  var visibleKeys = arrayToHash(keys);
-
-  if (ctx.showHidden) {
-    keys = Object.getOwnPropertyNames(value);
-  }
-
-  // IE doesn't make error fields non-enumerable
-  // http://msdn.microsoft.com/en-us/library/ie/dww52sbt(v=vs.94).aspx
-  if (isError(value)
-      && (keys.indexOf('message') >= 0 || keys.indexOf('description') >= 0)) {
-    return formatError(value);
-  }
-
-  // Some type of object without properties can be shortcutted.
-  if (keys.length === 0) {
-    if (isFunction(value)) {
-      var name = value.name ? ': ' + value.name : '';
-      return ctx.stylize('[Function' + name + ']', 'special');
-    }
-    if (isRegExp(value)) {
-      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
-    }
-    if (isDate(value)) {
-      return ctx.stylize(Date.prototype.toString.call(value), 'date');
-    }
-    if (isError(value)) {
-      return formatError(value);
-    }
-  }
-
-  var base = '', array = false, braces = ['{', '}'];
-
-  // Make Array say that they are Array
-  if (isArray(value)) {
-    array = true;
-    braces = ['[', ']'];
-  }
-
-  // Make functions say that they are functions
-  if (isFunction(value)) {
-    var n = value.name ? ': ' + value.name : '';
-    base = ' [Function' + n + ']';
-  }
-
-  // Make RegExps say that they are RegExps
-  if (isRegExp(value)) {
-    base = ' ' + RegExp.prototype.toString.call(value);
-  }
-
-  // Make dates with properties first say the date
-  if (isDate(value)) {
-    base = ' ' + Date.prototype.toUTCString.call(value);
-  }
-
-  // Make error with message first say the error
-  if (isError(value)) {
-    base = ' ' + formatError(value);
-  }
-
-  if (keys.length === 0 && (!array || value.length == 0)) {
-    return braces[0] + base + braces[1];
-  }
-
-  if (recurseTimes < 0) {
-    if (isRegExp(value)) {
-      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
-    } else {
-      return ctx.stylize('[Object]', 'special');
-    }
-  }
-
-  ctx.seen.push(value);
-
-  var output;
-  if (array) {
-    output = formatArray(ctx, value, recurseTimes, visibleKeys, keys);
-  } else {
-    output = keys.map(function(key) {
-      return formatProperty(ctx, value, recurseTimes, visibleKeys, key, array);
-    });
-  }
-
-  ctx.seen.pop();
-
-  return reduceToSingleString(output, base, braces);
-}
-
-
-function formatPrimitive(ctx, value) {
-  if (isUndefined(value))
-    return ctx.stylize('undefined', 'undefined');
-  if (isString(value)) {
-    var simple = '\'' + JSON.stringify(value).replace(/^"|"$/g, '')
-                                             .replace(/'/g, "\\'")
-                                             .replace(/\\"/g, '"') + '\'';
-    return ctx.stylize(simple, 'string');
-  }
-  if (isNumber(value))
-    return ctx.stylize('' + value, 'number');
-  if (isBoolean(value))
-    return ctx.stylize('' + value, 'boolean');
-  // For some reason typeof null is "object", so special case here.
-  if (isNull(value))
-    return ctx.stylize('null', 'null');
-}
-
-
-function formatError(value) {
-  return '[' + Error.prototype.toString.call(value) + ']';
-}
-
-
-function formatArray(ctx, value, recurseTimes, visibleKeys, keys) {
-  var output = [];
-  for (var i = 0, l = value.length; i < l; ++i) {
-    if (hasOwnProperty(value, String(i))) {
-      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
-          String(i), true));
-    } else {
-      output.push('');
-    }
-  }
-  keys.forEach(function(key) {
-    if (!key.match(/^\d+$/)) {
-      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
-          key, true));
-    }
-  });
-  return output;
-}
-
-
-function formatProperty(ctx, value, recurseTimes, visibleKeys, key, array) {
-  var name, str, desc;
-  desc = Object.getOwnPropertyDescriptor(value, key) || { value: value[key] };
-  if (desc.get) {
-    if (desc.set) {
-      str = ctx.stylize('[Getter/Setter]', 'special');
-    } else {
-      str = ctx.stylize('[Getter]', 'special');
-    }
-  } else {
-    if (desc.set) {
-      str = ctx.stylize('[Setter]', 'special');
-    }
-  }
-  if (!hasOwnProperty(visibleKeys, key)) {
-    name = '[' + key + ']';
-  }
-  if (!str) {
-    if (ctx.seen.indexOf(desc.value) < 0) {
-      if (isNull(recurseTimes)) {
-        str = formatValue(ctx, desc.value, null);
-      } else {
-        str = formatValue(ctx, desc.value, recurseTimes - 1);
-      }
-      if (str.indexOf('\n') > -1) {
-        if (array) {
-          str = str.split('\n').map(function(line) {
-            return '  ' + line;
-          }).join('\n').substr(2);
-        } else {
-          str = '\n' + str.split('\n').map(function(line) {
-            return '   ' + line;
-          }).join('\n');
-        }
-      }
-    } else {
-      str = ctx.stylize('[Circular]', 'special');
-    }
-  }
-  if (isUndefined(name)) {
-    if (array && key.match(/^\d+$/)) {
-      return str;
-    }
-    name = JSON.stringify('' + key);
-    if (name.match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/)) {
-      name = name.substr(1, name.length - 2);
-      name = ctx.stylize(name, 'name');
-    } else {
-      name = name.replace(/'/g, "\\'")
-                 .replace(/\\"/g, '"')
-                 .replace(/(^"|"$)/g, "'");
-      name = ctx.stylize(name, 'string');
-    }
-  }
-
-  return name + ': ' + str;
-}
-
-
-function reduceToSingleString(output, base, braces) {
-  var numLinesEst = 0;
-  var length = output.reduce(function(prev, cur) {
-    numLinesEst++;
-    if (cur.indexOf('\n') >= 0) numLinesEst++;
-    return prev + cur.replace(/\u001b\[\d\d?m/g, '').length + 1;
-  }, 0);
-
-  if (length > 60) {
-    return braces[0] +
-           (base === '' ? '' : base + '\n ') +
-           ' ' +
-           output.join(',\n  ') +
-           ' ' +
-           braces[1];
-  }
-
-  return braces[0] + base + ' ' + output.join(', ') + ' ' + braces[1];
-}
-
-
-// NOTE: These type checking functions intentionally don't use `instanceof`
-// because it is fragile and can be easily faked with `Object.create()`.
-function isArray(ar) {
-  return Array.isArray(ar);
-}
-exports.isArray = isArray;
-
-function isBoolean(arg) {
-  return typeof arg === 'boolean';
-}
-exports.isBoolean = isBoolean;
-
-function isNull(arg) {
-  return arg === null;
-}
-exports.isNull = isNull;
-
-function isNullOrUndefined(arg) {
-  return arg == null;
-}
-exports.isNullOrUndefined = isNullOrUndefined;
-
-function isNumber(arg) {
-  return typeof arg === 'number';
-}
-exports.isNumber = isNumber;
-
-function isString(arg) {
-  return typeof arg === 'string';
-}
-exports.isString = isString;
-
-function isSymbol(arg) {
-  return typeof arg === 'symbol';
-}
-exports.isSymbol = isSymbol;
-
-function isUndefined(arg) {
-  return arg === void 0;
-}
-exports.isUndefined = isUndefined;
-
-function isRegExp(re) {
-  return isObject(re) && objectToString(re) === '[object RegExp]';
-}
-exports.isRegExp = isRegExp;
-
-function isObject(arg) {
-  return typeof arg === 'object' && arg !== null;
-}
-exports.isObject = isObject;
-
-function isDate(d) {
-  return isObject(d) && objectToString(d) === '[object Date]';
-}
-exports.isDate = isDate;
-
-function isError(e) {
-  return isObject(e) &&
-      (objectToString(e) === '[object Error]' || e instanceof Error);
-}
-exports.isError = isError;
-
-function isFunction(arg) {
-  return typeof arg === 'function';
-}
-exports.isFunction = isFunction;
-
-function isPrimitive(arg) {
-  return arg === null ||
-         typeof arg === 'boolean' ||
-         typeof arg === 'number' ||
-         typeof arg === 'string' ||
-         typeof arg === 'symbol' ||  // ES6 symbol
-         typeof arg === 'undefined';
-}
-exports.isPrimitive = isPrimitive;
-
-exports.isBuffer = __webpack_require__(/*! ./support/isBuffer */ "./node_modules/util/support/isBufferBrowser.js");
-
-function objectToString(o) {
-  return Object.prototype.toString.call(o);
-}
-
-
-function pad(n) {
-  return n < 10 ? '0' + n.toString(10) : n.toString(10);
-}
-
-
-var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
-              'Oct', 'Nov', 'Dec'];
-
-// 26 Feb 16:19:34
-function timestamp() {
-  var d = new Date();
-  var time = [pad(d.getHours()),
-              pad(d.getMinutes()),
-              pad(d.getSeconds())].join(':');
-  return [d.getDate(), months[d.getMonth()], time].join(' ');
-}
-
-
-// log is just a thin wrapper to console.log that prepends a timestamp
-exports.log = function() {
-  console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
-};
-
-
-/**
- * Inherit the prototype methods from one constructor into another.
- *
- * The Function.prototype.inherits from lang.js rewritten as a standalone
- * function (not on Function.prototype). NOTE: If this file is to be loaded
- * during bootstrapping this function needs to be rewritten using some native
- * functions as prototype setup using normal JavaScript does not work as
- * expected during bootstrapping (see mirror.js in r114903).
- *
- * @param {function} ctor Constructor function which needs to inherit the
- *     prototype.
- * @param {function} superCtor Constructor function to inherit prototype from.
- */
-exports.inherits = __webpack_require__(/*! inherits */ "./node_modules/inherits/inherits_browser.js");
-
-exports._extend = function(origin, add) {
-  // Don't do anything if add isn't an object
-  if (!add || !isObject(add)) return origin;
-
-  var keys = Object.keys(add);
-  var i = keys.length;
-  while (i--) {
-    origin[keys[i]] = add[keys[i]];
-  }
-  return origin;
-};
-
-function hasOwnProperty(obj, prop) {
-  return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
 
