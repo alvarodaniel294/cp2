@@ -27,6 +27,9 @@ export class EventsComponent implements OnInit {
     //    this.role=Roles.name;
     }
     
+    edit(event_id){
+        
+    }
     addPerson(){
      this.router.navigate(['home/event/persons/add']);
     }
