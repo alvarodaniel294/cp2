@@ -14,6 +14,7 @@ export class EditProgramCmrComponent implements OnInit {
 
   public program;
   public programId;
+  public file;
   
 
   constructor(
@@ -43,19 +44,37 @@ export class EditProgramCmrComponent implements OnInit {
   }
   saveProgram() {
   
+    if(this.file==undefined){
+
+      this._peticionesService.updateProgram(this.program).subscribe(
+        result => {
+           console.log(result);
+           var res = result;
+           alert('Se guardó correctamente la edición');
+           // this.router.navigate(['home/programs']);
+        //    window.history.back();          
+        },
+        error => {
+           console.log(<any>error);
+           alert('Error al guardar verifique los datos');
+        })
+    }else{
+
+      this._peticionesService.updateProgramWithFile(this.file,this.program).subscribe(
+        result => {
+           console.log(result);
+           var res = result;
+           alert('Se guardó corre  ctamente la edición');
+           // this.router.navigate(['home/programs']);
+        //    window.history.back();          
+        },
+        error => {
+           console.log(<any>error);
+           alert('Error al guardar verifique los datos');
+        })
+    }
     
-        this._peticionesService.updateProgram(this.program).subscribe(
-           result => {
-              console.log(result);
-              var res = result;
-              alert('Se guardó correctamente la edición');
-              // this.router.navigate(['home/programs']);
-           //    window.history.back();          
-           },
-           error => {
-              console.log(<any>error);
-              alert('Error al guardar verifique los datos');
-           })
+        
      
   }
   addBenefit(){
@@ -70,5 +89,8 @@ export class EditProgramCmrComponent implements OnInit {
   cancel() {
      // this.router.navigate(['home/programs']);
      window.history.back();         
+  }
+  handleFileInput(files: FileList) {
+    this.file = files.item(0);
   }
 }

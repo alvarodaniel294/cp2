@@ -369,18 +369,31 @@ export class PeticionesService {
     var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
     return this._http.put(this.url + 'pages/programs/inicio/' + id, body, { headers: headers });
   }
-  // addProgramWithFile(fileToUpload: File, program): Observable<Object> {
-  //   const endpoint = this.url + 'programs/addProgramWithFile';
-  //   const formData: FormData = new FormData();
-  //   formData.append('fileKey', fileToUpload, fileToUpload.name);
-  //   formData.append('body', JSON.stringify({ program: program }));
-  //   let headers = new HttpHeaders();
-  //   /** In Angular 5, including the header Content-Type can invalidate your request */
-  //   headers.append('Content-Type', 'multipart/form-data');
-  //   headers.append('Accept', 'application/json');
-  //   return this._http
-  //     .post(endpoint, formData, { headers: headers })
-  // }
+  addProgramWithFile(fileToUpload: File, program): Observable<Object> {
+    const endpoint = this.url + 'programs/addProgramWithFile';
+    const formData: FormData = new FormData();
+    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    formData.append('body', JSON.stringify({ program: program }));
+    let headers = new HttpHeaders();
+    /** In Angular 5, including the header Content-Type can invalidate your request */
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    return this._http
+      .post(endpoint, formData, { headers: headers })
+  }
+  updateProgramWithFile(fileToUpload: File, program): Observable<Object>{
+    const endpoint = this.url + 'programs/updateProgramWithFile';
+    const formData: FormData = new FormData();
+    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    formData.append('body', JSON.stringify({ program: program }));
+    let headers = new HttpHeaders();
+    /** In Angular 5, including the header Content-Type can invalidate your request */
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    return this._http
+      .post(endpoint, formData, { headers: headers })
+  }
+
   addBenefitToProgram(programId,benefit){
     let body = JSON.stringify(benefit);
     var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
