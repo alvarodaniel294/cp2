@@ -76,7 +76,7 @@ const appRoutes: Routes = [
             // { path: 'modulo/add/:id', component: AddModuloComponent },
             { path: 'facilitador', component: facilitadorComponent },
             { path: 'facilitador/add', component: AddFacilitadorComponent },
-            // { path: 'facilitador/edit/:id', component: EditFacilitadorComponent },
+            { path: 'facilitador/edit/:id', component: EditFacilitadorComponent },
             { path: 'talleres', component: WorkshopComponent },
             { path: 'consultorias', component: ConsultoriasComponent },
             { path: 'consultorias/add', component:AddConsultoriaComponent},

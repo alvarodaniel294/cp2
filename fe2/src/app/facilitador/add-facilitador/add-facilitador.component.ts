@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {PeticionesService } from '../../services/peticiones.service';
+import { PeticionesService } from '../../services/peticiones.service';
 import { ActivatedRoute, Router } from "@angular/router";
 
-import {Cartera} from '../../modelo/cartera';
+import { Cartera } from '../../modelo/cartera';
 import { Identity } from "../../services/global";
 // import {User} from '../../modelo/user';
 import { Offices } from "../../modelo/offices";
@@ -11,7 +11,7 @@ import { facilitador } from "../../modelo/facilitador";
   selector: 'app-add-facilitador',
   templateUrl: './add-facilitador.component.html',
   styleUrls: ['./add-facilitador.component.css'],
-  providers:[PeticionesService]
+  providers: [PeticionesService]
 })
 export class AddFacilitadorComponent implements OnInit {
   public facilitadorName;
@@ -22,8 +22,10 @@ export class AddFacilitadorComponent implements OnInit {
   public sucursales;
   public facilitador;
   public facilitadorNuevo;
+  public facilitadorReview;
+  public file;
   constructor(
-    private _peticionesService:PeticionesService,
+    private _peticionesService: PeticionesService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
@@ -31,29 +33,48 @@ export class AddFacilitadorComponent implements OnInit {
 
   submitted = false;
   powers = ['Really Smart', 'Super Flexible',
-  'Super Hot', 'Weather Changer'];
-  model = [, '','', ,"",'', ''];
-  onSubmit() { this.submitted = true;
-    this.facilitador = new facilitador(this.facilitadorName, this.facilitadorjob);
-    this._peticionesService.addFacilitador(this.facilitador).subscribe(
-      response=>{
-         this.facilitadorNuevo=response;
-        console.log(this.facilitadorNuevo);
-        this.router.navigate(['/home/facilitador']);
-        alert('se creo facilitador');
-      // this.MessageEvent.emit();
-    },error => {
-      console.log(<any>error)
-      alert('error al crear facilitador, verifique los datos');
-    });
+    'Super Hot', 'Weather Changer'];
+  model = [, '', '', , "", '', ''];
+  onSubmit() {
+  this.submitted = true;
+    this.facilitador = new facilitador(this.facilitadorName, this.facilitadorjob, this.facilitadorReview, '');
+    if(this.file==undefined){
+      this._peticionesService.addFacilitador(this.facilitador).subscribe(
+        response => {
+          this.facilitadorNuevo = response;
+          console.log(this.facilitadorNuevo);
+          this.router.navigate(['/home/facilitador']);
+          alert('se creo facilitador');
+          // this.MessageEvent.emit();
+        }, error => {
+          console.log(<any>error)
+          alert('error al crear facilitador, verifique los datos');
+        });
+    }else{
+      this._peticionesService.addFacilitadorWithFile(this.file,this.facilitador).subscribe(
+        response => {
+          this.facilitadorNuevo = response;
+          console.log(this.facilitadorNuevo);
+          this.router.navigate(['/home/facilitador']);
+          alert('se creo facilitador');
+          // this.MessageEvent.emit();
+        }, error => {
+          console.log(<any>error)
+          alert('error al crear facilitador, verifique los datos');
+        });
+    }
+   
   }
   ngOnInit() {
-    this._peticionesService.getSucursales().subscribe(response=>{
-      this.sucursales=response;
+    this._peticionesService.getSucursales().subscribe(response => {
+      this.sucursales = response;
       console.log(this.sucursales)
     });
   }
   cancel() {
     this.router.navigate(['/home/facilitador']);
-   }
+  }
+  handleFileInput(files: FileList) {
+    this.file = files.item(0);
+  }
 }

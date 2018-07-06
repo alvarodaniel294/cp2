@@ -1,54 +1,53 @@
 <div class="content-wrapper">
-    <br>
-    <div class="content">
-  
+  <br>
+  <div class="content">
+
     <div class="box box-primary">
-  
-  <div class="container">
-      <div [hidden]="submitted">
-        <h1>Registrar Facilitador</h1>
-        <form (ngSubmit)="onSubmit()" #addEjecutivo="ngForm" class="">
-          <div class="form-group col-sm-8">
-            <label for="name">Nombre Completo</label>
-            <input type="text" pattern="[a-zA-Z]{3,15}([ ]{0,1}[a-zA-Z]{0,15}){0,3}" class="form-control" id="name"
-                   required
-                   [(ngModel)]="facilitadorName" name="name"
-                   #name="ngModel"
-                   >
-            <div [hidden]="name?.valid || name?.pristine"
-                 class="">
-                 *Nombre es inválido
+
+      <div class="container">
+        <div [hidden]="submitted">
+          <h1>Registrar Facilitador</h1>
+          <form (ngSubmit)="onSubmit()" #addEjecutivo="ngForm" class="">
+            <div class="form-group col-sm-8">
+              <label for="name" class="control-label">Imagen</label>
+              <input type="file" name="myImage" accept=".jpg, .jpeg" (change)="handleFileInput($event.target.files)" />
             </div>
-          </div>
-          
-          <div class="form-group col-sm-8">
+            <div class="form-group col-sm-8">
+              <label for="name">Nombre Completo</label>
+              <input type="text" pattern="[a-zA-Z]{3,15}([ ]{0,1}[a-zA-Z]{0,15}){0,3}" class="form-control" id="name" required [(ngModel)]="facilitadorName"
+                name="name" #name="ngModel">
+              <div [hidden]="name?.valid || name?.pristine" class="">
+                *Nombre es inválido
+              </div>
+            </div>
+
+            <div class="form-group col-sm-8">
               <label for="correo">Trabajo</label>
-              <input type="correo" pattern="[a-zA-Z ]{3,50}" class="form-control" id="correo"
-                     required
-                     [(ngModel)]="facilitadorjob" name="correo"
-                     #correo="ngModel">
+              <input type="correo" pattern="[a-zA-Z ]{3,50}" class="form-control" id="correo" required [(ngModel)]="facilitadorjob" name="correo"
+                #correo="ngModel">
               <div [hidden]="correo?.valid || correo?.pristine" class="">
-              *Trabajo es inválido
+                *Trabajo es inválido
+              </div>
+            </div>
+            <div class="form-group col-sm-8">
+              <label for="review">Resumen</label>
+              <input type="review" pattern="[a-zA-Z ]{3,50}" class="form-control" id="review" required [(ngModel)]="facilitadorReview"
+                name="review" #review="ngModel">
+              <div [hidden]="review?.valid || review?.pristine" class="">
+                *Trabajo es inválido
               </div>
             </div>
             <div class="form-group col-sm-8" style="text-align:center">
               <button type="submit" class="btn btn-success" [disabled]="!addEjecutivo.form.valid">Guardar</button>
               <button type="button" class="btn btn-danger" (click)="cancel()">Cancelar</button>
             </div>
-        </form>
+          </form>
+        </div>
+
+
       </div>
-     
-              
+
     </div>
-  
-    </div>
-  
+
   </div>
-  </div>
-
-
-
-
-
-
-
+</div>
