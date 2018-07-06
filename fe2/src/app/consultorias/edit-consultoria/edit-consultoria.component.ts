@@ -12,6 +12,7 @@ import { Router,ActivatedRoute } from "@angular/router";
 export class EditConsultoriaComponent implements OnInit {
   public consultoria;
   public consultoriaId;
+  public file;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,18 +35,36 @@ export class EditConsultoriaComponent implements OnInit {
   }
 
   onSubmit(){
-    this._peticionesService.updateConsultoria(this.consultoria).subscribe(
-      result => {
-        console.log(result);
-        var res = result;
-        alert('Se guardó correctamente la edición');
-        // this.router.navigate(['home/programs']);
-     //    window.history.back();          
-     },
-     error => {
-        console.log(<any>error);
-        alert('Error al guardar verifique los datos');
-     })
+    if(this.file==undefined){
+
+      this._peticionesService.updateConsultoria(this.consultoria).subscribe(
+        result => {
+          console.log(result);
+          var res = result;
+          alert('Se guardó correctamente la edición');
+          // this.router.navigate(['home/programs']);
+       //    window.history.back();          
+       },
+       error => {
+          console.log(<any>error);
+          alert('Error al guardar verifique los datos');
+       })
+    }else{
+
+      this._peticionesService.updateConsultoriaWithFile(this.file,this.consultoria).subscribe(
+        result => {
+          console.log(result);
+          var res = result;
+          alert('Se guardó correctamente la edición');
+          // this.router.navigate(['home/programs']);
+       //    window.history.back();          
+       },
+       error => {
+          console.log(<any>error);
+          alert('Error al guardar verifique los datos');
+       })
+    }
+    
 
   }
   addAlcance(){
@@ -59,6 +78,9 @@ export class EditConsultoriaComponent implements OnInit {
   cancelar(){
     window.history.back();
 
+  }
+  handleFileInput(files: FileList) {
+    this.file = files.item(0);
   }
 
 }
