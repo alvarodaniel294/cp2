@@ -13,6 +13,7 @@ import { Router,ActivatedRoute } from "@angular/router";
 export class AddBenefitComponent implements OnInit {
   public newBenefit;
   public programId;
+  public file;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,18 +34,33 @@ export class AddBenefitComponent implements OnInit {
     let benefitObject={} as Benefit;
     benefitObject.name=this.newBenefit;
     benefitObject.photo='';
-    this._peticionesService.addBenefitToProgram(this.programId,benefitObject).subscribe(
-      res=>{
-        alert('Guardado Exitosamente')
-        window.history.back();
-      },err=>{
-        var errorMessage = <any>err;
-        console.log(errorMessage);
-      })
-
+    if(this.file==undefined){
+      this._peticionesService.addBenefitToProgram(this.programId,benefitObject).subscribe(
+        res=>{
+          alert('Guardado Exitosamente')
+          window.history.back();
+        },err=>{
+          var errorMessage = <any>err;
+          console.log(errorMessage);
+        })
+    }else{
+      this._peticionesService.addBenefitToProgramWithFile(this.file,this.programId,benefitObject).subscribe(
+        res=>{
+          alert('Guardado Exitosamente')
+          window.history.back();
+        },err=>{
+          var errorMessage = <any>err;
+          console.log(errorMessage);
+        })
+    }
+   
   }
   cancel(){
     window.history.back();
+  }
+
+  handleFileInput(files: FileList) {
+    this.file = files.item(0);
   }
 
 }

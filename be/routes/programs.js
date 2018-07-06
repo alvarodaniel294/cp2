@@ -124,6 +124,7 @@ router
 
 
     })
+
     .post('/addBenefitToProgram/:id', function (req, res) {
         db.programs.findOne({ _id: req.params.id }, function (err, program) {
             if (err) {
@@ -139,6 +140,100 @@ router
                 })
             }
         })
+    })
+    .post('/addBenefitToProgramWithFile/:id',multipartMiddleware,function(req,res){
+
+        let body=JSON.parse(req.body.body);
+        db.programs.findOne({ _id: req.params.id }, function (err, program) {
+            if (err) {
+                return res.status(400).send(err);
+            } else {
+                let progPhotoString='benefit_'+body.benefit.name+'_'+program._id+'.jpg';
+                // req.body.body.benefit.photo='./assets/'+progPhotoString;
+                let benefitObect={};
+                benefitObect.photo='./assets/'+progPhotoString;
+                benefitObect.name=body.benefit.name;
+
+                program.benefit.push(benefitObect);
+
+                program.save(function (err, proga) {
+                    if (err) {
+                        return res.status(400).send(err)
+                    } else {
+                         fs.readFile(req.files.fileKey.path, function read(err, data) {
+                            if (err) {
+                                throw err;
+                            }
+                            content = data;
+                            fs.writeFile('./public/assets/' + progPhotoString, content, function (err) {
+                                if (err) {
+                                    return console.log(err);
+                                }
+                                console.log("The file was saved!");
+                                return res.status(200).send(proga);
+                            })
+                        })
+
+                       
+                    }
+                })
+            }
+        })
+
+    })
+    .post('/updateProgramBenefitWithFile/:id',multipartMiddleware,function(req,res){
+        // console.log(req);
+        let body=JSON.parse(req.body.body);
+        console.log(req.params.id)
+        db.programs.findOne({ _id: req.params.id }, function (err, program) {
+            if (err) {
+                return res.status(400).send(err);
+            } else {
+                console.log('1111')
+                for(let benefit of program.benefit){
+                    if(benefit._id==body.benefit._id){
+                        benefit.name=body.benefit.name;
+
+                        fs.stat('./public/'+benefit.photo, function (err, stat) {
+                            if (err == null) {
+                                fs.unlink('./public/'+benefit.photo, function (err) {
+                                    if (err) {
+                                        console.log('Error delating file!')
+                                        throw err;
+                                    }
+                                });
+                            }
+                            fs.readFile(req.files.fileKey.path, function read(err, data) {
+                                if (err) {
+                                    throw err;
+                                }
+                                content = data;
+
+                                fs.writeFile('./public/'+benefit.photo, content, function (err) {
+                                    if (err) {
+                                        console.log(err);
+                                        return res.status(400).send(err);
+                                        
+                                    }
+                                    
+                                    program.save(function (err, progSaved) {
+                                        if (err) return res.status(400).send(err)
+                                        console.log("The file was saved!");
+                                        return res.status(200).send(progSaved);
+                                    })
+            
+                                })
+                            })
+        
+                        })
+                    }
+                }
+
+
+            }
+        })
+
+
     })
     .put('/edit/:id', function (req, res) {
         console.log(req.body);

@@ -401,6 +401,34 @@ export class PeticionesService {
 
   }
 
+  addBenefitToProgramWithFile(fileToUpload: File,programId,benefit){
+    const endpoint = this.url + 'programs/addBenefitToProgramWithFile/'+programId;
+    const formData: FormData = new FormData();
+    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    formData.append('body', JSON.stringify({ benefit: benefit }));
+    let headers = new HttpHeaders();
+    /** In Angular 5, including the header Content-Type can invalidate your request */
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    return this._http
+      .post(endpoint, formData, { headers: headers })
+
+  }
+  updateProgramBenefitWithFile(fileToUpload: File,programId,benefit){
+    console.log(benefit);
+    const endpoint = this.url + 'programs/updateProgramBenefitWithFile/'+programId._id;
+    const formData: FormData = new FormData();
+    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    formData.append('body', JSON.stringify({ benefit: benefit }));
+    let headers = new HttpHeaders();
+    /** In Angular 5, including the header Content-Type can invalidate your request */
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    return this._http
+      .post(endpoint, formData, { headers: headers })
+
+  }
+
   updateInicio_talleres(page,id){
     let body = JSON.stringify(page);
     var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
@@ -410,6 +438,18 @@ export class PeticionesService {
     let body = JSON.stringify(taller);
     var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
     return this._http.post(this.url + 'workshops/addTaller', body, { headers: headers });
+  }
+  addTallerWithFile(fileToUpload: File, taller): Observable<Object> {
+    const endpoint = this.url + 'workshops/addTallerWithFile';
+    const formData: FormData = new FormData();
+    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    formData.append('body', JSON.stringify({ taller: taller }));
+    let headers = new HttpHeaders();
+    /** In Angular 5, including the header Content-Type can invalidate your request */
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    return this._http
+      .post(endpoint, formData, { headers: headers })
   }
   getTaller(_id) {
     return this._http.get(this.url + 'workshops/' + _id);
@@ -422,10 +462,49 @@ export class PeticionesService {
     var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
     return this._http.put(this.url + 'workshops/edit/' + idTaller, body, { headers: headers });
   }
+  updateTallerWithFile(fileToUpload: File, taller): Observable<Object>{
+    const endpoint = this.url + 'workshops/updateTallerWithFile';
+    const formData: FormData = new FormData();
+    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    formData.append('body', JSON.stringify({ taller: taller }));
+    let headers = new HttpHeaders();
+    /** In Angular 5, including the header Content-Type can invalidate your request */
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    return this._http
+      .post(endpoint, formData, { headers: headers })
+  }
   addBenefitToTaller(TallerId,benefit){
     let body = JSON.stringify(benefit);
     var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
     return this._http.post(this.url + 'workshops/addBenefitToTaller/'+TallerId, body, { headers: headers });
+
+  }
+  addBenefitToTallerWithFile(fileToUpload: File,TallerId,benefit){
+    const endpoint = this.url + 'workshops/addBenefitToTallerWithFile/'+TallerId;
+    const formData: FormData = new FormData();
+    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    formData.append('body', JSON.stringify({ benefit: benefit }));
+    let headers = new HttpHeaders();
+    /** In Angular 5, including the header Content-Type can invalidate your request */
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    return this._http
+      .post(endpoint, formData, { headers: headers })
+
+  }
+  updateTallerBenefitWithFile(fileToUpload: File,tallerId,benefit){
+    console.log(benefit);
+    const endpoint = this.url + 'workshops/updateTallerBenefitWithFile/'+tallerId._id;
+    const formData: FormData = new FormData();
+    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    formData.append('body', JSON.stringify({ benefit: benefit }));
+    let headers = new HttpHeaders();
+    /** In Angular 5, including the header Content-Type can invalidate your request */
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    return this._http
+      .post(endpoint, formData, { headers: headers })
 
   }
   updateInicio_consultoria(page,id){
