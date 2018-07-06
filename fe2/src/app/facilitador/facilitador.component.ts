@@ -43,6 +43,9 @@ export class facilitadorComponent implements OnInit {
   //   });
 
   // }
+  editfacilitador(idfacilitador){
+    this.router.navigate(['/home/facilitador/edit',idfacilitador]);
+  }
   queryFacilitators(){
     this._peticionesService.getFacilitadores().subscribe(
       result => {

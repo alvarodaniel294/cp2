@@ -8,5 +8,7 @@ export class facilitador{
         public job: string,  //1 = universitario, 2=Profecional, 3=particular
        // public user: string,
     //    public carteras:string
+        public review:string,
+        public photo:string,
     ){}
 }

@@ -264,13 +264,37 @@ export class PeticionesService {
     var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
     return this._http.post(this.url + 'facilitators/register', body, { headers: headers });
   }
+  addFacilitadorWithFile(fileToUpload: File, facilitador): Observable<Object> {
+    const endpoint = this.url + 'facilitators/addFacilitadorWithFile';
+    const formData: FormData = new FormData();
+    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    formData.append('body', JSON.stringify({ facilitador: facilitador }));
+    let headers = new HttpHeaders();
+    /** In Angular 5, including the header Content-Type can invalidate your request */
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    return this._http
+      .post(endpoint, formData, { headers: headers })
+  }
   updateFacilitador(facilitador_object) {
     console.log(facilitador_object);
     let body = JSON.stringify(facilitador_object);
     var idfacilitador = facilitador_object._id;
     // console.log(body);
     var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    return this._http.put(this.url + 'facilitators/update/' + idfacilitador, body, { headers: headers });
+    return this._http.put(this.url + 'facilitators/updateFacilitador/' + idfacilitador, body, { headers: headers });
+  }
+  updateFacilitadorWithFile(fileToUpload: File, facilitador): Observable<Object> {
+    const endpoint = this.url + 'facilitators/updateFacilitadorWithFile';
+    const formData: FormData = new FormData();
+    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    formData.append('body', JSON.stringify({ facilitador: facilitador }));
+    let headers = new HttpHeaders();
+    /** In Angular 5, including the header Content-Type can invalidate your request */
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    return this._http
+      .post(endpoint, formData, { headers: headers })
   }
 
 
