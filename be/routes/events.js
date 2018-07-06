@@ -2,6 +2,9 @@ var express = require('express');
 var db = require('../models/db');
 var router = express.Router();
 var mongoose = require('mongoose');
+var multipart = require('connect-multiparty');
+var multipartMiddleware = multipart();
+var fs = require('fs');
 
 router
       .get('/', function (req, res) {
@@ -34,31 +37,57 @@ router
             });
 
       })
-      .get('/getEvent/:id',function(req,res){
-            db.events.findOne({_id:req.params.id},function(err,event){
-                  if(err){
+      .get('/getEvent/:id', function (req, res) {
+            db.events.findOne({ _id: req.params.id }, function (err, event) {
+                  if (err) {
                         return res.status(400).send(err);
-                  }else{
+                  } else {
                         return res.status(200).send(event)
                   }
             })
       })
-      .post('/addNewEvent',function(req,res){
-            var event=new db.events(req.body);
+      .post('/addNewEvent', function (req, res) {
+            var event = new db.events(req.body);
             var d = new Date();
             console.log(event);
             // if ((event.date_start == undefined || event.date_start < d) || event.description == '' || event.total == '' || event.programs == '') return res.status(400).send();
 
             event.save(function (err, even) {
                   console.log("h;lasd")
-                  if (err){
+                  if (err) {
                         console.log(err);
-                         return res.status(400).send(err);
-                  }else{
+                        return res.status(400).send(err);
+                  } else {
                         return res.status(201).send(even);
 
                   }
             });
+      })
+      .post('/addNewEventWithFile', multipartMiddleware, function (req, res) {
+            console.log(req);
+            var body = JSON.parse(req.body.body);
+            var newEvent = new db.events(body.event);
+            console.log(newEvent);
+            newEvent.photo = './assets/' + newEvent._id + '.jpg';
+            newEvent.save(function (err, even) {
+                  if (err) {
+                        return res.status(400).send(err);
+                  } else {
+                        fs.readFile(req.files.fileKey.path, function read(err, data) {
+                              if (err) {
+                                    throw err;
+                              }
+                              content = data;
+                              fs.writeFile('./public/' + even.photo, content, function (err) {
+                                    if (err) {
+                                          return console.log(err);
+                                    }
+                                    console.log("The file was saved!");
+                                    return res.status(200).send(even);
+                              })
+                        })
+                  }
+            })
       })
 
       .post('/', function (req, res) {
@@ -91,12 +120,12 @@ router
                   });
             }
       })
-      .post('/deleteFacilitador/:id',function(req,res){
-            db.events.findOne({_id:req.params.id},function(err,event){
-                  let count=0;
-                  for(let fa of event.facilitators){
-                        if(fa==req.body.facilitadorId){
-                              event.facilitators.splice(count,1);
+      .post('/deleteFacilitador/:id', function (req, res) {
+            db.events.findOne({ _id: req.params.id }, function (err, event) {
+                  let count = 0;
+                  for (let fa of event.facilitators) {
+                        if (fa == req.body.facilitadorId) {
+                              event.facilitators.splice(count, 1);
                         }
                         count++;
 
@@ -139,19 +168,20 @@ router
                         //	if (off.nModified == 0) return res.status(406).send();
                   });
       })
-      .put('/addFacilitatorToEvent/:id',function(req,res){
+      .put('/addFacilitatorToEvent/:id', function (req, res) {
             console.log(req.body);
             console.log('holasdf')
 
             db.events.update(
-                  {_id:req.params.id},
-                  {$push:{ facilitators:req.body.facilitadorId}
-                  
+                  { _id: req.params.id },
+                  {
+                        $push: { facilitators: req.body.facilitadorId }
+
                   }
-            ).exec(function(err,even){
+            ).exec(function (err, even) {
                   if (err) return res.status(400).send(err);
                   return res.status(201).send(even);
-                  
+
             })
       })
 

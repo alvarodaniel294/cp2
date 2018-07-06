@@ -11,6 +11,7 @@ import { PeticionesService } from "../../services/peticiones.service";
 })
 export class AddConsultoriaComponent implements OnInit {
 
+  public file;
   public consultoria;
   constructor(
     private _peticionesService:PeticionesService,
@@ -23,19 +24,36 @@ export class AddConsultoriaComponent implements OnInit {
   }
   onSubmit(){
     console.log(this.consultoria);
-    this._peticionesService.addConsultoria(this.consultoria).subscribe(
-      res=>{
-        alert("Guardado Exitosamente");
-        window.history.back();
-      },err=>{
-        var errorMessage=<any>err;
-        console.log(errorMessage);
-      }
-    )
+    if(this.file==undefined){
+      this._peticionesService.addConsultoria(this.consultoria).subscribe(
+        res=>{
+          alert("Guardado Exitosamente");
+          window.history.back();
+        },err=>{
+          var errorMessage=<any>err;
+          console.log(errorMessage);
+        }
+      )
+
+    }else{
+      this._peticionesService.addConsultoriaWithFIle(this.file,this.consultoria).subscribe(
+        res=>{
+          alert("Guardado Exitosamente");
+          window.history.back();
+        },err=>{
+          var errorMessage=<any>err;
+          console.log(errorMessage);
+        }
+      )
+    }
+    
 
   }
   cancelar(){
     window.history.back();
+  }
+  handleFileInput(files: FileList) {
+    this.file = files.item(0);
   }
 
 }

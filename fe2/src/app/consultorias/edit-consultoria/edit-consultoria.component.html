@@ -8,6 +8,11 @@
                  <h1>Registrar Consultoria</h1>
                  <br>
                  <form (ngSubmit)="onSubmit()" #addNewConsultoria="ngForm" class="">
+                   
+                    <div class="form-group col-sm-8">
+                        <label for="name" class="control-label">Imagen</label>
+                        <input type="file" name="myImage" accept=".jpg, .jpeg" (change)="handleFileInput($event.target.files)" />
+                      </div>
                      <div class="form-group col-sm-8">
                          <label for="name" class="control-label" >Nombre de Consultoria</label>
                              <input type="text" pattern="[A-Za-zÑ-ñÁ-áÉ-éÍ-íÓ-óÚ-ú0-9 ]{3,42}" class="form-control" id="name" 

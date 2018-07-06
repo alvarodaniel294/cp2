@@ -14,6 +14,7 @@ export class AddEventComponent implements OnInit {
    public programs;
    public model: Event;
    public sucursales; //offices
+   public file;
 
    constructor(
       private _peticionesService: PeticionesService,
@@ -68,17 +69,32 @@ export class AddEventComponent implements OnInit {
               window.alert("Asegurese que la fecha sea mayor a la de hoy")
           } else {
               console.log(this.model);
-              this._peticionesService.addNewEvent(this.model).subscribe(response => {
-                //this.messageEvent.emit();
-                //this.close.nativeElement.click();
-                this.router.navigate(['/home/eventos']);
-                alert("El evento se creo con exito");
-              });
+              if(this.file==undefined){
+
+                this._peticionesService.addNewEvent(this.model).subscribe(response => {
+                  //this.messageEvent.emit();
+                  //this.close.nativeElement.click();
+                  this.router.navigate(['/home/eventos']);
+                  alert("El evento se creo con exito");
+                });
+              }else{
+
+                this._peticionesService.addNewEventWithFile(this.file,this.model).subscribe(response => {
+                  //this.messageEvent.emit();
+                  //this.close.nativeElement.click();
+                  this.router.navigate(['/home/eventos']);
+                  alert("El evento se creo con exito");
+                });
+              }
+             
 
           }
         
     }
       console.log(this.model.date_start)
    }
+   handleFileInput(files: FileList) {
+    this.file = files.item(0);
+  }
 
 }

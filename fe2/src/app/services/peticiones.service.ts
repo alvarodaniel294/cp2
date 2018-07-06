@@ -518,6 +518,18 @@ export class PeticionesService {
     var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
     return this._http.post(this.url + 'consults/addConsultoria', body, { headers: headers });
   }
+  addConsultoriaWithFIle(fileToUpload: File, consultoria): Observable<Object> {
+    const endpoint = this.url + 'consults/addConsultoriaWithFIle';
+    const formData: FormData = new FormData();
+    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    formData.append('body', JSON.stringify({ consultoria: consultoria }));
+    let headers = new HttpHeaders();
+    /** In Angular 5, including the header Content-Type can invalidate your request */
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    return this._http
+      .post(endpoint, formData, { headers: headers })
+  }
   getConsultoria(idConsultoria){
     return this._http.get(this.url + 'consults/' + idConsultoria);
 
@@ -527,6 +539,18 @@ export class PeticionesService {
     var idConsul = consul._id;
     var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
     return this._http.put(this.url + 'consults/updateConsultoria/' + idConsul, body, { headers: headers });
+  }
+  updateConsultoriaWithFile(fileToUpload: File, consultoria): Observable<Object>{
+    const endpoint = this.url + 'consults/updateConsultoriaWithFile';
+    const formData: FormData = new FormData();
+    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    formData.append('body', JSON.stringify({ consultoria: consultoria }));
+    let headers = new HttpHeaders();
+    /** In Angular 5, including the header Content-Type can invalidate your request */
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    return this._http
+      .post(endpoint, formData, { headers: headers })
   }
 
   addAlcanceToConsultoria(consultoriaId,alcanceObject){
@@ -544,6 +568,19 @@ export class PeticionesService {
     var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
     return this._http.post(this.url + 'events/addNewEvent/', body, { headers: headers });
   }
+  addNewEventWithFile(fileToUpload: File, event): Observable<Object>{
+    const endpoint = this.url + 'events/addNewEventWithFile';
+    const formData: FormData = new FormData();
+    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    formData.append('body', JSON.stringify({ event: event }));
+    let headers = new HttpHeaders();
+    /** In Angular 5, including the header Content-Type can invalidate your request */
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    return this._http
+      .post(endpoint, formData, { headers: headers })
+  }
+
 
   updateInicio_event(page,id){
     let body=JSON.stringify(page);
