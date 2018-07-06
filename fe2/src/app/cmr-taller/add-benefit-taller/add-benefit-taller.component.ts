@@ -12,6 +12,7 @@ export class AddBenefitTallerComponent implements OnInit {
   public newBenefit;
   public tallerId;
 
+  public file;
   constructor(
     private route: ActivatedRoute,
     public router: Router,
@@ -31,18 +32,35 @@ export class AddBenefitTallerComponent implements OnInit {
     let benefitObject={} as Benefit;
     benefitObject.name=this.newBenefit;
     benefitObject.photo='';
-    this._peticionesService.addBenefitToTaller(this.tallerId,benefitObject).subscribe(
-      res=>{
-        alert('Guardado Exitosamente')
-        window.history.back();
-      },err=>{
-        var errorMessage = <any>err;
-        console.log(errorMessage);
-      })
+    if(this.file==undefined){
+      this._peticionesService.addBenefitToTaller(this.tallerId,benefitObject).subscribe(
+        res=>{
+          alert('Guardado Exitosamente')
+          window.history.back();
+        },err=>{
+          var errorMessage = <any>err;
+          console.log(errorMessage);
+        })
+
+    }else{
+      this._peticionesService.addBenefitToTallerWithFile(this.file,this.tallerId,benefitObject).subscribe(
+        res=>{
+          alert('Guardado Exitosamente')
+          window.history.back();
+        },err=>{
+          var errorMessage = <any>err;
+          console.log(errorMessage);
+        })
+    }
+   
 
   }
   cancel(){
     window.history.back();
+  }
+
+  handleFileInput(files: FileList) {
+    this.file = files.item(0);
   }
 
 }

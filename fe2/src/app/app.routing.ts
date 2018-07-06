@@ -46,6 +46,7 @@ import { EditConsultoriaComponent } from "./consultorias/edit-consultoria/edit-c
 import { AddScopeConsultoriaComponent } from "./consultorias/add-scope-consultoria/add-scope-consultoria.component";
 import { EditScopeConsultoriaComponent } from "./consultorias/edit-scope-consultoria/edit-scope-consultoria.component";
 import { EditEventComponent } from "./events/edit-event/edit-event.component";
+import { EditBenefitTallerComponent } from './cmr-taller/edit-benefit-taller/edit-benefit-taller.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },//ruta basica
@@ -92,8 +93,8 @@ const appRoutes: Routes = [
             { path: 'cmr-talleres',component:CmrTallerComponent},
             { path: 'cmr-talleres/add',component:AddNewTallerComponent},
             { path: 'cmr-talleres/edit/:id',component:EditTallerCmrComponent},
-            { path: 'cmr-talleres/benefit/add/:id',component:AddBenefitTallerComponent},
-            { path: 'cmr-talleres/benefits/edit/:id',component:EditBenefitComponent},
+            { path: 'cmr-talleres/benefits/add/:id',component:AddBenefitTallerComponent},
+            { path: 'cmr-talleres/benefits/edit/:id',component:EditBenefitTallerComponent},
 
         ]
     },

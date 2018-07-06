@@ -4,7 +4,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
-
+var fs = require('fs');
 
 
 router
@@ -47,47 +47,193 @@ router
             }
         });
     })
-    // .post('/addProgramWithFile',multipartMiddleware,function(req,res){
-    //     var body =JSON.parse(req,body.body);
-    //     fs.readFile(req.files.fileKey.path, function read(err, data) {
-	// 		if (err) {
-	// 			throw err;
-	// 		}
-	// 		content = data;
-	// 		fs.writeFile('./public/' + body.photo, content, function (err) {
-	// 			if (err) {
-	// 				return console.log(err);
-	// 			}
-	// 			console.log("The file was saved!");
-    //             var prog=new db.programs(req.body.body);
-    //             prog.save(function(err,p){
-    //                 if(err){
-    //                     return res.status(400).send(err);
+    .post('/updateProgramWithFile', multipartMiddleware, function (req, res) {
 
-    //                 }else{
-    //                     return res.status(200).send(p);
-    //                 }
+        // console.log(req)
+        // console.log('/////////////////////')
 
-    //             })
-	// 		});
-	// 	});
+        var body = JSON.parse(req.body.body);
+        // console.log(body);
+        db.programs.findOne({ _id: body.program._id }, function (err, prog) {
+            if (err) return res.status(400).send(err);
+            for (let i in body.program) {
+                prog[i] = body.program[i];
+            }
 
+            fs.readFile(req.files.fileKey.path, function read(err, data) {
+                if (err) {
+                    throw err;
+                }
+                content = data;
 
-    // })
-    .post('/addBenefitToProgram/:id',function(req,res){
-        db.programs.findOne({_id:req.params.id},function(err,program){
-            if(err){
+                fs.stat('./public/assets/' + prog._id + '.jpg', function (err, stat) {
+                    if (err == null) {
+                        fs.unlink('./public/assets/' + prog._id + '.jpg', function (err) {
+                            if (err) {
+                                console.log('Error delating file!')
+                                throw err;
+                            }
+                        });
+                    }
+                    fs.writeFile('./public/assets/' + prog._id + '.jpg', content, function (err) {
+                        if (err) {
+                            return console.log(err);
+                        }
+                        prog.photo = './assets/' + prog._id + '.jpg';
+                        prog.save(function (err, progSaved) {
+                            if (err) return res.status(400).send(err)
+                            console.log("The file was saved!");
+                            return res.status(200).send(progSaved);
+                        })
+
+                    })
+
+                })
+            })
+
+        })
+
+    })
+    .post('/addProgramWithFile', multipartMiddleware, function (req, res) {
+        console.log(req);
+        var body = JSON.parse(req.body.body);
+        // console.log(body);
+        var newProg = new db.programs(body.program);
+        console.log(newProg);
+        newProg.photo = './assets/' + newProg._id + '.jpg';
+        newProg.save(function (err, prog) {
+            if (err) {
                 return res.status(400).send(err);
-            }else{
+            } else {
+                fs.readFile(req.files.fileKey.path, function read(err, data) {
+                    if (err) {
+                        throw err;
+                    }
+                    content = data;
+                    fs.writeFile('./public/' + prog.photo, content, function (err) {
+                        if (err) {
+                            return console.log(err);
+                        }
+                        console.log("The file was saved!");
+                        return res.status(200).send(prog);
+                    })
+                })
+            }
+        })
+
+
+
+    })
+
+    .post('/addBenefitToProgram/:id', function (req, res) {
+        db.programs.findOne({ _id: req.params.id }, function (err, program) {
+            if (err) {
+                return res.status(400).send(err);
+            } else {
                 program.benefit.push(req.body);
-                program.save(function(err,prog){
-                    if(err){return res.status(400).send(err)
-                    }else{
+                program.save(function (err, prog) {
+                    if (err) {
+                        return res.status(400).send(err)
+                    } else {
                         return res.status(200).send(prog);
                     }
                 })
             }
         })
+    })
+    .post('/addBenefitToProgramWithFile/:id',multipartMiddleware,function(req,res){
+
+        let body=JSON.parse(req.body.body);
+        db.programs.findOne({ _id: req.params.id }, function (err, program) {
+            if (err) {
+                return res.status(400).send(err);
+            } else {
+                let progPhotoString='benefit_'+body.benefit.name+'_'+program._id+'.jpg';
+                // req.body.body.benefit.photo='./assets/'+progPhotoString;
+                let benefitObect={};
+                benefitObect.photo='./assets/'+progPhotoString;
+                benefitObect.name=body.benefit.name;
+
+                program.benefit.push(benefitObect);
+
+                program.save(function (err, proga) {
+                    if (err) {
+                        return res.status(400).send(err)
+                    } else {
+                         fs.readFile(req.files.fileKey.path, function read(err, data) {
+                            if (err) {
+                                throw err;
+                            }
+                            content = data;
+                            fs.writeFile('./public/assets/' + progPhotoString, content, function (err) {
+                                if (err) {
+                                    return console.log(err);
+                                }
+                                console.log("The file was saved!");
+                                return res.status(200).send(proga);
+                            })
+                        })
+
+                       
+                    }
+                })
+            }
+        })
+
+    })
+    .post('/updateProgramBenefitWithFile/:id',multipartMiddleware,function(req,res){
+        // console.log(req);
+        let body=JSON.parse(req.body.body);
+        console.log(req.params.id)
+        db.programs.findOne({ _id: req.params.id }, function (err, program) {
+            if (err) {
+                return res.status(400).send(err);
+            } else {
+                console.log('1111')
+                for(let benefit of program.benefit){
+                    if(benefit._id==body.benefit._id){
+                        benefit.name=body.benefit.name;
+
+                        fs.stat('./public/'+benefit.photo, function (err, stat) {
+                            if (err == null) {
+                                fs.unlink('./public/'+benefit.photo, function (err) {
+                                    if (err) {
+                                        console.log('Error delating file!')
+                                        throw err;
+                                    }
+                                });
+                            }
+                            fs.readFile(req.files.fileKey.path, function read(err, data) {
+                                if (err) {
+                                    throw err;
+                                }
+                                content = data;
+
+                                fs.writeFile('./public/'+benefit.photo, content, function (err) {
+                                    if (err) {
+                                        console.log(err);
+                                        return res.status(400).send(err);
+                                        
+                                    }
+                                    
+                                    program.save(function (err, progSaved) {
+                                        if (err) return res.status(400).send(err)
+                                        console.log("The file was saved!");
+                                        return res.status(200).send(progSaved);
+                                    })
+            
+                                })
+                            })
+        
+                        })
+                    }
+                }
+
+
+            }
+        })
+
+
     })
     .put('/edit/:id', function (req, res) {
         console.log(req.body);
@@ -106,12 +252,12 @@ router
                 return res.status(200).send(page);
             })
     })
-    // .delete('/:id', function (req, res) {
-    //     db.programs.remove({ _id: req.params.id }, function (err, program) {
-    //         if (err) return res.status(400).send(err);
+// .delete('/:id', function (req, res) {
+//     db.programs.remove({ _id: req.params.id }, function (err, program) {
+//         if (err) return res.status(400).send(err);
 
-    //         return res.status(200).send(program);
-    //     });
-    // });
+//         return res.status(200).send(program);
+//     });
+// });
 
 module.exports = router;

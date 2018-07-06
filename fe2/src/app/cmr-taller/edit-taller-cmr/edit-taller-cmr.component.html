@@ -8,6 +8,10 @@
         <div >
           <h1>Editar taller</h1>
           <form (ngSubmit)=" saveTaller()" #updatetaller="ngForm" class="" >
+              <div class="form-group col-sm-8">
+                  <label for="name" class="control-label">Imagen</label>
+                  <input type="file" name="myImage" accept=".jpg, .jpeg" (change)="handleFileInput($event.target.files)" />
+                </div>
             <div class="form-group col-sm-8">
                 <label for="name">Nombre del taller</label>
                 <input type="text" pattern="[A-Za-zÑ-ñÁ-áÉ-éÍ-íÓ-óÚ-ú0-9 ]{3,42}" class="form-control" id="name" 

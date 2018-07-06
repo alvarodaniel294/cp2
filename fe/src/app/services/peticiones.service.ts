@@ -41,10 +41,10 @@ export class PeticionesService {
     return this._http.get(this.url + 'consults/' + _id);
   }
   getWorkshops() {
-    return this._http.get(this.url + 'workshop');
+    return this._http.get(this.url + 'workshops');
   }
   getWorkshop(_id) {
-    return this._http.get(this.url + 'workshop/' + _id);
+    return this._http.get(this.url + 'workshops/' + _id);
   }
   getPrograms() {
     return this._http.get(this.url + 'programs');

@@ -19,6 +19,7 @@ export class TalleresComponent implements OnInit {
     })
     this._peticionesService.getWorkshops().subscribe(res => {
       this.workshops = res;
+      console.log(this.workshops);
     })
   }
 

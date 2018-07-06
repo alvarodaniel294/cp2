@@ -15,6 +15,7 @@ router
 	})
 
 	.put('/home/inicioF/:id', multipartMiddleware, function (req, res) {
+		console.log(req)
 		var body = JSON.parse(req.body.body);
 		console.log(body);
 		fs.readFile(req.files.fileKey.path, function read(err, data) {
@@ -301,6 +302,7 @@ router
 			})
 	})
 	.put('/somos/inicioF/:id', multipartMiddleware, function (req, res) {
+		console.log(req.body);
 		var body = JSON.parse(req.body.body);
 		fs.readFile(req.files.fileKey.path, function read(err, data) {
 			if (err) {

@@ -1724,10 +1724,10 @@ var PeticionesService = /** @class */ (function () {
         return this._http.get(this.url + 'consults/' + _id);
     };
     PeticionesService.prototype.getWorkshops = function () {
-        return this._http.get(this.url + 'workshop');
+        return this._http.get(this.url + 'workshops');
     };
     PeticionesService.prototype.getWorkshop = function (_id) {
-        return this._http.get(this.url + 'workshop/' + _id);
+        return this._http.get(this.url + 'workshops/' + _id);
     };
     PeticionesService.prototype.getPrograms = function () {
         return this._http.get(this.url + 'programs');
@@ -2730,6 +2730,7 @@ var TalleresComponent = /** @class */ (function () {
         });
         this._peticionesService.getWorkshops().subscribe(function (res) {
             _this.workshops = res;
+            console.log(_this.workshops);
         });
     };
     TalleresComponent = __decorate([

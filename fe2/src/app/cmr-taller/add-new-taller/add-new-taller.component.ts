@@ -41,22 +41,22 @@ export class AddNewTallerComponent implements OnInit {
         }
       );
     }
-    // else{
-    //   this._peticionesService.addProgramWithFile(this.program,this.file).subscribe(
-    //     result => {
-    //       var esperado = result;
-    //       alert('El Programa se creó correctamente');
-    //       this.router.navigate(['home/cmr-programas']);
-    //     },
-    //     error => {
-    //       var errorMessage = <any>error;
-    //       console.log(errorMessage);
-    //       alert('Error al crear Programa verifique los datos');
+    else{
+      this._peticionesService.addTallerWithFile(this.file,this.taller).subscribe(
+        result => {
+          var esperado = result;
+          alert('El Taller se creó correctamente');
+          this.router.navigate(['home/cmr-talleres']);
+        },
+        error => {
+          var errorMessage = <any>error;
+          console.log(errorMessage);
+          alert('Error al crear Taller verifique los datos');
   
-    //     }
-    //   );
+        }
+      );
       
-    // }
+    }
     
   }
   cancel() {

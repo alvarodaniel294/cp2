@@ -14,6 +14,7 @@ export class EditBenefitComponent implements OnInit {
   public benefitId;
   public program;
   public editBenefit;
+  public file;
 
   constructor(
     private route: ActivatedRoute,
@@ -50,21 +51,37 @@ export class EditBenefitComponent implements OnInit {
         b=this.editBenefit;
       }
     }
-    this._peticionesService.updateProgram(this.program).subscribe(
-      res => {
-        alert('Guardado Exitosamente');
-        window.history.back();
-      },
-      error => {
-        var errorMessage = <any>error;
-        console.log(errorMessage);
-      });
+    if(this.file==undefined){
+      this._peticionesService.updateProgram(this.program).subscribe(
+        res => {
+          alert('Guardado Exitosamente');
+          window.history.back();
+        },
+        error => {
+          var errorMessage = <any>error;
+          console.log(errorMessage);
+        });
+
+    }else{
+      this._peticionesService.updateProgramBenefitWithFile(this.file,this.program,this.editBenefit).subscribe(
+        res => {
+          alert('Guardado Exitosamente');
+          window.history.back();
+        },
+        error => {
+          var errorMessage = <any>error;
+          console.log(errorMessage);
+        });
+    }
+   
 
   }
 
   cancel(){
     window.history.back();
   }
-
+  handleFileInput(files: FileList) {
+    this.file = files.item(0);
+  }
 
 }

@@ -41,22 +41,22 @@ export class AddNewProgramComponent implements OnInit {
         }
       );
     }
-    // else{
-    //   this._peticionesService.addProgramWithFile(this.program,this.file).subscribe(
-    //     result => {
-    //       var esperado = result;
-    //       alert('El Programa se creó correctamente');
-    //       this.router.navigate(['home/cmr-programas']);
-    //     },
-    //     error => {
-    //       var errorMessage = <any>error;
-    //       console.log(errorMessage);
-    //       alert('Error al crear Programa verifique los datos');
+    else{
+      this._peticionesService.addProgramWithFile(this.file,this.program).subscribe(
+        result => {
+          var esperado = result;
+          alert('El Programa se creó correctamente');
+          this.router.navigate(['home/cmr-programas']);
+        },
+        error => {
+          var errorMessage = <any>error;
+          console.log(errorMessage);
+          alert('Error al crear Programa verifique los datos');
   
-    //     }
-    //   );
+        }
+      );
       
-    // }
+    }
     
   }
   cancel() {

@@ -16,6 +16,7 @@ export class CmrProgramasComponent implements OnInit {
   public page_program;
   public id;
   public lista_programs;
+  public file;
   
   constructor(
     private _peticionesService: PeticionesService,
@@ -39,14 +40,27 @@ export class CmrProgramasComponent implements OnInit {
   }
 
   saveProgramTop(){
-    this._peticionesService.updateInicio_programs(this.page_program,this.id).subscribe(
-      res=>{
-        alert("Guardado Exitosamente");
-      },err=>{
-        var errorMessage=<any>err;
-        console.log(errorMessage);
-      }
-    )
+    // if(this.file==undefined){
+
+      this._peticionesService.updateInicio_programs(this.page_program,this.id).subscribe(
+        res=>{
+          alert("Guardado Exitosamente");
+        },err=>{
+          var errorMessage=<any>err;
+          console.log(errorMessage);
+        }
+      )
+    // }else{
+    //   this._peticionesService.updateInicio_programsWithFile(this.file,this.page_program,this.id).subscribe(
+    //     res=>{
+    //       alert("Guardado Exitosamente");
+    //     },err=>{
+    //       var errorMessage=<any>err;
+    //       console.log(errorMessage);
+    //     }
+    //   )
+    // }
+   
 
   }
   editProgram(_id:string){
@@ -58,5 +72,8 @@ export class CmrProgramasComponent implements OnInit {
 
   beneficios(_id){
     this._router.navigate(['/home/cmr-programs/benefit',_id])
+  }
+  handleFileInput(files: FileList) {
+    this.file = files.item(0);
   }
 }

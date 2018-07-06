@@ -14,6 +14,7 @@ export class EditBenefitTallerComponent implements OnInit {
   public benefitId;
   public taller;
   public editBenefit;
+  public file;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,6 +36,7 @@ export class EditBenefitTallerComponent implements OnInit {
           for(let benef of this.taller.benefit){
             if(benef._id==this.benefitId){
               this.editBenefit=benef;
+              console.log(this.editBenefit)
             }
           }
          
@@ -50,15 +52,30 @@ export class EditBenefitTallerComponent implements OnInit {
         b=this.editBenefit;
       }
     }
-    this._peticionesService.updateTaller(this.taller).subscribe(
-      res => {
-        alert('Guardado Exitosamente');
-        window.history.back();
-      },
-      error => {
-        var errorMessage = <any>error;
-        console.log(errorMessage);
-      });
+    if(this.file==undefined){
+      this._peticionesService.updateTaller(this.taller).subscribe(
+        res => {
+          alert('Guardado Exitosamente');
+          window.history.back();
+        },
+        error => {
+          var errorMessage = <any>error;
+          console.log(errorMessage);
+        });
+
+    }else{
+      this._peticionesService.updateTallerBenefitWithFile(this.file,this.taller,this.editBenefit).subscribe(
+        res => {
+          alert('Guardado Exitosamente');
+          window.history.back();
+        },
+        error => {
+          var errorMessage = <any>error;
+          console.log(errorMessage);
+        });
+
+    }
+    
 
   }
 
@@ -66,5 +83,7 @@ export class EditBenefitTallerComponent implements OnInit {
     window.history.back();
   }
 
-
+  handleFileInput(files: FileList) {
+    this.file = files.item(0);
+  }
 }
