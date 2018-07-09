@@ -147,9 +147,9 @@ router
 	.put('/home/teamF/:id', multipartMiddleware, function (req, res) {
 		var body = JSON.parse(req.body.body);
 		for (let i = 0; i < body.fileName.length; i++) {
-			// console.log(req.files);
+			console.log(req.files);
 			// console.log(body.fileName[i]);
-			// console.log(req.files[body.fileName[i]].path);
+			console.log(req.files[body.fileName[i]].path);
 			fs.readFile(req.files[body.fileName[i]].path, function read(err, data) {
 				if (err) {
 					throw err;

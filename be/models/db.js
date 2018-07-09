@@ -285,7 +285,6 @@ module.exports = {
 
       //Connection
       connection: function () {
-            console.log('holaasdfasfasd')
             var db = mongoose.connect('mongodb://localhost:27017/CecapPage',
                   function (err) {
                         if (err) return console.log(err);
