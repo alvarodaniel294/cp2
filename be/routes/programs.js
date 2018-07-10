@@ -27,9 +27,22 @@ router
     .post('/add', function (req, res) {
         console.log(req.body);
         var program = new db.programs(req.body);
-        program.save(function (err, program) {
+        let benefit1={}
+        benefit1.photo='./assets/icon-program-60.png';
+        benefit1.name= 'Certificado';
+        let benefit2={};
+        benefit2.photo='./assets/icon-program-61.png';
+        benefit2.name='Cd con material';
+        let benefit3={};
+        benefit3.photo='./assets/icon-program-62.png';
+        benefit3.name='Asesoria';
+        program.benefit.push(benefit1);
+        program.benefit.push(benefit2);
+        program.benefit.push(benefit3);
+
+        program.save(function (err, programa) {
             if (err) { return res.status(400).send(err); }
-            return res.status(200).send(program);
+            return res.status(200).send(programa);
         });
     })
     .post('/', function (req, res) {
@@ -101,6 +114,19 @@ router
         var newProg = new db.programs(body.program);
         console.log(newProg);
         newProg.photo = './assets/' + newProg._id + '.jpg';
+        let benefit1={}
+        benefit1.photo='./assets/icon-program-60.png';
+        benefit1.name= 'Certificado';
+        let benefit2={};
+        benefit2.photo='./assets/icon-program-61.png';
+        benefit2.name='Cd con material';
+        let benefit3={};
+        benefit3.photo='./assets/icon-program-62.png';
+        benefit3.name='Asesoria';
+        newProg.benefit.push(benefit1);
+        newProg.benefit.push(benefit2);
+        newProg.benefit.push(benefit3);
+
         newProg.save(function (err, prog) {
             if (err) {
                 return res.status(400).send(err);

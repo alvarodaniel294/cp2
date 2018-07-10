@@ -6,7 +6,7 @@
                   <img [src]=event.photo style="width: 100%; border-radius: 5px 5px 0 0;">
                   <div class="padding1">
                         <p style='margin:auto; text-align: left; color:#1c3844; font-size: 1.2em; font-weight: 700; font-family: Raleway;'> {{event.name}} </p>
-                        <p style='margin:auto; text-align: left; color:#1c3844; font-size: 1em; font-weight: 700; font-family: Raleway;'> Fecha Inicio: {{event.date_start}} </p>
+                        <p style='margin:auto; text-align: left; color:#1c3844; font-size: 1em; font-weight: 700; font-family: Raleway;'> Fecha Inicio: {{event.date_start|date}} </p>
                         <div class="right padding1">
                               <a routerLink="/evento/{{event._id}}" style="text-decoration:none;font-size: 0.8em; color: #6120ea;font-weight:700;">MAS INFORMACION</a>
                         </div>

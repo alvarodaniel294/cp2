@@ -14,6 +14,8 @@ export class EventsComponent implements OnInit {
    
    public events;
    public role;
+   public page_event;
+   public id;
    
    constructor(
       private router: Router,
@@ -21,7 +23,14 @@ export class EventsComponent implements OnInit {
       //,private _userService: UserService
    ) { }
    ngOnInit() {
-      this.queryRol();
+
+    this._peticionesService.getInicio().subscribe(res => {
+        console.log(res[0]);
+        this.page_event = res[0].home.events;
+        this.id = res[0]._id;
+        this.queryRol();
+        
+      });
 
     //    this.queryEvents(); 
     //    this.role=Roles.name;
@@ -106,6 +115,16 @@ export class EventsComponent implements OnInit {
         }
     );
     }
+    saveEventTop(){
+        this._peticionesService.updateInicio_event(this.page_event,this.id).subscribe(
+          res=>{
+            alert("Guardado Exitosamente");
+          },err=>{
+            var errorMessage=<any>err;
+            console.log(errorMessage);
+          }
+        )
+      }
 }
 
 
