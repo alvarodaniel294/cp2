@@ -58,6 +58,26 @@ router
 
     //     // })
     // })
+    .post('/sendPerson',function(req,res){
+        console.log(req.body);
+
+        var person= new db.persons(req.body)
+        console.log(person);
+        let interesObj={};
+        interesObj.program_id=req.body.programId;
+        interesObj.state=req.body.interes_value;
+        person.interes.push(interesObj)
+
+        person.save(function(err,pers){
+            if(err){
+                console.log(err);
+                return res.status(400).send(err);
+            }else{
+                return res.status(200).send(pers);
+            }
+        })
+    })
+
     .post('/personsOfProgramByUserId', function (req, res) {
 
 
