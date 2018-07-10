@@ -118,6 +118,14 @@ export class PeticionesService {
     return this._http.get(this.url + 'pages', { headers: headers });
   }
 
+  sendPerson(persona){
+    let body=JSON.stringify(persona);
+    // console.log(body);
+    var headers=new HttpHeaders().set('Content-Type','application/json; charset=utf-8');
+    return this._http.post(this.url+'persons/sendPerson',body,{headers:headers});
+ 
+  }
+
   // getCi(ci) {
   //   return this._http.get(this.url + 'persons/existCi/' + ci).subscribe((res: Response) => res);
   // }

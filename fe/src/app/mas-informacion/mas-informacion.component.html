@@ -4,35 +4,59 @@
     <div style='padding: 2em 0em;'>
       <form id="my-form">
         <div class="form-group">
-          <input class="mat-input-element" name='firstname' placeholder='Nombre(s)*' required>
+          <input class="mat-input-element" [(ngModel)]="first_name" #name="ngModel" name='firstname' placeholder='Nombre(s)*' required>
         </div>
         <div class="form-group">
-          <input class="mat-input-element" name='lastname' placeholder='Apellidos*' required>
+          <input class="mat-input-element" [(ngModel)]="last_name" name='lastname' placeholder='Apellidos*' required>
         </div>
         <div class="form-group">
-          <input class="mat-input-element" name='phone' placeholder='Celular*' required>
+          <input class="mat-input-element" [(ngModel)]="cellphone" name='phone' placeholder='Celular*' required>
         </div>
         <div class="form-group">
-          <input class="mat-input-element" name='email' placeholder='Email*' required>
+          <input class="mat-input-element" [(ngModel)]="email" name='email' placeholder='Email*' required>
         </div>
         <div class="form-group">
-          <select id="selectCity" name='city' class="select" onchange="selecting()" placeholder='Interes' required>
-            <option value="" disabled selected hidden>Interes *</option>
-            <option value="Cochabamba">Seguridad Industrial</option>
-            <option value="SantaCruz">Recursos Humanos</option>
-            <option value="SantaCruz">Proyectos</option>
-            <option value="SantaCruz">Plan de Negocios</option>
-            <option value="SantaCruz">Marketing y Ventas</option>
-            <option value="SantaCruz">Comercio Exterior</option>
+          <!-- <label for="ciudad" id="label">CIUDAD</label> -->
+            <select id="ciudad" name='city' class="select"  placeholder='Programas' required [(ngModel)]="city">
+              <option value="" disabled selected hidden>Ciudad *</option>
+              <option value="SantaCruz">Santa Cruz</option>
+                  <option value="Cochabamba">Cochabamba</option>
+                  <option value="La Paz">La Paz</option>
+                  <option value="Sucre">Sucre</option>
+                  <option value="Tarija">Tarija</option>
+            </select>
+          </div>
+        <div class="form-group">
+          <select id="selectProgram" name='prog' class="select"  placeholder='Programas' required [(ngModel)]="program_selected">
+            <option *ngFor='let program of programs' [value]="program._id">{{program.name}}</option>
+            <!-- <option value="" disabled selected hidden>Programas *</option> -->
+            <!-- <option value="SantaCruz">Recursos Humanos</option>
+                <option value="SantaCruz">Proyectos</option>
+                <option value="SantaCruz">Plan de Negocios</option>
+                <option value="SantaCruz">Marketing y Ventas</option>
+                <option value="SantaCruz">Comercio Exterior</option> -->
           </select>
         </div>
+        <div class="form-group">
+          <!-- <label for="">Interes*</label> -->
+          <select id="selectInteres" name='inter' class="select"  placeholder='Interes' required [(ngModel)]="interes_selected">
+            <!-- <option value="" disabled selected hidden>Interes *</option> -->
+            <option [value]=0>Interesado</option>
+            <option [value]=1>Muy Interesado</option>
+            <option [value]=2>Curioso</option>
+            <option [value]=3>Deseo Inscribirme</option>
+            <!-- <option value="SantaCruz">Marketing y Ventas</option>
+            <option value="SantaCruz">Comercio Exterior</option> -->
+          </select>
+        </div>
+
         <br>
         <br>
-        <button class='btn2 primary mat-raised-button' type="submit" style='font-family: Raleway; color: white; '>
+        <button class='btn2 primary mat-raised-button' type="submit" style='font-family: Raleway; color: white; ' (click)="sendPerson()">
           <span class="mat-button-wrapper">
             <!-- <i class="material-icons">file_download</i> &nbsp;&nbsp;Descargar -->
             <!-- <i src="../../asets/"></i> -->
-            <i class="fa fa-download"></i> &nbsp;&nbsp;Descargar
+            <i class="fa fa-send"></i> &nbsp;&nbsp;Enviar
 
           </span>
         </button>
