@@ -92,7 +92,8 @@ module.exports = {
             name: String,
             description: String,
             objective: String,
-            benefit: [{
+            benefit: [
+                  {
                   photo: String,
                   name: String
             }],
@@ -110,10 +111,27 @@ module.exports = {
             name: String,
             description: String,
             objective: String,
-            benefit: [{
-                  photo: String,
-                  name: String
-            }],
+            benefit: [
+                  {
+                        photo:String,
+                        name:String,
+                  },
+                  // {
+                  // _id: { type: ObjectId, default: function () { return new mongoose.Types.ObjectId } },            
+                  // photo: {type:String ,default:function(){return './assets/icon-program-60.png'}},
+                  // name: {type :String,default:function(){return "Certificado"}}
+                  // },
+                  // {
+                  // _id: { type: ObjectId, default: function () { return new mongoose.Types.ObjectId } },            
+                  // photo: {type:String ,default:function(){return './assets/icon-program-61.png'}},
+                  // name: {type :String,default:function(){return 'Cd con material'}}
+                  // },
+                  // {
+                  // _id: { type: ObjectId, default: function () { return new mongoose.Types.ObjectId } },            
+                  // photo: {type:String ,default:function(){return'./assets/icon-program-62.png'}},
+                  // name: {type :String,default:function(){return 'Asesoria'}}
+                  // },
+            ],
             modules: [{
                   name: String,
                   description: String

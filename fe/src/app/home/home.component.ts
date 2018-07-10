@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild,Pipe,PipeTransform } from '@angular/core';
 import { PeticionesService } from '../services/peticiones.service';
 import { NavService } from "../services/nav.service";
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -27,8 +28,12 @@ export class HomeComponent implements OnInit {
         this.events = res;
         if (this.events.length > 0) {
           this.show = true
+
           for (let i = 0; i < this.events.length; i++) {
-            this.imageUrlArray.push({ url: this.events[i].photo, clickAction: this.test, tittle: this.events[i].name, caption: this.events[i].name + ' ' + this.events[i].date_start })
+            let dateFormat=this.events[i].date_start
+            console.log(new Date(dateFormat).toLocaleString)
+            console.log((this.events[i].date_start))
+            this.imageUrlArray.push({ url: this.events[i].photo, clickAction: this.test, tittle: this.events[i].name, caption: this.events[i].name + ' ' + (this.events[i].date_start) })
           }
         }
       })
